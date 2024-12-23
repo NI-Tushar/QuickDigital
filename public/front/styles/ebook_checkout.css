@@ -1,0 +1,83 @@
+
+  .container .order_div{
+    display: flex;
+    height:213px;
+    padding:0px;
+    gap:10px;
+  }
+  .container .order_div .active {
+      border:1px solid #a00de9;
+      border:1px solid #e7c1fa;
+      padding: 10px;    
+      border-radius:10px;
+      display:flex;
+    }
+    .container .order_div .active .input_part{
+        margin:auto;
+        width: 100%;
+    }
+  .container .order_div .div_part {
+      width: 50%;
+      margin: auto;
+      height:100%;
+      padding-bottom:0px;
+    }
+    .container .order_div .input_part{
+        height:auto;
+    }
+    .container .order_div .div_part input{
+        width: 100%;
+        margin-bottom:10px;
+        padding:3px;
+        border-radius:3px;
+        border:1px solid rgba(0, 0, 0, 0.394);
+    }
+    .px-4 .order_description{
+        padding-top:10px;
+    }
+
+
+
+    /* For Chrome, Edge, and Safari */
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* For Firefox */
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+
+
+.submit_btn{
+    background-color:var(--primary-color);
+    color:aliceblue;
+    border:1px solid transparent;
+    padding-top:5px;
+    padding-bottom:5px;
+    border-radius:3px;
+    font-weight:600;
+}
+.submit_btn:hover{
+    background:transparent;
+    border:1px solid #a00de9;
+    color: #a00de9;
+}
+
+@media (max-width: 1000px){
+    .container .order_div{
+        height:auto;
+    }
+    .container .order_div{
+        display: block;
+    }
+    .container .order_div .div_part {
+        width: 100%;
+        padding-top:10px;
+    }
+}
+
+

@@ -1,0 +1,155 @@
+/*---------------------------------------
+|            pricing section             |
+--------------------------------------- */
+
+svg {
+    display: block;
+}
+
+.pricing-plan {
+    border-radius: 16px;
+    background-color: #fff;
+    box-shadow: 0 0 0 1px #e3e1de66,
+        0 1px 2px #5f4a2e14,
+        0 4px 6px #5f4a2e0a,
+        0 40px 40px -24px #684b2514,
+        0 56px 56px -32px #684b2514,
+        0 24px 40px #684b250a,
+        0 8px #70451a12 inset;
+    color: #37322f;
+    isolation: isolate;
+    overflow: hidden;
+    background-color: #fff !important;
+    border: none !important;
+}
+
+.pricing-plan-top {
+    padding: 32px 24px 23px;
+}
+
+.pricing-plan-label-plan,
+.pricing-plan-title {
+    font-weight: 500;
+}
+
+.pricing-plan-label-plan,
+.pricing-plan-title,
+.pricing-plan-features-item,
+.pricing-plan-label,
+.pricing-plan-price-label {
+    font-size: 16px;
+    line-height: 20px;
+}
+
+.pricing-plan-title {
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+    height: 24px;
+    color: #000000;
+    gap: 12px;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.pricing-plan-title-badge {
+    padding: 4px 8px;
+    align-items: center;
+    display: flex;
+    gap: 4px;
+    border-radius: 999px;
+    background-color: rgb(33, 143, 33);
+    box-shadow: 0 1px 2px #e1654052,
+        0 3px 3px #e165401a,
+        0 1px #ffdb9e3d inset;
+    color: #fbfaf9;
+}
+
+.pricing-plan-price {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 20px;
+    align-items: flex-end;
+}
+
+.pricing-plan-price-value {
+    font-size: 28px;
+    line-height: 40px;
+    font-family: Alinur Tumatul;
+}
+
+.pricing-plan-price-label {
+    position: relative;
+    top: -2px;
+    color: #060404;
+}
+
+.pricing-plan .button {
+    width: 100%;
+    padding: 8px;
+}
+
+.button-primary {
+    color: #fbfaf9;
+    background-color: #01062E;
+    box-shadow: 0 1px 1px #2d20111f,
+        0 1.50259px 3px #2d201133,
+        0 4px 8px #2d201133,
+        0 12px 24px -6px #2d20114d,
+        0 -2px #000000bf inset;
+}
+
+.button {
+    width: -moz-max-content;
+    width: max-content;
+    display: flex;
+    padding: 8px 16px 8px 12px;
+    justify-content: center;
+    align-items: center;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    gap: 4px;
+    cursor: pointer;
+    position: relative;
+    border-radius: 10px;
+    transition: background-color .45s cubic-bezier(.6, .6, 0, 1),
+        box-shadow .45s cubic-bezier(.6, .6, 0, 1),
+        transform .45s cubic-bezier(.6, .6, 0, 1),
+        opacity .45s cubic-bezier(.6, .6, 0, 1);
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 20px;
+}
+
+.pricing-plan-separator {
+    position: relative;
+    height: 2px;
+    margin: 0 24px;
+    isolation: isolate;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+}
+
+.pricing-plan-features {
+    padding: 23px 24px 30px;
+}
+
+.pricing-plan-label {
+    margin-bottom: 16px;
+}
+
+.pricing-plan-features-item {
+    font-size: 18px;
+    margin-bottom: 16px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+
+.pkg-icon {
+    font-size: 16px;
+    font-weight: 900;
+}

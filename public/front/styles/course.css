@@ -1,0 +1,247 @@
+*{
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    font-family: "Hind Siliguri", sans-serif;
+}
+
+/*-------------------------------
+|        common styles          |
+-------------------------------*/
+
+.text-one{
+    font-size: 56px;
+}
+
+.text-two{
+    font-size: 24px !important;
+    text-align: center !important;
+}
+
+.max-width {
+    max-width: 1140px !important;
+}
+
+.bg-headline{
+    background-color: #00BD64;
+}
+
+.hero{
+    background-image: linear-gradient(to bottom, #000000, #461E59);
+}
+
+.social-links-top-right {
+    justify-content: end;
+}
+
+.link-fb:hover{
+    color: rgb(0, 0, 255) !important;
+}
+
+.link-yt:hover{
+    color: rgb(234, 19, 19) !important;
+}
+
+.iframe-wrapper {
+    width: 100%;
+    position: relative;
+    padding-bottom: 56.25%;
+}
+
+.iframe-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-style: solid;
+    border-width: 10px 10px 10px 10px;
+    border-color: #00BD64;
+    border-radius: 10px 10px 10px 10px;
+}
+
+.join-btn{
+    border: 1px solid white;
+    border-style: dashed;
+    transition: transform 0.3s ease;
+    z-index: 5;
+}
+
+.shapes-container{
+    overflow-x: hidden;
+}
+
+.last-cta{
+    color: #3A0256;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.join-btn:hover {
+    animation: pulse 1s infinite;
+}
+
+#right-box {
+    height: 20vh;
+    flex: 1;
+    border-bottom: 20vh solid #E81F64;
+    border-right: 50vw solid transparent;
+}
+
+#left-box {
+    height: 20vh;
+    flex: 1;
+    border-bottom: 20vh solid #E81F64;
+    border-left: 50vw solid transparent;
+}
+
+/* why learn section */
+.why-learn-heading{
+    background-color: #461E59;
+}
+
+/* why learn section */
+.why-us{
+    background-color: #FFBCBC;
+}
+
+.cls-border{
+    border: 10px solid #00BD64;
+    border-style: dashed;
+}
+
+.why-us-heading{
+    background-color: #461E59;
+}
+
+.what-you-will-learn{
+    background-color: #461E59;
+}
+
+.what-you-will-learn-heading{
+    background-color: #FFFFFF;
+}
+
+.faq{
+    background-color: #000000;
+}
+
+.faq-heading{
+    background-color: #461E59;
+}
+
+.accordion-button::after {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512'%3e%3c!--!Font Awesome Free 6.5.2 by %40fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons%2c Inc.--%3e%3cpath fill='white' d='M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z'/%3e%3c/svg%3e") !important;
+}
+
+.accordion-button:not(.collapsed)::after{
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512'%3e%3c!--!Font Awesome Free 6.5.2 by %40fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons%2c Inc.--%3e%3cpath fill='white' d='M432 256c0 17.7-14.3 32-32 32L48 288c-17.7 0-32-14.3-32-32s14.3-32 32-32l352 0c17.7 0 32 14.3 32 32z'/%3e%3c/svg%3e") !important;
+}
+
+.accordion-button:not(.collapsed) {
+    color: #ee23a0 !important;
+}
+
+.accordion-button {
+    box-shadow: none !important;
+    border-bottom: 1px solid #fff !important;
+}
+
+/*---------------------------------------
+|            footer section             |
+--------------------------------------- */
+
+footer {
+    background-image: linear-gradient(180deg, #363643 0, #110e17 100%);
+}
+
+.footer-logo {
+    width: 60%;
+}
+
+.footer-text {
+    color: #d1cfcf;
+    text-align: start;
+}
+
+.footer-link {
+    color: #d1cfcf;
+    display: block;
+    font-weight: 500;
+    line-height: 25px;
+}
+
+@media (max-width: 992px) {
+    .text-one{
+        font-size: 45px;
+    }
+
+    .text-two{
+        font-size: 20px !important;
+        text-align: justify !important;
+    }
+
+    .social-links-top-right {
+        justify-content: center;
+    }
+
+    #right-box {
+        height: 12vh;
+        border-bottom: 12vh solid #E81F64;
+
+    }
+    #left-box {
+        height: 12vh;
+        border-bottom: 12vh solid #E81F64;
+
+    }
+
+    .custom-padding{
+        padding-left: 2rem !important;
+        padding-right: 2rem !important;
+    }
+
+    .footer-elements{
+        padding-top: 3rem;
+        padding-left: 3rem;
+    }
+
+    .footer-logo {
+        width: 30%;
+    }
+
+    .footer-text {
+        max-width: 70%;
+    }
+
+}
+
+@media (max-width: 576px) {
+    .text-one{
+        font-size: 28px;
+    }
+
+    .text-two{
+        font-size: 18px !important;
+        text-align: justify !important;
+    }
+
+    .footer-logo {
+        width: 60%;
+    }
+
+    .footer-text {
+        max-width: 100%;
+        text-align: justify;
+    }
+}

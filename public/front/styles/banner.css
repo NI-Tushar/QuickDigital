@@ -1,0 +1,64 @@
+.banner{
+    height: auto;
+    width: 100%;
+    position: relative;
+    color:rgba(0, 0, 0, 0.624);
+    display: flex;
+    padding: 10px;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    color:rgb(223, 223, 223);
+}
+.banner img{
+    margin: auto;
+    width: 60%; /* Make the image width responsive to its container */
+    height: calc(50vh - 10%); /* Reduce the height relative to the viewport, adjusting for smaller screens */
+    object-fit: cover;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 15px;
+}
+.banner .button_div{
+    width: 100%;
+    position: absolute;
+    bottom: 10%;
+    margin: auto;
+    display: flex;
+}
+.banner .button_div .buttons{
+    margin: auto;
+    display: flex;
+    gap: 10px;
+}
+.banner .button_div .buttons button{
+    width: 150px;
+    border: 1px solid var(--banner-front-color);
+    border-radius: 5px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.banner .button_div .buttons button:hover{
+    background-color: var(--banner-front-color);
+    color: aliceblue;
+}
+.banner .button_div .buttons .active{
+    background-color: var(--banner-front-color);
+    color: aliceblue;
+}
+
+@media (max-width: 1200px) {
+    .banner img{
+        width: 100%; /* Make the image width responsive to its container */
+        height: calc(70vh - 10%);
+    }
+}
+@media (max-width: 650px) {
+    .banner .button_div{
+        bottom: 18%
+    }
+    .banner .button_div .buttons button{
+        width:80px;
+        padding-top: 3px;
+        padding-bottom: 3px;
+        font-size: 9px;
+    }
+}

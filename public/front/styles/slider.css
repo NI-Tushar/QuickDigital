@@ -1,0 +1,118 @@
+
+
+
+.home_slider {
+    height: auto;
+    width: 100%;
+    position: relative;
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+    overflow: hidden;
+}
+
+.home_slider img {
+    width: 100%;
+    height: calc(80vh - 10%);
+    object-fit: cover;
+}
+
+.home_slider .centered_div {
+    position: absolute; 
+    z-index: 10; 
+    max-width:  1140px;
+    width: 100%;
+    margin: auto;
+    /* background: rgba(0, 0, 0, 0.5);  */
+    padding: 10px;
+    border-radius: 10px; 
+    display: flex;
+}
+
+.home_slider .centered_div .slider_text {
+    color: aliceblue;
+    font-family: "Hind Siliguri", sans-serif;
+    width: 50%;
+    padding: 10px;
+    margin: auto;
+}
+.home_slider .centered_div .banner_img{
+    width: 50%;
+    height: auto;
+}
+.home_slider .centered_div .banner_img img{
+    height: auto;
+    width: 100%;
+    border-radius: 10px;
+}
+
+
+
+ .home_slider .slider_text h1{
+    font-size: 2vw;
+}
+ .home_slider .slider_text h1 span{
+    color: var(--banner-front-color);
+}
+ .home_slider .slider_text p{
+    font-size: 20px;
+    color: rgba(240, 248, 255, 0.554);
+    font-weight: 600;
+    font-size: 1.1vw;
+}
+ .home_slider .slider_text .slider_buttons{
+    display: flex;
+    gap: 10px;
+}
+ .home_slider .slider_text .slider_buttons button{
+    width:150px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid var(--banner-front-color);
+    background:transparent;
+    color: aliceblue;
+}
+ .home_slider .slider_text .slider_buttons button:hover{
+    background-color: var(--banner-front-color);
+}
+
+ .home_slider .slider_text .slider_buttons .active{
+    background-color: var(--banner-front-color);
+}
+ .home_slider .slider_text .slider_buttons .active:hover{
+    background-color: rgb(252, 208, 147);
+    color: black;
+}
+
+
+@media (max-width: 1100px) {
+     .home_slider .slider_text .slider_buttons button{
+        width:100px;
+        padding-top: 6px;
+        padding-bottom: 6px;
+        font-size: 12px;
+    }
+}
+@media (max-width: 650px) {
+     .home_slider .slider_text .slider_buttons button{
+        width:70px;
+        padding-top: 3px;
+        padding-bottom: 3px;
+        font-size: 10px;
+    }
+    .home_slider {
+        padding-top: 15px;
+    }
+}
+@media (max-width: 400px) {
+     .home_slider .slider_text .slider_buttons button{
+        width:60px;
+        padding-top: 2px;
+        padding-bottom: 2px;
+        font-size: 8px;
+    }
+     .home_slider .slider_text{
+        top: 20%;
+    }
+} 

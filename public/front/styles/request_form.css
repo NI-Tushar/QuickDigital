@@ -1,0 +1,106 @@
+
+    input[type="checkbox"]:checked,
+    input[type="radio"]:checked {
+        accent-color: var(--primary-color); 
+    }
+    button[type="submit"]{
+        background-color:var(--primary-color); 
+        color:aliceblue;
+        border:1px solid var(--primary-color); 
+    }
+    button[type="submit"]:hover{
+        background:transparent;
+        border:1px solid var(--primary-color); 
+    }
+    .hero {
+    background-image: linear-gradient(to bottom, #000000, var(--primary-color));
+}
+.shapes-container #left-box,
+.shapes-container #right-box{
+    border-bottom: 20vh solid var(--plyr-color-main);
+}
+.page_head_text{
+    height:auto;
+    width: 100%;
+    padding-top:25px;
+    color:var(--plyr-color-main);
+    font-size:35px;
+}
+.page_head_text h1{
+    width: 100%;
+    text-align:center;
+}
+
+.reg_button{
+    padding-left:10px;
+    padding-right:10px;
+    padding:20px;
+    background-color:var( --logo-red-color);
+    border:2px solid var( --logo-red-color);
+    border-radius:10px;
+    font-size:25px;
+    font-weight:700;
+    text-shadow: 0 0 8px #000000;
+}
+.reg_button:hover{
+    background-color:transparent;
+}
+
+.poster_video{
+    max-width: 50rem;
+    width: 100%;
+    height: 30rem;
+    border:5px solid  var(--plyr-color-main);
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 35px;
+}
+
+.poster_video iframe{
+    width: 100%;
+    height: 100%;
+}
+
+/* ____________________ form */
+.container{
+    max-width: 50rem;
+    width: 100%;
+}
+.container .card .card-header h3{
+    color: var(--primary-color);
+    font-weight:900;
+}
+
+/* ________________________ faq start */
+.faq{
+    background-image: linear-gradient(to bottom,  #711271, #3A0256);
+}
+.faq .container h4{
+    background-color: aliceblue;
+    /* color: var(--plyr-color-main); */
+    color: #000000;
+}
+.faq .button_sec{
+    padding-top: 40px;
+    width: 100%;
+    display: flex;
+}
+.faq .button_sec .justify-content-center{
+    margin: auto;
+}
+/* ________________________ faq end */
+
+
+@media (max-width: 576px) {
+    
+    .poster_video{
+        max-width: 50rem;
+        width: 100%;
+        height: auto;
+    }
+
+}
+
+
+
+
