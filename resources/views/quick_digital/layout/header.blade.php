@@ -11,51 +11,6 @@
 </script>
 
 
-<style>
-        .user_name{
-            max-width:120px;
-            width:100%;
-            height:auto;
-            font-size:15px; 
-            overflow:hidden;
-            margin-top:15px;
-        }
-            
-        .nav-item .nav-link .nav__user__img{
-            height: 40px;
-            width: 40px;
-            border-radius: 50%;
-        }
-   
-        .navbar-nav{
-            display:flex;
-        }
-        .nav-item{
-            margin:auto;
-        }
-        .nav-item .nav-link { 
-            padding-top:5px !important;
-            padding-bottom:5px !important;
-            padding:8px;
-        } 
-        .nav-item .nav-link:hover{
-            background:transparent;
-        }
-
-        .custom-padding{
-            padding:0px !important;
-        }
-
-        @media (max-width: 995px) {
-            .navbar-nav .nav-item{
-                width: 100%;
-            }
-        }
-
-
-    </style>
-
-
 
 <div class="sticky_bar">
 
@@ -133,7 +88,7 @@
                     </div>
 
                     <div class="offcanvas-body">
-                        <ul class="navbar-nav d-flex pe-2" style="width:auto; height:auto;">
+                        <ul class="navbar-nav" >
                             <li class="nav-item">
                                 <a class="nav-link fw-semibold px-md-3" aria-current="page"
                                     href="{{ route('rep.requestForm') }}" style="background: var(--primary-color);color:#ffff !important">
@@ -146,8 +101,8 @@
                                     data-bs-toggle="dropdown" aria-expanded="false">
                                     ই-বুক
                                 </a>
-                                <ul class="dropdown-menu">
 
+                                <ul class="dropdown-menu">
                                     <li>
                                         <a class="dropdown-item fw-semibold px-md-4 nav-link"
                                             href="{{ url('quick-digital/paikari_bazar') }}">
@@ -177,19 +132,19 @@
                             <!-- <li class="nav-item nav-style">
                                     <a class="nav-link fw-semibold px-md-3" aria-current="page" href="./ebook.html">ই-বুক</a>
                                 </li> -->
-                            <li class="nav-item">
+                            <!-- <li class="nav-item">
                                 <a class="nav-link fw-semibold px-md-3" aria-current="page"
                                     href="{{ url('/') }}">
                                     ডিজিটাল সার্ভিস
                                 </a>
-                            </li>
+                            </li> -->
                             <!-- <li class="nav-item">
                                 <a class="nav-link fw-semibold px-md-3" aria-current="page"
                                     href="{{ url('quick-digital/courses') }}">
                                     মোবাইল ফ্রিল্যান্সিং
                                 </a>
                             </li> -->
-                            <li class="nav-item dropdown">
+                            <!-- <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle fw-semibold px-md-3 d-block" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 কোর্স
                                 </a>
@@ -205,11 +160,12 @@
                                         </a>
                                     </li>
                                 </ul>
-                            </li>
-                            <li class="nav-item">
+                            </li> -->
+
+                            <!-- <li class="nav-item">
                                 <a class="nav-link fw-semibold px-md-3" aria-current="page"
                                     href="{{ url('quick-digital/digital-products') }}" target="_blank">কুইক শপ</a>
-                            </li>
+                            </li> -->
 
                             <li class="nav-item">
                                 <a class="nav-link fw-semibold px-md-3" aria-current="page"

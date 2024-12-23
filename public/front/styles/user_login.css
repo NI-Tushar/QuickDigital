@@ -34,7 +34,7 @@
           margin: auto;
           max-width: 400px;
           width: 100%;
-          border: 2px solid var( --primary-color);
+          border: 2px solid var(--primary-color);
           display: flex;
           border-radius: 10px;
       }

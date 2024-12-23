@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>লগইন | Quick Digital</title>
     <link rel="stylesheet" href="{{ url ('front/styles/user_login.css') }}">
+    <link rel="stylesheet" href="{{ url('front/styles/color.css') }}">
     <link rel="icon" href="{{ url('icon.PNG') }}" type="image/x-icon">
 </head>
 
