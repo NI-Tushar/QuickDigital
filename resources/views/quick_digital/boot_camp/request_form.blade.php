@@ -6,69 +6,24 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2-bootstrap-5-theme@1.3.0/dist/select2-bootstrap-5-theme.min.css" />
     <!-- Or for RTL support -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2-bootstrap-5-theme@1.3.0/dist/select2-bootstrap-5-theme.rtl.min.css" />
+
+    <link rel="stylesheet" href="{{ url('front/styles/quick_business.css') }}">
+
 @endpush
 @section('content')
 
 
 
-<style>
-    input[type="checkbox"]:checked,
-    input[type="radio"]:checked {
-        accent-color: var(--primary-color); 
-    }
-    button[type="submit"]{
-        background-color:rgb(58, 2, 86); 
-        color:aliceblue;
-        border:1px solid rgb(58, 2, 86);
-    }
-    button[type="submit"]:hover{
-        background:transparent;
-        border:1px solid rgb(58, 2, 86);
-    }
 
-    .hero {
-    background-image: linear-gradient(to bottom, #000000, #461E59);
-}
-.page_head_text{
-    height:auto;
-    width: 100%;
-    padding-top:25px;
-    color:var(--plyr-color-main);
-    font-size:35px;
-}
-.page_head_text h1{
-    width: 100%;
-    text-align:center;
-}
-.rounded{
-}
-.reg_button{
-    padding-left:10px;
-    padding-right:10px;
-    padding:20px;
-    background-color:var(--primary-color);
-    border:2px solid var(--plyr-color-main);
-    border-radius:10px;
-    font-size:25px;
-    font-weight:700;
-}
-.reg_button:hover{
-    background-color:var(--plyr-color-main);
-    border:2px solid var(--primary-color);
-}
-.iframe-wrapper{
-    border:1px solid red;
-}
-</style>
 <section class="hero text-white">
         <div class="d-flex flex-column">
             <div class="container max-width d-flex flex-column align-items-center">
               <div class="page_head_text">
-                <h1>আমাদের কুইক ব্যাবসায় জয়েন করুন</h1>
+                <h1>আমাদের কুইক ব্যবসায় জয়েন করুন</h1>
               </div>
                 <div class="d-flex flex-column justify-content-center align-items-center col-md-8 py-3">
                     <div class="iframe-wrapper">
-                        <iframe src="{{ asset('front/assets/vid/quick_business.mp4') }}" title="" 
+                        <iframe src="{{ asset('front/assets/vid/quick_business_vid.mp4') }}" title="" 
                             frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                              referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
                         </iframe>
@@ -76,18 +31,18 @@
                 </div>
                 <div>
                     <h4 class="text-two lh-base pp__description py-3 fw-semibold">
-                    কুইক ব্যাবসা হলো অ্যাফিলিয়েট মার্কেটারদের জন্য একটি অনন্য সুযোগ! এখানে আপনি শিখবেন কীভাবে আমাদের প্রোডাক্ট এবং সার্ভিস বিভিন্ন জেলায় সেল করতে হয়। 
-                    আমাদের কুইক ব্যাবসা থেকে প্রয়োজনীয় দিকনির্দেশনা এবং সাপোর্ট পেয়ে, আপনি সেল বাড়িয়ে আমাদের কাছ থেকে সরাসরি প্রফিট অর্জন করতে পারবেন। ক্যারিয়ার গড়তে 
-                    এবং আয়ের নতুন পথ তৈরি করতে আজই জয়েন করুন আমাদের কুইক ব্যাবসা-এ!
+                    কুইক ব্যবসা হলো অ্যাফিলিয়েট মার্কেটারদের জন্য একটি অনন্য সুযোগ! এখানে আপনি শিখবেন কীভাবে আমাদের প্রোডাক্ট এবং সার্ভিস বিভিন্ন জেলায় সেল করতে হয়। 
+                    আমাদের কুইক ব্যবসা থেকে প্রয়োজনীয় দিকনির্দেশনা এবং সাপোর্ট পেয়ে, আপনি সেল বাড়িয়ে আমাদের কাছ থেকে সরাসরি প্রফিট অর্জন করতে পারবেন। ক্যারিয়ার গড়তে 
+                    এবং আয়ের নতুন পথ তৈরি করতে আজই জয়েন করুন আমাদের কুইক ব্যবসা-এ!
                     </h4>
                 </div>
 
                
-                <p class="text-white text-center fw-bold fs-4 fs-sm-5 pt-4 pb-2">আমাদের সাথে জয়েন করতে রেজিস্ট্রেশন করুন</p>
+                <p class="text-white text-center fw-bold fs-4 fs-sm-5 pt-4 pb-2">আমাদের সাথে জয়েন করতে জয়েন করুন</p>
                 <div class="justify-content-center">
-                    <div class="rounded my-2"href="" onclick="showPDF()">
-                        <button class="text-white reg_button">রেজিস্ট্রেশন করুন</button>
-                    </div>
+                    <a class="rounded my-2" href="#quick_form">
+                        <button class="text-white reg_button">জয়েন করুন</button>
+                    </a>
                 </div>
     
         </div>
@@ -98,11 +53,11 @@
         </div>
     </section>
  <main>
-        <section class="my-5">
+        <section class="my-5" id="quick_form">
             <div class="container">
                 <div class="card">
                     <div class="card-header text-center">
-                        <h3 style="color: rgb(58, 2, 86);font-weight:900;">আমাদের কুইক ব্যাবসায় জয়েন করুন</h3>
+                        <h3>আমাদের কুইক ব্যবসায় জয়েন করুন</h3>
                     </div>
                     <div  style="background-color:rgb(223, 223, 223);" class="card-body">
                         <form action="{{ route('rep.store') }}" method="POST" enctype="multipart/form-data">
@@ -171,9 +126,6 @@
             </div>
         </section>
 
-
-
-
     </main>
 
 
@@ -183,8 +135,8 @@
             <div class="container">
                 <div class="card">
                     <div class="card-header text-center">
-                        <h3 style="color: rgb(58, 2, 86);font-weight:900;">আমাদের কুইক ব্যাবসায় জয়েন করুন</h3>
-                        <p>কুইক ব্যাবসা হলো অ্যাফিলিয়েট মার্কেটারদের জন্য একটি অনন্য সুযোগ! এখানে আপনি শিখবেন কীভাবে আমাদের প্রোডাক্ট এবং সার্ভিস বিভিন্ন জেলায় সেল করতে হয়। আমাদের কুইক ব্যাবসা থেকে প্রয়োজনীয় দিকনির্দেশনা এবং সাপোর্ট পেয়ে, আপনি সেল বাড়িয়ে আমাদের কাছ থেকে সরাসরি প্রফিট অর্জন করতে পারবেন। ক্যারিয়ার গড়তে এবং আয়ের নতুন পথ তৈরি করতে আজই জয়েন করুন আমাদের কুইক ব্যাবসা-এ!</p>
+                        <h3 style="color: rgb(58, 2, 86);font-weight:900;">আমাদের কুইক ব্যবসায় জয়েন করুন</h3>
+                        <p>কুইক ব্যবসা হলো অ্যাফিলিয়েট মার্কেটারদের জন্য একটি অনন্য সুযোগ! এখানে আপনি শিখবেন কীভাবে আমাদের প্রোডাক্ট এবং সার্ভিস বিভিন্ন জেলায় সেল করতে হয়। আমাদের কুইক ব্যবসা থেকে প্রয়োজনীয় দিকনির্দেশনা এবং সাপোর্ট পেয়ে, আপনি সেল বাড়িয়ে আমাদের কাছ থেকে সরাসরি প্রফিট অর্জন করতে পারবেন। ক্যারিয়ার গড়তে এবং আয়ের নতুন পথ তৈরি করতে আজই জয়েন করুন আমাদের কুইক ব্যবসা-এ!</p>
                     </div>
                     <div  style="background-color:rgb(223, 223, 223);" class="card-body">
                         <form action="{{ route('rep.store') }}" method="POST" enctype="multipart/form-data">
@@ -409,11 +361,92 @@
                 </div>
             </div>
         </section>
-
-
-
-
     </main> -->
+
+
+
+
+
+
+
+
+
+<!-- _________________ FAQ START -->
+ 
+<section class="faq py-2">
+        <div class="container max-width custom-padding">
+            <h4 class="faq-heading fs-2 fs-sm-4 fw-bold py-4 text-center rounded-3 mt-5">
+                আপনাদের সচরাচর জিজ্ঞাসা করা কিছু প্রশ্ন ও তাদের উত্তর
+            </h4>
+            <div class="my-5 text-white">
+                <div class="accordion accordion-flush border" id="accordionFlushExample">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed bg-black text-white" type="button"
+                                data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false"
+                                aria-controls="flush-collapseOne">
+                                <div class="fs-4 fw-semibold">
+                                    কুইক ব্যবসায় অন্তর্ভুক্ত হতে আমাকে ঢাকায় আসতে হবে কি না?
+                                </div>
+                            </button>
+                        </h2>
+                        <div id="flush-collapseOne" class="accordion-collapse collapse"
+                            data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body bg-black text-white text-two text-start">
+                                উত্তরঃ না। আমাদের কুইক ব্যবসায় অন্তর্ভুক্ত হতে আপানাকে ঢাকায় আসতে হবে না। আপনি যেকোনো যায়গা থেকে আমাদের কুইক ব্যবসায় অন্তর্ভুক্ত হতে পারবেন।
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed bg-black text-white" type="button"
+                                data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false"
+                                aria-controls="flush-collapseTwo">
+                                <div class="fs-4 fw-semibold">
+                                কুইক ব্যবসায় অন্তর্ভুক্ত হতে আমাকে কোন ফি দিতে হবে কি না?
+                                </div>
+                            </button>
+                        </h2>
+                        <div id="flush-collapseTwo" class="accordion-collapse collapse"
+                            data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body bg-black text-white text-two text-start">
+                                উত্তর: না। আমাদের কুইক ব্যবসায় অন্তর্ভুক্ত হতে আপনাকে কোন ধরনের ফি দিতে হবে না। কুইক ব্যবসায় অন্তর্ভুক্ত হওয়া সম্পুর্ন ফ্রি।
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed bg-black text-white" type="button"
+                                data-bs-toggle="collapse" data-bs-target="#flush-collapseThree"
+                                aria-expanded="false" aria-controls="flush-collapseThree">
+                                <div class="fs-4 fw-semibold">
+                                    আমি কিভাবে কুইক ব্যবসায় অন্তর্ভুক্ত হবো?
+                                </div>
+                            </button>
+                        </h2>
+                        <div id="flush-collapseThree" class="accordion-collapse collapse"
+                            data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body bg-black text-white text-two text-start">
+                                উত্তর: কুইক ব্যবসায় অন্তর্ভুক্ত হতে আপনাকে শুধুমাত্র উপরের ফর্মটি পুরন করতে হবে। আপনার সাথে আমাদের প্রতিনিধি যোগাযোগ করবেন।
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    
+        <div class="button_section">
+            <div class="justify-content-center">
+                <a class="rounded my-2" href="#quick_form">
+                    <button class="text-white reg_button">জয়েন করুন</button>
+                </a>
+            </div>
+        </div>
+
+    </section>
+<!-- _________________ FAQ END -->
 
 
 @endsection

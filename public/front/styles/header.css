@@ -131,6 +131,9 @@
 .offcanvas-body ul li ul li{
     line-height: 2;
 }
+.offcanvas-body .navbar-nav .dropdown-menu{
+    padding: 10px;
+}
 
 .user_name{
     max-width:120px;

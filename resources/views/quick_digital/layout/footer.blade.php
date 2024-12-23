@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="{{ url('front/styles/footer.css') }}">
+
 <footer class="bg-black text-white py-5">
     <div class="container max-width custom-padding">
         <div class="row justify-content-between">
@@ -18,7 +20,7 @@
             </div>
             <div class="col-12 col-lg-3 footer-elements">
                 <h5 class="text-white fs-4 text-start">কোম্পানি</h5>
-                <div class="pt-2">
+                <div class="pt-2 footer_link">
                     <a class="text-decoration-none footer-link" href="/#about">
                          আমাদের সম্পর্কে
                     </a>
@@ -34,7 +36,7 @@
                 </div>
             </div>
             <div class="col-12 col-lg-3 footer-elements">
-                <h5 class="text-white fs-4 text-start">Prayer</h5>
+                <h5 class="text-white fs-4 text-start">নামাযের সময়</h5>
                 <div class="iframe-prayer-container pt-2">
                     <iframe class="rounded" loading="lazy" src="https://timesprayer.com/widgets.php?frame=2&amp;lang=en&amp;name=dhaka&amp;avachang=true" style="border: none; overflow: hidden; width: 100%; height: 275px;" data-rocket-lazyload="fitvidscompatible" data-lazy-src="https://timesprayer.com/widgets.php?frame=2&amp;lang=en&amp;name=dhaka&amp;avachang=true" data-ll-status="loaded" class="entered lazyloaded" data-gtm-yt-inspected-181689027_68="true" data-gtm-yt-inspected-17="true"></iframe>
                 </div>

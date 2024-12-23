@@ -169,7 +169,7 @@
 
                             <li class="nav-item">
                                 <a class="nav-link fw-semibold px-md-3" aria-current="page"
-                                    href="{{ url('/') }}">
+                                    href="{{ route('quick.software') }}">
                                     সফটওয়্যার
                                 </a>
                             </li>

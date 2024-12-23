@@ -7,6 +7,7 @@
     use App\Http\Controllers\Front\HomeController;
     use App\Http\Controllers\PDFController;
     use App\Http\Controllers\CheckoutController;
+    use App\Http\Controllers\SoftwareController;
     use App\Http\Controllers\SmsController;
     use App\Http\Controllers\MailSendController;
     use App\Http\Controllers\QuickShopCategoryController;
@@ -138,6 +139,9 @@
         Route::put('/quick-shopping-order-details/{quickShopOrder}/orderStatus', [QuickShopOrderController::class, 'orderStatus'])->name('quick-shopping-order.orderStatus');
     });
 
+
+
+
     // Boot Request Form
     Route::get('/rep', [BootcampController::class, 'requestForm'])->name('rep.requestForm');
     Route::post('/rep', [BootcampController::class, 'store'])->name('rep.store');
@@ -183,7 +187,7 @@
     //front- QUICK DIGITAL
     Route::prefix('/quick-digital')->namespace('App\Http\Controllers\Front')->group(function () {
         Route::get('index', 'HomeController@index')->name('quick-digital.index');
-        Route::get('contact-us', 'HomeController@contact_us');
+        Route::get('contact-us', 'HomeController@contact_us')->name('quick-digital.contact');
 
         // _______________ STATIC BOOK PAGE VIEW START
         Route::get('paikari_bazar', 'HomeController@ebook1');
@@ -242,6 +246,12 @@
         Route::get('course-details/{id}', 'HomeController@course_details')->name('course.details');
         Route::get('all-course', 'HomeController@show_all_courses')->name('course.all');
         Route::get('/checkout/{id}', [CartController::class, 'checkout'])->name('user_checkout');
+        
+        
+        
+        // _______________________________ SOFTWARE
+        Route::get('/software', [SoftwareController::class, 'index'])->name('quick.software');
+
     });
 
     //ebook

@@ -151,7 +151,7 @@
                 <!-- ______________________ -->
                 <div class="col-12 col-md-5 d-flex justify-content-center align-items-center">
                     <div class="about-img-element">
-                        <img class="img-fluid rounded-3" src="{{ asset('front/assets/images/about-img.jpg') }}" alt="">
+                        <img class="img-fluid rounded-3" src="{{ asset('front/assets/images/tech_team.jpg') }}" alt="">
                     </div>
                 </div>
                 <!-- ______________________ -->
@@ -196,7 +196,7 @@
                 <!-- আপনার জন্য আমরা নিয়ে এসেছি ডিজিটাল জগতের সবকিছু। যা দিয়ে এই নতুন যুগের ডিজিটাল বিজনেস গুলোকে আপনি নিয়ে যেতে পারবেন অনন্য উচ্চতায়।
                 আমাদের মোবাইল ফ্রিল্যান্সিং কোর্স গুলো শিখে আপনি উপার্জনের নতুন পন্থাগুলো সম্পর্কে জানতে পারবেন...ইনশাল্লাহ। -->
             </p>
-            <div class="button"><a href="#"><button>সব সার্ভিস</button></a></div>
+            <div class="button"><a href="{{ route('quick-digital.contact') }}"><button>সব সার্ভিস</button></a></div>
             <div class="row resource-package-container">
                 <div class="col-12 col-lg-4 d-flex justify-content-center card-container p-1">
                     <div class="card shadow border-0" style="width: 22rem;">
@@ -204,7 +204,7 @@
                         <div class="card-body d-flex flex-column justify-content-between">
                             <div class="d-flex flex-column justify-content-center align-items-center">
                                 <p class="card-text fs-5 text-center fw-bold">
-                                    <a class="text-decoration-none resource-link" href="{{ url('quick-digital/ebook') }}">
+                                    <a class="text-decoration-none resource-link" href="{{ route('quick-digital.contact') }}">
                                        হয়ে উঠুন একজন সফল গ্রাফিক্স ডিজাইনার আপনার ভালো ক্যারিয়ার এর জন্য।
                                     </a>
                                     <!-- <p>Become a Proffesional Graphics Designer</p> -->
@@ -212,7 +212,7 @@
                             </div>
                             <div class="d-flex justify-content-center my-2">
                                 <button class="border-1 rounded-1 py-2 px-4 btn-stylish" style="width:95%;">
-                                    <a class="text-decoration-none py-auto fw-medium fs-5" aria-current="page" href="{{ url('quick-digital/ebook') }}">এখনই বুক করুন</a>
+                                    <a class="text-decoration-none py-auto fw-medium fs-5" aria-current="page" href="{{ route('quick-digital.contact') }}">এখনই বুক করুন</a>
                                 </button>
                             </div>
                         </div>
@@ -224,14 +224,14 @@
                         <div class="card-body d-flex flex-column justify-content-between">
                             <div class="d-flex flex-column justify-content-center align-items-center">
                                 <p class="card-text fs-5 text-center fw-bold">
-                                    <a class="text-decoration-none resource-link" href="{{ url('quick-digital/courses') }}">
+                                    <a class="text-decoration-none resource-link" href="{{ route('quick-digital.contact') }}">
                                     পেশাদার ভিডিও এডিটিং সার্ভিসের মাধ্যমে আপনার প্রোজেক্টকে আরও আকর্ষণীয় এবং প্রভাবশালী করে তুলুন।
                                     </a>
                                 </p>
                             </div>
                             <div class="d-flex justify-content-center my-2">
                                 <button class="border-1 rounded-1  py-2 px-4 btn-stylish" style="width:95%;">
-                                    <a class="text-decoration-none py-auto fw-medium fs-5" aria-current="page" href="{{ url('quick-digital/courses') }}">এখনই বুক করুন</a>
+                                    <a class="text-decoration-none py-auto fw-medium fs-5" aria-current="page" href="{{ route('quick-digital.contact') }}">এখনই বুক করুন</a>
                                 </button>
                             </div>
                         </div>
@@ -243,14 +243,14 @@
                         <div class="card-body d-flex flex-column justify-content-between">
                             <div class="d-flex flex-column justify-content-center align-items-center">
                                 <p class="card-text fs-5 text-center fw-bold">
-                                    <a class="text-decoration-none resource-link" href="{{ url('quick-digital/digital-products') }}">
+                                    <a class="text-decoration-none resource-link" href="{{ route('quick-digital.contact') }}">
                                     পেশাদার ভিডিও কন্টেন্ট তৈরি সার্ভিসের মাধ্যমে আপনার ব্র্যান্ড বা প্রোজেক্টকে আরও আকর্ষণীয় ও প্রভাবশালী করে তুলুন।
                                     </a>
                                 </p>
                             </div>
                             <div class="d-flex justify-content-center my-2">
                                 <button class="border-1 rounded-1  py-2 px-4 btn-stylish" style="width:95%;">
-                                    <a class="text-decoration-none py-auto fw-medium fs-5" aria-current="page" href="{{ url('quick-digital/digital-products') }}">এখনই বুক করুন</a>
+                                    <a class="text-decoration-none py-auto fw-medium fs-5" aria-current="page" href="{{ route('quick-digital.contact') }}">এখনই বুক করুন</a>
                                 </button>
                             </div>
                         </div>
@@ -268,12 +268,12 @@
                 <div class="img">
                     <img src="{{ asset('front/assets/images/courses/fb_marketing.png') }}" alt="">
                     <p>ফেসবুক মার্কেটিংয়ের কার্যকরী কৌশল শিখে আপনার ব্যবসা বা ব্র্যান্ডকে নতুন উচ্চতায় নিয়ে যান।</p>
-                    <a href="#"><button>এখনই বুক করুন</button></a>
+                    <a href="{{ route('quick-digital.contact') }}"><button>এখনই বুক করুন</button></a>
                 </div>
                 <div class="img">
                     <img src="{{ asset('front/assets/images/courses/thumnail.jpg') }}" alt="">
                     <p>থাম্বনেল ডিজাইন কৌশল শিখে আপনার কনটেন্টকে আকর্ষণীয় ও নজরকাড়া করুন।</p>
-                    <a href="#"><button>এখনই বুক করুন</button></a>
+                    <a href="{{ route('quick-digital.contact') }}"><button>এখনই বুক করুন</button></a>
                 </div>
             </div>
             <div class="centered_part">

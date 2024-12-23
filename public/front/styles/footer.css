@@ -1,0 +1,10 @@
+.footer-elements .footer_link a{
+    transition: transform .1s;
+}
+.footer-elements .footer_link a:hover{
+    color:aliceblue;   
+    border:0.5px aliceblue;
+    -ms-transform: scale(1.05); /* IE 9 */
+    -webkit-transform: scale(1.05); /* Safari 3-8 */
+    transform: scale(1.05); 
+}
