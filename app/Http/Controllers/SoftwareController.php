@@ -13,4 +13,15 @@ class SoftwareController extends Controller
         return view('quick_digital.software.software_view');
     }
 
+    public function add_software()
+    {
+        dd('add software');
+        return view('quick_digital.software.software_view');
+    }
+    public function manage_software()
+    {
+        dd('manage software');
+        return view('quick_digital.software.software_view');
+    }
+
 }

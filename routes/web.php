@@ -2,12 +2,12 @@
 
     use App\Http\Controllers\Admin\InstructorRequestController;
     use App\Http\Controllers\BootcampController;
+    use App\Http\Controllers\SoftwareController;
     use App\Http\Controllers\CartController;
     use App\Http\Controllers\PaymentController;
     use App\Http\Controllers\Front\HomeController;
     use App\Http\Controllers\PDFController;
     use App\Http\Controllers\CheckoutController;
-    use App\Http\Controllers\SoftwareController;
     use App\Http\Controllers\SmsController;
     use App\Http\Controllers\MailSendController;
     use App\Http\Controllers\QuickShopCategoryController;
@@ -137,7 +137,13 @@
         Route::get('/quick-shopping-order-details/{quickShopOrder}/DownloadOrderPDF', [QuickShopOrderController::class, 'DownloadOrderPDF'])->name('quick-shopping-order.DownloadOrderPDF');
         Route::put('/quick-shopping-order-details/{quickShopOrder}/paymentStatus', [QuickShopOrderController::class, 'paymentStatus'])->name('quick-shopping-order.paymentStatus');
         Route::put('/quick-shopping-order-details/{quickShopOrder}/orderStatus', [QuickShopOrderController::class, 'orderStatus'])->name('quick-shopping-order.orderStatus');
+
+        // Software All Route Here
+        Route::get('/add_software', [SoftwareController::class, 'add_software'])->name('software.add');
+        Route::get('/manage_software', [SoftwareController::class, 'manage_software'])->name('software.manage');
     });
+
+
 
 
 

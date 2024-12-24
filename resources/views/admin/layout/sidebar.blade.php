@@ -10,10 +10,10 @@
             <li class="nav-item {{ $active }}"><a href="{{ url('admin/dashboard') }}"><i class="feather icon-home"></i><span class="menu-title" data-i18n="Dashboard">Dashboard</span></a></li>
 
 
-            @php
+            <!-- @php
             $active = Session::get('page') == 'cms-page' ? 'active' : '';
             @endphp
-            <li class="nav-item {{ $active }}"><a href="{{ url('admin/cms-page') }}"><i class="feather icon-home"></i><span class="menu-title" data-i18n="CmsPage">CMS PAGE</span></a></li>
+            <li class="nav-item {{ $active }}"><a href="{{ url('admin/cms-page') }}"><i class="feather icon-home"></i><span class="menu-title" data-i18n="CmsPage">CMS PAGE</span></a></li> -->
 
             @if(Auth::guard('admin')->user()->type=="admin")
             @php
@@ -41,7 +41,7 @@
             @php
             $active = Session::get('page') == 'users' || Session::get('page') == 'add_users' ? 'active' : '';
             @endphp
-            <li class="nav-item {{ $active }}"><a href="#"><i class="feather icon-users"></i><span class="menu-title" data-i18n="Users">Students</span></a>
+            <!-- <li class="nav-item {{ $active }}"><a href="#"><i class="feather icon-users"></i><span class="menu-title" data-i18n="Users">Students</span></a>
                 <ul class="menu-content">
                     @php
                     $active = Session::get('page') == 'users' ? 'active' : '';
@@ -57,12 +57,12 @@
                         <a class="menu-item" href="{{ url('admin/add-edit-user') }}" data-i18n="Vertical">Add Students</a>
                     </li>
                 </ul>
-            </li>
+            </li> -->
 
             @php
             $active = Session::get('page') == 'instructors' || Session::get('page') == 'instructor_requests' ? 'active' : '';
             @endphp
-            <li class="nav-item {{ $active }}"><a href="#"><i class="feather icon-users"></i><span class="menu-title" data-i18n="Users">Instructors</span></a>
+            <!-- <li class="nav-item {{ $active }}"><a href="#"><i class="feather icon-users"></i><span class="menu-title" data-i18n="Users">Instructors</span></a>
                 <ul class="menu-content">
                     @php
                     $newRequestsCount = App\Http\Controllers\Admin\InstructorRequestController::newRequestCount();
@@ -76,11 +76,6 @@
                             @endif
                         </a>
                     </li>
-
-
-
-
-
                     @php
                     $active = Session::get('page') == 'instructors' ? 'active' : '';
                     @endphp
@@ -88,14 +83,14 @@
                         <a class="menu-item" href="{{ url('admin/instructors') }}" data-i18n="Vertical">Manage Instructors</a>
                     </li>
 
-                    <!-- @php
+                    @php
                     $active = Session::get('page') == 'add_users' ? 'active' : '';
                     @endphp
                     <li class="{{ $active }}">
                         <a class="menu-item" href="{{ url('admin/add-edit-user') }}" data-i18n="Vertical">Add Instructor</a>
-                    </li> -->
+                    </li>
                 </ul>
-            </li>
+            </li> -->
 
             @php
             $active = Session::get('page') == 'ebooks' || Session::get('page') == 'add_ebook' ? 'active' : '';
@@ -118,7 +113,7 @@
                 </ul>
             </li>
 
-            @php
+            <!-- @php
             $active = Session::get('page') == 'order' ? 'active' : '';
             @endphp
             <li class="nav-item {{ $active }}"><a href="#"><i class="feather icon-file-text"></i><span class="menu-title" data-i18n="Users">EBOOK ORDER</span></a>
@@ -172,19 +167,29 @@
                         <a class="menu-item" href="{{ url('admin/add-edit-ebook') }}" data-i18n="Vertical">Add E-book</a>
                     </li>
                 </ul>
-            </li>
+            </li> -->
 
+              <!-- ____________________ QUICKBUSINESS -->
             <li class="nav-item"><a href="#"><i class="feather icon-file"></i><span class="menu-title" data-i18n="Users">QuickBusiness</span></a>
-
                 <ul class="menu-content">
-
                     <li>
                         <a class="menu-item" href="{{ route('bootcamp.index') }}" data-i18n="Vertical">Registration List</a>
                     </li>
                     <li>
                         <a class="menu-item" href="{{ route('bootcamp.affiliators') }}" data-i18n="Vertical">Affiliator List</a>
                     </li>
+                </ul>
+            </li>
 
+            <!-- ____________________ SOFTWARE -->
+            <li class="nav-item"><a href="#"><i class="feather icon-file"></i><span class="menu-title" data-i18n="Users">Software</span></a>
+                <ul class="menu-content">
+                    <li>
+                        <a class="menu-item" href="{{ route('software.add') }}" data-i18n="Vertical">Add Software</a>
+                    </li>
+                    <li>
+                        <a class="menu-item" href="{{ route('software.manage') }}" data-i18n="Vertical">Manage Software</a>
+                    </li>
                 </ul>
             </li>
 

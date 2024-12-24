@@ -14,11 +14,12 @@
                     <img src="https://www.serviceobjects.com/blog/wp-content/uploads/2015/03/iStock-629285904-Blog-4379.jpg" alt="">
                 </div>
                 <div class="desc_sec">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
+                    <p class="sof_name">Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
+                    <p class="desc">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Provident, reprehenderit?</p>
                     <ul>
-                        <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem,</li>
-                        <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem,</li>
-                        <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem,</li>
+                        <li>Lorem ipsum dolor sit amet, consectetur</li>
+                        <li>Lorem ipsum dolor sit amet, consectetur</li>
+                        <li>Lorem ipsum dolor sit amet, consectetur</li>
                     </ul>
                 </div>
                 <div class="price_sec">
@@ -69,12 +70,13 @@
                     <img src="https://bairesdev.mo.cloudinary.net/blog/2023/08/Software-Development-Models.jpg?tx=w_1920,q_auto" alt="">
                 </div>
                 <div class="desc_sec">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
+                    <p class="sof_name">Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
+                    <p class="desc">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Provident, reprehenderit?</p>
                     <ul>
-                        <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem,</li>
-                        <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem,</li>
-                        <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem,</li>
-                        <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem,</li>
+                        <li>Lorem ipsum dolor sit amet, consectetur</li>
+                        <li>Lorem ipsum dolor sit amet, consectetur</li>
+                        <li>Lorem ipsum dolor sit amet, consectetur</li>
+                        <li>Lorem ipsum dolor sit amet, consectetur</li>
                     </ul>
                 </div>
                 <div class="price_sec">
@@ -125,10 +127,11 @@
                     <img src="https://thumbs.dreamstime.com/b/businesswoman-using-digital-tablet-application-icons-flying-around-businesswoman-analyzing-graph-digital-tablet-148704655.jpg" alt="">
                 </div>
                 <div class="desc_sec">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
+                    <p class="sof_name">Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
+                    <p class="desc">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Provident, reprehenderit?</p>
                     <ul>
-                        <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem,</li>
-                        <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem,</li>
+                        <li>Lorem ipsum dolor sit amet, consectetur</li>
+                        <li>Lorem ipsum dolor sit amet, consectetur</li>
                     </ul>
                 </div>
                 <div class="price_sec">

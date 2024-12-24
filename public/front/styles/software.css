@@ -67,10 +67,16 @@
     height: auto;
     border-left: 1px solid rgba(0, 0, 0, 0.304);
 }
-.software_section .centered_list .list_section .soft_list .desc_sec p{
+.software_section .centered_list .list_section .soft_list .desc_sec .sof_name{
     font-size: 15px;
     border-left: 3px solid var(--primary-color);
     padding-left: 10px;
+    font-weight: 600;
+    margin: 0;
+    margin-bottom: 5px;
+}
+.software_section .centered_list .list_section .soft_list .desc_sec .desc{
+    font-size: 12px;
     font-weight: 600;
 }
 .software_section .centered_list .list_section .soft_list .desc_sec ul li{
