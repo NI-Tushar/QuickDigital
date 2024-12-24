@@ -55,6 +55,7 @@
             </svg>আমার ইবুক
         </a>
     </div>
+    
     <div class="py-2 px-4">
         <a class="dropdown-item user__nav__item d-flex align-items-center gap-3" href="{{ url('/quick-digital/my-order-product') }}">
             <svg height="16px" width="16px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">

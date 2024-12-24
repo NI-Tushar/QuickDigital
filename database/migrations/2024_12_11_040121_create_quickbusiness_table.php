@@ -25,6 +25,7 @@ return new class extends Migration
             $table->string('address')->nullable();
             $table->string('agree')->nullable();
             $table->enum('type', ['normal', 'affiliator'])->default('normal');
+            $table->string('password')->nullable();
             $table->timestamps();
         });
     }

@@ -26,8 +26,6 @@ class QuickBusinessController extends Controller
         return view('quick_digital.boot_camp.affiliator', compact('quickbusiness'));
     }
 
-    
-
     public function store(Request $request)
     {
         $request->validate([
@@ -73,7 +71,6 @@ class QuickBusinessController extends Controller
     public function destroy(Quickbusiness $quickbusiness)
     {
         $quickbusiness->delete();
-
         return redirect()->back()->with('success', 'Delete Record successfully!');
     }
 
@@ -83,7 +80,7 @@ class QuickBusinessController extends Controller
         $quickbusiness = Quickbusiness::find($id);
 
         if (!$quickbusiness) {
-            return response()->json(['error' => 'Quickbusiness data not found'], 404);
+            return response()->json(['error' => 'Bootcamp data not found'], 404);
         }
 
         $userExists = User::where('email', $quickbusiness->email)
@@ -114,6 +111,7 @@ class QuickBusinessController extends Controller
         //
 
         return response()->json($user, 201);
+
     }
 
 }

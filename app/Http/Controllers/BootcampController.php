@@ -91,12 +91,14 @@ class BootcampController extends Controller
             return response()->json(['error' => 'This data already exists in the User table'], 409);
         }
 
+        $default_pass = $bootcamp->email . '_12345';
+
         $user = new User;
         $user->name = $bootcamp->name;
         $user->user_type = 'affiliator';
         $user->mobile = $bootcamp->phone;
         $user->email = $bootcamp->email;
-        $user->password = bcrypt('123456');
+        $user->password = bcrypt($default_pass);
         $user->address = $bootcamp->address;
         $user->status = 1;
         $user->is_instructor = 0;
@@ -104,6 +106,7 @@ class BootcampController extends Controller
 
         if($user){
             $bootcamp->type = 'affiliator';
+            $bootcamp->password = $default_pass;
             $bootcamp->save();
         }
 

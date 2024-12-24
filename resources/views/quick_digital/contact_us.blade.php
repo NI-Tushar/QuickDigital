@@ -101,7 +101,7 @@
       </div>
       <div class="col-md-4">
         <div class="contact-page-map">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7300.378273799061!2d90.4143969!3d23.8118725!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755c70036f76d97%3A0x8b917cf4ad1c566d!2sWISE%20Corporation!5e0!3m2!1sen!2sbd!4v1715407797387!5m2!1sen!2sbd" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d228.13624734576308!2d90.41317409999999!3d23.812199!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755c70045a24763%3A0x67e9cca244b37c2f!2sQuick%20Digital!5e0!3m2!1sen!2sbd!4v1734868883817!5m2!1sen!2sbd" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
         </div>
       </div>
     </div>

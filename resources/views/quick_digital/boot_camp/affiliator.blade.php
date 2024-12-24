@@ -148,6 +148,14 @@
                                             <th style="text-transform: uppercase; width:200px">Full Address</th>
                                             <td id="address" colspan="3">N/A</td>
                                         </tr>
+                                        <tr>
+                                            <th style="text-transform: uppercase; width:200px">UserID</th>
+                                            <td id="user_id" style="color:red;">N/A</td>
+                                        </tr>
+                                        <tr>
+                                            <th style="text-transform: uppercase; width:200px">Password</th>
+                                            <td id="password" style="color:red;">N/A</td>
+                                        </tr>
                                     </table>
 
                                 </div>
@@ -204,6 +212,8 @@
 
                     $('#division').text(res.division  || 'N/A');
                     $('#district').text(res.district  || 'N/A');
+                    $('#user_id').text(res.email  || 'N/A');
+                    $('#password').text(res.password  || 'N/A');
                     $('#address').text(res.address  || 'N/A');
                     $('#convertAffiliator').data('id', res.id || 'N/A'); // Updates the jQuery data cache
 

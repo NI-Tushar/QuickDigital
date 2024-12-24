@@ -183,7 +183,6 @@
 
 
 
-
     //front- QUICK DIGITAL
     Route::prefix('/quick-digital')->namespace('App\Http\Controllers\Front')->group(function () {
         Route::get('index', 'HomeController@index')->name('quick-digital.index');
