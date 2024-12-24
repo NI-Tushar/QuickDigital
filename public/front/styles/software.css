@@ -12,22 +12,217 @@
     margin: auto;
     padding: 35px;
 }
+    .software_section .centered_list .soft_heading {
+        padding-bottom: 20px;
+    }
 .software_section .centered_list .soft_heading h3{
     border-left: 3px solid var(--primary-color);
     padding-left: 10px;
     color: var(--primary-color);
 }
 
-.software_section .centered_list ol li{
+/* .software_section .centered_list ol li{
     padding-top: 7px;
     padding-bottom: 7px;
     font-weight: 600;
     border-bottom: 0.5px solid rgba(0, 0, 0, 0.279);
+    }
+    
+    .software_section .centered_list ol li:hover{
+        background-color: rgb(226, 226, 226);
+    } */
+        
+        
+
+
+.software_section .centered_list .list_section .soft_list{
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+    border-radius: 10px;
+    display: flex;
+    width: 100%;
+    height: auto;
+    padding: 10px;
+    margin-bottom: 20px;
+    transition: 0.3s;
+    border: 2px solid transparent;
+}
+.software_section .centered_list .list_section .soft_list:hover{
+    border: 2px solid var(--primary-hover-color);
+    box-shadow: rgba(191, 61, 239, 0.794) 0px 2px 8px 0px;
+}
+.software_section .centered_list .list_section .soft_list .img_sec{
+    width: 40%;
+    height: auto;
+    display: flex;
+}
+.software_section .centered_list .list_section .soft_list .img_sec img{
+    height: auto;
+    width: 100%;
+    margin: auto;
+    padding-right: 10px;
+}
+.software_section .centered_list .list_section .soft_list .desc_sec{
+    padding: 10px;
+    width: 40%;
+    height: auto;
+    border-left: 1px solid rgba(0, 0, 0, 0.304);
+}
+.software_section .centered_list .list_section .soft_list .desc_sec p{
+    font-size: 15px;
+    border-left: 3px solid var(--primary-color);
+    padding-left: 10px;
+    font-weight: 600;
+}
+.software_section .centered_list .list_section .soft_list .desc_sec ul li{
+    font-size: 12px;
+    font-weight: 600;
+    list-style:square;
+}
+.software_section .centered_list .list_section .soft_list .price_sec{
+    padding-left: 10px;
+    width: 20%;
+    height: auto;
+    border-left: 1px solid rgba(0, 0, 0, 0.304);
+    display: flex;
+}
+.software_section .centered_list .list_section .soft_list .price_sec .price_elem{
+    margin-top: auto;
+    margin-bottom: auto;
+    width: 100%;
+    padding: 7px;
+    background-color: rgb(227, 227, 227);
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+}
+.software_section .centered_list .list_section .soft_list .price_sec .cart{
+    display: flex;
+    align-items: end;
+    justify-content: right;
+}
+.software_section .centered_list .list_section .soft_list .price_sec .cart svg{
+    cursor: pointer;
+}
+.software_section .centered_list .list_section .soft_list .price_sec .cart svg:hover{
+    fill:var(--primary-hover-color);
+}
+.software_section .centered_list .list_section .soft_list .price_sec .price{
+    padding-top: 10px;
+}
+.software_section .centered_list .list_section .soft_list .price_sec .price p{
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    width: 100%;
 }
 
-.software_section .centered_list ol li:hover{
-    background-color: rgb(226, 226, 226);
+.software_section .centered_list .list_section .soft_list .price_sec .price .current_price{
+    font-size: 17px;
+    font-weight: 700;
+}
+.software_section .centered_list .list_section .soft_list .price_sec .price .current_price span{
+    font-size: 12px;
+    color: rgba(0, 0, 0, 0.511);
+}
+.software_section .centered_list .list_section .soft_list .price_sec .price .before_price{
+    color: rgba(0, 0, 0, 0.511);
+    font-size: 11px;
+    text-decoration: line-through;
+}
+
+
+.software_section .centered_list .list_section .soft_list .price_sec .review{
+    height: auto;
+    width: 100%;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.software_section .centered_list .list_section .soft_list .price_sec .review ul{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+}
+.software_section .centered_list .list_section .soft_list .price_sec .review ul li{
+    list-style: none;
+    cursor: pointer;
+}
+.software_section .centered_list .list_section .soft_list .price_sec .review ul li:hover svg{
+    fill: orange;
+    stroke:orange;
+}
+.software_section .centered_list .list_section .soft_list .price_sec .review ul .active svg{
+    stroke:orange;
+    fill: orange;
+}
+
+.software_section .centered_list .list_section .soft_list .price_sec .buttons{
+    width: 100%;
+    display: flex;
+    gap: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+} 
+
+
+.software_section .centered_list .list_section .soft_list .price_sec .buttons a,
+.software_section .centered_list .list_section .soft_list .price_sec .buttons button{
+    width: 100%;
+}
+.software_section .centered_list .list_section .soft_list .price_sec .buttons button{
+    border: 1px solid var(--primary-color);
+    font-weight: 600;
+    background: transparent;
+    border-radius: 3px;
+}
+.software_section .centered_list .list_section .soft_list .price_sec .buttons button:hover{
+    background-color: var(--primary-color);
+    color: aliceblue;
+}
+
+.software_section .centered_list .list_section .soft_list .price_sec .buttons .active{
+    background-color: var(--primary-color);
+    color:aliceblue;
+}
+.software_section .centered_list .list_section .soft_list .price_sec .buttons .active:hover{
+    border: 1px solid var(--primary-hover-color);
+    background-color: var(--primary-hover-color);
 }
 
 
 
+
+
+@media (max-width: 992px) {
+    .software_section{
+        padding-top: 5rem;
+    }
+}
+@media (max-width: 800px) {
+    .software_section .centered_list .soft_heading {
+        padding-left: 20px;
+    }
+    .software_section .centered_list .soft_heading h3{
+        font-size: 18px;
+    }
+    .software_section .centered_list .list_section .soft_list{
+        display: block;
+        border: 1px solid var(--primary-color);
+    }
+    .software_section .centered_list .list_section .soft_list .img_sec,
+    .software_section .centered_list .list_section .soft_list .desc_sec,
+    .software_section .centered_list .list_section .soft_list .price_sec{
+        padding: 10px;
+        width: 100%;
+    }
+    .software_section .centered_list{
+        padding: 0px;
+    }
+    .software_section{
+        padding: 5px;
+        padding-top: 5rem;
+    }
+    .software_section .centered_list .list_section .soft_list .price_sec,
+    .software_section .centered_list .list_section .soft_list .desc_sec{
+        border: none;
+    }
+}
