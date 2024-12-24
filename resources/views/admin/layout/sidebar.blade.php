@@ -10,7 +10,7 @@
             <li class="nav-item {{ $active }}"><a href="{{ url('admin/dashboard') }}"><i class="feather icon-home"></i><span class="menu-title" data-i18n="Dashboard">Dashboard</span></a></li>
 
 
-            <!-- @php
+            @php
             $active = Session::get('page') == 'cms-page' ? 'active' : '';
             @endphp
             <li class="nav-item {{ $active }}"><a href="{{ url('admin/cms-page') }}"><i class="feather icon-home"></i><span class="menu-title" data-i18n="CmsPage">CMS PAGE</span></a></li>
@@ -18,7 +18,7 @@
             @if(Auth::guard('admin')->user()->type=="admin")
             @php
             $active = Session::get('page') == 'subadmins' || Session::get('page') == 'add_subadmin' ? 'active' : '';
-            @endphp -->
+            @endphp
 
             <li class="nav-item {{ $active }}"><a href="#"><i class="feather icon-users"></i><span class="menu-title" data-i18n="SubAdmins">Sub-Admins</span></a>
                 <ul class="menu-content">
