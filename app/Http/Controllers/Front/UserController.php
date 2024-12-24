@@ -148,7 +148,7 @@ class UserController extends Controller
                 $code = base64_encode($email);
                 $messageData = ['email' => $data['email'], 'code' => $code];
                 Mail::send('emails.reset_password', $messageData, function ($message) use ($email) {
-                    $message->to($email)->subject('Reset Your Password - FARHANX');
+                    $message->to($email)->subject('Reset Your Password - QuickDigital');
                 });
                 return response()->json(['status' => true, 'type' => 'success', 'message' => 'Password reset link sent successfully']);
             }
@@ -172,7 +172,7 @@ class UserController extends Controller
                 // Send confirmation mail to user
                 $messageData = ['email' => $email];
                 Mail::send('emails.reset_password_confirmation', $messageData, function ($message) use ($email) {
-                    $message->to($email)->subject('Password Updated - FARHANX');
+                    $message->to($email)->subject('Password Updated - QuickDigital');
                 });
 
                 // Show success message

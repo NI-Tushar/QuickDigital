@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Front;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Quickbusiness;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -147,6 +148,10 @@ class UserDashboardController extends Controller
                 // Update password
                 User::where('id', Auth::guard('user')->user()->id)->update([
                     'password' => bcrypt($data['new_password'])
+                ]);
+
+                Quickbusiness::where('email', Auth::guard('user')->user()->email)->update([
+                    'password' => $data['new_password']
                 ]);
                 return redirect()->back()->with('success_message', 'আপনার পাসওয়ার্ড সফলভাবে আপডেট হয়েছে');
             } else {
