@@ -15,8 +15,7 @@ class SoftwareController extends Controller
 
     public function add_software()
     {
-        dd('add software');
-        return view('quick_digital.software.software_view');
+        return view('admin.software.add_software');
     }
     public function manage_software()
     {
