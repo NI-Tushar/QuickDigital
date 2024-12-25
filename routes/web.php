@@ -87,6 +87,7 @@
             // Software All Route Here        
             Route::match(['get', 'post'], 'add_edit_software/{id?}', 'AdminSoftwareController@add_edit_software')->name('software.add_edit');
             Route::get('software-list', 'AdminSoftwareController@software_list')->name('software.list');
+            Route::get('delete-software/{id?}', 'AdminSoftwareController@deleteSoftware');
 
             //subadmin
             Route::group(['middleware' => ['adminAccessOnly']], function () {

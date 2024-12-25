@@ -19,8 +19,8 @@ class AdminSoftwareController extends Controller
         if ($request->isMethod('post')) {
             $data = $request->all();
             $rules = [
-                'title' => 'required',
-                'desc' => 'required',
+                'title' => 'required|max:70',
+                'desc' => 'required|max:100',
                 'features' => 'required|array',
                 'current_price' => 'required',
                 'before_price' => 'required',
@@ -98,7 +98,7 @@ class AdminSoftwareController extends Controller
     
             $software->save();
 
-            dd('all data saved');
+            return redirect('admin/software-list');
         }
         if ($id != null) {
             dd($id);
@@ -111,6 +111,11 @@ class AdminSoftwareController extends Controller
     {
         $softwares = Software::all();
         return view('admin.software.software_list')->with(compact('softwares'));
+    }
+    public function deleteSoftware($id)
+    {
+        Software::where('id', $id)->delete();
+        return redirect('admin/software-list');
     }
 
 }

@@ -56,7 +56,8 @@
     display: flex;
 }
 .software_section .centered_list .list_section .soft_list .img_sec img{
-    height: auto;
+    max-height: 200px;
+    height: 100%;
     width: 100%;
     margin: auto;
     padding-right: 10px;

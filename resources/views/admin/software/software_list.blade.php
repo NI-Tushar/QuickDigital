@@ -31,7 +31,7 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <a href="{{ url('admin/add-edit-software') }}"><button type="button" class="btn btn-secondary btn-min-width mr-1 mb-1"><i class="feather icon-edit"></i> Add Software</button></a>
+                                <a href="{{ route('software.add_edit') }}"><button type="button" class="btn btn-secondary btn-min-width mr-1 mb-1"><i class="feather icon-edit"></i> Add Software</button></a>
                                 <div class="heading-elements">
                                     <ul class="list-inline mb-0">
                                         <li><a data-action="collapse"><i class="feather icon-minus"></i></a></li>
@@ -94,7 +94,7 @@
                                                     <td style="text-align:center;">
                                                         <a href=""><i class="fa fa-edit"></i></a>
                                                         &nbsp;&nbsp;
-                                                        <a href=""><i class="fa fa-trash"></i></a>
+                                                        <a href="{{ url('admin/delete-software/'.$software['id']) }}"><i class="fa fa-trash"></i></a>
                                                     </td>
                                                 </tr>
                                                 @endforeach
