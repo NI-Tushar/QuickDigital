@@ -79,13 +79,14 @@
             Route::get('product-category', 'QuickShopController@ProductCategory');
             Route::match(['get', 'post'], 'add-edit-product-category/{id?}', 'QuickShopController@addEditCategory');
             Route::get('delete-product-category/{id?}', 'QuickShopController@destroyCategory');
-
+            
             Route::get('products', 'QuickShopController@product');
             Route::match(['get', 'post'], 'add-edit-product/{id?}', 'QuickShopController@add_edit_product');
             Route::get('delete-product/{id?}', 'QuickShopController@destroyProduct');
-
+            
             // Software All Route Here        
             Route::match(['get', 'post'], 'add_edit_software/{id?}', 'AdminSoftwareController@add_edit_software')->name('software.add_edit');
+            Route::get('software-list', 'AdminSoftwareController@software_list')->name('software.list');
 
             //subadmin
             Route::group(['middleware' => ['adminAccessOnly']], function () {

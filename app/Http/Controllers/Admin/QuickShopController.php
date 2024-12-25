@@ -186,7 +186,7 @@ class QuickShopController extends Controller
         }
     
         $categories = ProductCategory::pluck('name', 'id');
-        $product->features = json_decode($product->features, true); 
+        $product->features = json_decode($product->features, true);
         return view('admin.quick_shop.add_edit_product')->with(compact('title', 'product','categories'));
     }
     

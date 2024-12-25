@@ -188,7 +188,7 @@
                         <a class="menu-item" href="{{ route('software.add_edit') }}" data-i18n="Vertical">Add Software</a>
                     </li>
                     <li>
-                        <a class="menu-item" href="{{ route('software.add_edit') }}" data-i18n="Vertical">Software List</a>
+                        <a class="menu-item" href="{{ route('software.list') }}" data-i18n="Vertical">Software List</a>
                     </li>
                 </ul>
             </li>
