@@ -70,6 +70,7 @@
                                             <div class="form-group">
                                                 <label for="name">NAME</label>
                                                 <input type="text" id="name" class="form-control round" placeholder="Enter Product Name" name="name" @if(!empty($product['name'])) value="{{ old('name', $product['name']) }}" @endif>
+                                                
                                             </div>
 
                                             <div class="form-group">

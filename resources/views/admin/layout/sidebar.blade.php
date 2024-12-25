@@ -185,10 +185,10 @@
             <li class="nav-item"><a href="#"><i class="feather icon-file"></i><span class="menu-title" data-i18n="Users">Software</span></a>
                 <ul class="menu-content">
                     <li>
-                        <a class="menu-item" href="{{ route('software.add') }}" data-i18n="Vertical">Add Software</a>
+                        <a class="menu-item" href="{{ route('software.add_edit') }}" data-i18n="Vertical">Add Software</a>
                     </li>
                     <li>
-                        <a class="menu-item" href="{{ route('software.manage') }}" data-i18n="Vertical">Manage Software</a>
+                        <a class="menu-item" href="{{ route('software.add_edit') }}" data-i18n="Vertical">Software List</a>
                     </li>
                 </ul>
             </li>

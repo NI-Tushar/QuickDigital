@@ -55,6 +55,7 @@
                                         <strong>Well done!</strong> {{ Session::get('success_message') }}
                                     </div>
                                     @endif
+
                                     @if ($errors->any())
                                     <div class="alert alert-danger">
                                         <ul>
@@ -64,12 +65,10 @@
                                         </ul>
                                     </div>
                                     @endif
-                                    <form name="product" id="productForm" action=""method="POST" enctype="multipart/form-data">
+                                    <form name="product" id="productForm" action="{{ route('software.add_edit') }}" method="POST" enctype="multipart/form-data">
                                     @csrf
                                         <div class="form-body">
 
-
-                                        
 
                                             <style>
                                                 .img_section{
