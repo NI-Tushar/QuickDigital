@@ -101,7 +101,7 @@ class AdminSoftwareController extends Controller
             return redirect('admin/software-list');
         }
         if ($id != null) {
-            dd($id);
+            dd('if id is not null, then update a software list');
         }else{
             return view('admin.software.add_software');
         }
