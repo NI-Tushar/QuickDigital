@@ -65,7 +65,7 @@
                                 </ul>
                             </div>
                             <div class="buttons">
-                                <button>Preview</button>
+                                <button onclick="showPreview('{{ asset($software->image_1) }}', '{{ asset($software->image_2) }}', '{{ asset($software->image_3) }}')">Preview</button>
                                 <a href="{{ url('/quick-digital/contact-us') }}"><button class="active">Buy</button></a>
                             </div>
                         </div>
@@ -83,26 +83,25 @@
 <link href='https://fonts.googleapis.com/css?family=Anton' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Neucha' rel='stylesheet' type='text/css'>
 
-<div class="preview_section">
-    <div class="center_preview">
+<div id="preview_section" class="preview_section">
+  <div class="center_preview">
+      <div class="close_icon" onclick="closePreview()"><p>x</p></div>
        <!-- _______________ -->
        <div class="slider">
             <div class="slide_viewer">
-            <div class="slide_group">
+            <div id="slide_group" class="slide_group">
                 <div class="slide">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJbtLLbWPIBJZp7Omz0hqZsANi4GsJhvIhR_1z69QWuGoWy3U3rkTpvEYNxpg1EOFNP1E&usqp=CAU" alt="slider1">
+                <img id="slider1" src="" alt="slider1">
                 </div>
                 <div class="slide">
-                <img src="https://i.ytimg.com/vi/BTB86HeZVwk/mqdefault.jpg" alt="slider2">
+                <img id="slider2" src="" alt="slider2">
                 </div>
                 <div class="slide">
-                <img src="https://i.ytimg.com/vi/hU1lNTSUUSE/maxresdefault.jpg" alt="slider3">
+                <img id="slider3" src="" alt="slider3">
                 </div>
             </div>
             </div>
         </div><!-- End // .slider -->
-
-
 
         <div class="directional_nav">
             <div class="previous_btn" title="Previous">
@@ -136,6 +135,23 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
   <script>
+    // __________________________show preview
+    function showPreview(image_1,image_2,image_3){
+      console.log(image_1,image_2,image_3);
+      document.getElementById("slider1").src = image_1;
+      document.getElementById("slider2").src = image_2;
+      document.getElementById("slider3").src = image_3;
+
+      document.getElementById("preview_section").style.display="flex";
+    }
+    // __________________________close preview
+    function closePreview(image_1,image_2,image_3){
+      
+      document.getElementById("preview_section").style.display="none";
+    }
+
+
+
     $('.slider').each(function() {
       var $this = $(this);
       var $group = $this.find('.slide_group');

@@ -18,6 +18,16 @@ class AdminSoftwareController extends Controller
     {
         if ($request->isMethod('post')) {
             $data = $request->all();
+            $request->validate([
+                'title' => 'required|max:70',
+                'desc' => 'required|max:100',
+                'features' => 'required|array',
+                'current_price' => 'required',
+                'before_price' => 'required',
+                'star_rating' => 'required',
+                'poster_image' => 'required|image|max:2048',
+            ]);
+
             $rules = [
                 'title' => 'required|max:70',
                 'desc' => 'required|max:100',

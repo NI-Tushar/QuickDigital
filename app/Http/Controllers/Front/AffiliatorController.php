@@ -14,12 +14,8 @@ use Intervention\Image\Facades\Image;
 
 class AffiliatorController extends Controller
 {
-
     public function software()
     {
         return view('front.users.user_dashboard.software');
     }
-
-
-
 }
