@@ -27,7 +27,7 @@ class BootcampController extends Controller
     {
         $bootcamps = Quickbusiness::where('type', 'affiliator')->latest()->paginate(25);
         return view('quick_digital.boot_camp.affiliator', compact('bootcamps'));
-    }
+    } 
 
     public function store(Request $request)
     {

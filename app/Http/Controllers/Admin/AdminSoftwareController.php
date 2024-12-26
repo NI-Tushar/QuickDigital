@@ -21,44 +21,44 @@ class AdminSoftwareController extends Controller
             $data = $request->all();
             $request->validate([
                 'title' => 'required|max:70',
-                'desc' => 'required|max:100',
-                'features' => 'required|array',
-                'current_price' => 'required',
-                'before_price' => 'required',
-                'star_rating' => 'required',
-                'poster_image' => 'required|image|max:2048',
+                // 'desc' => 'required|max:100',
+                // 'features' => 'required|array',
+                // 'current_price' => 'required',
+                // 'before_price' => 'required',
+                // 'star_rating' => 'required',
+                // 'poster_image' => 'required|image|max:2048',
             ]);
 
             $rules = [
                 'title' => 'required|max:70',
-                'desc' => 'required|max:100',
-                'features' => 'required|array',
-                'current_price' => 'required',
-                'before_price' => 'required',
-                'star_rating' => 'required',
-                'poster_image' => 'required|image|max:2048',
+                // 'desc' => 'required|max:100',
+                // 'features' => 'required|array',
+                // 'current_price' => 'required',
+                // 'before_price' => 'required',
+                // 'star_rating' => 'required',
+                // 'poster_image' => 'required|image|max:2048',
             ];
     
             $customMessages = [
                 'title.required' => 'Enter Software Title',
-                'desc.required' => 'Enter Software Description',
-                'features.array' => 'Enter Software Features',
-                'current_price.required' => 'Enter Software Current Price',
-                'before_price.required' => 'Enter Software Before price',
-                'star_rating.required' => 'Enter Software Rating',
-                'poster_image.required' => 'Enter Software Image',
+                // 'desc.required' => 'Enter Software Description',
+                // 'features.array' => 'Enter Software Features',
+                // 'current_price.required' => 'Enter Software Current Price',
+                // 'before_price.required' => 'Enter Software Before price',
+                // 'star_rating.required' => 'Enter Software Rating',
+                // 'poster_image.required' => 'Enter Software Image',
             ];
     
-            $fileFields = ['image_1', 'image_2', 'image_3'];
+            // $fileFields = ['image_1', 'image_2', 'image_3'];
 
-            foreach ($fileFields as $field) {
-                if ($id === null || $request->hasFile($field)) {
-                    $rules[$field] = 'required|image|max:2048';
-                    $customMessages[$field.'.required'] = 'Enter Preview Image.';
-                    $customMessages[$field.'.image'] = 'The file must be an image.';
-                    $customMessages[$field.'.max'] = 'The image size must not exceed 2MB.';
-                }
-            }
+            // foreach ($fileFields as $field) {
+            //     if ($id === null || $request->hasFile($field)) {
+            //         $rules[$field] = 'required|image|max:2048';
+            //         $customMessages[$field.'.required'] = 'Enter Preview Image.';
+            //         $customMessages[$field.'.image'] = 'The file must be an image.';
+            //         $customMessages[$field.'.max'] = 'The image size must not exceed 2MB.';
+            //     }
+            // }
 
             $validator = Validator::make($data, $rules, $customMessages);
     
@@ -77,35 +77,35 @@ class AdminSoftwareController extends Controller
             $software->before_price = $data['before_price'];
             $software->star_rating = $data['star_rating'];
 
-              // Upload poster images
-              if ($request->hasFile('poster_image')) {
-                $image_tmp = $request->file('poster_image');
-                if ($image_tmp->isValid()) {
-                    // Get image extension
-                    $extension = $image_tmp->getClientOriginalExtension();
-                    // Generate new image name
-                    $image_name = rand(111, 99999) . '.' . $extension;
-                    // Save image
-                    $image_path = 'admin/images/software_images/' . $image_name;
-                    Image::make($image_tmp)->save($image_path);
-                    // storing imagepath with name in data table
-                    $software->poster_image = $image_path;
-                }
-            }
+            //   // Upload poster images
+            //   if ($request->hasFile('poster_image')) {
+            //     $image_tmp = $request->file('poster_image');
+            //     if ($image_tmp->isValid()) {
+            //         // Get image extension
+            //         $extension = $image_tmp->getClientOriginalExtension();
+            //         // Generate new image name
+            //         $image_name = rand(111, 99999) . '.' . $extension;
+            //         // Save image
+            //         $image_path = 'admin/images/software_images/' . $image_name;
+            //         Image::make($image_tmp)->save($image_path);
+            //         // storing imagepath with name in data table
+            //         $software->poster_image = $image_path;
+            //     }
+            // }
     
 
             // soring preview images in data table
-            foreach ($fileFields as $field) {
-                if ($request->hasFile($field)) {
-                    $file = $request->file($field);
-                    if ($file->isValid()) {
-                        $fileName = $field . '_' . time() . '.' . $file->getClientOriginalExtension();
-                        $filePath = 'admin/images/software_images/' . $fileName;
-                        $file->move(public_path('admin/images/software_images/'), $fileName);
-                        $software->{$field} = $filePath;
-                    }
-                }
-            }
+            // foreach ($fileFields as $field) {
+            //     if ($request->hasFile($field)) {
+            //         $file = $request->file($field);
+            //         if ($file->isValid()) {
+            //             $fileName = $field . '_' . time() . '.' . $file->getClientOriginalExtension();
+            //             $filePath = 'admin/images/software_images/' . $fileName;
+            //             $file->move(public_path('admin/images/software_images/'), $fileName);
+            //             $software->{$field} = $filePath;
+            //         }
+            //     }
+            // }
     
             $software->save();
 
