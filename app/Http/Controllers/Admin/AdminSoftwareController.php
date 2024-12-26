@@ -16,6 +16,7 @@ class AdminSoftwareController extends Controller
 
     public function add_edit_software(Request $request, $id = null)
     {
+        Session::put('page', 'software');
         if ($request->isMethod('post')) {
             $data = $request->all();
             $request->validate([
@@ -119,11 +120,13 @@ class AdminSoftwareController extends Controller
 
     public function software_list()
     {
+        Session::put('page', 'software');
         $softwares = Software::all();
         return view('admin.software.software_list')->with(compact('softwares'));
     }
     public function deleteSoftware($id)
     {
+        Session::put('page', 'software');
         Software::where('id', $id)->delete();
         return redirect('admin/software-list');
     }

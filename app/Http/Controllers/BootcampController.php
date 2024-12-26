@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Quickbusiness;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Hash;
 
 class BootcampController extends Controller
@@ -16,13 +17,15 @@ class BootcampController extends Controller
 
     public function index()
     {
-        $bootcamps = Quickbusiness::where('type', 'normal')->latest()->paginate(50);
-        return view('quick_digital.boot_camp.index', compact('bootcamps'));
+        Session::put('page', 'affiliator');
+        $totalCount = Quickbusiness::where('type', 'normal')->count();
+        $bootcamps = Quickbusiness::where('type', 'normal')->latest()->paginate($totalCount);
+        return view('quick_digital.boot_camp.index', compact('bootcamps','totalCount'));
     }
 
     public function affiliators()
     {
-        $bootcamps = Quickbusiness::where('type', 'affiliator')->latest()->paginate(50);
+        $bootcamps = Quickbusiness::where('type', 'affiliator')->latest()->paginate(25);
         return view('quick_digital.boot_camp.affiliator', compact('bootcamps'));
     }
 

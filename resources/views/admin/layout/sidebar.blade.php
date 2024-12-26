@@ -170,7 +170,10 @@
             </li> -->
 
               <!-- ____________________ QUICKBUSINESS -->
-            <li class="nav-item"><a href="#"><i class="feather icon-file"></i><span class="menu-title" data-i18n="Users">QuickBusiness</span></a>
+              @php
+              $active = Session::get('page') == 'affiliator' ? 'active' : '';
+              @endphp
+            <li class="nav-item {{ $active }}"><a href="#"><i class="feather icon-file"></i><span class="menu-title" data-i18n="Users">QuickBusiness</span></a>
                 <ul class="menu-content">
                     <li>
                         <a class="menu-item" href="{{ route('bootcamp.index') }}" data-i18n="Vertical">Registration List</a>
@@ -182,7 +185,10 @@
             </li>
 
             <!-- ____________________ SOFTWARE -->
-            <li class="nav-item"><a href="#"><i class="feather icon-file"></i><span class="menu-title" data-i18n="Users">Software</span></a>
+            @php
+              $active = Session::get('page') == 'software' ? 'active' : '';
+              @endphp
+            <li class="nav-item {{ $active }}"><a href="#"><i class="feather icon-file"></i><span class="menu-title" data-i18n="Users">Software</span></a>
                 <ul class="menu-content">
                     <li>
                         <a class="menu-item" href="{{ route('software.add_edit') }}" data-i18n="Vertical">Add Software</a>

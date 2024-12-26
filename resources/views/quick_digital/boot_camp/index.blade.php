@@ -21,12 +21,12 @@
     <div class="content-wrapper">
         <div class="content-header row">
             <div class="content-header-left col-md-6 col-12 mb-2">
-                <h3 class="content-header-title mb-0">Bootcamp LIST</h3>
+                <h3 class="content-header-title mb-0">Affiliator List</h3>
                 <div class="row breadcrumbs-top">
                     <div class="breadcrumb-wrapper col-12">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="{{ url('admin/dashboard') }}">Home</a></li>
-                            <li class="breadcrumb-item active">Bootcamp List</li>
+                            <li class="breadcrumb-item active">Affiliator List</li>
                         </ol>
                     </div>
                 </div>
@@ -40,62 +40,73 @@
             <strong>Well done!</strong> {{ Session::get('success') }}
         </div>
         @endif
+
         <div class="content-body">
             <section id="column">
                 <div class="row">
                     <div class="col-12">
-
-
                         <div class="card">
-                            <div class="card-body">
-                                <table class="table table-bordered">
-                                    <thead>
-                                        <tr>
-                                            <th>Sl</th>
-                                            <th>Date</th>
-                                            <th>Name</th>
-                                            <th>Phone</th>
-                                            <th>Email</th>
-                                            <th>Profession</th>
-                                            <th>Actions</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @foreach ($bootcamps as $bootcamp)
-                                            <tr class="listRow" data-id="{{ $bootcamp->id }}">
-                                                <td>{{ $loop->index + 1 }}</td>
-                                                <td>{{ $bootcamp->created_at->format('l, F j, Y') }}</td>
-                                                <td>{{ $bootcamp->name }}</td>
-                                                <td>{{ $bootcamp->phone }}</td>
-                                                <td>{{ $bootcamp->email }}</td>
-                                                <td>{{ $bootcamp->profession }}</td>
-                                                <td>
-                                                    <div class="d-flex" style="gap: 1em">
-                                                        <a href="#" class="showBootcamp btn btn-sm btn-info" data-toggle="modal" data-target="#bootcampViewModla" data-id="{{ $bootcamp->id }}">
-                                                            <i class="fa fa-eye"></i>
-                                                        </a>
-                                                        <form action="{{ route('bootcamp.destroy', $bootcamp->id) }}"
-                                                            method="POST">
-                                                            @csrf
-                                                            @method('DELETE')
-                                                            <button type="submit"
-                                                                class="show_confirm btn btn-sm btn-danger"
-                                                                data-toggle="tooltip" title='Delete'>
-                                                                <i class="fa fa-trash"></i>
-                                                            </button>
-                                                        </form>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                        @endforeach
-                                    </tbody>
-                                </table>
-                                <div class="d-flex justify-content-end">
-                                    {{ $bootcamps->links('pagination::bootstrap-4') }}
+                            <div class="card-header">
+                                <p style="font-size:20px;font-weight:700;">Total Request: {{$totalCount}}</p>
+                                <div class="heading-elements">
+                                    <ul class="list-inline mb-0">
+                                        <li><a data-action="collapse"><i class="feather icon-minus"></i></a></li>
+                                        <li><a data-action="reload"><i class="feather icon-rotate-cw"></i></a></li>
+                                        <li><a data-action="expand"><i class="feather icon-maximize"></i></a></li>
+                                        <li><a data-action="close"><i class="feather icon-x"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="card-content collapse show">
+                                <div class="card-body card-dashboard">
+                                    <div style="overflow-x: auto;">
+                                        <table class="table table-striped table-bordered custom-toolbar-elements">
+                                            <thead>
+                                                <tr>
+                                                    <th>Sl</th>
+                                                    <th>Date</th>
+                                                    <th>Name</th>
+                                                    <th>Phone</th>
+                                                    <th>Email</th>
+                                                    <th>Profession</th>
+                                                    <th>Actions</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach ($bootcamps as $bootcamp)
+                                                    <tr class="listRow" data-id="{{ $bootcamp->id }}">
+                                                        <td>{{ ($loop->index + 1) + ($bootcamps->currentPage() - 1) * $bootcamps->perPage() }}</td>
+                                                        <td>{{ $bootcamp->created_at->format('l, F j, Y') }}</td>
+                                                        <td>{{ $bootcamp->name }}</td>
+                                                        <td>{{ $bootcamp->phone }}</td>
+                                                        <td>{{ $bootcamp->email }}</td>
+                                                        <td>{{ $bootcamp->profession }}</td>
+                                                        <td>
+                                                            <div class="d-flex" style="gap: 1em">
+                                                                <a href="#" class="showBootcamp btn btn-sm btn-info" data-toggle="modal" data-target="#bootcampViewModla" data-id="{{ $bootcamp->id }}">
+                                                                    <i class="fa fa-eye"></i>
+                                                                </a>
+                                                                <form action="{{ route('bootcamp.destroy', $bootcamp->id) }}"
+                                                                    method="POST">
+                                                                    @csrf
+                                                                    @method('DELETE')
+                                                                    <button type="submit"
+                                                                        class="show_confirm btn btn-sm btn-danger"
+                                                                        data-toggle="tooltip" title='Delete'>
+                                                                        <i class="fa fa-trash"></i>
+                                                                    </button>
+                                                                </form>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                @endforeach
+                                            </tbody>
+                                        </table>
+
+                                    </div>
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </section>
