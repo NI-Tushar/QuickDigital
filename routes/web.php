@@ -3,6 +3,7 @@
     use App\Http\Controllers\Admin\InstructorRequestController;
     use App\Http\Controllers\BootcampController;
     use App\Http\Controllers\SoftwareController;
+    use App\Http\Controllers\DigitalProductController;
     use App\Http\Controllers\CartController;
     use App\Http\Controllers\PaymentController;
     use App\Http\Controllers\Front\HomeController;
@@ -263,6 +264,9 @@
         
         // _______________________________ SOFTWARE
         Route::get('/software', [SoftwareController::class, 'index'])->name('quick.software');
+        
+        // _______________________________ DIGITAL PRODUCT
+        Route::get('/digital-product', [DigitalProductController::class, 'index'])->name('quick.digitalProduct');
 
     });
 
