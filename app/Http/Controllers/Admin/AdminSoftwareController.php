@@ -20,15 +20,15 @@ class AdminSoftwareController extends Controller
         if ($request->isMethod('post')) {
             $data = $request->all();
             $request->validate([
-                'title' => 'required|max:70',
-                'desc' => 'max:100',
+                'title' => 'required|max:100',
+                'desc' => 'max:200',
                 'features' => 'array',
                 'poster_image' => 'image|max:2048',
             ]);
 
             $rules = [
-                'title' => 'required|max:70',
-                'desc' => 'max:100',
+                'title' => 'required|max:100',
+                'desc' => 'max:200',
                 'features' => 'array',
                 'poster_image' => 'image|max:2048',
             ];
@@ -120,8 +120,8 @@ class AdminSoftwareController extends Controller
         $data = $request->all();
         
         $request->validate([
-            'title' => 'required|max:70',
-            'desc' => 'max:100',
+            'title' => 'required|max:100',
+            'desc' => 'max:200',
             'features' => 'array',
             'poster_image' => 'image|max:2048',
             'image_1' => 'image|max:2048',
@@ -130,8 +130,8 @@ class AdminSoftwareController extends Controller
         ]);
 
         $rules = [
-            'title' => 'required|max:70',
-            'desc' => 'max:100',
+            'title' => 'required|max:100',
+            'desc' => 'max:200',
             'features' => 'array',
             'poster_image' => 'image|max:2048',
         ];

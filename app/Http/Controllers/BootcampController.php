@@ -91,10 +91,11 @@ class BootcampController extends Controller
             ->exists();
 
         if ($userExists) {
-            return response()->json(['error' => 'This data already exists in the User table'], 409);
+            return response()->json(['error' => 'This data already exists in the User Data'], 409);
         }
 
-        $default_pass = $bootcamp->email . '_12345';
+        $randomNumber = rand(1000, 9999);
+        $default_pass = $bootcamp->email.$randomNumber;
 
         $user = new User;
         $user->name = $bootcamp->name;
