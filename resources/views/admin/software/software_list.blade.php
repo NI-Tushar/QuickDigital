@@ -83,12 +83,12 @@
                                                     <td style="text-align:center;width:50px;">{{ $software->before_price }}</td>
                                                     <td style="text-align:center;width:15px;">{{ $software->star_rating }}</td>
                                                     <td style="width: 100px; height: 100px; padding: 3px;">
-                                                        <img src="{{ $software->image_2 ? asset($software->poster_image) : asset('no_image2.jpg') }}" class="img-fluid rounded" alt="No Image" style="width: 100%; height: 100%; object-fit: cover;margin:auto;">
+                                                        <img src="{{ $software->poster_image ? asset($software->poster_image) : asset('no_image2.jpg') }}" class="img-fluid rounded" alt="No Image" style="width: 100%; height: 100%; object-fit: cover;margin:auto;">
                                                     </td>
                                                     <td style="width: 300px; height: 100px; padding: 3px; display:flex;gap:3px; position:relative;">
-                                                        <img src="{{ $software->image_2 ? asset($software->image_1) : asset('no_image2.jpg') }}" class="img-fluid rounded" alt="No Image" style="width:33%; height: 100%; object-fit: cover;border:1px solid black;margin:auto;">
+                                                        <img src="{{ $software->image_1 ? asset($software->image_1) : asset('no_image2.jpg') }}" class="img-fluid rounded" alt="No Image" style="width:33%; height: 100%; object-fit: cover;border:1px solid black;margin:auto;">
                                                         <img src="{{ $software->image_2 ? asset($software->image_2) : asset('no_image2.jpg') }}" class="img-fluid rounded" alt="No Image" style="width:33%; height: 100%; object-fit: cover;border:1px solid black;margin:auto;">
-                                                        <img src="{{ $software->image_2 ? asset($software->image_3) : asset('no_image2.jpg') }}" class="img-fluid rounded" alt="No Image" style="width:33%; height: 100%; object-fit: cover;border:1px solid black;margin:auto;">
+                                                        <img src="{{ $software->image_3 ? asset($software->image_3) : asset('no_image2.jpg') }}" class="img-fluid rounded" alt="No Image" style="width:33%; height: 100%; object-fit: cover;border:1px solid black;margin:auto;">
                                                     </td>
                                                     <td style="text-align:center;width: 100px;">{{ date('F j, Y, g:i a', strtotime($software->updated_at)) }}</td>
                                                     <td style="text-align:center;">

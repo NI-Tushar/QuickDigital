@@ -15,7 +15,7 @@
                 @foreach ($softwares as $software)
                 <div class="soft_list">
                     <div class="img_sec">
-                        <img src="{{ $software->image_2 ? asset($software->poster_image) : asset('no_image2.jpg') }}" alt="">
+                        <img src="{{ $software->poster_image ? asset($software->poster_image) : asset('no_image2.jpg') }}" alt="">
                     </div>
                     <div class="desc_sec">
                         <p class="sof_name">{{ $software->title }}</p>
