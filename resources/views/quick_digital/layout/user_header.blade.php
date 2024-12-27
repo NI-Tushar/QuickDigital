@@ -211,12 +211,12 @@
                                 </li>
                                 -->
 
-                                <li class="nav-item">
+                                <!-- <li class="nav-item">
                                     <a class="nav-link fw-semibold px-md-3" aria-current="page"
                                         href="{{ route('quick.digitalProduct') }}">
                                         ডিজিটাল প্রোডাক্ট
                                     </a>
-                                </li>
+                                </li> -->
 
                                 <li class="nav-item">
                                     <a class="nav-link fw-semibold px-md-3" aria-current="page"

@@ -224,8 +224,6 @@ class AdminSoftwareController extends Controller
 
         return redirect('admin/software-list');
        
-        // $software = Software::findOrFail($id);
-        // return view('admin.software.update_software')->with(compact('software'));
     }
     public function deleteSoftware($id)
     {

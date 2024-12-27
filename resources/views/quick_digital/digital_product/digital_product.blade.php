@@ -12,8 +12,8 @@
                     </a>
                     
                     <div class="info">
-                    <div class="title">Some Product</div>
-                    <div class="price">$34.99</div>
+                        <div class="title">Wordpress Plugin</div>
+                        <div class="price">$34.99</div>
                     </div>
                     
                     <div class="actions-wrapper">
@@ -28,8 +28,8 @@
                     <div class="note no-stock">Out of stock</div>
                     
                     <div class="info">
-                    <div class="title">Some Product</div>
-                    <div class="price">$34.99</div>
+                        <div class="title">Some Product</div>
+                        <div class="price">$34.99</div>
                     </div>
                     
                     <div class="actions-wrapper">
@@ -46,7 +46,7 @@
                     <div class="info">
                     <div class="title"><a href="#">Some Product</a></div>
                     <div class="price sale">$20.50</div>
-                    <div class="price old">$34.99</div>
+                    <!-- <div class="price old">$34.99</div> -->
                     </div>
                     
                     <div class="actions-wrapper">
