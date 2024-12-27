@@ -86,8 +86,10 @@
             Route::get('delete-product/{id?}', 'QuickShopController@destroyProduct');
             
             // Software All Route Here        
-            Route::match(['get', 'post'], 'add_edit_software/{id?}', 'AdminSoftwareController@add_edit_software')->name('software.add_edit');
+            Route::match(['get', 'post'], 'add_software', 'AdminSoftwareController@add_store_software')->name('software.add');
             Route::get('software-list', 'AdminSoftwareController@software_list')->name('software.list');
+            Route::get('update_software/{id?}', 'AdminSoftwareController@update_software');
+            Route::post('updating-software', 'AdminSoftwareController@updating_software');
             Route::get('delete-software/{id?}', 'AdminSoftwareController@deleteSoftware');
 
             //subadmin

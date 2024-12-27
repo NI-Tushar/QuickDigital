@@ -14,7 +14,7 @@ use Intervention\Image\Facades\Image;
 class AdminSoftwareController extends Controller
 {
 
-    public function add_edit_software(Request $request, $id = null)
+    public function add_store_software(Request $request, $id = null)
     {
         Session::put('page', 'software');
         if ($request->isMethod('post')) {
@@ -108,11 +108,7 @@ class AdminSoftwareController extends Controller
             // }
     
             $software->save();
-
             return redirect('admin/software-list');
-        }
-        if ($id != null) {
-            dd('if id is not null, then update a software list');
         }else{
             return view('admin.software.add_software');
         }
@@ -123,6 +119,92 @@ class AdminSoftwareController extends Controller
         Session::put('page', 'software');
         $softwares = Software::all();
         return view('admin.software.software_list')->with(compact('softwares'));
+    }
+    public function update_software($id)
+    {
+        Session::put('page', 'software');
+        $software = Software::findOrFail($id);
+        return view('admin.software.update_software')->with(compact('software'));
+    }
+    public function updating_software(Request $request)
+    {
+        Session::put('page', 'software');
+        $data = $request->all();
+        
+        $request->validate([
+            'title' => 'required|max:70',
+            'desc' => 'max:100',
+            'features' => 'array',
+            'poster_image' => 'image|max:2048',
+        ]);
+
+        $rules = [
+            'title' => 'required|max:70',
+            'desc' => 'max:100',
+            'features' => 'array',
+            'poster_image' => 'image|max:2048',
+        ];
+
+        $customMessages = [
+            'title.required' => 'Enter Software Title',
+        ];
+
+        // $fileFields = ['image_1', 'image_2', 'image_3'];
+
+        // foreach ($fileFields as $field) {
+        //     if ($id === null || $request->hasFile($field)) {
+        //         $rules[$field] = 'required|image|max:2048';
+        //         $customMessages[$field.'.required'] = 'Enter Preview Image.';
+        //         $customMessages[$field.'.image'] = 'The file must be an image.';
+        //         $customMessages[$field.'.max'] = 'The image size must not exceed 2MB.';
+        //     }
+        // }
+
+        $validator = Validator::make($data, $rules, $customMessages);
+        // Check if validation fails
+
+        if ($validator->fails()) {  
+        // If validation fails, set error message and redirect back
+            return redirect()->back()->with('error_message', $validator->errors()->first());
+        }
+
+        // Fetch the record by ID
+        $id = $request->id;
+        $data = Software::findOrFail($id);
+
+        // Update individual fields
+        if ($request->has('title')) {
+            $data->title = $request->title;
+        }
+        if ($request->has('desc')) {
+            $data->desc = $request->desc;
+        }
+        if ($request->has('features')) {
+            // Check if features are already encoded
+            if (is_array($request['features'])) {
+                // Encode only if features is an array
+                $data->features = json_encode($request['features'], JSON_UNESCAPED_UNICODE);
+            } else {
+                // Assign the existing JSON string as is
+                $data->features = $request['features'];
+            }
+        }        
+        if ($request->has('current_price')) {
+            $data->current_price = $request->current_price;
+        }
+        if ($request->has('before_price')) {
+            $data->before_price = $request->before_price;
+        }
+        if ($request->has('star_rating')) {
+            $data->star_rating = $request->star_rating;
+        }
+
+        $data->save();
+
+        return redirect('admin/software-list');
+       
+        // $software = Software::findOrFail($id);
+        // return view('admin.software.update_software')->with(compact('software'));
     }
     public function deleteSoftware($id)
     {

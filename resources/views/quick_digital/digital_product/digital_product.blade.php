@@ -54,6 +54,24 @@
                         <a href="#" class="add-btn cart">Buy</a>
                     </div>
                 </li>
+                <li class="product">
+                    <a class="img-wrapper" href="#">
+                    <img src="https://digivateit.com/wp-content/uploads/2024/12/MultiSapp-Pro-Software-Reseller-Pack-with-Licence-Key-Generator-Keygen-300x300.jpg" alt="Green running shoe" />
+                    </a>
+                    <div class="note no-stock">Out of stock</div>
+                    
+                    <div class="info">
+                    <div class="title">Some Product</div>
+                    <div class="price">$34.99</div>
+                    </div>
+                    
+                    <div class="actions-wrapper">
+                        <a href="#" class="add-btn cart">Cart</a>
+                        <a href="#" class="add-btn cart">Buy</a>
+                    </div>
+                </li>
+               
+
             </ul>
         </div>
     </div>

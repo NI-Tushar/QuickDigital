@@ -31,7 +31,7 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <a href="{{ route('software.add_edit') }}"><button type="button" class="btn btn-secondary btn-min-width mr-1 mb-1"><i class="feather icon-edit"></i> Add Software</button></a>
+                                <a href="{{ route('software.add') }}"><button type="button" class="btn btn-secondary btn-min-width mr-1 mb-1"><i class="feather icon-edit"></i> Add Software</button></a>
                                 <div class="heading-elements">
                                     <ul class="list-inline mb-0">
                                         <li><a data-action="collapse"><i class="feather icon-minus"></i></a></li>
@@ -92,7 +92,7 @@
                                                     </td>
                                                     <td style="text-align:center;width: 100px;">{{ date('F j, Y, g:i a', strtotime($software->updated_at)) }}</td>
                                                     <td style="text-align:center;">
-                                                        <a href=""><i class="fa fa-edit"></i></a>
+                                                        <a href="{{ url('admin/update_software/'.$software['id']) }}"><i class="fa fa-edit"></i></a>
                                                         &nbsp;&nbsp;
                                                         <a href="{{ url('admin/delete-software/'.$software['id']) }}"><i class="fa fa-trash"></i></a>
                                                     </td>
