@@ -109,12 +109,39 @@
           </div>
           <div class="list">
             <label for="">Select Option:</label>
-            <select name="" id="">
-              <option value="">Buy</option>
-              <option value="">Subscription</option>
+            <select name="" id="options">
+              <option selected value=""></option>
+              <option value="buy">Go to Buy</option>
+              <option value="subscription">Go to Subscription</option>
             </select>
           </div>
+
+          <div id="checkboxContainer" style="display: none; margin-top: 5px;">
+            <input type="checkbox" id="buyCheckbox" name="buyCheckbox">
+            <span for="buyCheckbox">With Hosting?</span>
+          </div>
+
+
+          <div class="button_section">
+              <input type="submit" value="Order Now">
+          </div>
+
           
+          <script>
+            // Get the dropdown and checkbox container elements
+            const selectElement = document.getElementById("options");
+            const checkboxContainer = document.getElementById("checkboxContainer");
+
+            // Add event listener for change event
+            selectElement.addEventListener("change", function () {
+              if (selectElement.value === "buy") {
+                checkboxContainer.style.display = "block"; // Show checkbox
+              } else {
+                checkboxContainer.style.display = "none"; // Hide checkbox
+              }
+            });
+          </script>
+
         </div>
       </form>
     </div>
