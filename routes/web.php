@@ -219,8 +219,9 @@
         Route::get('ebook-list', 'HomeController@ebook_list');
         Route::get('ebook/{id?}', 'HomeController@individual_ebook');
 
-         // REDIRECT TO CHECKOUT | SKIPPING BOOK VIEW PAGE
-        Route::get('/your_book/{id?}', 'HomeController@ebook_checkout');
+         // CHECKOUT
+        Route::get('/your_book/{id?}', 'HomeController@ebook_checkout'); // REDIRECT TO CHECKOUT | SKIPPING BOOK VIEW PAGE
+        Route::get('/checkout', 'HomeController@all_checkout'); // ALL CHECKOUT PAGE
 
         // Route::get('ebook-checkout', 'HomeController@ebook_checkout');
         Route::get('mobile-video-checkout', 'HomeController@mobile_video_checkout');

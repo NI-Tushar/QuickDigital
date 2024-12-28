@@ -18,6 +18,7 @@ return new class extends Migration
             $table->longText('features')->nullable();
             $table->unsignedBigInteger('current_price')->nullable();
             $table->unsignedBigInteger('before_price')->nullable();
+            $table->unsignedBigInteger('subsription_price')->nullable();
             $table->Integer('star_rating')->nullable();
             $table->string('poster_image')->nullable();
             $table->string('image_1')->nullable();

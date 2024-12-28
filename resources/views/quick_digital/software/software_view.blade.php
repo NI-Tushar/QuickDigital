@@ -37,8 +37,16 @@
                                     </svg>
                                 </div>
                                 <div class="price">
+                                @if(!empty($software->current_price))
                                     <p class="current_price">{{ $software->current_price }}<span>/BDT</span></p>
-                                    <p class="before_price">{{ $software->before_price }}<span>/BDT</span></p>
+                                @endif
+                                @if(!empty($software->before_price))
+                                  <p class="before_price">{{ $software->before_price }}<span>/BDT</span></p>
+                                  @endif
+                                @if(!empty($software->subsription_price))
+                                  <p style="text-decoration:none;" class="before_price"><span>OR</span></p>
+                                  <p class="current_price">{{ $software->subsription_price }}<span>/BDT per Month</span></p>
+                                @endif
                                 </div>
                                 <div class="review">
 
@@ -65,7 +73,7 @@
                             </div>
                             <div class="buttons">
                                 <button onclick="showPreview('{{ asset($software->image_1) }}', '{{ asset($software->image_2) }}', '{{ asset($software->image_3) }}')">Preview</button>
-                                <a href="{{ url('/quick-digital/contact-us') }}"><button class="active">Buy</button></a>
+                                <button onclick="showDetails('{{ $software->id }}', '{{ $software->title }}', '{{ $software->current_price }}', '{{ $software->subsription_price }}')" class="active">Buy</button>
                             </div>
                         </div>
                     </div>
@@ -76,6 +84,59 @@
         </div>
     </div>
 </div>
+
+
+<!-- ______________________________ pop up show onlick by start -->
+<div id="showDetails" class="modal-wrapper open">
+  <div class="modal">
+    <div onclick="closeDetails()" class="btn-close"></div>
+    <div class="clear"></div>
+    <div class="content">
+      <form action="">
+        <input type="hidden" name="software_id">
+        <div class="details_box">
+          <div class="list">
+              <label for="">Software Title:</label> 
+              <p id="title"></p>
+          </div>
+          <div class="list">
+            <label for="">Sell Price:</label>
+            <p id="sellPrice"></p>
+          </div>
+          <div class="list">
+            <label for="">Subscription Price:</label>
+            <p id="subsPrice"></p>
+          </div>
+          <div class="list">
+            <label for="">Select Option:</label>
+            <select name="" id="">
+              <option value="">Buy</option>
+              <option value="">Subscription</option>
+            </select>
+          </div>
+          
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script>
+  function showDetails(id,title,current_price,subsription_price){
+    var modal = document.getElementById("showDetails");
+    console.log(id,title,current_price,subsription_price);
+    // document.getElementById("id").value = id_filed;
+    document.getElementById("title").innerText = title;
+    document.getElementById("sellPrice").innerText = current_price;
+    document.getElementById("subsPrice").innerText = subsription_price;
+    modal.classList.add("open");
+  }
+  function closeDetails(){
+    var modal = document.getElementById("showDetails");
+    modal.classList.remove("open");
+  }
+</script>
+<!-- ______________________________ pop up show onlick by end -->
 
 
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
@@ -129,6 +190,7 @@
        <!-- _______________ -->
     </div>
 </div>
+
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>

@@ -126,7 +126,12 @@
                                                 
                                                 <div class="form-group">
                                                     <label for="actual_price">Before Price</label>
-                                                    <input style="border-radius:5px;" type="number" id="actual_price" class="form-control round" placeholder="Enter Product Before Price" name="before_price" value="{{ old('before_price') }}" required>
+                                                    <input style="border-radius:5px;" type="number" id="actual_price" class="form-control round" placeholder="Enter Software Before Price" name="before_price" value="{{ old('before_price') }}" required>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label for="actual_price">Subscription Price</label>
+                                                    <input style="border-radius:5px;" type="number" id="actual_price" class="form-control round" placeholder="Enter Software Subsription Price" name="subsription_price" value="{{ old('subsription_price') }}" required>
                                                 </div>
                                                 
                                                 <div class="form-group">

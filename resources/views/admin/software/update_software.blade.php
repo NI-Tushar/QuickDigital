@@ -141,6 +141,12 @@
                                                     <input style="border-radius:5px;" type="number" id="actual_price" class="form-control round" placeholder="Enter Software Before Price" name="before_price" 
                                                     value="{{ $software['before_price'] }}" required>
                                                 </div>
+
+                                                <div class="form-group">
+                                                    <label for="actual_price">Subsription Price</label>
+                                                    <input style="border-radius:5px;" type="number" id="actual_price" class="form-control round" placeholder="Enter Software Before Price" name="subsription_price" 
+                                                    value="{{ $software['subsription_price'] }}" required>
+                                                </div>
                                                 
                                                 <div class="form-group">
                                                     <label for="actual_price">Star Rating</label>

@@ -64,6 +64,7 @@ class AdminSoftwareController extends Controller
             $software->features = json_encode($data['features'], JSON_UNESCAPED_UNICODE); 
             $software->current_price = $data['current_price'];
             $software->before_price = $data['before_price'];
+            $software->subsription_price = $data['subsription_price'];
             $software->star_rating = $data['star_rating'];
 
             // Upload poster images
@@ -177,6 +178,9 @@ class AdminSoftwareController extends Controller
         if ($request->has('before_price')) {
             $data->before_price = $request->before_price;
         }
+        if ($request->has('subsription_price')) {
+            $data->subsription_price = $request->subsription_price;
+        }
         if ($request->has('star_rating')) {
             $data->star_rating = $request->star_rating;
         }
@@ -221,9 +225,7 @@ class AdminSoftwareController extends Controller
             }
     
         $data->save();
-
         return redirect('admin/software-list');
-       
     }
     public function deleteSoftware($id)
     {

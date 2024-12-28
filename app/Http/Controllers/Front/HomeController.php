@@ -71,6 +71,13 @@ class HomeController extends Controller
         $book = Ebook::findOrFail($id);
         return view('quick_digital.ebook_checkout')->with(compact('book'));
     }
+    // ALL CHECKOUT
+    public function all_checkout()
+    {
+        // $book = Ebook::findOrFail($id);
+        return view('quick_digital.checkout.all_checkout');
+        // return view('quick_digital.all_checkout')->with(compact('book'));
+    }
 
     // DIRECT TO CHECKOUT PAGE FOR TEST PAY
     public function testPay()

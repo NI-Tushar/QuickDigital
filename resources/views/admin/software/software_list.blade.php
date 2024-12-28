@@ -53,6 +53,7 @@
                                                     <th>Features</th>
                                                     <th>Current Price</th>
                                                     <th>Before Price</th>
+                                                    <th>Subs Price</th>
                                                     <th>Rating</th>
                                                     <th>Poster Image</th>
                                                     <th style="width:300px;">Preview Images</th>
@@ -81,6 +82,7 @@
                                                     </td>
                                                     <td style="text-align:center;width:50px;">{{ $software->current_price }}</td>
                                                     <td style="text-align:center;width:50px;">{{ $software->before_price }}</td>
+                                                    <td style="text-align:center;width:50px;">{{ $software->subsription_price }}</td>
                                                     <td style="text-align:center;width:15px;">{{ $software->star_rating }}</td>
                                                     <td style="width: 100px; height: 100px; padding: 3px;">
                                                         <img src="{{ $software->poster_image ? asset($software->poster_image) : asset('no_image2.jpg') }}" class="img-fluid rounded" alt="No Image" style="width: 100%; height: 100%; object-fit: cover;margin:auto;">

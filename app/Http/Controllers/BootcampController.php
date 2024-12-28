@@ -87,11 +87,10 @@ class BootcampController extends Controller
         }
 
         $userExists = User::where('email', $bootcamp->email)
-            ->where('mobile', $bootcamp->phone)
-            ->exists();
+        ->where('mobile', $bootcamp->phone);
 
-        if ($userExists) {
-            return response()->json(['error' => 'This data already exists in the User Data'], 409);
+        if ($userExists->exists()) {
+            $userExists->delete(); // Delete the record
         }
 
         $randomNumber = rand(1000, 9999);

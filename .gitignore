@@ -16,5 +16,5 @@ yarn-error.log
 /.fleet
 /.idea
 /.vscode
-/public/front/assets/vid
-/public/admin/images/software_images
+/public/front/assets/vid/
+/public/admin/images/software_images/
