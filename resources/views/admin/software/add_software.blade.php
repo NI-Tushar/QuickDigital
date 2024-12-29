@@ -121,22 +121,27 @@
                                             <div class="price_section">
                                                 <div class="form-group">
                                                     <label for="actual_price">Current Price</label>
-                                                    <input style="border-radius:5px;" type="number" id="actual_price" class="form-control round" placeholder="Enter Software Current Price" name="current_price" value="{{ old('current_price') }}" required>
+                                                    <input style="border-radius:5px;" type="number" id="actual_price" class="form-control round" placeholder="Enter Software Current Price" name="current_price" value="{{ old('current_price') }}">
                                                 </div>
                                                 
                                                 <div class="form-group">
                                                     <label for="actual_price">Before Price</label>
-                                                    <input style="border-radius:5px;" type="number" id="actual_price" class="form-control round" placeholder="Enter Software Before Price" name="before_price" value="{{ old('before_price') }}" required>
+                                                    <input style="border-radius:5px;" type="number" id="actual_price" class="form-control round" placeholder="Enter Software Before Price" name="before_price" value="{{ old('before_price') }}">
                                                 </div>
 
                                                 <div class="form-group">
                                                     <label for="actual_price">Subscription Price</label>
-                                                    <input style="border-radius:5px;" type="number" id="actual_price" class="form-control round" placeholder="Enter Software Subsription Price" name="subsription_price" value="{{ old('subsription_price') }}" required>
+                                                    <input style="border-radius:5px;" type="number" id="actual_price" class="form-control round" placeholder="Enter Software Subsription Price" name="subscription_price" value="{{ old('subscription_price') }}">
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label for="actual_price">Hosting Change</label>
+                                                    <input style="border-radius:5px;" type="number" id="actual_price" class="form-control round" placeholder="Enter Hosting Charge" name="hosting_charge" value="{{ old('hosting_charge') }}">
                                                 </div>
                                                 
                                                 <div class="form-group">
                                                     <label for="actual_price">Star Rating</label>
-                                                    <input style="border-radius:5px;" type="number" id="star_rating" class="form-control round" placeholder="Enter Star Rating 1 to 5" name="star_rating" min="1" max="5" value="{{ old('star_rating') }}" required>
+                                                    <input style="border-radius:5px;" type="number" id="star_rating" class="form-control round" placeholder="Enter Star Rating 1 to 5" name="star_rating" min="1" max="5" value="{{ old('star_rating') }}">
                                                 </div>
                                             </div>
 

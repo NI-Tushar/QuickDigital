@@ -221,7 +221,7 @@
 
          // CHECKOUT
         Route::get('/your_book/{id?}', 'HomeController@ebook_checkout'); // REDIRECT TO CHECKOUT | SKIPPING BOOK VIEW PAGE
-        Route::get('/checkout', 'HomeController@all_checkout'); // ALL CHECKOUT PAGE
+        Route::get('/checkout', 'HomeController@all_checkout')->name('checkout'); // SOFTWARE CHECKOUT PAGE
 
         // Route::get('ebook-checkout', 'HomeController@ebook_checkout');
         Route::get('mobile-video-checkout', 'HomeController@mobile_video_checkout');
@@ -267,6 +267,7 @@
         
         // _______________________________ SOFTWARE
         Route::get('/software', [SoftwareController::class, 'index'])->name('quick.software');
+        Route::post('/software-order', [SoftwareController::class, 'softwareOrder'])->name('software.order');
         
         // _______________________________ DIGITAL PRODUCT
         Route::get('/digital-product', [DigitalProductController::class, 'index'])->name('quick.digitalProduct');
@@ -291,7 +292,6 @@
     Route::get('/test_pay',[HomeController::class, 'testPay']);
 
 
- 
 
 
     //subscription

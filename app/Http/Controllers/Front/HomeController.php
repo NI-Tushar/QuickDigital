@@ -74,9 +74,18 @@ class HomeController extends Controller
     // ALL CHECKOUT
     public function all_checkout()
     {
-        // $book = Ebook::findOrFail($id);
+        if(session()->has('subscription_price')){
+            session()->forget('total_price');
+        }else{   
+            if(session()->has('hosting_charge')){
+                $hosting_charge = session('hosting_charge');
+                $current_price = session('soft_price');
+                $total_price = number_format($hosting_charge, 2) + number_format($current_price, 2);
+                Session::put('total_price', $total_price);  
+            }
+        }
+
         return view('quick_digital.checkout.all_checkout');
-        // return view('quick_digital.all_checkout')->with(compact('book'));
     }
 
     // DIRECT TO CHECKOUT PAGE FOR TEST PAY

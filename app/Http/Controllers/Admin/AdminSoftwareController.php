@@ -64,7 +64,8 @@ class AdminSoftwareController extends Controller
             $software->features = json_encode($data['features'], JSON_UNESCAPED_UNICODE); 
             $software->current_price = $data['current_price'];
             $software->before_price = $data['before_price'];
-            $software->subsription_price = $data['subsription_price'];
+            $software->subscription_price = $data['subscription_price'];
+            $software->hosting_charge = $data['hosting_charge'];
             $software->star_rating = $data['star_rating'];
 
             // Upload poster images
@@ -178,8 +179,11 @@ class AdminSoftwareController extends Controller
         if ($request->has('before_price')) {
             $data->before_price = $request->before_price;
         }
-        if ($request->has('subsription_price')) {
-            $data->subsription_price = $request->subsription_price;
+        if ($request->has('subscription_price')) {
+            $data->subscription_price = $request->subscription_price;
+        }
+        if ($request->has('hosting_charge')) {
+            $data->hosting_charge = $request->hosting_charge;
         }
         if ($request->has('star_rating')) {
             $data->star_rating = $request->star_rating;
@@ -201,28 +205,29 @@ class AdminSoftwareController extends Controller
             }
         }
         
-            // Upload preview images validation
-            $fileFields = ['image_1', 'image_2', 'image_3'];
-            foreach ($fileFields as $field) {
-                if ($request->hasFile($field)) {
-                    $rules[$field] = 'required|image|max:2048';
-                    $customMessages[$field.'.required'] = 'Enter Preview Image.';
-                    $customMessages[$field.'.image'] = 'The file must be an image.';
-                    $customMessages[$field.'.max'] = 'The image size must not exceed 2MB.';
+        // Upload preview images validation
+        $fileFields = ['image_1', 'image_2', 'image_3'];
+        foreach ($fileFields as $field) {
+            if ($request->hasFile($field)) {
+                $rules[$field] = 'required|image|max:2048';
+                $customMessages[$field.'.required'] = 'Enter Preview Image.';
+                $customMessages[$field.'.image'] = 'The file must be an image.';
+                $customMessages[$field.'.max'] = 'The image size must not exceed 2MB.';
+            }
+        }
+        
+        // update preview images in data table
+        foreach ($fileFields as $field) {
+            if ($request->hasFile($field)) {
+                $file = $request->file($field);
+                if ($file->isValid()) {
+                    $fileName = $field . '_' . time() . '.' . $file->getClientOriginalExtension();
+                    $filePath = 'admin/images/software_images/' . $fileName;
+                    $file->move(public_path('admin/images/software_images/'), $fileName);
+                    $data->{$field} = $filePath;
                 }
             }
-           // update preview images in data table
-            foreach ($fileFields as $field) {
-                if ($request->hasFile($field)) {
-                    $file = $request->file($field);
-                    if ($file->isValid()) {
-                        $fileName = $field . '_' . time() . '.' . $file->getClientOriginalExtension();
-                        $filePath = 'admin/images/software_images/' . $fileName;
-                        $file->move(public_path('admin/images/software_images/'), $fileName);
-                        $data->{$field} = $filePath;
-                    }
-                }
-            }
+        }
     
         $data->save();
         return redirect('admin/software-list');
