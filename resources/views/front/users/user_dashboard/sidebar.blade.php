@@ -46,15 +46,15 @@
           <line x1="12" y1="15" x2="12" y2="17"></line>
           <line x1="10" y1="17" x2="14" y2="17"></line>
         </svg>
-        
+
             <span class="link_name" style=" font-size: 15px;">পাসওয়ার্ড পরিবর্তন করুন</span>
           </a>
           <ul class="sub-menu blank">
             <li><a class="link_name" style=" font-size: 15px;" href="#">পাসওয়ার্ড পরিবর্তন করুন</a></li>
           </ul>
         </li>
-        
-        
+
+
         <li>
           <a href="{{ route('user.update') }}">
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -68,16 +68,16 @@
           </ul>
         </li>
 
-        
+
         @if(Auth::guard('user')->user()->user_type != 'affiliator')
         <li>
           <a href="">
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-     
+
           <circle cx="9" cy="21" r="1"></circle>
           <circle cx="20" cy="21" r="1"></circle>
           <path d="M1 1h4l1.68 7.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
-          
+
 
           <path d="M13 11l3-3-3-3"></path>
           <line x1="10" y1="8" x2="16" y2="8"></line>
@@ -88,8 +88,8 @@
             <li><a class="link_name" style=" font-size: 15px;" href="#">আপনার অর্ডার</a></li>
           </ul>
         </li>
-     
-        
+
+
 
         <li>
           <a href="{{ route('user.ebook') }}">
@@ -107,14 +107,14 @@
         </li>
 
 
-        
+
         <li>
           <a href="">
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <!-- Paper -->
             <path d="M16 2h-8a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-12l-6-6z" />
             <path d="M16 2v6h6" />
-            
+
             <!-- Pencil -->
             <path d="M12 18l3-3" />
             <path d="M14 14l6-6a2 2 0 0 0-3-3l-6 6" />
@@ -137,7 +137,7 @@
             <!-- Paper -->
             <path d="M16 2h-8a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-12l-6-6z" />
             <path d="M16 2v6h6" />
-            
+
             <!-- Pencil -->
             <path d="M12 18l3-3" />
             <path d="M14 14l6-6a2 2 0 0 0-3-3l-6 6" />
@@ -151,10 +151,27 @@
           </ul>
         </li>
 
+        <li>
+          <a href="{{ route('affiliate.digialservice.index') }}">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <!-- Paper -->
+            <path d="M16 2h-8a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-12l-6-6z" />
+            <path d="M16 2v6h6" />
+
+            <!-- Pencil -->
+            <path d="M12 18l3-3" />
+            <path d="M14 14l6-6a2 2 0 0 0-3-3l-6 6" />
+            <line x1="12" y1="18" x2="6" y2="20" />
+            <line x1="15" y1="15" x2="12" y2="18" />
+          </svg>
+            <span class="link_name" style=" font-size: 15px;">Digital Service</span>
+          </a>
+        </li>
+
         <!-- <li>
           <a href="">
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-     
+
           <circle cx="12" cy="12" r="3"></circle>
           <path d="M19.4 15a1.6 1.6 0 0 0 .33 1.76l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.6 1.6 0 0 0-1.76-.33 1.6 1.6 0 0 0-.94 1.44V21a2 2 0 1 1-4 0v-.17a1.6 1.6 0 0 0-.94-1.44 1.6 1.6 0 0 0-1.76.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.6 1.6 0 0 0 .33-1.76 1.6 1.6 0 0 0-1.44-.94H3a2 2 0 1 1 0-4h.17a1.6 1.6 0 0 0 1.44-.94 1.6 1.6 0 0 0-.33-1.76l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.6 1.6 0 0 0 1.76.33h.06a1.6 1.6 0 0 0 .94-1.44V3a2 2 0 1 1 4 0v.17a1.6 1.6 0 0 0 .94 1.44h.06a1.6 1.6 0 0 0 1.76-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.6 1.6 0 0 0-.33 1.76v.06a1.6 1.6 0 0 0 1.44.94H21a2 2 0 1 1 0 4h-.17a1.6 1.6 0 0 0-1.44.94z"></path>
         </svg>
@@ -169,7 +186,7 @@
         <!-- _________________________________________ AFFILIATOR PART END -->
 
 
-        
+
 
         <hr style="color:white;">
 
@@ -228,7 +245,7 @@
 
 
 
-    
+
 <script>
     function show_sidebar_mov() {
       const sidebar = document.querySelector(".sidebar.close");
@@ -272,5 +289,5 @@
     window.addEventListener("resize", adjustClassesBasedOnScreenSize);
 </script>
 
-    
+
  <script src="{{ url('front/js/user_dashboard.js') }}"></script>

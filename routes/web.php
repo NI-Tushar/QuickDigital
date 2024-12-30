@@ -10,6 +10,7 @@
     use App\Http\Controllers\Front\HomeController;
     use App\Http\Controllers\PDFController;
     use App\Http\Controllers\CheckoutController;
+    use App\Http\Controllers\DigitalServiceController;
     use App\Http\Controllers\SmsController;
     use App\Http\Controllers\MailSendController;
     use App\Http\Controllers\QuickShopCategoryController;
@@ -81,12 +82,16 @@
             Route::get('product-category', 'QuickShopController@ProductCategory');
             Route::match(['get', 'post'], 'add-edit-product-category/{id?}', 'QuickShopController@addEditCategory');
             Route::get('delete-product-category/{id?}', 'QuickShopController@destroyCategory');
-            
+
             Route::get('products', 'QuickShopController@product');
             Route::match(['get', 'post'], 'add-edit-product/{id?}', 'QuickShopController@add_edit_product');
             Route::get('delete-product/{id?}', 'QuickShopController@destroyProduct');
-            
-            // Software All Route Here        
+
+            // Digital Sercice
+            Route::get('/digital-service', [DigitalServiceController::class, 'getAllOrder'])->name('admin.digialservice.index');
+            Route::delete('/digital-service/{digitalService}', [DigitalServiceController::class, 'destroy'])->name('admin.digialservice.destroy');
+
+            // Software All Route Here
             Route::match(['get', 'post'], 'add_software', 'AdminSoftwareController@add_store_software')->name('software.add');
             Route::get('software-list', 'AdminSoftwareController@software_list')->name('software.list');
             Route::get('update_software/{id?}', 'AdminSoftwareController@update_software');
@@ -109,7 +114,6 @@
     // sms sending to customer
     Route::get('/send-sms',[SmsController::class,'sendSms'])->name('sendSMS');
     Route::get('/send-sms',[SmsController::class,'sendSmsNewUser'])->name('sendNewUserSMS');
-    Route::get('/send-sms-software',[SmsController::class,'softwareSmsNewUser'])->name('sendSoftwareSMS');
     
     // Mail send to customer for order confirmation
     Route::get('/mailsend/{order_id}/{book_title}/{price}/{email}', [MailSendController::class, 'sendEMail'])->name('mailsend');
@@ -146,7 +150,7 @@
         Route::get('/quick-shopping-order-details/{quickShopOrder}/DownloadOrderPDF', [QuickShopOrderController::class, 'DownloadOrderPDF'])->name('quick-shopping-order.DownloadOrderPDF');
         Route::put('/quick-shopping-order-details/{quickShopOrder}/paymentStatus', [QuickShopOrderController::class, 'paymentStatus'])->name('quick-shopping-order.paymentStatus');
         Route::put('/quick-shopping-order-details/{quickShopOrder}/orderStatus', [QuickShopOrderController::class, 'orderStatus'])->name('quick-shopping-order.orderStatus');
-     
+
     });
 
 
@@ -176,20 +180,31 @@
             Route::post('check_current_password', 'UserController@checkCurrentPassword');
             Route::get('logout', 'UserController@logoutUser');
         });
-        
+
         // _______________ CUSTOMER/USER DASHBOARD CONTROLLER
         Route::get('/dashboard', 'UserDashboardController@index')->name('user.dashboard');
         Route::get('/update-info', 'UserDashboardController@update_info')->name('user.update');
         Route::match(['get', 'post'], 'update_user_details', 'UserDashboardController@updateUserDetails');
         Route::get('update-password', 'UserDashboardController@update_password')->name('password.update');
         Route::match(['get', 'post'], 'update_password', 'UserDashboardController@updatePassword');
-        
+
         Route::get('your-ebook', 'UserDashboardController@your_ebook')->name('user.ebook');
-        
-        
-        
+
+
+
         // _______________ AFFILIATOR USER PANEL DASHBOARD CONTROLLER
         Route::get('software', 'AffiliatorController@software')->name('affilator.software');
+
+    });
+
+    ##---------- Affialiators -----------------##
+    Route::prefix('/affiliate')->name('affiliate.')->group(function(){
+
+        // Digital Sercice
+        Route::get('/digital-service', [DigitalServiceController::class, 'index'])->name('digialservice.index');
+        Route::get('/digital-service/create', [DigitalServiceController::class, 'create'])->name('digialservice.create');
+        Route::get('/digital-service/{digitalService}/show', [DigitalServiceController::class, 'show'])->name('digialservice.show');
+        Route::post('/digital-service', [DigitalServiceController::class, 'store'])->name('digialservice.store');
 
     });
 
@@ -264,13 +279,13 @@
         Route::get('course-details/{id}', 'HomeController@course_details')->name('course.details');
         Route::get('all-course', 'HomeController@show_all_courses')->name('course.all');
         Route::get('/checkout/{id}', [CartController::class, 'checkout'])->name('user_checkout');
-        
-        
-        
+
+
+
         // _______________________________ SOFTWARE
         Route::get('/software', [SoftwareController::class, 'index'])->name('quick.software');
         Route::post('/software-order', [SoftwareController::class, 'softwareOrder'])->name('software.order');
-        
+
         // _______________________________ DIGITAL PRODUCT
         Route::get('/digital-product', [DigitalProductController::class, 'index'])->name('quick.digitalProduct');
 
@@ -296,7 +311,6 @@
         return view('quick_digital.static_product_page.test_product_pay');
     });
     Route::get('/test_pay',[HomeController::class, 'testPay']);
-
 
 
 

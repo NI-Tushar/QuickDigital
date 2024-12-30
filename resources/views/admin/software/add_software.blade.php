@@ -101,7 +101,7 @@
 
                                             <div class="form-group">
                                                 <label for="name">Sofware Description</label>
-                                                <textarea style="border-radius:5px;" id="desc" class="form-control round" placeholder="Enter Software Description" name="desc" required>{{ old('desc') }}</textarea>
+                                                <textarea style="border-radius:5px;" id="desc" class="form-control round" placeholder="Enter Software Description" name="description" required>{{ old('description') }}</textarea>
                                             </div>
 
                                             
@@ -121,60 +121,21 @@
                                             <div class="price_section">
                                                 <div class="form-group">
                                                     <label for="actual_price">Subscription Price</label>
-                                                    <input style="border-radius:5px;" type="number" id="actual_price" class="form-control round" placeholder="Enter Subscription Price" name="subscription_price" value="{{ old('subscription_price') }}">
+                                                    <input style="border-radius:5px;" type="number" id="actual_price" class="form-control round" placeholder="Enter Subscription Price" name="price" value="{{ old('price') }}">
                                                 </div>
                                                 
                                                 <div class="form-group">
-                                                    <label for="actual_price">Before Price</label>
-                                                    <input style="border-radius:5px;" type="number" id="actual_price" class="form-control round" placeholder="Enter Software Before Price" name="before_price" value="{{ old('before_price') }}">
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <label for="actual_price">Customize Price</label>
-                                                    <input style="border-radius:5px;" type="number" id="actual_price" class="form-control round" placeholder="Enter Software Customized Price" name="customized_price" value="{{ old('customized_price') }}">
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <label for="actual_price">Margin</label>
-                                                    <input style="border-radius:5px;" type="number" id="actual_price" class="form-control round" placeholder="Enter Margin (%)" name="margin" value="{{ old('margin') }}">
+                                                    <label for="actual_price">Affiliator Commission</label>
+                                                    <input style="border-radius:5px;" type="number" id="actual_price" class="form-control round" placeholder="Enter Affiliator Commission (%)" name="margin" value="{{ old('margin') }}">
                                                 </div>
                                                 
-                                                <div class="form-group">
-                                                    <label for="actual_price">Star Rating</label>
-                                                    <input style="border-radius:5px;" type="number" id="star_rating" class="form-control round" placeholder="Enter Star Rating 1 to 5" name="star_rating" min="1" max="5" value="{{ old('star_rating') }}">
-                                                </div>
                                             </div>
 
                                             <!-- ___________________________ poster image start -->
                                              <div class="img_section">
                                                  <div class="form-group">
-                                                    <label for="image_1">Postar Image</label>
-                                                    <input style="border-radius:5px;" type="file" id="poster_image" class="form-control round" name="poster_image" accept="image/*" value="{{ old('poster_image') }}" >
-                                                </div>
-                                                <div class="preview_img">
-                                                    <div class="form-group">
-                                                        <label for="image_1">Preview Image 1</label>
-                                                        <input type="file" id="image_1" class="form-control round" name="image_1" accept="image/*" value="{{ old('image_1') }}" >
-                                                        @if (!empty($product['image_1']))
-                                                        <img src="" alt="" width="100">
-                                                        @endif
-                                                    </div>
-
-                                                    <div class="form-group">
-                                                        <label for="image_2">Preview Image 2</label>
-                                                        <input type="file" id="image_2" class="form-control round" name="image_2" accept="image/*" value="{{ old('image_2') }}" >
-                                                        @if (!empty($product['image_2']))
-                                                        <img src="" alt="" width="100">
-                                                        @endif
-                                                    </div>
-
-                                                    <div class="form-group">
-                                                        <label for="image_3">Preview Image 3</label>
-                                                        <input type="file" id="image_3" class="form-control round" name="image_3" accept="image/*" value="{{ old('image_3') }}" >
-                                                        @if (!empty($product['image_3']))
-                                                        <img src="" alt="" width="100">
-                                                        @endif
-                                                    </div>
+                                                    <label for="image_1">Thumbnail Image</label>
+                                                    <input style="border-radius:5px;" type="file" id="poster_image" class="form-control round" name="thumbnail" accept="image/*" value="{{ old('thumbnail') }}" >
                                                 </div>
                                             </div>
                                             <!-- ___________________________ poster image end -->

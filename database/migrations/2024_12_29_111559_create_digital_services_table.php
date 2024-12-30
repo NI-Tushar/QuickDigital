@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('software', function (Blueprint $table) {
+        Schema::create('digital_services', function (Blueprint $table) {
             $table->id();
             $table->string('title')->nullable();
             $table->string('description')->nullable();
@@ -19,7 +19,7 @@ return new class extends Migration
             $table->decimal('price',10,2)->nullable();
             $table->decimal('affiliator_commission',10,2)->nullable();
             $table->string('thumbnail')->nullable();
-            $table->string('demo_link')->nullable();
+            $table->string('pdf_path')->nullable();
             $table->timestamps();
         });
     }
@@ -29,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('software');
+        Schema::dropIfExists('digital_services');
     }
 };
