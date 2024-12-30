@@ -77,7 +77,7 @@ class HomeController extends Controller
             if(session()->has('hosting_charge')){
                 $hosting_charge = session('hosting_charge');
                 $current_price = session('soft_price');
-                $total_price = number_format($hosting_charge, 2) + number_format($current_price, 2);
+                $total_price = number_format($hosting_charge + $current_price, 2);
                 Session::put('total_price', $total_price);  
             }
         }

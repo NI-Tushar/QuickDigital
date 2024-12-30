@@ -109,6 +109,7 @@
     // sms sending to customer
     Route::get('/send-sms',[SmsController::class,'sendSms'])->name('sendSMS');
     Route::get('/send-sms',[SmsController::class,'sendSmsNewUser'])->name('sendNewUserSMS');
+    Route::get('/send-sms-software',[SmsController::class,'softwareSmsNewUser'])->name('sendSoftwareSMS');
     
     // Mail send to customer for order confirmation
     Route::get('/mailsend/{order_id}/{book_title}/{price}/{email}', [MailSendController::class, 'sendEMail'])->name('mailsend');

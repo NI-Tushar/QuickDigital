@@ -16,10 +16,10 @@ return new class extends Migration
             $table->string('title')->nullable();
             $table->string('desc')->nullable();
             $table->longText('features')->nullable();
-            $table->unsignedBigInteger('current_price')->nullable();
+            $table->unsignedBigInteger('customized_price')->nullable();
             $table->unsignedBigInteger('before_price')->nullable();
             $table->unsignedBigInteger('subsription_price')->nullable();
-            $table->unsignedBigInteger('hosting_charge')->nullable();
+            $table->unsignedBigInteger('margin')->nullable();
             $table->Integer('star_rating')->nullable();
             $table->string('poster_image')->nullable();
             $table->string('image_1')->nullable();

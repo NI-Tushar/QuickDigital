@@ -120,8 +120,8 @@
 
                                             <div class="price_section">
                                                 <div class="form-group">
-                                                    <label for="actual_price">Current Price</label>
-                                                    <input style="border-radius:5px;" type="number" id="actual_price" class="form-control round" placeholder="Enter Software Current Price" name="current_price" value="{{ old('current_price') }}">
+                                                    <label for="actual_price">Subscription Price</label>
+                                                    <input style="border-radius:5px;" type="number" id="actual_price" class="form-control round" placeholder="Enter Subscription Price" name="subscription_price" value="{{ old('subscription_price') }}">
                                                 </div>
                                                 
                                                 <div class="form-group">
@@ -130,13 +130,13 @@
                                                 </div>
 
                                                 <div class="form-group">
-                                                    <label for="actual_price">Subscription Price</label>
-                                                    <input style="border-radius:5px;" type="number" id="actual_price" class="form-control round" placeholder="Enter Software Subsription Price" name="subscription_price" value="{{ old('subscription_price') }}">
+                                                    <label for="actual_price">Customize Price</label>
+                                                    <input style="border-radius:5px;" type="number" id="actual_price" class="form-control round" placeholder="Enter Software Customized Price" name="customized_price" value="{{ old('customized_price') }}">
                                                 </div>
 
                                                 <div class="form-group">
-                                                    <label for="actual_price">Hosting Change</label>
-                                                    <input style="border-radius:5px;" type="number" id="actual_price" class="form-control round" placeholder="Enter Hosting Charge" name="hosting_charge" value="{{ old('hosting_charge') }}">
+                                                    <label for="actual_price">Margin</label>
+                                                    <input style="border-radius:5px;" type="number" id="actual_price" class="form-control round" placeholder="Enter Margin (%)" name="margin" value="{{ old('margin') }}">
                                                 </div>
                                                 
                                                 <div class="form-group">

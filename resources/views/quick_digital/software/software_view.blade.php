@@ -37,21 +37,17 @@
                                     </svg>
                                 </div>
                                 <div class="price">
-                                @if(!empty($software->current_price))
-                                    <p class="current_price">{{ $software->current_price }}<span>/BDT</span></p>
+                                @if(!empty($software->subscription_price))
+                                    <p class="current_price">{{ $software->subscription_price }}<span>/BDT per Month</span></p>
                                 @endif
                                 @if(!empty($software->before_price))
                                   <p class="before_price">{{ $software->before_price }}<span>/BDT</span></p>  
                                   @endif
-                                @if(!empty($software->subscription_price))
-                                  <p style="text-decoration:none;" class="before_price"><span>OR</span></p>
-                                  <p class="current_price">{{ $software->subscription_price }}<span>/BDT per Month</span></p>
-                                @endif
                                 </div>
                                 <div class="review">
 
                                   @php
-                                      $star_rating = $software->star_rating; // Assuming it's a number like 3
+                                      $star_rating = $software->star_rating;
                                   @endphp
 
                                   <ul>

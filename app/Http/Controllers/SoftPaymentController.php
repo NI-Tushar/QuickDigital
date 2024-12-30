@@ -89,7 +89,6 @@ class SoftPaymentController extends Controller
         $name = $request->name;
         $phone = $request->phone;
         $email = $request->email;
-        // $price;
 
         if(session()->has('subscription_price')){
             $price = session('subscription_price');
@@ -210,35 +209,46 @@ class SoftPaymentController extends Controller
                 $resObject = json_decode($res, true);
 
                 if($resObject[0]['sp_message']=="Success"){                                                                                                               
-
                     session()->forget('token');
-
                    
                     if (!Auth::guard('user')->check()) { // if not login
-                        $existing_user = User::where('email', $resObject[0]['customer_email'])->first();
+                        $existing_user = User::where('email', $resObject[0]['email'])->first();
                         if ($existing_user) { // if user is already registered
 
                             
                         }else{ // if user is not registered
                             $randomNumber = rand(1000, 9999); // generating default pass to create new user
-                            $default_pass = $email.$randomNumber;
-                            // dd($name,$phone,$email);
+                            $default_pass = $resObject[0]['email'].$randomNumber;
+             
                             $add_user= new User();
-                            $add_user->name= $resObject[0]['customer_name'];
-                            $add_user->mobile= $resObject[0]['customer_phone'];
-                            $add_user->email= $resObject[0]['customer_email'];
+                            $add_user->name= $resObject[0]['name'];
+                            $add_user->mobile= $resObject[0]['phone_no'];
+                            $add_user->email= $resObject[0]['email'];
                             $add_user->password= bcrypt($default_pass);
                             $add_user->status = 1;
-                            $add_user->save(); // save newly created user_id into session
+                            $add_user->save(); // save newly created user_id into user table
 
-                            // Call the SMS controller method
-                            // $smsController = new SmsController();
-                            // $smsSent = $smsController->sendSmsNewUser($phone, $book_title);
+                            // send sms to user/customer
+                            $smsController = new SmsController();
+                            $smsSent = $smsController->softwareSmsNewUser($resObject[0]['phone_no']);
+
+                            $user_id = $add_user->id; // getting newly created user_id
+                            if(session()->has('subscription_price')){
+                                $software_type = 'subscription';
+                            }else{
+                                $software_type = 'sell';
+                            }
 
                             $add_order= new Software_order();
                             $add_order->user_id= $user_id;
-                            $add_order->order_id= $order_id;
-                            $add_order->price= $price;
+                            $add_order->software_id= session('soft_id');
+                            $add_order->user_type= 'normal';
+                            $add_order->software_type= $software_type;
+                            $add_order->soft_price= $resObject[0]['amount'];
+                            $add_order->hosting_charge= session('hosting_charge');
+                            $add_order->subscription_price= session('subscription_price');
+                            $add_order->order_status= 'pending';
+                            $add_order->order_id= $resObject[0]['order_id'];
                             $add_order->bank_trx_id= $resObject[0]['bank_trx_id'];
                             $add_order->invoice_no= $resObject[0]['invoice_no'];
                             $add_order->transaction_status= $resObject[0]['transaction_status'];

@@ -100,7 +100,6 @@
                                             <div class="form-group">
                                                 <label for="name">Sofware Title</label>
                                                 <input style="border-radius:5px;" type="text" id="name" class="form-control round" placeholder="Enter Software Title" name="title" value="{{ $software['title'] }}" required>
-                                               
                                             </div>
 
                                             <div class="form-group">
@@ -131,9 +130,9 @@
 
                                             <div class="price_section">
                                                 <div class="form-group">
-                                                    <label for="actual_price">Current Price</label>
-                                                    <input style="border-radius:5px;" type="number" id="actual_price" class="form-control round" placeholder="Enter Software Current Price" name="current_price"
-                                                    value="{{ $software['current_price'] }}" required>
+                                                    <label for="actual_price">Subscription Price</label>
+                                                    <input style="border-radius:5px;" type="number" id="actual_price" class="form-control round" placeholder="Enter Subscripton Price" name="subscription_price"
+                                                    value="{{ $software['subscription_price'] }}" required>
                                                 </div>
                                                 
                                                 <div class="form-group">

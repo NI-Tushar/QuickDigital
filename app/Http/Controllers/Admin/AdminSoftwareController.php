@@ -62,10 +62,10 @@ class AdminSoftwareController extends Controller
             $software->title = $data['title'];
             $software->desc = $data['desc'];
             $software->features = json_encode($data['features'], JSON_UNESCAPED_UNICODE); 
-            $software->current_price = $data['current_price'];
-            $software->before_price = $data['before_price'];
             $software->subscription_price = $data['subscription_price'];
-            $software->hosting_charge = $data['hosting_charge'];
+            $software->before_price = $data['before_price'];
+            $software->customized_price = $data['customized_price'];
+            $software->margin = $data['margin'];
             $software->star_rating = $data['star_rating'];
 
             // Upload poster images
@@ -173,17 +173,17 @@ class AdminSoftwareController extends Controller
                 $data->features = $request['features'];
             }
         }        
-        if ($request->has('current_price')) {
-            $data->current_price = $request->current_price;
+        if ($request->has('subscription_price')) {
+            $data->subscription_price = $request->subscription_price;
         }
         if ($request->has('before_price')) {
             $data->before_price = $request->before_price;
         }
-        if ($request->has('subscription_price')) {
-            $data->subscription_price = $request->subscription_price;
+        if ($request->has('customized_price')) {
+            $data->customized_price = $request->customized_price;
         }
-        if ($request->has('hosting_charge')) {
-            $data->hosting_charge = $request->hosting_charge;
+        if ($request->has('margin')) {
+            $data->margin = $request->margin;
         }
         if ($request->has('star_rating')) {
             $data->star_rating = $request->star_rating;
