@@ -126,9 +126,13 @@
                                                 
                                                 <div class="form-group">
                                                     <label for="actual_price">Affiliator Commission</label>
-                                                    <input style="border-radius:5px;" type="number" id="actual_price" class="form-control round" placeholder="Enter Affiliator Commission (%)" name="margin" value="{{ old('margin') }}">
+                                                    <input style="border-radius:5px;" type="number" id="actual_price" class="form-control round" placeholder="Enter Affiliator Commission (%)" name="affiliator_commission" value="{{ old('affiliator_commission') }}">
                                                 </div>
-                                                
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="name">Demo Link</label>
+                                                <input style="border-radius:5px;" type="text" id="name" class="form-control round" placeholder="Enter Software Demo Link" name="demo_link" value="{{ old('demo_link') }}" required>
                                             </div>
 
                                             <!-- ___________________________ poster image start -->

@@ -198,6 +198,21 @@
                     </li>
                 </ul>
             </li>
+            <!-- ____________________ DIGITAL PRODUCT -->
+            @php
+              $active = Session::get('page') == 'digitalProduct' ? 'active' : '';
+              @endphp
+            <li class="nav-item {{ $active }}"><a href="#"><i class="feather icon-file"></i><span class="menu-title" data-i18n="Users">Digital Product</span></a>
+                <ul class="menu-content">
+                    <li>
+                        <a class="menu-item" href="{{ route('digProduct.add') }}" data-i18n="Vertical">Add Digital Product</a>
+                    </li>
+                    <li>
+                        <a class="menu-item" href="{{ route('digProduct.list') }}" data-i18n="Vertical">Digital Product List</a>
+                    </li>
+                </ul>
+            </li>
+
             {{-- Digital Service --}}
             @php
               $active = Session::get('page') == 'DigitalService' ? 'active' : '';

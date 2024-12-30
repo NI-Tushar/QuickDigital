@@ -25,11 +25,11 @@
                   @foreach ($softwares as $software)
                   <div class="soft_list">
                       <div class="img_sec">
-                          <img src="{{ $software->poster_image ? asset($software->poster_image) : asset('no_image2.jpg') }}" alt="">
+                          <img src="{{ $software->thumbnail ? asset($software->thumbnail) : asset('no_image2.jpg') }}" alt="">
                       </div>
                       <div class="desc_sec">
                           <p class="sof_name">{{ $software->title }}</p>
-                          <p class="desc">{{ $software->desc }}</p>
+                          <p class="desc">{{ $software->description }}</p>
                           <ul>
                               @php
                                   $software->features = json_decode($software->features, true);
@@ -47,12 +47,11 @@
                                       </svg>
                                   </div>
                                   <div class="price">
-                                      <p class="current_price">{{ $software->current_price }}<span>/BDT</span></p>
-                                      <p class="before_price">{{ $software->before_price }}<span>/BDT</span></p>
+                                      <p class="current_price">{{ $software->price }}<span>/BDT</span></p>
                                   </div>
                                   <div class="review">
 
-                                    @php
+                                    <!-- @php
                                         $star_rating = $software->star_rating; // Assuming it's a number like 3
                                     @endphp
 
@@ -69,13 +68,13 @@
                                               </svg>
                                           </li>
                                         @endif
-                                    @endfor
+                                    @endfor -->
 
                                   </ul>
                               </div>
                               <div class="buttons">
-                                  <button onclick="showPreview('{{ asset($software->image_1) }}', '{{ asset($software->image_2) }}', '{{ asset($software->image_3) }}')">Preview</button>
-                                  <button onclick="showDetails('{{ $software->id }}', '{{ $software->title }}', '{{ $software->current_price }}', '{{ $software->subscription_price }}')" class="active">Buy</button>
+                                  <button>Preview</button>
+                                  <button onclick="showDetails('{{ $software->id }}', '{{ $software->title }}', '{{ $software->price }}')" class="active">Buy</button>
                               </div>
                           </div>
                       </div>
@@ -102,10 +101,6 @@
           <div class="list">
               <label for="">Software Title:</label> 
               <p id="title"></p>
-          </div>
-          <div class="list">
-            <label for="">Sell Price:</label>
-            <p id="sellPrice"></p>
           </div>
           <div class="list">
             <label for="">Subscription Price:</label>
@@ -154,12 +149,11 @@
 </script>
 
 <script>
-  function showDetails(soft_id,title,current_price,subscription_price){
+  function showDetails(soft_id,title,subscription_price){
     var centered_popup_section = document.getElementById("showDetails");
     // console.log(id,title,current_price,subscription_price);
     document.getElementById("soft_id").value = soft_id;
     document.getElementById("title").innerText = title;
-    document.getElementById("sellPrice").innerText = current_price;
     document.getElementById("subsPrice").innerText = subscription_price;
 
     centered_popup_section.classList.add("open");

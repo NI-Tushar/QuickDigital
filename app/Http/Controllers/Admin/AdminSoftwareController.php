@@ -21,21 +21,21 @@ class AdminSoftwareController extends Controller
             $data = $request->all();
             $request->validate([
                 'title' => 'required|max:100',
-                'desc' => 'max:200',
+                'description' => 'max:200',
                 'features' => 'array',
-                'poster_image' => 'image|max:2048',
+                'thumbnail' => 'image|max:2048',
             ]);
 
             $rules = [
                 'title' => 'required|max:100',
-                'desc' => 'max:200',
+                'description' => 'max:200',
                 'features' => 'array',
-                'poster_image' => 'image|max:2048',
+                'thumbnail' => 'image|max:2048',
             ];
     
             $customMessages = [
                 'title.required' => 'Enter Software Title',
-                'desc.required' => 'Enter Software Description',
+                'description.required' => 'Enter Software descriptionription',
                 'features.array' => 'Enter Software Features',
             ];
     
@@ -60,17 +60,15 @@ class AdminSoftwareController extends Controller
             $software = new Software();
 
             $software->title = $data['title'];
-            $software->desc = $data['desc'];
+            $software->description = $data['description'];
             $software->features = json_encode($data['features'], JSON_UNESCAPED_UNICODE); 
-            $software->subscription_price = $data['subscription_price'];
-            $software->before_price = $data['before_price'];
-            $software->customized_price = $data['customized_price'];
-            $software->margin = $data['margin'];
-            $software->star_rating = $data['star_rating'];
+            $software->price = $data['price'];
+            $software->affiliator_commission = $data['affiliator_commission'];
+            $software->demo_link = $data['demo_link'];
 
             // Upload poster images
-              if ($request->hasFile('poster_image')) {
-                $image_tmp = $request->file('poster_image');
+              if ($request->hasFile('thumbnail')) {
+                $image_tmp = $request->file('thumbnail');
                 if ($image_tmp->isValid()) {
                     // Get image extension
                     $extension = $image_tmp->getClientOriginalExtension();
@@ -80,7 +78,7 @@ class AdminSoftwareController extends Controller
                     $image_path = 'admin/images/software_images/' . $image_name;
                     Image::make($image_tmp)->save($image_path);
                     // storing imagepath with name in data table
-                    $software->poster_image = $image_path;
+                    $software->thumbnail = $image_path;
                 }
             }
 
@@ -123,9 +121,9 @@ class AdminSoftwareController extends Controller
         
         $request->validate([
             'title' => 'required|max:100',
-            'desc' => 'max:200',
+            'description' => 'max:200',
             'features' => 'array',
-            'poster_image' => 'image|max:2048',
+            'thumbnail' => 'image|max:2048',
             'image_1' => 'image|max:2048',
             'image_2' => 'image|max:2048',
             'image_3' => 'image|max:2048',
@@ -133,9 +131,9 @@ class AdminSoftwareController extends Controller
 
         $rules = [
             'title' => 'required|max:100',
-            'desc' => 'max:200',
+            'description' => 'max:200',
             'features' => 'array',
-            'poster_image' => 'image|max:2048',
+            'thumbnail' => 'image|max:2048',
         ];
 
         $customMessages = [
@@ -160,8 +158,8 @@ class AdminSoftwareController extends Controller
         if ($request->has('title')) {
             $data->title = $request->title;
         }
-        if ($request->has('desc')) {
-            $data->desc = $request->desc;
+        if ($request->has('description')) {
+            $data->description = $request->description;
         }
         if ($request->has('features')) {
             // Check if features are already encoded
@@ -173,25 +171,21 @@ class AdminSoftwareController extends Controller
                 $data->features = $request['features'];
             }
         }        
-        if ($request->has('subscription_price')) {
-            $data->subscription_price = $request->subscription_price;
+        if ($request->has('price')) {
+            $data->price = $request->price;
         }
-        if ($request->has('before_price')) {
-            $data->before_price = $request->before_price;
+        if ($request->has('affiliator_commission')) {
+            $data->affiliator_commission = $request->affiliator_commission;
         }
-        if ($request->has('customized_price')) {
-            $data->customized_price = $request->customized_price;
-        }
-        if ($request->has('margin')) {
-            $data->margin = $request->margin;
-        }
-        if ($request->has('star_rating')) {
-            $data->star_rating = $request->star_rating;
+        if ($request->has('demo_link')) {
+            $data->demo_link = $request->demo_link;
         }
         
+
+        
         // Upload poster images
-        if ($request->hasFile('poster_image')) {
-            $image_tmp = $request->file('poster_image');
+        if ($request->hasFile('thumbnail')) {
+            $image_tmp = $request->file('thumbnail');
             if ($image_tmp->isValid()) {
                 // Get image extension
                 $extension = $image_tmp->getClientOriginalExtension();
@@ -201,7 +195,7 @@ class AdminSoftwareController extends Controller
                 $image_path = 'admin/images/software_images/' . $image_name;
                 Image::make($image_tmp)->save($image_path);
                 // storing imagepath with name in data table
-                $data->poster_image = $image_path;
+                $data->thumbnail = $image_path;
             }
         }
         
