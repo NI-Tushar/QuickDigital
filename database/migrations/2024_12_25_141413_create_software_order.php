@@ -21,6 +21,12 @@ return new class extends Migration
             $table->unsignedBigInteger('hosting_charge')->nullable();
             $table->unsignedBigInteger('subscription_price')->nullable();
             $table->enum('order_status', ['pending', 'in_progress', 'complete'])->nullable();
+            $table->text('order_id')->nullable();
+            $table->text('bank_trx_id')->nullable();
+            $table->text('invoice_no')->nullable();
+            $table->text('transaction_status')->nullable();
+            $table->string('method',20)->nullable();
+            $table->string('sp_message',20)->nullable();
             $table->timestamps();
         });
     }

@@ -10,7 +10,9 @@
         <div class="row">
             <div class="col-75">
             <div class="container">
-                <form action="/action_page.php">
+
+                <form action="{{ route('softwarePayment') }}" method="POST">
+                    @csrf
                     
                     <div class="row">
                         <div class="col-50">
@@ -20,23 +22,28 @@
                             $user = Auth::guard('user')->user();
                             @endphp
                                 <label for="fname"><i class="fa fa-user"></i> আপনার নামঃ</label>
-                                <input type="text" id="fname" name="firstname" value="{{ $user->name }}" readonly required>
+                                <input type="text" id="fname" name="name" value="{{ $user->name }}" readonly required>
                                 <label for="email"><i class="fa fa-envelope"></i> ই-মেইলঃ</label>
                                 <input type="email" id="email" name="email" value="{{ $user->email }}" readonly required>
                                 <label for="email"><i class="fa fa-envelope"></i> মোবাইল নম্বরঃ</label>
                                 <input type="number" id="email" name="phone" value="{{ $user->mobile }}" readonly required>
                             @else
                                 <label for="fname"><i class="fa fa-user"></i> আপনার নামঃ</label>
-                                <input type="text" id="fname" name="firstname" placeholder="আপনার নাম লিখুন" required>
+                                <p style="color:red;text-align:left;width:100%;padding:0;margin:0;">@error('name'){{$message}}@enderror</p>
+                                <input type="text" id="fname" name="name" placeholder="আপনার নাম লিখুন" value="{{old('name')}}" required>
+                                
                                 <label for="email"><i class="fa fa-envelope"></i> ই-মেইলঃ</label>
-                                <input type="email" id="email" name="email" placeholder="ই-মেইল লিখুন" required>
+                                <p style="color:red;text-align:left;width:100%;padding:0;margin:0;">@error('email'){{$message}}@enderror</p>
+                                <input type="email" id="email" name="email" placeholder="ই-মেইল লিখুন" value="{{old('email')}}" required>
+
                                 <label for="email"><i class="fa fa-envelope"></i> মোবাইল নম্বরঃ</label>
-                                <input type="number" id="email" name="phone" placeholder="মোবাইল নাম্বার দিন" required>
+                                <p style="color:red;text-align:left;width:100%;padding:0;margin:0;">@error('phone'){{$message}}@enderror</p>
+                                <input type="number" id="email" name="phone" placeholder="মোবাইল নাম্বার দিন" value="{{old('phone')}}" required>
                             @endif
                             <!-- <label for="adr"><i class="fa-solid fa-message"></i> Message</label>
                             <textarea name="" id="" cols="30" rows="5" placeholder="Optional"></textarea> -->
                             <label>
-                                <input id="paid" type="checkbox" name="" required> আমি ওয়েবসাইটের শর্তগুলো পড়েছি এবং এতে সম্মতি দিয়েছি <a href="">শর্তাবলী</a>, 
+                                <input id="paid" type="checkbox" name="is_checked" required> আমি ওয়েবসাইটের শর্তগুলো পড়েছি এবং এতে সম্মতি দিয়েছি <a href="">শর্তাবলী</a>, 
                                 <a href="">গোপনীয়তা নীতি</a> এবং <a href="">রিফান্ড নীতি</a>.
                             </label>
                         </div>

@@ -53,17 +53,13 @@ class HomeController extends Controller
 
     // ____________________STATIC BOOK PAGE VIEW END
 
-
-
     //new one individual ebook
     public function individual_ebook($id)
     {
         $ebook = Ebook::findOrFail($id);
         $ebooks = Ebook::all();
-
         return view('quick_digital.ebook_single')->with(compact('ebook', 'ebooks'));
     }
-
 
     // DIRECT TO CHECKOUT PAGE
     public function ebook_checkout($id)
@@ -71,6 +67,7 @@ class HomeController extends Controller
         $book = Ebook::findOrFail($id);
         return view('quick_digital.ebook_checkout')->with(compact('book'));
     }
+
     // ALL CHECKOUT
     public function all_checkout()
     {
@@ -84,7 +81,6 @@ class HomeController extends Controller
                 Session::put('total_price', $total_price);  
             }
         }
-
         return view('quick_digital.checkout.all_checkout');
     }
 

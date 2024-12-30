@@ -41,7 +41,7 @@
                                     <p class="current_price">{{ $software->current_price }}<span>/BDT</span></p>
                                 @endif
                                 @if(!empty($software->before_price))
-                                  <p class="before_price">{{ $software->before_price }}<span>/BDT</span></p>
+                                  <p class="before_price">{{ $software->before_price }}<span>/BDT</span></p>  
                                   @endif
                                 @if(!empty($software->subscription_price))
                                   <p style="text-decoration:none;" class="before_price"><span>OR</span></p>
