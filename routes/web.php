@@ -6,6 +6,7 @@
     use App\Http\Controllers\DigitalProductController;
     use App\Http\Controllers\CartController;
     use App\Http\Controllers\PaymentController;
+    use App\Http\Controllers\SoftPaymentController;
     use App\Http\Controllers\Front\HomeController;
     use App\Http\Controllers\PDFController;
     use App\Http\Controllers\CheckoutController;
@@ -237,7 +238,7 @@
 
          // CHECKOUT
         Route::get('/your_book/{id?}', 'HomeController@ebook_checkout'); // REDIRECT TO CHECKOUT | SKIPPING BOOK VIEW PAGE
-        Route::get('/checkout', 'HomeController@all_checkout'); // ALL CHECKOUT PAGE
+        Route::get('/checkout', 'HomeController@all_checkout')->name('checkout'); // SOFTWARE CHECKOUT PAGE
 
         // Route::get('ebook-checkout', 'HomeController@ebook_checkout');
         Route::get('mobile-video-checkout', 'HomeController@mobile_video_checkout');
@@ -292,12 +293,16 @@
     //ebook
     Route::get('/carts/{id}', [CartController::class, 'create'])->name('cart.create');
 
-    // Payment routes
+    // ___________________Payment routes
+    // For Books
     Route::post('/payment', [PaymentController::class, 'payment'])->name('initiate_payment');
     Route::get('/success', [PaymentController::class, 'success'])->name('payment.success');
     Route::get('/cancel', [PaymentController::class, 'cancel'])->name('payment.cancel');
     Route::get('/successful/{order_id}/{book_id}/{book_title}/{price}/{email}',[PaymentController::class, 'successPay'])->name('successPay');
-
+    // For Software
+    Route::post('/payment', [SoftPaymentController::class, 'softwarePayment'])->name('softwarePayment');
+    Route::get('/success', [SoftPaymentController::class, 'success'])->name('softPay.success');
+    Route::get('/cancel', [SoftPaymentController::class, 'cancel'])->name('softPay.cancel');
 
 
     // test pay pruduct
@@ -305,7 +310,6 @@
         return view('quick_digital.static_product_page.test_product_pay');
     });
     Route::get('/test_pay',[HomeController::class, 'testPay']);
-
 
 
 

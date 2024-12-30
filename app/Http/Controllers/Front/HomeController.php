@@ -53,17 +53,13 @@ class HomeController extends Controller
 
     // ____________________STATIC BOOK PAGE VIEW END
 
-
-
     //new one individual ebook
     public function individual_ebook($id)
     {
         $ebook = Ebook::findOrFail($id);
         $ebooks = Ebook::all();
-
         return view('quick_digital.ebook_single')->with(compact('ebook', 'ebooks'));
     }
-
 
     // DIRECT TO CHECKOUT PAGE
     public function ebook_checkout($id)
@@ -71,12 +67,21 @@ class HomeController extends Controller
         $book = Ebook::findOrFail($id);
         return view('quick_digital.ebook_checkout')->with(compact('book'));
     }
+
     // ALL CHECKOUT
     public function all_checkout()
     {
-        // $book = Ebook::findOrFail($id);
+        if(session()->has('subscription_price')){
+            session()->forget('total_price');
+        }else{   
+            if(session()->has('hosting_charge')){
+                $hosting_charge = session('hosting_charge');
+                $current_price = session('soft_price');
+                $total_price = number_format($hosting_charge, 2) + number_format($current_price, 2);
+                Session::put('total_price', $total_price);  
+            }
+        }
         return view('quick_digital.checkout.all_checkout');
-        // return view('quick_digital.all_checkout')->with(compact('book'));
     }
 
     // DIRECT TO CHECKOUT PAGE FOR TEST PAY

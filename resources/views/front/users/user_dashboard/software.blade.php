@@ -1,4 +1,3 @@
-
 @extends('quick_digital.layout.layout')
 @extends('front.users.user_dashboard.sidebar')
 
@@ -76,7 +75,7 @@
                               </div>
                               <div class="buttons">
                                   <button onclick="showPreview('{{ asset($software->image_1) }}', '{{ asset($software->image_2) }}', '{{ asset($software->image_3) }}')">Preview</button>
-                                  <a href="{{ url('/quick-digital/contact-us') }}"><button class="active">Buy</button></a>
+                                  <button onclick="showDetails('{{ $software->id }}', '{{ $software->title }}', '{{ $software->current_price }}', '{{ $software->subscription_price }}')" class="active">Buy</button>
                               </div>
                           </div>
                       </div>
@@ -87,6 +86,90 @@
           </div>
     </div>
 </div>
+
+
+
+<!-- ______________________________ pop up show onlick by start -->
+<div id="showDetails" class="buy_popup_section">
+  <div class="centered_popup_section">
+    <div onclick="closeDetails()" class="btn-close"></div>
+    <div class="clear"></div>
+    <div class="content">
+      <form id="formAction" action="{{ route('software.order') }}" method="POST">
+        @csrf
+        <input id="soft_id" type="hidden" name="soft_id" value="">
+        <div class="details_box">
+          <div class="list">
+              <label for="">Software Title:</label> 
+              <p id="title"></p>
+          </div>
+          <div class="list">
+            <label for="">Sell Price:</label>
+            <p id="sellPrice"></p>
+          </div>
+          <div class="list">
+            <label for="">Subscription Price:</label>
+            <p id="subsPrice"></p>
+          </div>
+          <div class="list">
+            <label for="">Select Option:</label>
+            <select name="software_type" id="options" required>
+              <option selected value=""></option>
+              <option value="buy">Go to Customization Charge</option>
+              <option value="subscription">Go to Subscription</option>
+            </select>
+          </div>
+
+          <div id="checkboxContainer" style="display: none; margin-top: 5px;">
+            <input type="checkbox" id="buyCheckbox" name="hosting">
+            <span for="buyCheckbox">With Hosting?</span>
+          </div>
+
+          <div class="button_section">
+              <input type="submit" value="Order Now">
+          </div>
+
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- ______________________________ pop up show onlick by end -->
+
+          
+<script>
+  // Get the dropdown and checkbox container elements
+  const selectElement = document.getElementById("options");
+  const checkboxContainer = document.getElementById("checkboxContainer");
+
+  // Add event listener for change event
+  selectElement.addEventListener("change", function () {
+    if (selectElement.value === "buy") {
+      checkboxContainer.style.display = "block"; // Show checkbox
+    } else {
+      checkboxContainer.style.display = "none"; // Hide checkbox
+    }
+  });
+</script>
+
+<script>
+  function showDetails(soft_id,title,current_price,subscription_price){
+    var centered_popup_section = document.getElementById("showDetails");
+    // console.log(id,title,current_price,subscription_price);
+    document.getElementById("soft_id").value = soft_id;
+    document.getElementById("title").innerText = title;
+    document.getElementById("sellPrice").innerText = current_price;
+    document.getElementById("subsPrice").innerText = subscription_price;
+
+    centered_popup_section.classList.add("open");
+  }
+  function closeDetails(){
+    var centered_popup_section = document.getElementById("showDetails");
+    centered_popup_section.classList.remove("open");
+  }
+</script>
+<!-- ______________________________ pop up show onlick by end -->
 
 
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">

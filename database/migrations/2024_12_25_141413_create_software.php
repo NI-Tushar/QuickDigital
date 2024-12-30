@@ -19,6 +19,7 @@ return new class extends Migration
             $table->unsignedBigInteger('current_price')->nullable();
             $table->unsignedBigInteger('before_price')->nullable();
             $table->unsignedBigInteger('subsription_price')->nullable();
+            $table->unsignedBigInteger('hosting_charge')->nullable();
             $table->Integer('star_rating')->nullable();
             $table->string('poster_image')->nullable();
             $table->string('image_1')->nullable();

@@ -41,11 +41,11 @@
                                     <p class="current_price">{{ $software->current_price }}<span>/BDT</span></p>
                                 @endif
                                 @if(!empty($software->before_price))
-                                  <p class="before_price">{{ $software->before_price }}<span>/BDT</span></p>
+                                  <p class="before_price">{{ $software->before_price }}<span>/BDT</span></p>  
                                   @endif
-                                @if(!empty($software->subsription_price))
+                                @if(!empty($software->subscription_price))
                                   <p style="text-decoration:none;" class="before_price"><span>OR</span></p>
-                                  <p class="current_price">{{ $software->subsription_price }}<span>/BDT per Month</span></p>
+                                  <p class="current_price">{{ $software->subscription_price }}<span>/BDT per Month</span></p>
                                 @endif
                                 </div>
                                 <div class="review">
@@ -73,7 +73,7 @@
                             </div>
                             <div class="buttons">
                                 <button onclick="showPreview('{{ asset($software->image_1) }}', '{{ asset($software->image_2) }}', '{{ asset($software->image_3) }}')">Preview</button>
-                                <button onclick="showDetails('{{ $software->id }}', '{{ $software->title }}', '{{ $software->current_price }}', '{{ $software->subsription_price }}')" class="active">Buy</button>
+                                <button onclick="showDetails('{{ $software->id }}', '{{ $software->title }}', '{{ $software->current_price }}', '{{ $software->subscription_price }}')" class="active">Buy</button>
                             </div>
                         </div>
                     </div>
@@ -87,13 +87,14 @@
 
 
 <!-- ______________________________ pop up show onlick by start -->
-<div id="showDetails" class="modal-wrapper open">
-  <div class="modal">
+<div id="showDetails" class="buy_popup_section">
+  <div class="centered_popup_section">
     <div onclick="closeDetails()" class="btn-close"></div>
     <div class="clear"></div>
     <div class="content">
-      <form action="">
-        <input type="hidden" name="software_id">
+      <form id="formAction" action="{{ route('software.order') }}" method="POST">
+        @csrf
+        <input id="soft_id" type="hidden" name="soft_id" value="">
         <div class="details_box">
           <div class="list">
               <label for="">Software Title:</label> 
@@ -109,38 +110,21 @@
           </div>
           <div class="list">
             <label for="">Select Option:</label>
-            <select name="" id="options">
+            <select name="software_type" id="options" required>
               <option selected value=""></option>
-              <option value="buy">Go to Buy</option>
+              <option value="buy">Go to Customization Charge</option>
               <option value="subscription">Go to Subscription</option>
             </select>
           </div>
 
           <div id="checkboxContainer" style="display: none; margin-top: 5px;">
-            <input type="checkbox" id="buyCheckbox" name="buyCheckbox">
+            <input type="checkbox" id="buyCheckbox" name="hosting">
             <span for="buyCheckbox">With Hosting?</span>
           </div>
-
 
           <div class="button_section">
               <input type="submit" value="Order Now">
           </div>
-
-          
-          <script>
-            // Get the dropdown and checkbox container elements
-            const selectElement = document.getElementById("options");
-            const checkboxContainer = document.getElementById("checkboxContainer");
-
-            // Add event listener for change event
-            selectElement.addEventListener("change", function () {
-              if (selectElement.value === "buy") {
-                checkboxContainer.style.display = "block"; // Show checkbox
-              } else {
-                checkboxContainer.style.display = "none"; // Hide checkbox
-              }
-            });
-          </script>
 
         </div>
       </form>
@@ -148,14 +132,33 @@
   </div>
 </div>
 
+<!-- ______________________________ pop up show onlick by end -->
+
+          
 <script>
-  function showDetails(id,title,current_price,subsription_price){
+  // Get the dropdown and checkbox container elements
+  const selectElement = document.getElementById("options");
+  const checkboxContainer = document.getElementById("checkboxContainer");
+
+  // Add event listener for change event
+  selectElement.addEventListener("change", function () {
+    if (selectElement.value === "buy") {
+      checkboxContainer.style.display = "block"; // Show checkbox
+    } else {
+      checkboxContainer.style.display = "none"; // Hide checkbox
+    }
+  });
+</script>
+
+<script>
+  function showDetails(soft_id,title,current_price,subscription_price){
     var modal = document.getElementById("showDetails");
-    console.log(id,title,current_price,subsription_price);
-    // document.getElementById("id").value = id_filed;
+    // console.log(id,title,current_price,subscription_price);
+    document.getElementById("soft_id").value = soft_id;
     document.getElementById("title").innerText = title;
     document.getElementById("sellPrice").innerText = current_price;
-    document.getElementById("subsPrice").innerText = subsription_price;
+    document.getElementById("subsPrice").innerText = subscription_price;
+
     modal.classList.add("open");
   }
   function closeDetails(){
