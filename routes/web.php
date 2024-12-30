@@ -86,6 +86,10 @@
             Route::match(['get', 'post'], 'add-edit-product/{id?}', 'QuickShopController@add_edit_product');
             Route::get('delete-product/{id?}', 'QuickShopController@destroyProduct');
 
+            // Digital Sercice
+            Route::get('/digital-service', [DigitalServiceController::class, 'getAllOrder'])->name('admin.digialservice.index');
+            Route::delete('/digital-service/{digitalService}', [DigitalServiceController::class, 'destroy'])->name('admin.digialservice.destroy');
+
             // Software All Route Here
             Route::match(['get', 'post'], 'add_software', 'AdminSoftwareController@add_store_software')->name('software.add');
             Route::get('software-list', 'AdminSoftwareController@software_list')->name('software.list');
@@ -198,6 +202,7 @@
         // Digital Sercice
         Route::get('/digital-service', [DigitalServiceController::class, 'index'])->name('digialservice.index');
         Route::get('/digital-service/create', [DigitalServiceController::class, 'create'])->name('digialservice.create');
+        Route::get('/digital-service/{digitalService}/show', [DigitalServiceController::class, 'show'])->name('digialservice.show');
         Route::post('/digital-service', [DigitalServiceController::class, 'store'])->name('digialservice.store');
 
     });

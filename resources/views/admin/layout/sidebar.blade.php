@@ -198,6 +198,17 @@
                     </li>
                 </ul>
             </li>
+            {{-- Digital Service --}}
+            @php
+              $active = Session::get('page') == 'DigitalService' ? 'active' : '';
+              @endphp
+            <li class="nav-item {{ $active }}"><a href="#"><i class="feather icon-file"></i><span class="menu-title" data-i18n="Users">Digital Services</span></a>
+                <ul class="menu-content">
+                    <li>
+                        <a class="menu-item" href="{{ route('admin.digialservice.index') }}" data-i18n="Vertical">Orders</a>
+                    </li>
+                </ul>
+            </li>
 
             @php
             $active = Session::get('page') == 'productCategory'||Session::get('page') == 'order_product'||Session::get('page') == 'products'||Session::get('page') == 'add-edit-product' || Session::get('page') == 'add-edit-category' ? 'active' : '';

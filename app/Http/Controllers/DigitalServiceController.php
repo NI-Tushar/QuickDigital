@@ -8,6 +8,11 @@ use Illuminate\Support\Facades\Auth;
 
 class DigitalServiceController extends Controller
 {
+    public function getAllOrder()
+    {
+        $orders = DigitalService::latest()->paginate(10);
+        return view('admin.digital_service.index', compact('orders'));
+    }
     public function index()
     {
         $orders = DigitalService::where('user_id', Auth::guard('user')->user()->id)->latest()->paginate(10);
@@ -47,5 +52,17 @@ class DigitalServiceController extends Controller
         $order->save();
 
         return redirect()->back()->with('success', 'আপনার রিকোয়েস্ট সফলভাবে সাবমিট হয়েছে!');
+    }
+
+    public function show($id)
+    {
+        $digitalService = DigitalService::with(['user'])->find($id);
+        return response()->json($digitalService);
+    }
+
+    public function destroy(DigitalService $digitalService)
+    {
+        $digitalService->delete();
+        return redirect()->back()->with('success', 'Delete Record successfully!');
     }
 }

@@ -102,6 +102,9 @@
                                 <span class="text-danger bold">{{ $message }}</span>
                             @enderror
                         </div>
+                        {{-- <div class="form-group mb-2">
+                            <a href="">Terms & Conditions</a>
+                        </div> --}}
                         <div class="form-group mb-2">
                             <button type="submit" class="btn btn-primary">Place Order</button>
                         </div>

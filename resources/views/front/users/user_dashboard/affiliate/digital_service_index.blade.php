@@ -48,7 +48,7 @@
                         </thead>
                         <tbody>
                             @foreach ($orders as $order)
-                                <tr>
+                                <tr style="cursor: pointer" class="showOrderData" data-toggle="modal" data-target="#orderViewModla" data-id="{{ $order->id }}">
                                     <td>{{ $loop->index + 1 }}</td>
                                     <td>{{ $order->created_at->format('F j, Y') }}</td>
                                     <td>{{ $order->order_number }}</td>
@@ -66,6 +66,69 @@
               </div>
           </div>
 
+    </div>
+</div>
+
+
+<!-- Order View Modal -->
+<div class="modal fade" id="orderViewModla" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="">
+                    <h4 class="modal-title" id="myLargeModalLabel">View Details - <span id="creator_name"></span></h4>
+                    <span id="insert_date" style="display: block"></span>
+                </div>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body dark-modal">
+                <div class="card">
+                    <div class="card-body">
+                        <table class="table table-bordered">
+                            <tr>
+                                <th style="text-transform: uppercase; width:200px">Fill Name</th>
+                                <td id="name">N/A</td>
+                                <th style="text-transform: uppercase; width:200px">Contact Number</th>
+                                <td id="phone">N/A</td>
+                            </tr>
+                            <tr>
+                                <th style="text-transform: uppercase; width:200px">Gender</th>
+                                <td id="gender">N/A</td>
+                                <th style="text-transform: uppercase; width:200px">Email Address</th>
+                                <td id="email">N/A</td>
+                            </tr>
+                            <tr>
+                                <th style="text-transform: uppercase; width:200px">Profession</th>
+                                <td id="profession">N/A</td>
+                                <th style="text-transform: uppercase; width:200px">Division</th>
+                                <td id="division">N/A</td>
+                            </tr>
+                            <tr>
+                                <th style="text-transform: uppercase; width:200px">Institute</th>
+                                <td id="institute">N/A</td>
+                                <th style="text-transform: uppercase; width:200px">District</th>
+                                <td id="district">N/A</td>
+                            </tr>
+                            <tr>
+                                <th style="text-transform: uppercase; width:200px">Interests</th>
+                                <td id="interests" colspan="3">N/A</td>
+                            </tr>
+                            <tr>
+                                <th style="text-transform: uppercase; width:200px">Full Address</th>
+                                <td id="address" colspan="3">N/A</td>
+                            </tr>
+                        </table>
+
+                        <div class="card p2">
+                            <button class="btn btn-success" id="convertAffiliator" data-id="">Convert to Affiliator </button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 
@@ -244,6 +307,56 @@
             theme: 'bootstrap-5',
             'placeholder': 'Select Your Services'
         } );
+
+        // Show Order data
+        // $('.showOrderData').click(function(event) {
+
+        //     var orderId = $(this).data("id"); // Retrieve the data-id
+
+        //     $.ajax({
+        //         url: '/affiliate/digital-service/' + orderId + '/show',
+        //         type: 'GET',
+        //         dataType: 'json',
+        //         success: function(res) {
+        //             //Populate Organization Information
+        //             $('#creator_name').text(res.name || 'N/A');
+        //                 const date = new Date(res.created_at);
+        //                 const formattedDate = date.toLocaleDateString('en-US', {
+        //                     weekday: 'long',
+        //                     year: 'numeric',
+        //                     month: 'long',
+        //                     day: 'numeric'
+        //                 });
+        //             $('#insert_date').text(formattedDate)
+        //             $('#name').text(res.name || 'N/A');
+        //             $('#email').text(res.email || 'N/A');
+        //             $('#phone').text(res.phone || 'N/A');
+        //             $('#profession').text(res.profession || 'N/A');
+        //             $('#institute').text(res.institute  || 'N/A');
+        //             $('#gender').text(res.gender  || 'N/A');
+
+        //             let interests = res.interests ? JSON.parse(res.interests) : [];
+        //             if (interests.length > 0) {
+        //                 let badges = interests.map(interest => `<span class="badge bg-primary me-1">${interest}</span>`).join('');
+        //                 $('#interests').html(badges);
+        //             } else {
+        //                 $('#interests').text('N/A');
+        //             }
+
+        //             $('#division').text(res.division  || 'N/A');
+        //             $('#district').text(res.district  || 'N/A');
+        //             $('#address').text(res.address  || 'N/A');
+        //             $('#convertAffiliator').data('id', res.id || 'N/A'); // Updates the jQuery data cache
+
+        //             // Show the modal
+        //             const modal = new bootstrap.Modal(document.getElementById('bootcampViewModla'));
+        //             modal.show();
+        //         },
+        //         error: function(xhr, status, error) {
+        //             console.error(xhr.responseText);
+        //         }
+        //     });
+        // });
 
     </script>
 
