@@ -230,11 +230,11 @@
                                         {{-- <th></th> --}}
                                         <td><b>Sub Total:</b> {{ $order->sub_total }}</td>
                                     </tr>
-                                    <tr>
+                                    <tr style="display: none">
                                         {{-- <th> </th> --}}
                                         <td><b>Discount:</b> {{ $order->discount }}</td>
                                     </tr>
-                                    <tr>
+                                    <tr style="display: none">
                                         {{-- <th> </th> --}}
                                         <td><b>Adjustment:</b> {{ $order->adjustment }}</td>
                                     </tr>

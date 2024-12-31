@@ -178,7 +178,7 @@
                                                     <input type="hidden" name="sub_total" value="0.00">
                                                 </td>
                                             </tr>
-                                            <tr id="discount_area">
+                                            <tr id="discount_area" style="display: none">
                                                 <td>
                                                     <div class="row">
                                                         <div class="col-md-7">
@@ -205,7 +205,7 @@
                                                 </td>
                                                 <td class="discount-total">-$0.00</td>
                                             </tr>
-                                            <tr>
+                                            <tr style="display: none">
                                                 <td>
                                                     <div class="row">
                                                         <div class="col-md-7">
@@ -477,67 +477,6 @@
                         formData.append(name, $(this).val());
                     });
                 });
-
-                // $.ajax({
-                //     url: $(this).attr('action'),
-                //     method: 'POST',
-                //     data: formData,
-                //     processData: false,
-                //     contentType: false,
-                //     success: function(response) {
-                //         // toastr.success('Proposal saved successfully');
-                //         Swal.fire({
-                //             icon: 'success',
-                //             title: 'Success',
-                //             text: 'Order saved successfully',
-                //             confirmButtonText: 'OK',
-                //         });
-
-                //         // Reset the entire form including all fields
-                //         $('#proposalForm')[0].reset();
-
-                //         // Clear the rows in the items table except the main row
-                //         $('#items-table tr').not('.main').remove();
-
-                //         // Reset the main row
-                //         resetMainRow();
-
-                //         // Optionally, reset specific additional fields if needed
-                //         $('select[name="service_type"]').val('').change();
-                //         $('select[name="software"]').val('').change();
-                //         $('select[name="digitalService"]').val('').change();
-                //         $('select[name="digitalProduct"]').val('').change();
-                //         $('input[name="start_date"]').val('');
-                //         $('input[name="end_date"]').val('');
-                //         $('select[name="sale_items"]').val('').change();
-
-                //         // Ensure all <select> options are unselected
-                //         $('select').each(function() {
-                //             $(this).val('');
-                //         });
-
-
-
-
-                //         // Optionally, recalculate totals
-                //         calculateTotal();
-
-                //         // Redirect using the URL from the server
-                //         window.location.href = response.redirect_url;
-
-                //     },
-                //     error: function(response) {
-                //         // toastr.error('Error saving proposal');
-                //         Swal.fire({
-                //             icon: 'error',
-                //             title: 'Oops...',
-                //             text: 'Error saving Order',
-                //             confirmButtonText: 'OK',
-                //             // timer: 3000, // Alert closes automatically after 3 seconds
-                //         });
-
-                //     }
-                // });
 
 
                 $.ajax({
