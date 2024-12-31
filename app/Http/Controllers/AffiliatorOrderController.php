@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\AffiliatorOrder;
+use App\Models\AffiliatorOrderItem;
+use App\Models\DigitalProduct;
+use App\Models\DigitalService;
+use App\Models\Software;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -17,74 +21,132 @@ class AffiliatorOrderController extends Controller
     public function create()
     {
         $data = [];
-
+        $data['softwares'] = Software::select(['id', 'title', 'description', 'price'])->orderBy('title', 'asc')->get();
+        $data['digitalServices'] = DigitalService::select(['id', 'title', 'description', 'price'])->orderBy('title', 'asc')->get();
+        $data['digitalProducts'] = DigitalProduct::select(['id', 'title', 'description', 'price'])->orderBy('title', 'asc')->get();
         return view('front.users.user_dashboard.affiliate.order.create', $data);
+    }
+
+    public function getSoftwareDetails($id)
+    {
+        $service = Software::find($id);
+
+        if ($service) {
+            return response()->json([
+                'ser_type' => 'Software',
+                'ser_id' => $service->id,
+                'title' => $service->title,
+                'description' => $service->description,
+                'rate' => $service->price,
+                'tax_rate' => $service->tax ?? 0, // Adjust this according to your database schema
+            ]);
+        }
+    }
+
+    public function getDigitalServiceDetails($id)
+    {
+        $service = DigitalService::find($id);
+
+        if ($service) {
+            return response()->json([
+                'ser_type' => 'DigitalService',
+                'ser_id' => $service->id,
+                'title' => $service->title,
+                'description' => $service->description,
+                'rate' => $service->price,
+                'tax_rate' => $service->tax ?? 0, // Adjust this according to your database schema
+            ]);
+        }
+    }
+
+    public function getDigitalProductDetails($id)
+    {
+        $service = DigitalProduct::find($id);
+
+        if ($service) {
+            return response()->json([
+                'ser_type' => 'DigitalProduct',
+                'ser_id' => $service->id,
+                'title' => $service->title,
+                'description' => $service->description,
+                'rate' => $service->price,
+                'tax_rate' => $service->tax ?? 0, // Adjust this according to your database schema
+            ]);
+        }
     }
 
     public function store(Request $request)
     {
-        $validated = $request->validate([
-            'products' => 'required|array',
-            'products.*.id' => 'required|exists:quick_shop_products,id',
-            'products.*.color' => 'required|string',
-            'products.*.size' => 'required|string',
-            'products.*.qty' => 'required|integer|min:1',
-            'coupon_code' => 'nullable|string', // Optional coupon code
+
+        // Validate request data
+        $validatedData = $request->validate([
+            'service_type' => 'required|string',
+
+            'start_date' => 'required|date',
+            'end_date' => 'nullable|date',
+            'discount_type' => 'nullable|string',
+            'user_id' => 'nullable|integer',
+            'sub_total' => 'required|numeric|min:0',
+            'total' => 'required|numeric|min:0',
+            'discount' => 'nullable|numeric|min:0',
+            'adjustment' => 'nullable|numeric|min:0',
+            'sale_items' => 'required|array',
+            'sale_items.*.title' => 'required|string',
+            'sale_items.*.description' => 'nullable|string',
+            'sale_items.*.quantity' => 'required|integer|min:1',
+            'sale_items.*.rate' => 'required|numeric|min:0',
+            'sale_items.*.tax' => 'nullable|numeric|min:0',
         ]);
 
-        // Generate a unique order code
-        $lastOrder = QuickShopOrder::orderBy('id', 'desc')->first();
-        $orderCode = $lastOrder ? sprintf('%06d', intval($lastOrder->id) + 1) : '000001';
+        // Generate unique proposal_id (proposal number)
+        $last_order = AffiliatorOrder::orderBy('id', 'desc')->first();
+        $orderId = $last_order ? 'AFF-' . sprintf('%06d', intval($last_order->id) + 1) : 'AFF-000001';
 
-        // Create the order
-        $order = new QuickShopOrder();
-        $order->user_id = $request->user()->id;
-        $order->order_code = $orderCode;
-        $order->sub_total = 0; // will be calculated below when order items save
-        $order->shipping = 120; // Fixed shipping cost. but it will dynamic
-        $order->coupon = null; // Will be updated if a valid coupon is applied
-        $order->total = 0; // will be calculated below hen order items save
-        $order->delivery_status = 'pending';
-        $order->payment_status = 'unpaid';
-        $order->payment_method = $request->payment_method ?? 'cash';
-        $order->save();
+        $order = AffiliatorOrder::create([
+            'order_id' => $orderId,
+            'start_date' => $request->start_date,
+            'end_date' => $request->end_date,
+            'discoutn_type' => $request->discoutn_type,
+            'user_id' => Auth::guard('user')->user()->id,
+            'sub_total' => $request->sub_total,
+            'total' => $request->total,
+            'discount' => $request->discount,
+            'adjustment' => $request->adjustment,
+        ]);
 
-        $subTotal = 0;
 
-        // Save order items and calculate subtotal
-        foreach ($validated['products'] as $productData) {
-            $product = QuickShopProduct::find($productData['id']); // Fetch the product to get details
-
-            $item = new QuickShopOrderItem();
-            $item->quick_shop_order_id = $order->id;
-            $item->product_name = $product->name;
-            $item->product_image = $product->image;
-            $item->color = $productData['color'];
-            $item->size = $productData['size'];
-            $item->qty = $productData['qty'];
-            $item->price = $product->price;
-            $item->discount = $product->discount ?? 0; // Apply product discount if available
-            $item->total = ($product->price - $item->discount) * $productData['qty'];
-
-            $subTotal += $item->total; // Accumulate subtotal
-            $item->save();
+        // Create associated sale items
+        foreach ($request->sale_items as $itemData) {
+            $item = new AffiliatorOrderItem($itemData);
+            $order->items()->save($item);
         }
 
-        // Check and apply coupon
-        $couponDiscount = 0;
-        if (!empty($request->coupon_code)) {
-            $coupon = QuickShopCoupon::where('code', $request->coupon_code)->where('is_active', 'active')->first();
-            if ($coupon) {
-                $order->coupon = $coupon->amount; // Apply coupon discount amount
-                $couponDiscount = $coupon->amount;
-            }
+        // Check if the order was created successfully
+        if ($order) {
+            // Return a JSON response with redirect_url
+            return response()->json([
+                'success' => true,
+                'redirect_url' => route('affiliate.order.payment', ['id' => $order->id]),
+                'message' => 'Proposal saved successfully',
+            ]);
+        } else {
+            // Return an error response if something went wrong
+            return response()->json([
+                'success' => false,
+                'message' => 'Error saving Proposal',
+            ], 500);
         }
+    }
 
-        // Calculate total
-        $order->sub_total = $subTotal;
-        $order->total = $subTotal + $order->shipping - $couponDiscount;
-        $order->save();
+    public function show($id)
+    {
+        $orderDetails = AffiliatorOrder::with('items')->find($id);
+        return view('front.users.user_dashboard.affiliate.order.show', compact('orderDetails'));
+    }
 
-        return redirect()->back()->with('success', 'Order created successfully!');
+    public function payment($id)
+    {
+        $order = AffiliatorOrder::with('items')->find($id);
+        return view('front.users.user_dashboard.affiliate.order.payment', compact('order'));
     }
 }

@@ -11,6 +11,8 @@ class AffiliatorOrderItem extends Model
 
     protected $fillable = [
         'affiliator_order_id',
+        'ser_type',
+        'ser_id',
         'title',
         'description',
         'quantity',

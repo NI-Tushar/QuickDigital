@@ -14,8 +14,6 @@ return new class extends Migration
         Schema::create('affiliator_orders', function (Blueprint $table) {
             $table->id();
             $table->string('order_id');
-            $table->enum('service_type', ['Software', 'DigitalService', 'DigitalProduct']);
-            $table->unsignedBigInteger('service_id');
             $table->date('start_date')->nullable();
             $table->date('end_date')->nullable();
             $table->enum('delivery_status', ['Pending', 'Confirmed', 'In-progress', 'Delivered'])->default('Pending');
