@@ -10,7 +10,7 @@
                     <div class="breadcrumb-wrapper col-12">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="{{ url('admin/dashboard') }}">Home</a></li>
-                            <li class="breadcrumb-item"><a href="#">Software</a></li>
+                            <li class="breadcrumb-item"><a href="#">Digital Product</a></li>
                             <li class="breadcrumb-item active"></li>
                         </ol>
                     </div>
@@ -66,8 +66,8 @@
                                     </div>
                                     @endif
 
-                                    <form name="product" id="productForm" action="{{ url('admin/updating-software/') }}" method="POST" enctype="multipart/form-data">
-                                        <input type="hidden" name="id" value="{{ $software['id'] }}">
+                                    <form name="product" id="productForm" action="{{ url('admin/updating-digProduct/') }}" method="POST" enctype="multipart/form-data">
+                                        <input type="hidden" name="id" value="{{ $product['id'] }}">
                                     
                                     @csrf
                                         <div class="form-body">
@@ -98,23 +98,23 @@
 
 
                                             <div class="form-group">
-                                                <label for="name">Sofware Title</label>
-                                                <input style="border-radius:5px;" type="text" id="name" class="form-control round" placeholder="Enter Software Title" name="title" value="{{ $software['title'] }}" required>
+                                                <label for="name">Product Title</label>
+                                                <input style="border-radius:5px;" type="text" id="name" class="form-control round" placeholder="Enter Product Title" name="title" value="{{ $product['title'] }}" required>
                                             </div>
 
                                             <div class="form-group">
-                                                <label for="name">Sofware Description</label>
-                                                <textarea style="border-radius:5px;" id="desc" class="form-control round" placeholder="Enter Software Description" name="description" required>{{ $software['description'] }}</textarea>
+                                                <label for="name">Product Description</label>
+                                                <textarea style="border-radius:5px;" id="desc" class="form-control round" placeholder="Enter Product Description" name="description" required>{{ $product['description'] }}</textarea>
                                             </div>
 
                                             
                                             <div class="form-group">
                                                 <label for="features">Features</label>
                                                 @php
-                                                    $software['features'] = json_decode($software['features'], true);
+                                                    $product['features'] = json_decode($product['features'], true);
                                                 @endphp
 
-                                                @foreach ($software['features'] as $feature)
+                                                @foreach ($product['features'] as $feature)
                                                 <div id="features-container">
                                                     <div class="input-group mb-2">
                                                         <input type="text" name="features[]" class="form-control" placeholder="Enter Software Feature" value="{{$feature}}">
@@ -130,27 +130,27 @@
 
                                             <div class="price_section">
                                                 <div class="form-group">
-                                                    <label for="actual_price">Subscription Price</label>
-                                                    <input style="border-radius:5px;" type="number" id="actual_price" class="form-control round" placeholder="Enter Subscripton Price" name="price"
-                                                    value="{{ $software['price'] }}">
+                                                    <label for="actual_price">Price</label>
+                                                    <input style="border-radius:5px;" type="number" id="actual_price" class="form-control round" placeholder="Enter Price" name="price"
+                                                    value="{{ $product['price'] }}">
                                                 </div>
                                                 
                                                 <div class="form-group">
                                                     <label for="actual_price">Affiliator Commission</label>
                                                     <input style="border-radius:5px;" type="number" id="star_rating" class="form-control round" placeholder="Enter Affiliator Commission (%)" name="affiliator_commission"
-                                                    value="{{ $software['affiliator_commission'] }}">
+                                                    value="{{ $product['affiliator_commission'] }}">
                                                 </div>
                                             </div>
 
                                             <div class="form-group">
-                                                <label for="name">Demo Link</label>
-                                                <input style="border-radius:5px;" type="text" id="name" class="form-control round" placeholder="Enter Software Demo Link" name="demo_link" value="{{ $software['demo_link'] }}" >
+                                                <label for="name">Enter Prodict File</label>
+                                                <input style="border-radius:5px;" type="text" id="name" class="form-control round" placeholder="Enter Product file (zip)" accept=".zip,.rar" name="zip_file" value="{{ $product['zip_file'] }}" >
                                             </div>
 
                                             <!-- ___________________________ thumbnail start -->
                                              <div class="img_section">
                                                  <div class="form-group">
-                                                    <label for="image_1">Postar Image</label>
+                                                    <label for="image_1">Thumbnail Image</label>
                                                     <input style="border-radius:5px;" type="file" id="poster_image" class="form-control round" name="thumbnail" accept="image/*">
                                                 </div>
                                             </div>

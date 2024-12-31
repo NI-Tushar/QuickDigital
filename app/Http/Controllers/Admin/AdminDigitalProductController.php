@@ -115,12 +115,13 @@ class AdminDigitalProductController extends Controller
         return view('admin.digital_product.digitalProduct_list')->with(compact('digProd'));
     }
 
-    // public function update_software($id)
-    // {
-    //     Session::put('page', 'software');
-    //     $software = Software::findOrFail($id);
-    //     return view('admin.software.update_software')->with(compact('software'));
-    // }
+    public function update_product($id)
+    {
+        Session::put('page', 'digitalProduct');
+        $product = DigitalProduct::findOrFail($id);
+        return view('admin.digital_product.update_digitalProduct')->with(compact('product'));
+    }
+
     // public function updating_software(Request $request)
     // {
     //     Session::put('page', 'software');
