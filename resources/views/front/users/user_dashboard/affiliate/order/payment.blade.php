@@ -19,6 +19,112 @@
 
     <link rel="stylesheet" href="{{ url('front/styles/quick_business.css') }}">
 @endpush
+@push('css')
+<style>
+    .proposal-date {
+        text-align: right;
+        font-style: italic;
+    }
+    address {
+        margin-bottom: 20px;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+    }
+    th, td {
+        padding: 15px;
+        text-align: center;
+    }
+    th {
+        border-top: 2px solid #ddd;
+        border-bottom: 2px solid #ddd;
+    }
+    td{
+        border-bottom: 1px solid #ddd;
+    }
+    a{
+        text-decoration: none;
+        color: black;
+    }
+    h1,h2,h3,h4,h5,h6{
+        margin: 0;
+        padding: 0;
+    }
+    .header .proposal-header{
+        width: 100%
+        text-align: left;
+        color: #34495e;
+        margin-bottom: 20px;
+        display: block
+    }
+    .header .proposal-header h1{
+        font-size: 20px;
+        margin-bottom: 0;
+    }
+    .clear::after {
+        content: "";
+        clear: both;
+        display: block;
+    }
+    .address-header::after {
+        content: "";
+        clear: both;
+        display: block;
+    }
+    .admin-address{
+        float: left;
+    }
+    .header .row address{
+        line-height: 22px
+    }
+    .user-address{
+        float: right;
+        text-align: right;
+        width: 200px;
+    }
+    .proposal-headline{
+        background: #ddd;
+        padding: 10px;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    .summarytable tbody{
+       padding-right: 300px;
+    }
+    .summarytable th{
+        border-top: none;
+        border-bottom: 1px solid #ddd;
+        text-align: right;
+    }
+    .summarytable td{
+        padding-right: 30px;
+        text-align: right;
+    }
+    .summarytable .total-amount{
+        border-bottom: none ;
+    }
+    .company-logo{
+        width: 300px;
+        height: 200px;
+        margin: auto;
+    }
+    .company-logo img{
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+    .service-offer{
+        margin-bottom: 20px;
+        color: #34495e;
+    }
+    .proposal-footer{
+        text-align: center;
+        margin-top: 50px;
+    }
+</style>
+@endpush
 @section('content')
     @include('front.users.user_dashboard.sidebar')
 
@@ -29,56 +135,122 @@
 
             <div class="software_section">
 
-                <div class="card bg-white mt-3" style="width: 100%">
+                {{-- <div class="card bg-white mt-3"  style="width: 100%">
                     <div class="card-header">
                       <div class="d-flex flex-wrap justify-content-between align-items-center" style="gap: 1em">
-                          <h3>All Orders</h3>
-                          <a class="btn btn-primary" href="{{ route('affiliate.order.create') }}">Create Order</a>
+                          <h3>Make Payment</h3>
+                          <a class="btn btn-primary" href="{{ route('affiliate.order.index') }}">Back</a>
                       </div>
                     </div>
                     <div class="card-body">
-                        <table class="table table-bordered">
+
+                      <table class="table table-bordered">
                           <thead>
                               <tr>
-                                <th>Sl</th>
-                                <th>Order Date</th>
-                                <th>Order ID</th>
-                                <th>Total</th>
-                                <th>Start Date</th>
-                                <th>End Date</th>
-                                <th>Delivery Status</th>
-                                <th>Payment Status</th>
-                                <th>Actions</th>
+                                  <th>#</th>
+                                  <th>Item</th>
+                                  <th>Qty</th>
+                                  <th>Rate</th>
+                                  <th>Tax</th>
+                                  <th>Amount</th>
                               </tr>
                           </thead>
                           <tbody>
-                              @foreach ($orders as $order)
-                                  <tr style="cursor: pointer" class="showOrderData" data-toggle="modal" data-target="#orderViewModla" data-id="{{ $order->id }}">
-                                    <td>{{ $loop->index + 1 }}</td>
-                                    <td>{{ $order->created_at->format('F j, Y') }}</td>
-                                    <td>{{ $order->order_id }}</td>
-                                    <td>{{ $order->total }}</td>
-                                    <td>{{ $order->start_date }}</td>
-                                    <td>{{ $order->end_date }}</td>
-                                    <td>
-                                        <span style="padding: 2px 15px;border:1px solid #007bff;color:#007bff;border-radius:10px">{{ $order->delivery_status }}</span>
-                                    </td>
-                                    <td>
-                                        <span style="padding: 2px 15px;border:1px solid #007bff;color:#007bff;border-radius:10px">{{ $order->payment_status }}</span>
-                                    </td>
-                                    <td>
-                                      <div class="d-flex flex-wrap justify-content-center align-items-center" style="gap: .5em">
-                                          <a class="btn btn-success" href="{{ route('affiliate.order.show', $order->id) }}">View</a>
-                                          <a class="btn btn-success" href="{{ route('affiliate.order.payment', $order->id) }}">Payment</a>
-                                      </div>
-                                  </td>
-                                  </tr>
+                              @foreach ($order->items as $item)
+                              <tr>
+                                  <td>{{ $loop->index + 1 }}</td>
+
+                                  @php
+                                    if($item->ser_type === "Software"){
+                                        $service = App\Models\Software::findOrFail($item->ser_id);
+                                    }else if($item->ser_type === "DigitalService"){
+                                        $service = App\Models\DigitalService::findOrFail($item->ser_id);
+                                    }else if($item->ser_type === "DigitalProduct"){
+                                        $company = App\Models\DigitalProduct::findOrFail($item->ser_id);
+                                    }
+                                @endphp
+                                <td>{{ $service->title }}</td><br>
+
+                                  <td>{{ $item->quantity }}</td>
+                                  <td>{{ number_format($item->rate) }}</td>
+                                  <td>{{ $item->tax ? $item->tax . '%' : '' }}</td>
+                                  @php
+                                      $totalAmount = ($item->quantity * $item->rate) * (1 + ($item->tax / 100));
+                                  @endphp
+                                  <td>{{ number_format($totalAmount) }}</td>
+                              </tr>
                               @endforeach
                           </tbody>
                       </table>
-                        {{ $orders->links('pagination::bootstrap-4') }}
                     </div>
-                  </div>
+                </div> --}}
+
+
+
+                <div class="card" style="width: 100%">
+                    <div class="card-header">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h5 class="fw-bolder">View Order - #{{ $order->order_id }}</h5>
+                            <a href="{{ route('affiliate.order.index') }}" class="btn btn-sm btn-outline-primary">Back</a>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                            <h2 class="proposal-headline">Order Summery</h2>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Item</th>
+                                        <th>Qty</th>
+                                        <th>Rate</th>
+                                        <th>Tax</th>
+                                        <th>Amount</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($order->items as $item)
+                                    <tr>
+                                        <td>{{ $loop->index + 1 }}</td>
+                                        <td>{{ $item->title }}</td>
+                                        <td>{{ $item->quantity }}</td>
+                                        <td>{{ $item->rate }}</td>
+                                        <td>{{ $item->tax ? $item->tax . '%' : '' }}</td>
+                                        @php
+                                            $totalAmount = ($item->quantity * $item->rate) * (1 + ($item->tax / 100));
+                                        @endphp
+                                        <td>{{ $totalAmount }}</td>
+                                    </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+
+                            <table class="summarytable">
+                                <tbody>
+                                    <tr>
+                                        {{-- <th></th> --}}
+                                        <td><b>Sub Total:</b> {{ $order->sub_total }}</td>
+                                    </tr>
+                                    <tr>
+                                        {{-- <th> </th> --}}
+                                        <td><b>Discount:</b> {{ $order->discount }}</td>
+                                    </tr>
+                                    <tr>
+                                        {{-- <th> </th> --}}
+                                        <td><b>Adjustment:</b> {{ $order->adjustment }}</td>
+                                    </tr>
+                                    <tr>
+                                        {{-- <th>T </th> --}}
+                                        <td class="total-amount"><b>Total:</b> {{ $order->total }}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <a style="width: 100%;display:inline-block;" href="" class="btn btn-success">Make Payment</a>
+                        </div>
+                    </div>
+                </div>
+
+
+
             </div>
 
         </div>

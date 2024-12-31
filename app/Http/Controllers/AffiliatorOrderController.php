@@ -33,6 +33,8 @@ class AffiliatorOrderController extends Controller
 
         if ($service) {
             return response()->json([
+                'ser_type' => 'Software',
+                'ser_id' => $service->id,
                 'title' => $service->title,
                 'description' => $service->description,
                 'rate' => $service->price,
@@ -47,6 +49,8 @@ class AffiliatorOrderController extends Controller
 
         if ($service) {
             return response()->json([
+                'ser_type' => 'DigitalService',
+                'ser_id' => $service->id,
                 'title' => $service->title,
                 'description' => $service->description,
                 'rate' => $service->price,
@@ -61,6 +65,8 @@ class AffiliatorOrderController extends Controller
 
         if ($service) {
             return response()->json([
+                'ser_type' => 'DigitalProduct',
+                'ser_id' => $service->id,
                 'title' => $service->title,
                 'description' => $service->description,
                 'rate' => $service->price,
@@ -96,19 +102,8 @@ class AffiliatorOrderController extends Controller
         $last_order = AffiliatorOrder::orderBy('id', 'desc')->first();
         $orderId = $last_order ? 'AFF-' . sprintf('%06d', intval($last_order->id) + 1) : 'AFF-000001';
 
-        if($request->service_type === 'Software'){
-            $service_id = $request->software;
-        }else if($request->service_type === 'DigitalService'){
-            $service_id = $request->digitalService;
-        }else if($request->service_type === 'DigitalProduct'){
-            $service_id = $request->digitalProduct;
-        }
-
         $order = AffiliatorOrder::create([
             'order_id' => $orderId,
-
-            'service_type' => $request->service_type,
-            'service_id' => $service_id,
             'start_date' => $request->start_date,
             'end_date' => $request->end_date,
             'discoutn_type' => $request->discoutn_type,
@@ -126,13 +121,32 @@ class AffiliatorOrderController extends Controller
             $order->items()->save($item);
         }
 
-        // Return a JSON response
-        return response()->json(['message' => 'Proposal Save successfully']);
+        // Check if the order was created successfully
+        if ($order) {
+            // Return a JSON response with redirect_url
+            return response()->json([
+                'success' => true,
+                'redirect_url' => route('affiliate.order.payment', ['id' => $order->id]),
+                'message' => 'Proposal saved successfully',
+            ]);
+        } else {
+            // Return an error response if something went wrong
+            return response()->json([
+                'success' => false,
+                'message' => 'Error saving Proposal',
+            ], 500);
+        }
     }
 
     public function show($id)
     {
         $orderDetails = AffiliatorOrder::with('items')->find($id);
         return view('front.users.user_dashboard.affiliate.order.show', compact('orderDetails'));
+    }
+
+    public function payment($id)
+    {
+        $order = AffiliatorOrder::with('items')->find($id);
+        return view('front.users.user_dashboard.affiliate.order.payment', compact('order'));
     }
 }

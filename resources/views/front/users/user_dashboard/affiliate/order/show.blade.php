@@ -54,7 +54,19 @@
                               @foreach ($orderDetails->items as $item)
                               <tr>
                                   <td>{{ $loop->index + 1 }}</td>
-                                  <td>{{ $item->title }}</td>
+                                  {{-- <td>{{ $item->title }}</td> --}}
+
+                                  @php
+                                    if($item->ser_type === "Software"){
+                                        $service = App\Models\Software::findOrFail($item->ser_id);
+                                    }else if($item->ser_type === "DigitalService"){
+                                        $service = App\Models\DigitalService::findOrFail($item->ser_id);
+                                    }else if($item->ser_type === "DigitalProduct"){
+                                        $company = App\Models\DigitalProduct::findOrFail($item->ser_id);
+                                    }
+                                @endphp
+                                <td>{{ $service->title }}</td><br>
+
                                   <td>{{ $item->quantity }}</td>
                                   <td>{{ number_format($item->rate) }}</td>
                                   <td>{{ $item->tax ? $item->tax . '%' : '' }}</td>

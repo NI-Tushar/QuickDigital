@@ -11,8 +11,6 @@ class AffiliatorOrder extends Model
 
     protected $fillable = [
         'order_id',
-        'service_type',
-        'service_id',
         'start_date',
         'end_date',
         'delivery_status',

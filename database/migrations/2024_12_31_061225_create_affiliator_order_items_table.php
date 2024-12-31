@@ -14,6 +14,8 @@ return new class extends Migration
         Schema::create('affiliator_order_items', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('affiliator_order_id');
+            $table->enum('ser_type', ['Software', 'DigitalService', 'DigitalProduct']);
+            $table->unsignedBigInteger('ser_id');
             $table->string('title');
             $table->text('description')->nullable();
             $table->integer('quantity');

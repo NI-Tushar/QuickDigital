@@ -138,6 +138,8 @@
                                             <tr class="main">
                                                 <td>1</td>
                                                 <td>
+                                                    <input type="hidden" name="sale_items[0][ser_id]">
+                                                    <input type="hidden" name="sale_items[0][ser_type]">
                                                     <textarea name="sale_items[0][title]" rows="4" class="form-control" placeholder="Title"></textarea>
                                                 </td>
                                                 <td>
@@ -299,6 +301,9 @@
             // Fill main row with fetched data
             function fillMainRow(data) {
                 const mainRow = $('#items-table .main');
+                mainRow.find('input[name^="sale_items"][name$="[ser_type]"]').val(data.ser_type);
+                mainRow.find('input[name^="sale_items"][name$="[ser_id]"]').val(data.ser_id);
+
                 mainRow.find('textarea[name^="sale_items"][name$="[title]"]').val(data.title);
                 mainRow.find('textarea[name^="sale_items"][name$="[description]"]').val(data.description);
                 mainRow.find('input[name^="sale_items"][name$="[rate]"]').val(data.rate);
@@ -473,6 +478,68 @@
                     });
                 });
 
+                // $.ajax({
+                //     url: $(this).attr('action'),
+                //     method: 'POST',
+                //     data: formData,
+                //     processData: false,
+                //     contentType: false,
+                //     success: function(response) {
+                //         // toastr.success('Proposal saved successfully');
+                //         Swal.fire({
+                //             icon: 'success',
+                //             title: 'Success',
+                //             text: 'Order saved successfully',
+                //             confirmButtonText: 'OK',
+                //         });
+
+                //         // Reset the entire form including all fields
+                //         $('#proposalForm')[0].reset();
+
+                //         // Clear the rows in the items table except the main row
+                //         $('#items-table tr').not('.main').remove();
+
+                //         // Reset the main row
+                //         resetMainRow();
+
+                //         // Optionally, reset specific additional fields if needed
+                //         $('select[name="service_type"]').val('').change();
+                //         $('select[name="software"]').val('').change();
+                //         $('select[name="digitalService"]').val('').change();
+                //         $('select[name="digitalProduct"]').val('').change();
+                //         $('input[name="start_date"]').val('');
+                //         $('input[name="end_date"]').val('');
+                //         $('select[name="sale_items"]').val('').change();
+
+                //         // Ensure all <select> options are unselected
+                //         $('select').each(function() {
+                //             $(this).val('');
+                //         });
+
+
+
+
+                //         // Optionally, recalculate totals
+                //         calculateTotal();
+
+                //         // Redirect using the URL from the server
+                //         window.location.href = response.redirect_url;
+
+                //     },
+                //     error: function(response) {
+                //         // toastr.error('Error saving proposal');
+                //         Swal.fire({
+                //             icon: 'error',
+                //             title: 'Oops...',
+                //             text: 'Error saving Order',
+                //             confirmButtonText: 'OK',
+                //             // timer: 3000, // Alert closes automatically after 3 seconds
+                //         });
+
+                //     }
+                // });
+
+
                 $.ajax({
                     url: $(this).attr('action'),
                     method: 'POST',
@@ -480,79 +547,69 @@
                     processData: false,
                     contentType: false,
                     success: function(response) {
-                        // toastr.success('Proposal saved successfully');
-                        Swal.fire({
-                            icon: 'success',
-                            title: 'Success',
-                            text: 'Order saved successfully',
-                            confirmButtonText: 'OK',
-                        });
+                        if (response.success) {
+                            // Show success alert
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'Success',
+                                text: response.message || 'Order saved successfully',
+                                confirmButtonText: 'OK',
+                            }).then((result) => {
+                                if (result.isConfirmed && response.redirect_url) {
+                                    // Redirect to the provided URL
+                                    window.location.href = response.redirect_url;
+                                }
+                            });
 
-                        // Reset the entire form including all fields
-                        $('#proposalForm')[0].reset();
+                            // Reset the entire form including all fields
+                            $('#proposalForm')[0].reset();
 
-                        // Clear the rows in the items table except the main row
-                        $('#items-table tr').not('.main').remove();
+                            // Clear the rows in the items table except the main row
+                            $('#items-table tr').not('.main').remove();
 
-                        // Reset the main row
-                        resetMainRow();
+                            // Reset the main row
+                            resetMainRow();
 
-                        // Optionally, reset specific additional fields if needed
-                        $('input[name="subject"]').val('');
-                        $('select[name="related"]').val('').change();
-                        $('select[name="customer"]').val('').change();
-                        $('select[name="lead"]').val('').change();
-                        $('input[name="date"]').val('');
-                        $('input[name="open_till"]').val('');
-                        $('select[name="currency"]').val('').change();
-                        $('select[name="status"]').val('').change();
-                        $('select[name="user_id"]').val('').change();
-                        $('input[name="to"]').val('');
-                        $('input[name="address"]').val('');
-                        $('input[name="city"]').val('');
-                        $('input[name="state"]').val('');
-                        $('select[name="country"]').val('').change();
-                        $('input[name="zip_code"]').val('');
-                        $('input[name="email"]').val('');
-                        $('input[name="phone"]').val('');
-                        $('select[name="sale_items"]').val('').change();
+                            // Optionally, reset specific additional fields if needed
+                            $('select[name="service_type"]').val('').change();
+                            $('select[name="software"]').val('').change();
+                            $('select[name="digitalService"]').val('').change();
+                            $('select[name="digitalProduct"]').val('').change();
+                            $('input[name="start_date"]').val('');
+                            $('input[name="end_date"]').val('');
+                            $('select[name="sale_items"]').val('').change();
 
-                        // Ensure all <select> options are unselected
-                        $('select').each(function() {
-                            $(this).val('');
-                        });
+                            // Ensure all <select> options are unselected
+                            $('select').each(function() {
+                                $(this).val('');
+                            });
 
-
-
-
-                        // Optionally, recalculate totals
-                        calculateTotal();
+                            // Optionally, recalculate totals
+                            calculateTotal();
+                        } else {
+                            // Handle success=false responses
+                            Swal.fire({
+                                icon: 'warning',
+                                title: 'Warning',
+                                text: response.message || 'There was an issue saving your order.',
+                                confirmButtonText: 'OK',
+                            });
+                        }
                     },
                     error: function(response) {
-                        // toastr.error('Error saving proposal');
+                        // Handle error responses
                         Swal.fire({
-                            icon: 'success',
-                            title: 'Success',
-                            text: 'Error saving Order',
+                            icon: 'error',
+                            title: 'Oops...',
+                            text: response.responseJSON?.message || 'Error saving Order',
                             confirmButtonText: 'OK',
                         });
                     }
                 });
+
             });
         });
     </script>
-
-
-    @if (session('success'))
-        <script>
-            Swal.fire({
-                icon: 'success',
-                title: 'Success',
-                text: '{{ session('success') }}',
-                confirmButtonText: 'OK',
-            });
-        </script>
-    @endif
 
 
 @endpush
