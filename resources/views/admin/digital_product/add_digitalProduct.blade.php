@@ -96,12 +96,12 @@
 
                                             <div class="form-group">
                                                 <label for="name">Digital Product Title</label>
-                                                <input style="border-radius:5px;" type="text" id="name" class="form-control round" placeholder="Enter Product Title" name="title" value="{{ old('title') }}" required>
+                                                <input style="border-radius:5px;" type="text" id="name" class="form-control round" placeholder="Enter Product Title" name="title" value="{{ old('title') }}" >
                                             </div>
 
                                             <div class="form-group">
                                                 <label for="name">Digital Product Description</label>
-                                                <textarea style="border-radius:5px;" id="desc" class="form-control round" placeholder="Enter Product Description" name="description" required>{{ old('description') }}</textarea>
+                                                <textarea style="border-radius:5px;" id="desc" class="form-control round" placeholder="Enter Product Description" name="description" >{{ old('description') }}</textarea>
                                             </div>
 
                                             

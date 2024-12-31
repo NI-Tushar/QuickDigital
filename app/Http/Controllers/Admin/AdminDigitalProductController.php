@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\AdminsPermission;
 use Illuminate\Http\Request;
-use App\Models\Software;
+use App\Models\DigitalProduct;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
@@ -19,7 +19,7 @@ class AdminDigitalProductController extends Controller
         Session::put('page', 'digitalProduct');
         if ($request->isMethod('post')) {
             $data = $request->all();
-            dd($data);
+            
             
             $request->validate([
                 'title' => 'required|max:100',
@@ -40,16 +40,7 @@ class AdminDigitalProductController extends Controller
                 'description.required' => 'Enter Software descriptionription',
                 'features.array' => 'Enter Software Features',
             ];
-    
-            $fileFields = ['image_1', 'image_2', 'image_3'];
 
-            foreach ($fileFields as $field) {
-                if ($request->hasFile($field)) {
-                    $rules[$field] = 'image|max:2048';
-                    $customMessages[$field.'.image'] = 'The file must be an image.';
-                    $customMessages[$field.'.max'] = 'The image size must not exceed 2MB.';
-                }
-            }
 
             $validator = Validator::make($data, $rules, $customMessages);
     
@@ -59,16 +50,15 @@ class AdminDigitalProductController extends Controller
                 return redirect()->back()->with('error_message', $validator->errors()->first());
             }
 
-            $software = new Software();
+            $digProd = new DigitalProduct();
 
-            $software->title = $data['title'];
-            $software->description = $data['description'];
-            $software->features = json_encode($data['features'], JSON_UNESCAPED_UNICODE); 
-            $software->price = $data['price'];
-            $software->affiliator_commission = $data['affiliator_commission'];
-            $software->demo_link = $data['demo_link'];
+            $digProd->title = $data['title'];
+            $digProd->description = $data['description'];
+            $digProd->features = json_encode($data['features'], JSON_UNESCAPED_UNICODE); 
+            $digProd->price = $data['price'];
+            $digProd->affiliator_commission = $data['affiliator_commission'];
 
-            // Upload poster images
+            // Upload thumbnail images
               if ($request->hasFile('thumbnail')) {
                 $image_tmp = $request->file('thumbnail');
                 if ($image_tmp->isValid()) {
@@ -77,28 +67,16 @@ class AdminDigitalProductController extends Controller
                     // Generate new image name
                     $image_name = rand(111, 99999) . '.' . $extension;
                     // Save image
-                    $image_path = 'admin/images/software_images/' . $image_name;
+                    $image_path = 'admin/images/digital_products/' . $image_name;
                     Image::make($image_tmp)->save($image_path);
                     // storing imagepath with name in data table
-                    $software->thumbnail = $image_path;
-                }
-            }
-
-            // soring preview images in data table
-            foreach ($fileFields as $field) {
-                if ($request->hasFile($field)) {
-                    $file = $request->file($field);
-                    if ($file->isValid()) {
-                        $fileName = $field . '_' . time() . '.' . $file->getClientOriginalExtension();
-                        $filePath = 'admin/images/software_images/' . $fileName;
-                        $file->move(public_path('admin/images/software_images/'), $fileName);
-                        $software->{$field} = $filePath;
-                    }
+                    $digProd->thumbnail = $image_path;
                 }
             }
     
-            $software->save();
-            return redirect('admin/software-list');
+            $digProd->save();
+            dd("product saved");
+            // return redirect('admin/software-list');
         }else{
             return view('admin.digital_product.add_digitalProduct');
         }

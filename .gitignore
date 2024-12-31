@@ -18,3 +18,5 @@ yarn-error.log
 /.vscode
 /public/front/assets/vid/
 /public/admin/images/software_images/
+/public/admin/images/digital_products/
+/public/admin/assets/zip/digital_product/
