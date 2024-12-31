@@ -1,7 +1,8 @@
     <?php
 
     use App\Http\Controllers\Admin\InstructorRequestController;
-    use App\Http\Controllers\BootcampController;
+use App\Http\Controllers\AffiliatorOrderController;
+use App\Http\Controllers\BootcampController;
     use App\Http\Controllers\SoftwareController;
     use App\Http\Controllers\DigitalProductController;
     use App\Http\Controllers\CartController;
@@ -122,7 +123,7 @@
     // sms sending to customer
     Route::get('/send-sms',[SmsController::class,'sendSms'])->name('sendSMS');
     Route::get('/send-sms',[SmsController::class,'sendSmsNewUser'])->name('sendNewUserSMS');
-    
+
     // Mail send to customer for order confirmation
     Route::get('/mailsend/{order_id}/{book_title}/{price}/{email}', [MailSendController::class, 'sendEMail'])->name('mailsend');
 
@@ -213,6 +214,10 @@
         Route::get('/digital-service/create', [DigitalServiceController::class, 'create'])->name('digialservice.create');
         Route::get('/digital-service/{digitalService}/show', [DigitalServiceController::class, 'show'])->name('digialservice.show');
         Route::post('/digital-service', [DigitalServiceController::class, 'store'])->name('digialservice.store');
+
+        // Order
+        route::get('order', [AffiliatorOrderController::class, 'index'])->name('order.index');
+        route::get('order/create', [AffiliatorOrderController::class, 'create'])->name('order.create');
 
     });
 
