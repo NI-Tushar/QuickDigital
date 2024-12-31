@@ -73,21 +73,48 @@ class AdminDigitalProductController extends Controller
                     $digProd->thumbnail = $image_path;
                 }
             }
+
+
+            // Upload zip file
+            if ($request->hasFile('zip_file')) {
+                $zip_tmp = $request->file('zip_file');
+
+                if ($zip_tmp->isValid()) {
+                    // Get file extension
+                    $extension = $zip_tmp->getClientOriginalExtension();
+
+                    // Ensure the uploaded file is a ZIP
+                    if (strtolower($extension) === 'zip') {
+                        // Generate new file name
+                        $zip_name = rand(111, 99999) . '.' . $extension;
+
+                        // Save the ZIP file
+                        $zip_path = 'admin/assets/zip/digital_product/' . $zip_name;
+                        $zip_tmp->move(public_path('admin/assets/zip/digital_product'), $zip_name);
+
+                        // Store the file path in the database
+                        $digProd->zip_file = $zip_path;
+                    } else {
+                        return back()->with('error', 'The uploaded file must be a ZIP file.');
+                    }
+                }
+            }
+
     
             $digProd->save();
-            dd("product saved");
-            // return redirect('admin/software-list');
+            return redirect()->route('digProduct.list');
         }else{
             return view('admin.digital_product.add_digitalProduct');
         }
     } 
 
-    // public function software_list()
-    // {
-    //     Session::put('page', 'software');
-    //     $softwares = Software::all();
-    //     return view('admin.software.software_list')->with(compact('softwares'));
-    // }
+    public function digProduct_list()
+    {
+        Session::put('page', 'digitalProduct');
+        $digProd = DigitalProduct::all();
+        return view('admin.digital_product.digitalProduct_list')->with(compact('digProd'));
+    }
+
     // public function update_software($id)
     // {
     //     Session::put('page', 'software');

@@ -100,7 +100,7 @@
 
             // DIGITAL PRODUCT All Route Here
             Route::match(['get', 'post'], 'add_digitalProduct', 'AdminDigitalProductController@add_digProduct')->name('digProduct.add');
-            Route::get('digProduct-list', 'AdminDigitalProductController@software_list')->name('digProduct.list');
+            Route::get('digProduct-list', 'AdminDigitalProductController@digProduct_list')->name('digProduct.list');
 
             // Route::get('update_software/{id?}', 'AdminSoftwareController@update_software');
             // Route::post('updating-software', 'AdminSoftwareController@updating_software');
