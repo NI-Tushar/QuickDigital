@@ -31,7 +31,7 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <a href=""><button type="button" class="btn btn-secondary btn-min-width mr-1 mb-1"><i class="feather icon-edit"></i> Add product</button></a>
+                                <a href="{{ route('digProduct.add') }}"><button type="button" class="btn btn-secondary btn-min-width mr-1 mb-1"><i class="feather icon-edit"></i> Add product</button></a>
                                 <div class="heading-elements">
                                     <ul class="list-inline mb-0">
                                         <li><a data-action="collapse"><i class="feather icon-minus"></i></a></li>
@@ -92,7 +92,19 @@
                                                     <td style="text-align:center;">
                                                         <a href="{{ url('admin/update_product/'.$product['id']) }}"><i class="fa fa-edit"></i></a>
                                                         &nbsp;&nbsp;
-                                                        <a href="{{ url('admin/delete-product/'.$product['id']) }}"><i class="fa fa-trash"></i></a>
+                                                        <a href="javascript:void(0);" onclick="confirmAndRedirect('{{ url('admin/delete-digProduct/'.$product['id']) }}')">
+                                                            <i class="fa fa-trash"></i>
+                                                        </a>
+                                                        <script>
+                                                            function confirmAndRedirect(route) {
+                                                                    // Show a confirmation popup
+                                                                    if (confirm("Are you sure you want to delete this item?")) {
+                                                                        // If confirmed, redirect to the route
+                                                                        window.location.href = route;
+                                                                    }
+                                                                    // If canceled, do nothing
+                                                                }
+                                                            </script>
                                                     </td>
                                                 </tr>
                                                 @endforeach

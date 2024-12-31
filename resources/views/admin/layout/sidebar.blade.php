@@ -215,12 +215,15 @@
 
             {{-- Digital Service --}}
             @php
-              $active = Session::get('page') == 'DigitalService' ? 'active' : '';
+              $active = Session::get('page') == 'digitalService' ? 'active' : '';
               @endphp
             <li class="nav-item {{ $active }}"><a href="#"><i class="feather icon-file"></i><span class="menu-title" data-i18n="Users">Digital Services</span></a>
                 <ul class="menu-content">
                     <li>
-                        <a class="menu-item" href="{{ route('admin.digialservice.index') }}" data-i18n="Vertical">Orders</a>
+                        <a class="menu-item" href="{{ route('add.digialservice') }}" data-i18n="Vertical">Add Digital Service</a>
+                    </li>
+                    <li>
+                        <a class="menu-item" href="{{ route('digialservice.list') }}" data-i18n="Vertical">Digital Service List</a>
                     </li>
                 </ul>
             </li>

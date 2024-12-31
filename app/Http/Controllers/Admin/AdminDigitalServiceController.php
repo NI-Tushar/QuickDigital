@@ -5,18 +5,18 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\AdminsPermission;
 use Illuminate\Http\Request;
-use App\Models\DigitalProduct;
+use App\Models\DigitalserviesAdmin;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
 use Intervention\Image\Facades\Image;
 
-class AdminDigitalProductController extends Controller
+class AdminDigitalServiceController extends Controller
 {
 
-    public function add_digProduct(Request $request)
+    public function add_digService(Request $request)
     {
-        Session::put('page', 'digitalProduct');
+        Session::put('page', 'digitalService');
         if ($request->isMethod('post')) {
             $data = $request->all();
             
@@ -50,7 +50,7 @@ class AdminDigitalProductController extends Controller
                 return redirect()->back()->with('error_message', $validator->errors()->first());
             }
 
-            $digProd = new DigitalProduct();
+            $digProd = new DigitalserviesAdmin();
 
             $digProd->title = $data['title'];
             $digProd->description = $data['description'];
@@ -67,64 +67,37 @@ class AdminDigitalProductController extends Controller
                     // Generate new image name
                     $image_name = rand(111, 99999) . '.' . $extension;
                     // Save image
-                    $image_path = 'admin/images/digital_products/' . $image_name;
+                    $image_path = 'admin/images/digital_service/' . $image_name;
                     Image::make($image_tmp)->save($image_path);
                     // storing imagepath with name in data table
                     $digProd->thumbnail = $image_path;
                 }
             }
 
-
-            // Upload zip file
-            if ($request->hasFile('zip_file')) {
-                $zip_tmp = $request->file('zip_file');
-
-                if ($zip_tmp->isValid()) {
-                    // Get file extension
-                    $extension = $zip_tmp->getClientOriginalExtension();
-
-                    // Ensure the uploaded file is a ZIP
-                    if (strtolower($extension) === 'zip') {
-                        // Generate new file name
-                        $zip_name = rand(111, 99999) . '.' . $extension;
-
-                        // Save the ZIP file
-                        $zip_path = 'admin/assets/zip/digital_product/' . $zip_name;
-                        $zip_tmp->move(public_path('admin/assets/zip/digital_product'), $zip_name);
-
-                        // Store the file path in the database
-                        $digProd->zip_file = $zip_path;
-                    } else {
-                        return back()->with('error', 'The uploaded file must be a ZIP file.');
-                    }
-                }
-            }
-
-    
             $digProd->save();
-            return redirect()->route('digProduct.list');
+            return redirect()->route('digialservice.list');
         }else{
-            return view('admin.digital_product.add_digitalProduct');
+            return view('admin.digital_service.add_service');
         }
     } 
 
-    public function digProduct_list()
+    public function digialservice_list()
     {
-        Session::put('page', 'digitalProduct');
-        $digProd = DigitalProduct::all();
-        return view('admin.digital_product.digitalProduct_list')->with(compact('digProd'));
+        Session::put('page', 'digitalService');
+        $digService = DigitalserviesAdmin::all();
+        return view('admin.digital_service.service_list')->with(compact('digService'));
     }
 
-    public function update_product($id)
+    public function update_service($id)
     {
-        Session::put('page', 'digitalProduct');
-        $product = DigitalProduct::findOrFail($id);
-        return view('admin.digital_product.update_digitalProduct')->with(compact('product'));
+        Session::put('page', 'digitalService');
+        $services = DigitalserviesAdmin::findOrFail($id);
+        return view('admin.digital_service.update_service')->with(compact('services'));
     }
 
-    public function updating_digProduct(Request $request)
+    public function updating_digService(Request $request)
     {
-        Session::put('page', 'digitalProduct');
+        Session::put('page', 'digitalService');
         $data = $request->all();
         
         
@@ -160,7 +133,7 @@ class AdminDigitalProductController extends Controller
 
         // Fetch the record by ID
         $id = $request->id;
-        $data = DigitalProduct::findOrFail($id);
+        $data = DigitalserviesAdmin::findOrFail($id);
 
         // Update individual fields
         if ($request->has('title')) {
@@ -196,50 +169,23 @@ class AdminDigitalProductController extends Controller
                 // Generate new image name
                 $image_name = rand(111, 99999) . '.' . $extension;
                 // Save image
-                $image_path = 'admin/images/digital_products/' . $image_name;
+                $image_path = 'admin/images/digital_service/' . $image_name;
                 Image::make($image_tmp)->save($image_path);
                 // storing imagepath with name in data table
                 $data->thumbnail = $image_path;
             }
         }
-        
-        
-         // Upload zip file
-         if ($request->hasFile('zip_file')) {
-            $zip_tmp = $request->file('zip_file');
-
-            if ($zip_tmp->isValid()) {
-                // Get file extension
-                $extension = $zip_tmp->getClientOriginalExtension();
-
-                // Ensure the uploaded file is a ZIP
-                if (strtolower($extension) === 'zip') {
-                    // Generate new file name
-                    $zip_name = rand(111, 99999) . '.' . $extension;
-
-                    // Save the ZIP file
-                    $zip_path = 'admin/assets/zip/digital_product/' . $zip_name;
-                    $zip_tmp->move(public_path('admin/assets/zip/digital_product'), $zip_name);
-
-                    // Store the file path in the database
-                    $digProd->zip_file = $zip_path;
-                } else {
-                    return back()->with('error', 'The uploaded file must be a ZIP file.');
-                }
-            }
-        }
-    
         $data->save();
-        return redirect()->route('digProduct.list');
+        return redirect()->route('digialservice.list');
     }
 
 
 
-    public function deleteDigProduct($id)
+    public function deleteService($id)
     {
-        Session::put('page', 'digitalProduct');
-        DigitalProduct::where('id', $id)->delete();
-        return redirect()->route('digProduct.list');
+        Session::put('page', 'digitalService');
+        DigitalserviesAdmin::where('id', $id)->delete();
+        return redirect()->route('digialservice.list');
     }
 
 }
