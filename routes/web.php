@@ -155,6 +155,9 @@ use App\Http\Controllers\BootcampController;
         Route::get('/bootcamp/{bootcamp}/show', [BootcampController::class, 'show'])->name('bootcamp.show');
         Route::delete('/bootcamp/{bootcamp}', [BootcampController::class, 'destroy'])->name('bootcamp.destroy');
 
+        // Affiliator search
+        Route::post('/search-affiliator', [BootcampController::class, 'searchAffiliate'])->name('affill.search');
+
         // Convert Affiliator to Bootcamp Request
         Route::get('/create-affiliator/{bootcamp}', [BootcampController::class, 'creatAffiliator'])->name('bootcamp.creatAffiliator');
 

@@ -23,10 +23,15 @@
               </div>
                 <div class="d-flex flex-column justify-content-center align-items-center col-md-8 py-3">
                     <div class="iframe-wrapper">
-                        <iframe src="{{ asset('front/assets/vid/quick_business_vid.mp4') }}" title="" 
-                            frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                             referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
-                        </iframe>
+                    <iframe 
+                        src="{{ asset('front/assets/vid/quick_business_vid.mp4') }}" 
+                        title="Quick Business Video" 
+                        frameborder="0" 
+                        allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin" 
+                        allowfullscreen>
+                    </iframe>
+
                     </div>
                 </div>
                 <div>
