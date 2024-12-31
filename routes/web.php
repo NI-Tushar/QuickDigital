@@ -103,9 +103,16 @@ use App\Http\Controllers\BootcampController;
             Route::match(['get', 'post'], 'add_digitalProduct', 'AdminDigitalProductController@add_digProduct')->name('digProduct.add');
             Route::get('digProduct-list', 'AdminDigitalProductController@digProduct_list')->name('digProduct.list');
             Route::get('update_product/{id?}', 'AdminDigitalProductController@update_product');
+            Route::post('updating-digProduct', 'AdminDigitalProductController@updating_digProduct');
+            Route::get('delete-digProduct/{id?}', 'AdminDigitalProductController@deleteDigProduct');
 
-            // Route::post('updating-software', 'AdminSoftwareController@updating_software');
-            // Route::get('delete-software/{id?}', 'AdminSoftwareController@deleteSoftware');
+            // DIGITAL SERVICE All Route Here
+            Route::match(['get', 'post'], 'add_digService', 'AdminDigitalServiceController@add_digService')->name('add.digialservice');
+            Route::get('digialservice-list', 'AdminDigitalServiceController@digialservice_list')->name('digialservice.list');
+            Route::get('update_digitalService/{id?}', 'AdminDigitalServiceController@update_service');
+            Route::post('updating-service', 'AdminDigitalServiceController@updating_digService');
+            Route::get('delete-digService/{id?}', 'AdminDigitalServiceController@deleteService');
+
 
             //subadmin
             Route::group(['middleware' => ['adminAccessOnly']], function () {
