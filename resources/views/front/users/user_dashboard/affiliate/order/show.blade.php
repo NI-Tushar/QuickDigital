@@ -29,53 +29,43 @@
 
             <div class="software_section">
 
-                <div class="card bg-white mt-3" style="width: 100%">
+                <div class="card bg-white mt-3"  style="width: 100%">
                     <div class="card-header">
                       <div class="d-flex flex-wrap justify-content-between align-items-center" style="gap: 1em">
-                          <h3>All Orders</h3>
-                          <a class="btn btn-primary" href="{{ route('affiliate.order.create') }}">Create Order</a>
+                          <h3>Order Details</h3>
+                          <a class="btn btn-primary" href="{{ route('affiliate.order.index') }}">Back</a>
                       </div>
                     </div>
                     <div class="card-body">
-                        <table class="table table-bordered">
+                      {{-- {{ $orderDetails }} --}}
+
+                      <table class="table table-bordered">
                           <thead>
                               <tr>
-                                <th>Sl</th>
-                                <th>Order Date</th>
-                                <th>Order ID</th>
-                                <th>Total</th>
-                                <th>Start Date</th>
-                                <th>End Date</th>
-                                <th>Delivery Status</th>
-                                <th>Payment Status</th>
-                                <th>Actions</th>
+                                  <th>#</th>
+                                  <th>Item</th>
+                                  <th>Qty</th>
+                                  <th>Rate</th>
+                                  <th>Tax</th>
+                                  <th>Amount</th>
                               </tr>
                           </thead>
                           <tbody>
-                              @foreach ($orders as $order)
-                                  <tr style="cursor: pointer" class="showOrderData" data-toggle="modal" data-target="#orderViewModla" data-id="{{ $order->id }}">
-                                    <td>{{ $loop->index + 1 }}</td>
-                                    <td>{{ $order->created_at->format('F j, Y') }}</td>
-                                    <td>{{ $order->order_id }}</td>
-                                    <td>{{ $order->total }}</td>
-                                    <td>{{ $order->start_date }}</td>
-                                    <td>{{ $order->end_date }}</td>
-                                    <td>
-                                        <span style="padding: 2px 15px;border:1px solid #007bff;color:#007bff;border-radius:10px">{{ $order->delivery_status }}</span>
-                                    </td>
-                                    <td>
-                                        <span style="padding: 2px 15px;border:1px solid #007bff;color:#007bff;border-radius:10px">{{ $order->payment_status }}</span>
-                                    </td>
-                                    <td>
-                                      <div class="d-flex flex-wrap justify-content-center align-items-center" style="gap: .5em">
-                                          <a class="btn btn-success" href="{{ route('affiliate.order.show', $order->id) }}">View</a>
-                                      </div>
-                                  </td>
-                                  </tr>
+                              @foreach ($orderDetails->items as $item)
+                              <tr>
+                                  <td>{{ $loop->index + 1 }}</td>
+                                  <td>{{ $item->title }}</td>
+                                  <td>{{ $item->quantity }}</td>
+                                  <td>{{ number_format($item->rate) }}</td>
+                                  <td>{{ $item->tax ? $item->tax . '%' : '' }}</td>
+                                  @php
+                                      $totalAmount = ($item->quantity * $item->rate) * (1 + ($item->tax / 100));
+                                  @endphp
+                                  <td>{{ number_format($totalAmount) }}</td>
+                              </tr>
                               @endforeach
                           </tbody>
                       </table>
-                        {{ $orders->links('pagination::bootstrap-4') }}
                     </div>
                   </div>
             </div>

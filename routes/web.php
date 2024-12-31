@@ -218,6 +218,12 @@ use App\Http\Controllers\BootcampController;
         // Order
         route::get('order', [AffiliatorOrderController::class, 'index'])->name('order.index');
         route::get('order/create', [AffiliatorOrderController::class, 'create'])->name('order.create');
+        route::post('order/store', [AffiliatorOrderController::class, 'store'])->name('order.store');
+        route::get('order/{id}/show', [AffiliatorOrderController::class, 'show'])->name('order.show');
+
+        Route::get('/get-software-details/{id}', [AffiliatorOrderController::class, 'getSoftwareDetails']);
+        Route::get('/get-digitalService-details/{id}', [AffiliatorOrderController::class, 'getDigitalServiceDetails']);
+        Route::get('/get-digitalProduct-details/{id}', [AffiliatorOrderController::class, 'getDigitalProductDetails']);
 
     });
 
