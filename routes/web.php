@@ -1,7 +1,8 @@
     <?php
 
     use App\Http\Controllers\Admin\InstructorRequestController;
-use App\Http\Controllers\AffiliatorOrderController;
+    use App\Http\Controllers\AffiliatorOrderController;
+use App\Http\Controllers\AffiliatorTransactionController;
 use App\Http\Controllers\BootcampController;
     use App\Http\Controllers\SoftwareController;
     use App\Http\Controllers\DigitalProductController;
@@ -12,6 +13,7 @@ use App\Http\Controllers\BootcampController;
     use App\Http\Controllers\PDFController;
     use App\Http\Controllers\CheckoutController;
     use App\Http\Controllers\DigitalServiceController;
+    use App\Http\Controllers\Front\AffiliatorController;
     use App\Http\Controllers\SmsController;
     use App\Http\Controllers\MailSendController;
     use App\Http\Controllers\QuickShopCategoryController;
@@ -91,6 +93,15 @@ use App\Http\Controllers\BootcampController;
             // Digital Sercice
             Route::get('/digital-service', [DigitalServiceController::class, 'getAllOrder'])->name('admin.digialservice.index');
             Route::delete('/digital-service/{digitalService}', [DigitalServiceController::class, 'destroy'])->name('admin.digialservice.destroy');
+
+            ##--------- affiliate ----------##
+            // Orders
+            Route::get('/affiliate/order', [AffiliatorOrderController::class, 'getAllOrder'])->name('admin.affiliate.order');
+            Route::get('/affiliate/{affiliatorOrder}/order', [AffiliatorOrderController::class, 'showOrder'])->name('admin.affiliate.show');
+            Route::get('/affiliate-order/{affiliatorOrder}/DownloadOrderPDF', [AffiliatorOrderController::class, 'DownloadOrderPDF'])->name('admin.affiliate.order.DownloadOrderPDF');
+            Route::put('/affiliate-order/{affiliatorOrder}/paymentStatus', [AffiliatorOrderController::class, 'paymentStatus'])->name('admin.affiliate.order.paymentStatus');
+            Route::put('/affiliate-order/{affiliatorOrder}/orderStatus', [AffiliatorOrderController::class, 'orderStatus'])->name('admin.affiliate.order.orderStatus');
+            Route::delete('/affiliate-order/{affiliatorOrder}', [AffiliatorOrderController::class, 'destroy'])->name('admin.affiliate.destroy');
 
             // Software All Route Here
             Route::match(['get', 'post'], 'add_software', 'AdminSoftwareController@add_store_software')->name('software.add');
@@ -230,9 +241,14 @@ use App\Http\Controllers\BootcampController;
         route::get('order/create', [AffiliatorOrderController::class, 'create'])->name('order.create');
         route::post('order/store', [AffiliatorOrderController::class, 'store'])->name('order.store');
         route::get('order/{id}/show', [AffiliatorOrderController::class, 'show'])->name('order.show');
+        Route::get('/order/{affiliatorOrder}/DownloadOrderPDF', [AffiliatorOrderController::class, 'DownloadPDF'])->name('order.DownloadOrderPDF');
 
         // Payemt
         Route::get('/order/{id}/payment', [AffiliatorOrderController::class, 'payment'])->name('order.payment');
+        Route::get('/order/{affiliatorOrder}/make-payment', [AffiliatorOrderController::class, 'paymentStore'])->name('order.payment.store');
+
+        // Transations
+        route::get('transaction', [AffiliatorTransactionController::class, 'index'])->name('transaction.index');
 
 
         Route::get('/get-software-details/{id}', [AffiliatorOrderController::class, 'getSoftwareDetails']);

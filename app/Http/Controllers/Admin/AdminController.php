@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Models\Admin;
 use App\Models\AdminsPermission;
+use App\Models\AffiliatorOrder;
 use App\Models\ContactForm;
 use App\Models\CourseOrder;
 use App\Models\User;
@@ -23,10 +24,14 @@ class AdminController extends Controller
     public function dashboard()
     {
         Session::put('page', 'dashboard');
-        $users = User::all();
-        $userCount = User::count();
 
-        return view('admin.dashboard', compact('users', 'userCount'));
+        $data = [];
+        $data['customerCount'] = User::where('user_type', 'customer')->count();
+        $data['affiliatorCount'] = User::where('user_type', 'affiliator')->count();
+        $data['affiliateOrders'] = AffiliatorOrder::count();
+        $data['users'] = User::get();
+
+        return view('admin.dashboard', $data);
     }
 
     public function login(Request $request)

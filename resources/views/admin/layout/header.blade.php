@@ -113,7 +113,7 @@
 
                     <ul class="nav navbar-nav float-right">
                         <li class="nav-item">
-                            <a class="nav-link p-0" href="{{ url('quick-digital/index') }}">
+                            <a target="_blank" class="nav-link p-0" href="{{ url('quick-digital/index') }}">
                                 <button class="btn btn-primary" style="height: 30px; padding: 2px 10px; font-size: 14px; line-height: 1.5;">Visit Website</button>
                             </a>
                         </li>
