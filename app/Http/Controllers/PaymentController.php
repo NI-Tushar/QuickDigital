@@ -45,13 +45,13 @@ class PaymentController extends Controller
             $merchant_prefix = config('surjopay.merchant_prefix');
             $get_token_url = config('surjopay.get_token_url');
 
-    
+
 
             $data = [
                 'username' => $merchant_name,
                 'password' => $merchant_password,
             ];
-                
+
 
 
             $ch = curl_init();
@@ -100,23 +100,23 @@ class PaymentController extends Controller
 
     protected function createPayment($response, Request $request)
     {
-       
+
         $book_id =  $request->input('book_id');
         $book_title =  $request->input('book_title');
         $phone =  $request->input('phone');
         $email =  $request->input('email');
         $price =  $request->input('price');
 
-        
+
         try {
-            
+
             $token = $response['token'];
             $store_id   = $response['store_id'];
             $authorizationToken = "Bearer $token";
             $order_id = rand(000000000000,999999999999);
 
             session()->put('token', $token);
-            
+
             // ____________________ store order details
             session()->put('order_id', $order_id);
             session()->put('book_id', $book_id);
@@ -126,7 +126,7 @@ class PaymentController extends Controller
             session()->put('price', $price);
 
             $curl = curl_init();
-            
+
             $secretpay_url = config('surjopay.secretpay_url');
             $merchant_prefix = config('surjopay.merchant_prefix');
 
@@ -181,7 +181,7 @@ class PaymentController extends Controller
 
             curl_close($curl);
             $resObject = json_decode($res, true);
-            
+
             return $resObject;
 
         }catch (\Exception $e){
@@ -233,10 +233,10 @@ class PaymentController extends Controller
 
                 $resObject = json_decode($res, true);
 
-                if($resObject[0]['sp_message']=="Success"){                                                                                                               
+                if($resObject[0]['sp_message']=="Success"){
 
                             session()->forget('token');
-                    
+
                             // __________________________________________________ STORING USER ORDER DATA INTO TABLE AFTER COMPLETING ORDER START
                             $order_id = session()->get('order_id');
                             $book_id = session()->get('book_id');
@@ -249,10 +249,10 @@ class PaymentController extends Controller
                             if (!Auth::guard('user')->check()) { // if not login
                                 $existing_user = User::where('email', $email)->first();
 
-                                if ($existing_user) {  // WHEN UESR ALREADY REGISTERED   
-                                        $user_id = $existing_user->id;                     
-                                        $phone = $existing_user->mobile;                     
-                                        $email = $existing_user->email;    
+                                if ($existing_user) {  // WHEN UESR ALREADY REGISTERED
+                                        $user_id = $existing_user->id;
+                                        $phone = $existing_user->mobile;
+                                        $email = $existing_user->email;
 
                                         session()->put('user_id', $user_id);
                                         session()->put('phone', $phone);
@@ -293,11 +293,11 @@ class PaymentController extends Controller
                                     $user_id = Auth::guard('user')->id();
                                     session()->put('user_id', $user_id);
                                 }
-                        
-                    
+
+
                             // __________________ here data will be store in order page
                             $user_id = session()->get('user_id');
-                    
+
                             $add_order= new Order();
                             $add_order->user_id= $user_id;
                             $add_order->order_id= $order_id;
@@ -312,10 +312,10 @@ class PaymentController extends Controller
                             $add_order->method= $resObject[0]['method'];
                             $add_order->sp_message= $resObject[0]['sp_message'];
                             $add_order->save();
-                    
 
-       
-                        
+
+
+
                             // __________ sending order info to customer mail
                             return redirect()->route('mailsend', [
                                 'order_id' => $order_id,
@@ -324,7 +324,7 @@ class PaymentController extends Controller
                                 'email' => $email,
                             ]);
 
-                            
+
 
 
                 }else{
@@ -339,7 +339,7 @@ class PaymentController extends Controller
                 // if (!$resObject) {
                 //     dd("Invalid JSON response: ", $res); // Log raw response
                 // }
-                
+
             }
         }catch (\Exception $exception){
             return $exception->getMessage();
@@ -349,7 +349,7 @@ class PaymentController extends Controller
 
     public function successPay($order_id, $book_id, $book_title, $price, $email )
     {
-       
+
         return view('quick_digital.payment_pages.successPay',[
             'order_id' => $order_id,
             'book_id' => $book_id,

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\AffiliatorAccount;
 use App\Models\AffiliatorOrder;
 use App\Models\AffiliatorOrderItem;
 use App\Models\DigitalProduct;
@@ -208,6 +209,38 @@ class AffiliatorOrderController extends Controller
     {
         $order = AffiliatorOrder::with('items')->find($id);
         return view('front.users.user_dashboard.affiliate.order.payment', compact('order'));
+    }
+
+    public function paymentStore(AffiliatorOrder $affiliatorOrder)
+    {
+        #Apply Here Payment Get Way
+        // your code.....
+
+        $affiliatorOrder->payment_status = 'Paid';
+        $affiliatorOrder->save();
+
+        if ($affiliatorOrder->payment_status == 'Paid') {
+            $userId = Auth::guard('user')->user()->id;
+
+            // Find or create the account
+            $account = AffiliatorAccount::firstOrCreate(
+                ['user_id' => $userId], // Find by user ID
+                ['balance' => 0]       // Default values for a new account
+            );
+
+            $commission = 0.25;
+            // Calculate the affiliator's share (25% of the total order amount)
+            $affiliatorShare = $affiliatorOrder->total * $commission;
+
+            // Update the account balance by adding the affiliator's share
+            $account->update([
+                'balance' => $account->balance + $affiliatorShare
+            ]);
+        }
+
+        return redirect()->route('affiliate.order.show', $affiliatorOrder->id)->with('success', 'Your Payment Complete successfully!');
+
+
     }
 
     public function destroy(AffiliatorOrder $affiliatorOrder)

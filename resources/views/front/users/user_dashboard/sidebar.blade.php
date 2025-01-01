@@ -164,7 +164,7 @@
             <line x1="12" y1="18" x2="6" y2="20" />
             <line x1="15" y1="15" x2="12" y2="18" />
           </svg>
-            <span class="link_name" style=" font-size: 15px;">Purchase Services</span>
+            <span class="link_name" style=" font-size: 15px;">সার্ভিস কিনুন </span>
           </a>
         </li>
 

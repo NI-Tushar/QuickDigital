@@ -234,6 +234,7 @@
 
         // Payemt
         Route::get('/order/{id}/payment', [AffiliatorOrderController::class, 'payment'])->name('order.payment');
+        Route::get('/order/{affiliatorOrder}/make-payment', [AffiliatorOrderController::class, 'paymentStore'])->name('order.payment.store');
 
 
         Route::get('/get-software-details/{id}', [AffiliatorOrderController::class, 'getSoftwareDetails']);

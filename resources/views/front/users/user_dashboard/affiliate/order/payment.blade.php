@@ -245,7 +245,7 @@
                                 </tbody>
                             </table>
                             @if ($order->payment_status !== 'Paid')
-                            <a style="width: 100%;display:inline-block;" href="" class="btn btn-success">Make Payment</a>
+                            <a style="width: 100%;display:inline-block;" href="{{ route('affiliate.order.payment.store', $order->id) }}" class="btn btn-success">Make Payment</a>
                             @endif
                         </div>
                     </div>
