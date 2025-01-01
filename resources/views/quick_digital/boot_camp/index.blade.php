@@ -21,7 +21,7 @@
     <div class="content-wrapper">
         <div class="content-header row">
             <div class="content-header-left col-md-6 col-12 mb-2">
-                <h3 class="content-header-title mb-0">Affiliator List</h3>
+                <h3 class="content-header-title mb-0">Affiliator Request List</h3>
                 <div class="row breadcrumbs-top">
                     <div class="breadcrumb-wrapper col-12">
                         <ol class="breadcrumb">
@@ -46,6 +46,7 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="card">
+
                             <div class="card-header">
                                 <p style="font-size:20px;font-weight:700;">Total Request: {{$totalCount}}</p>
                                 <div class="heading-elements">
@@ -57,6 +58,7 @@
                                     </ul>
                                 </div>
                             </div>
+
                             <div class="card-content collapse show">
                                 <div class="card-body card-dashboard">
                                     <div style="overflow-x: auto;">

@@ -73,7 +73,11 @@
                                   </ul>
                               </div>
                               <div class="buttons">
-                                  <button>Preview</button>
+                                  @if($software->demo_link !='')
+                                    <a href="{{ $software->demo_link }}" target="_blank"><button>Preview</button></a>
+                                  @else
+                                    <button style=" background-color: #ccc;color: #666; cursor: not-allowed; opacity: 0.6; pointer-events: none;">Preview</button>
+                                  @endif
                                   <button onclick="showDetails('{{ $software->id }}', '{{ $software->title }}', '{{ $software->price }}')" class="active">Buy</button>
                               </div>
                           </div>

@@ -45,9 +45,58 @@
                 <div class="row">
                     <div class="col-12">
 
-
                         <div class="card">
                             <div class="card-body">
+
+                                <!-- ___________________ search box start -->
+                                 <style>
+                                     .search_box{
+                                         padding:10px;
+                                         width:100%;
+                                         display:flex;
+                                         justify-content:right;
+                                         gap:15px;
+                                         position: relative;
+                                        }
+                                        .search_box .total{
+                                            margin:0;
+                                            position: absolute;
+                                            left:0px;
+                                            font-size:17px;
+                                            font-weight:600;
+                                        }
+                                        .search_box button{
+                                        height:100%;
+                                        padding:10px;
+                                        border-radius:5px;
+                                        border:0.5px solid black;
+                                        width: 150px;
+                                        font-weight:700;
+                                    }
+                                    .search_box button:hover{
+                                        background-color:aliceblue;
+                                    }
+                                    .search_box form{
+                                        width: 50%;
+                                    }
+                                    .search_box input{
+                                        padding:10px;
+                                        border-radius:5px;
+                                        border:0.5px solid black;
+                                        width: 100%;
+                                    }
+                                 </style>
+                                <div class="search_box">
+                                    <p class="total">Total Affiliator: {{$totalCount}}</p>
+                                    <a href="{{ route('bootcamp.affiliators') }}"><button>Reset</button></a>
+                                <form action="{{ route('affill.search') }}" method="POST">
+                                    @csrf
+                                    @method('POST')
+                                        <input type="search" name="email_phone" id="" placeholder="Search | Enter Email or Phone number">
+                                    </form>
+                                </div>
+                                <!-- ___________________ search box end -->
+
                                 <table class="table table-bordered">
                                     <thead>
                                         <tr>

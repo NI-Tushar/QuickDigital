@@ -25,8 +25,9 @@ class BootcampController extends Controller
 
     public function affiliators()
     {
+        $totalCount = Quickbusiness::where('type', 'affiliator')->count();
         $bootcamps = Quickbusiness::where('type', 'affiliator')->latest()->paginate(25);
-        return view('quick_digital.boot_camp.affiliator', compact('bootcamps'));
+        return view('quick_digital.boot_camp.affiliator', compact('bootcamps','totalCount'));
     } 
 
     public function store(Request $request)
@@ -118,5 +119,20 @@ class BootcampController extends Controller
 
         return response()->json($user, 201);
     }
+
+    // search affiliator
+    public function searchAffiliate(Request $request)
+    {
+        $data = $request->all();
+        $id = Quickbusiness::where(function ($query) use ($data) {
+            $query->where('email', $data['email_phone'])
+            ->orWhere('phone', $data['email_phone']);
+        })
+        ->where('type', 'affiliator') // Additional condition
+        ->value('id'); 
+        $totalCount = Quickbusiness::where('type', 'affiliator')->count();
+        $bootcamps = Quickbusiness::where('id', $id)->latest()->latest()->paginate(25);
+        return view('quick_digital.boot_camp.affiliator', compact('bootcamps','totalCount'));
+    } 
 
 }
