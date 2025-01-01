@@ -9,6 +9,7 @@ use App\Models\DigitalService;
 use App\Models\Software;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class AffiliatorOrderController extends Controller
 {
@@ -17,6 +18,45 @@ class AffiliatorOrderController extends Controller
     {
         $orders = AffiliatorOrder::latest()->paginate(50);
         return view('admin.affiliate.index', compact('orders'));
+    }
+
+    // For Admin Dashboard
+    public function showOrder(AffiliatorOrder $affiliatorOrder)
+    {
+        $order = $affiliatorOrder->load('items');
+        return view('admin.affiliate.show', compact('order'));
+    }
+
+    // For Admin Dashboard
+    public function DownloadOrderPDF(AffiliatorOrder $affiliatorOrder)
+    {
+        $order = $affiliatorOrder->load('items');
+
+
+        // Generate PDF using the specified view
+        $pdf = Pdf::loadView('admin.affiliate.order_pdf', compact('order'));
+
+        // Return the PDF as a stream
+        return $pdf->stream();
+        return $pdf->download('order.pdf');
+    }
+
+    // For Admin Dashboard
+    public function paymentStatus(Request $request, AffiliatorOrder $affiliatorOrder)
+    {
+        $affiliatorOrder->payment_status = $request->payment_status;
+        $affiliatorOrder->save();
+
+        return redirect()->back()->with('success', 'Payment Status updated successfully!');
+    }
+
+    // For Admin Dashboard
+    public function orderStatus(Request $request, AffiliatorOrder $affiliatorOrder)
+    {
+        $affiliatorOrder->delivery_status = $request->delivery_status;
+        $affiliatorOrder->save();
+
+        return redirect()->back()->with('success', 'Order Status updated successfully!');
     }
 
     public function index()

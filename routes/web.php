@@ -96,6 +96,10 @@
             ##--------- affiliate ----------##
             // Orders
             Route::get('/affiliate/order', [AffiliatorOrderController::class, 'getAllOrder'])->name('admin.affiliate.order');
+            Route::get('/affiliate/{affiliatorOrder}/order', [AffiliatorOrderController::class, 'showOrder'])->name('admin.affiliate.show');
+            Route::get('/affiliate-order/{affiliatorOrder}/DownloadOrderPDF', [AffiliatorOrderController::class, 'DownloadOrderPDF'])->name('admin.affiliate.order.DownloadOrderPDF');
+            Route::put('/affiliate-order/{affiliatorOrder}/paymentStatus', [AffiliatorOrderController::class, 'paymentStatus'])->name('admin.affiliate.order.paymentStatus');
+            Route::put('/affiliate-order/{affiliatorOrder}/orderStatus', [AffiliatorOrderController::class, 'orderStatus'])->name('admin.affiliate.order.orderStatus');
             Route::delete('/affiliate-order/{affiliatorOrder}', [AffiliatorOrderController::class, 'destroy'])->name('admin.affiliate.destroy');
 
             // Software All Route Here

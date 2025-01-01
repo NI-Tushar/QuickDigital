@@ -75,7 +75,7 @@
                                                 <td>{{ $order->payment_status }}</td>
                                                 <td>
                                                     <div class="d-flex" style="gap: 1em">
-                                                        <a href="#" class="btn btn-sm btn-info showOrderData" data-toggle="modal" data-target="#orderViewModla" data-id="{{ $order->id }}">
+                                                        <a href="{{ route('admin.affiliate.show', $order->id) }}" class="btn btn-sm btn-info">
                                                             <i class="fa fa-eye"></i>
                                                         </a>
                                                         <form action="{{ route('admin.affiliate.destroy', $order->id) }}"
