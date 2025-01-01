@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('affiliator_transactions', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade')->onUpdate('cascade');
             $table->foreignId('affiliator_account_id')->constrained('affiliator_accounts')->onDelete('cascade')->onUpdate('cascade');
             $table->decimal('amount',10,2)->nullable();
             $table->enum('status', ['Cencel', 'Pending', 'Complete'])->default('Pending');

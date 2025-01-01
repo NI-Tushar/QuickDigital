@@ -2,7 +2,8 @@
 
     use App\Http\Controllers\Admin\InstructorRequestController;
     use App\Http\Controllers\AffiliatorOrderController;
-    use App\Http\Controllers\BootcampController;
+use App\Http\Controllers\AffiliatorTransactionController;
+use App\Http\Controllers\BootcampController;
     use App\Http\Controllers\SoftwareController;
     use App\Http\Controllers\DigitalProductController;
     use App\Http\Controllers\CartController;
@@ -235,6 +236,9 @@
         // Payemt
         Route::get('/order/{id}/payment', [AffiliatorOrderController::class, 'payment'])->name('order.payment');
         Route::get('/order/{affiliatorOrder}/make-payment', [AffiliatorOrderController::class, 'paymentStore'])->name('order.payment.store');
+
+        // Transations
+        route::get('transaction', [AffiliatorTransactionController::class, 'index'])->name('transaction.index');
 
 
         Route::get('/get-software-details/{id}', [AffiliatorOrderController::class, 'getSoftwareDetails']);
