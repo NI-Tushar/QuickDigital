@@ -12,6 +12,13 @@ use Illuminate\Support\Facades\Auth;
 
 class AffiliatorOrderController extends Controller
 {
+    // For Admin Dashboard
+    public function getAllOrder()
+    {
+        $orders = AffiliatorOrder::latest()->paginate(50);
+        return view('admin.affiliate.index', compact('orders'));
+    }
+
     public function index()
     {
         $orders = AffiliatorOrder::where('user_id', Auth::guard('user')->user()->id)->latest()->paginate(10);
@@ -148,5 +155,11 @@ class AffiliatorOrderController extends Controller
     {
         $order = AffiliatorOrder::with('items')->find($id);
         return view('front.users.user_dashboard.affiliate.order.payment', compact('order'));
+    }
+
+    public function destroy(AffiliatorOrder $affiliatorOrder)
+    {
+        $affiliatorOrder->delete();
+        return redirect()->back()->with('success', 'Delete Record successfully!');
     }
 }
