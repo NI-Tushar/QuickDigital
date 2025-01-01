@@ -187,7 +187,7 @@
 
 
 
-                <div class="card" style="width: 100%">
+                <div class="card bg-white" style="width: 100%">
                     <div class="card-header">
                         <div class="d-flex justify-content-between align-items-center">
                             <h5 class="fw-bolder">View Order - #{{ $order->order_id }}</h5>
@@ -244,7 +244,9 @@
                                     </tr>
                                 </tbody>
                             </table>
+                            @if ($order->payment_status !== 'Paid')
                             <a style="width: 100%;display:inline-block;" href="" class="btn btn-success">Make Payment</a>
+                            @endif
                         </div>
                     </div>
                 </div>

@@ -41,6 +41,19 @@ class AffiliatorOrderController extends Controller
         return $pdf->download('order.pdf');
     }
 
+    public function DownloadPDF(AffiliatorOrder $affiliatorOrder)
+    {
+        $order = $affiliatorOrder->load('items');
+
+
+        // Generate PDF using the specified view
+        $pdf = Pdf::loadView('front.users.user_dashboard.affiliate.order.order_pdf', compact('order'));
+
+        // Return the PDF as a stream
+        return $pdf->stream();
+        return $pdf->download('order.pdf');
+    }
+
     // For Admin Dashboard
     public function paymentStatus(Request $request, AffiliatorOrder $affiliatorOrder)
     {
@@ -187,8 +200,8 @@ class AffiliatorOrderController extends Controller
 
     public function show($id)
     {
-        $orderDetails = AffiliatorOrder::with('items')->find($id);
-        return view('front.users.user_dashboard.affiliate.order.show', compact('orderDetails'));
+        $order = AffiliatorOrder::with('items')->find($id);
+        return view('front.users.user_dashboard.affiliate.order.show', compact('order'));
     }
 
     public function payment($id)

@@ -230,6 +230,7 @@
         route::get('order/create', [AffiliatorOrderController::class, 'create'])->name('order.create');
         route::post('order/store', [AffiliatorOrderController::class, 'store'])->name('order.store');
         route::get('order/{id}/show', [AffiliatorOrderController::class, 'show'])->name('order.show');
+        Route::get('/order/{affiliatorOrder}/DownloadOrderPDF', [AffiliatorOrderController::class, 'DownloadPDF'])->name('order.DownloadOrderPDF');
 
         // Payemt
         Route::get('/order/{id}/payment', [AffiliatorOrderController::class, 'payment'])->name('order.payment');
