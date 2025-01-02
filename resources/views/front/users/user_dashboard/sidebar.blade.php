@@ -149,6 +149,7 @@
           <a href="{{ route('affiliate.order.index') }}">
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 <<<<<<< HEAD
+<<<<<<< HEAD
             <!-- Paper -->
             <path d="M16 2h-8a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-12l-6-6z" />
             <path d="M16 2v6h6" />
@@ -184,6 +185,8 @@
         </svg>
             <span class="link_name" style=" font-size: 15px;">সার্ভিস ক্রয় করুন</span>
 >>>>>>> 28e7950565626a6554b39d7f537f49bbb9090a7a
+=======
+>>>>>>> 5ddfd30b52404cd49bb9e21ba5a5597674a3eb50
           </a>
         </li>
 

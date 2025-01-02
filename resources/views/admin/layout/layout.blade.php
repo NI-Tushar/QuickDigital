@@ -13,10 +13,14 @@
     <meta name="author" content="PIXINVENT">
     <meta name="csrf-token" content="{{ csrf_token() }}" />
 <<<<<<< HEAD
+<<<<<<< HEAD
     <title>Quick Digidal | Admin Dashboard</title>
 =======
     <title>Admin Dashboard - QuickDigital</title>
 >>>>>>> 28e7950565626a6554b39d7f537f49bbb9090a7a
+=======
+
+>>>>>>> 5ddfd30b52404cd49bb9e21ba5a5597674a3eb50
     <link rel="apple-touch-icon" href="{{ asset('admin/images/ico/apple-icon-120.png') }}">
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('admin/images/ico/favicon.ico') }}">
     <link
