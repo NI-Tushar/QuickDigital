@@ -51,4 +51,9 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Subscription::class);
     }
+
+    public function account()
+    {
+        return $this->hasOne(AffiliatorAccount::class);
+    }
 }

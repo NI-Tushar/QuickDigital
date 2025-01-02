@@ -18,8 +18,10 @@ class AffiliatorTransaction extends Model
 
     public function account()
     {
-        return $this->belongsTo(AffiliatorAccount::class);
+        return $this->belongsTo(AffiliatorAccount::class, 'affiliator_account_id');
     }
+
+
     public function user()
     {
         return $this->belongsTo(User::class);

@@ -249,6 +249,7 @@ use App\Http\Controllers\BootcampController;
 
         // Transations
         route::get('transaction', [AffiliatorTransactionController::class, 'index'])->name('transaction.index');
+        route::post('transaction', [AffiliatorTransactionController::class, 'store'])->name('transaction.store');
 
 
         Route::get('/get-software-details/{id}', [AffiliatorOrderController::class, 'getSoftwareDetails']);
