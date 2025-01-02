@@ -293,17 +293,16 @@
                                         @php
                                         $user = Auth::guard('user')->user();
                                         @endphp
-
-                                        @if ($user->is_instructor == 1)
-                                        <li>
-                                            <a class="dropdown-item user__nav__item d-flex align-items-center gap-3" href="{{ route('user.dashboard') }}">
-                                                <svg class="" height="16px" width="16px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                                                    <path d="M7 10H20C20.5523 10 21 10.4477 21 11V21C21 21.5523 20.5523 22 20 22H4C3.44772 22 3 21.5523 3 21V11C3 10.4477 3.44772 10 4 10H5V9C5 5.13401 8.13401 2 12 2C14.7405 2 17.1131 3.5748 18.2624 5.86882L16.4731 6.76344C15.6522 5.12486 13.9575 4 12 4C9.23858 4 7 6.23858 7 9V10ZM10 15V17H14V15H10Z">
-                                                    </path>
-                                                </svg>Instructor Dashboard
-                                            </a>
-                                        </li>
-                                        @endif
+                                            @if ($user->is_instructor == 1)
+                                            <li>
+                                                <a class="dropdown-item user__nav__item d-flex align-items-center gap-3" href="{{ route('user.dashboard') }}">
+                                                    <svg class="" height="16px" width="16px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                                        <path d="M7 10H20C20.5523 10 21 10.4477 21 11V21C21 21.5523 20.5523 22 20 22H4C3.44772 22 3 21.5523 3 21V11C3 10.4477 3.44772 10 4 10H5V9C5 5.13401 8.13401 2 12 2C14.7405 2 17.1131 3.5748 18.2624 5.86882L16.4731 6.76344C15.6522 5.12486 13.9575 4 12 4C9.23858 4 7 6.23858 7 9V10ZM10 15V17H14V15H10Z">
+                                                        </path>
+                                                    </svg>Instructor Dashboard
+                                                </a>
+                                            </li>
+                                            @endif
                                         @endif
                                         <li>
                                             <a class="dropdown-item user__nav__item d-flex align-items-center gap-3" href="{{ route('user.dashboard') }}">
@@ -317,11 +316,32 @@
                                             </a>
                                         </li>
 
+                                        <li>
+                                            <a class="dropdown-item user__nav__item d-flex align-items-center gap-3" href="{{ route('user.update') }}">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <rect x="5" y="11" width="14" height="10" rx="2" ry="2"></rect>
+                                            <path d="M12 11V7a4 4 0 0 1 8 0v4"></path>
+                                            <line x1="12" y1="15" x2="12" y2="17"></line>
+                                            <line x1="10" y1="17" x2="14" y2="17"></line>
+                                            </svg>
+                                                প্রোফাইল আপডেট করুন
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item user__nav__item d-flex align-items-center gap-3" href="{{ route('password.update') }}">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <circle cx="12" cy="7" r="4"></circle>
+                                            <path d="M5.5 21c1.5-4 6.5-4 7-4s5.5 0 7 4"></path>
+                                            </svg>
+                                                পাসওয়ার্ড পরিবর্তন করুন
+                                            </a>
+                                        </li>
+
 
                                         <li>
                                             <hr class="dropdown-divider">
                                         </li>
-                                        @if (Auth::guard('user')->check())
+                                        <!-- @if (Auth::guard('user')->check())
                                         @php
                                             $user = Auth::guard('user')->user();
                                         @endphp
@@ -338,7 +358,7 @@
                                                 </form>
                                             </li>
                                             @endif
-                                        @endif
+                                        @endif -->
 
                                         <li>
                                             <a class="dropdown-item user__nav__item d-flex align-items-center gap-3" href="{{ url('/user/logout') }}">

@@ -6,12 +6,12 @@
     <div class="content-wrapper">
         <div class="content-header row">
             <div class="content-header-left col-md-6 col-12 mb-2">
-                <h3 class="content-header-title mb-0">Software List</h3>
+                <h3 class="content-header-title mb-0">Service List</h3>
                 <div class="row breadcrumbs-top">
                     <div class="breadcrumb-wrapper col-12">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="{{ url('admin/dashboard') }}">Home</a></li>
-                            <li class="breadcrumb-item active">Software List</li>
+                            <li class="breadcrumb-item active">Service List</li>
                         </ol>
                     </div>
                 </div>
@@ -31,7 +31,7 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <a href="{{ route('software.add') }}"><button type="button" class="btn btn-secondary btn-min-width mr-1 mb-1"><i class="feather icon-edit"></i> Add Software</button></a>
+                                <a href="{{ route('add.digialservice') }}"><button type="button" class="btn btn-secondary btn-min-width mr-1 mb-1"><i class="feather icon-edit"></i> Add Service</button></a>
                                 <div class="heading-elements">
                                     <ul class="list-inline mb-0">
                                         <li><a data-action="collapse"><i class="feather icon-minus"></i></a></li>
@@ -48,50 +48,45 @@
                                             <thead>
                                                 <tr>
                                                     <th>ID</th>
-                                                    <th>Software Title</th>
+                                                    <th>Service Title</th>
                                                     <th>Description</th>
                                                     <th>Features</th>
-                                                    <th>Subscription Price</th>
+                                                    <th>Price</th>
                                                     <th>Affiliator Commission</th>
-                                                    <th>Demo Link</th>
                                                     <th>Thumbnail</th>
                                                     <th>Last Update</th>
                                                     <th>ACTIONS</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                @foreach ($softwares as $software)
+                                                @foreach ($digService as $digSer)
                                                 <tr>
-                                                    <td style="text-align:center;">{{ $software->id }}</td>
-                                                    <td style="text-align:left;">{{ $software->title }}</td>
-                                                    <td style="text-align:left;">{{ $software->description }}</td>
+                                                    <td style="text-align:center;">{{ $digSer->id }}</td>
+                                                    <td style="text-align:left;">{{ $digSer->title }}</td>
+                                                    <td style="text-align:left;">{{ $digSer->description }}</td>
                                                     <td style="text-align:center;">
                                                         @php
-                                                            $software->features = json_decode($software->features, true);
+                                                            $digSer->features = json_decode($digSer->features, true);
                                                             $index=1;
                                                         @endphp
                                                         <ol style="margin: 0; padding:0px;">
-                                                            @foreach ($software->features as $feature)
+                                                            @foreach ($digSer->features as $feature)
                                                                 <li style="text-align:left;"><span style="font-weight:700;">{{$index}}:</span> {{ $feature }}</li>
                                                                     @php $index=$index+1; @endphp
                                                             @endforeach
                                                         </ol>
 
                                                     </td>
-                                                    <td style="text-align:center;width:50px;">{{ $software->price }} BDT</td>
-                                                    <td style="text-align:center;width:50px;">{{ $software->affiliator_commission }} %</td>
-                                                    <td style="text-align:center;width:50px;">
-                                                        @if ($software->demo_link!='')
-                                                        <a href="{{ $software->demo_link }}" target="_blank"><button style="border-radius:5px;">Click</button></a></td>
-                                                        @endif
+                                                    <td style="text-align:center;width:50px;">{{ $digSer->price }} BDT</td>
+                                                    <td style="text-align:center;width:50px;">{{ $digSer->affiliator_commission }} %</td>
                                                     <td style="width: 100px; height: 100px; padding: 3px;">
-                                                        <img src="{{ $software->thumbnail ? asset($software->thumbnail) : asset('no_image2.jpg') }}" class="img-fluid rounded" alt="No Image" style="width: 100%; height: 100%; object-fit: cover;margin:auto;">
+                                                        <img src="{{ $digSer->thumbnail ? asset($digSer->thumbnail) : asset('no_image2.jpg') }}" class="img-fluid rounded" alt="No Image" style="width: 100%; height: 100%; object-fit: cover;margin:auto;">
                                                     </td>
-                                                    <td style="text-align:center;width: 100px;">{{ date('F j, Y, g:i a', strtotime($software->updated_at)) }}</td>
+                                                    <td style="text-align:center;width: 100px;">{{ date('F j, Y, g:i a', strtotime($digSer->updated_at)) }}</td>
                                                     <td style="text-align:center;">
-                                                        <a href="{{ url('admin/update_software/'.$software['id']) }}"><i class="fa fa-edit"></i></a>
+                                                        <a href="{{ url('admin/update_digitalService/'.$digSer['id']) }}"><i class="fa fa-edit"></i></a>
                                                         &nbsp;&nbsp;
-                                                        <a href="javascript:void(0);" onclick="confirmAndRedirect('{{ url('admin/delete-software/'.$software['id']) }}')">
+                                                        <a href="javascript:void(0);" onclick="confirmAndRedirect('{{ url('admin/delete-digService/'.$digSer['id']) }}')">
                                                             <i class="fa fa-trash"></i>
                                                         </a>
                                                     </td>
@@ -111,12 +106,11 @@
                                             <tfoot>
                                                 <tr>
                                                     <th>ID</th>
-                                                    <th>Software Title</th>
+                                                    <th>Service Title</th>
                                                     <th>Description</th>
                                                     <th>Features</th>
                                                     <th>Subscription Price</th>
                                                     <th>Affiliator Commission</th>
-                                                    <th>Demo Link</th>
                                                     <th>Thumbnail</th>
                                                     <th>Last Update</th>
                                                     <th>ACTIONS</th>

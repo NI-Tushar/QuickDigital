@@ -12,7 +12,11 @@
         content="admin template, stack admin template, dashboard template, flat admin template, responsive admin template, web app">
     <meta name="author" content="PIXINVENT">
     <meta name="csrf-token" content="{{ csrf_token() }}" />
+<<<<<<< HEAD
     <title>Quick Digidal | Admin Dashboard</title>
+=======
+    <title>Admin Dashboard - QuickDigital</title>
+>>>>>>> 28e7950565626a6554b39d7f537f49bbb9090a7a
     <link rel="apple-touch-icon" href="{{ asset('admin/images/ico/apple-icon-120.png') }}">
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('admin/images/ico/favicon.ico') }}">
     <link
