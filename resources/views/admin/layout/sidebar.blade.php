@@ -240,6 +240,9 @@
                     <li>
                         <a class="menu-item" href="{{ route('admin.affiliate.transaction.index') }}" data-i18n="Vertical">Transaction</a>
                     </li>
+                    <li>
+                        <a class="menu-item" href="{{ route('admin.affiliate.promocode.index') }}" data-i18n="Vertical">Promo Codes</a>
+                    </li>
                 </ul>
             </li>
 

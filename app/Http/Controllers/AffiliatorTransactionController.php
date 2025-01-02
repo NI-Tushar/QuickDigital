@@ -79,7 +79,7 @@ class AffiliatorTransactionController extends Controller
 
             return redirect()->back()->with('success', "Balance was Successfully Transferred on Affiliate provided account.");
         }
-        return redirect()->back()->with('success', "Status Update Succe");
+        return redirect()->back()->with('success', "Status Update Successfully!");
     }
 
     // For Admin

@@ -56,4 +56,10 @@ class User extends Authenticatable
     {
         return $this->hasOne(AffiliatorAccount::class);
     }
+
+    public function promocode()
+    {
+        return $this->hasOne(AffiliatorPromocode::class);
+    }
+
 }
