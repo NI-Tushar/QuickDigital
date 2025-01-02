@@ -9,6 +9,13 @@ use Illuminate\Support\Facades\Auth;
 
 class AffiliatorTransactionController extends Controller
 {
+    // For Admin
+    public function getAllTransactions()
+    {
+        $transactions = AffiliatorTransaction::latest()->get();
+        return view('admin.affiliate.transaction.index', compact('transactions'));
+    }
+
     public function index()
     {
         $account = AffiliatorAccount::where('user_id', Auth::guard('user')->user()->id)->first();
@@ -60,6 +67,27 @@ class AffiliatorTransactionController extends Controller
         }
     }
 
+    // For Admin
+    public function status(AffiliatorTransaction $affiliatorTransaction, Request $request)
+    {
+        $affiliatorTransaction->status = $request->status;
+        $affiliatorTransaction->save();
+
+        // Its worked when use withdrawl system automatic
+        if ($affiliatorTransaction->status === 'Complete') {
+            $affiliatorTransaction->account->decrement('balance', $affiliatorTransaction->amount);
+
+            return redirect()->back()->with('success', "Balance was Successfully Transferred on Affiliate provided account.");
+        }
+        return redirect()->back()->with('success', "Status Update Succe");
+    }
+
+    // For Admin
+    public function destroy(AffiliatorTransaction $affiliatorTransaction)
+    {
+        $affiliatorTransaction->delete();
+        return redirect()->back()->with('success', 'Delete Record successfully!');
+    }
 
 
 }
