@@ -20,4 +20,10 @@ class AffiliatorController extends Controller
         $softwares = Software::all();
         return view('front.users.user_dashboard.software')->with(compact('softwares'));
     }
+    public function digitalProduct()
+    {
+        // $softwares = Software::all();
+        // return view('front.users.user_dashboard.software')->with(compact('softwares'));
+        return view('front.users.user_dashboard.digital_product');
+    }
 }
