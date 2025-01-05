@@ -28,7 +28,7 @@ class BootcampController extends Controller
         $totalCount = Quickbusiness::where('type', 'affiliator')->count();
         $bootcamps = Quickbusiness::where('type', 'affiliator')->latest()->paginate(25);
         return view('quick_digital.boot_camp.affiliator', compact('bootcamps','totalCount'));
-    } 
+    }
 
     public function store(Request $request)
     {
@@ -129,10 +129,10 @@ class BootcampController extends Controller
             ->orWhere('phone', $data['email_phone']);
         })
         ->where('type', 'affiliator') // Additional condition
-        ->value('id'); 
+        ->value('id');
         $totalCount = Quickbusiness::where('type', 'affiliator')->count();
         $bootcamps = Quickbusiness::where('id', $id)->latest()->latest()->paginate(25);
         return view('quick_digital.boot_camp.affiliator', compact('bootcamps','totalCount'));
-    } 
+    }
 
 }

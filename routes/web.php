@@ -2,6 +2,7 @@
 
     use App\Http\Controllers\Admin\InstructorRequestController;
     use App\Http\Controllers\AffiliatorOrderController;
+use App\Http\Controllers\AffiliatorPromocodeController;
 use App\Http\Controllers\AffiliatorTransactionController;
 use App\Http\Controllers\BootcampController;
     use App\Http\Controllers\SoftwareController;
@@ -102,6 +103,17 @@ use App\Http\Controllers\BootcampController;
             Route::put('/affiliate-order/{affiliatorOrder}/paymentStatus', [AffiliatorOrderController::class, 'paymentStatus'])->name('admin.affiliate.order.paymentStatus');
             Route::put('/affiliate-order/{affiliatorOrder}/orderStatus', [AffiliatorOrderController::class, 'orderStatus'])->name('admin.affiliate.order.orderStatus');
             Route::delete('/affiliate-order/{affiliatorOrder}', [AffiliatorOrderController::class, 'destroy'])->name('admin.affiliate.destroy');
+
+            // Transations
+            route::get('/affiliate/transaction', [AffiliatorTransactionController::class, 'getAllTransactions'])->name('admin.affiliate.transaction.index');
+            route::get('/affiliate/transaction/{affiliatorTransaction}/status', [AffiliatorTransactionController::class, 'status'])->name('admin.affiliate.transaction.status');
+            Route::delete('/affiliate-transaction/{affiliatorTransaction}', [AffiliatorTransactionController::class, 'destroy'])->name('admin.affiliate.transaction.destroy');
+
+            // Promo Code
+            Route::get('/affiliate/promocode', [AffiliatorPromocodeController::class, 'index'])->name('admin.affiliate.promocode.index');
+            Route::post('/affiliate/promocode', [AffiliatorPromocodeController::class, 'store'])->name('admin.affiliate.promocode.store');
+            route::get('/affiliate/promocode/{affiliatorPromocode}/status', [AffiliatorPromocodeController::class, 'status'])->name('admin.affiliate.promocode.status');
+            Route::delete('/affiliate-promocode/{affiliatorPromocode}', [AffiliatorPromocodeController::class, 'destroy'])->name('admin.affiliate.promocode.destroy');
 
             // Software All Route Here
             Route::match(['get', 'post'], 'add_software', 'AdminSoftwareController@add_store_software')->name('software.add');
@@ -248,7 +260,8 @@ use App\Http\Controllers\BootcampController;
         Route::get('/order/{affiliatorOrder}/make-payment', [AffiliatorOrderController::class, 'paymentStore'])->name('order.payment.store');
 
         // Transations
-        route::get('transaction', [AffiliatorTransactionController::class, 'index'])->name('transaction.index');
+        route::get('/transaction', [AffiliatorTransactionController::class, 'index'])->name('transaction.index');
+        route::post('/transaction', [AffiliatorTransactionController::class, 'store'])->name('transaction.store');
 
 
         Route::get('/get-software-details/{id}', [AffiliatorOrderController::class, 'getSoftwareDetails']);
