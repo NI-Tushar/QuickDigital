@@ -199,11 +199,6 @@ class AffiliatorOrderController extends Controller
         }
     }
 
-    public function show($id)
-    {
-        $order = AffiliatorOrder::with('items')->find($id);
-        return view('front.users.user_dashboard.affiliate.order.show', compact('order'));
-    }
 
     public function payment($id)
     {
@@ -213,35 +208,235 @@ class AffiliatorOrderController extends Controller
 
     public function paymentStore(AffiliatorOrder $affiliatorOrder)
     {
+        // return $affiliatorOrder->total;
+        // return $affiliatorOrder->user;
+        // return $affiliatorOrder->user->email;
         #Apply Here Payment Get Way
         // your code.....
+        // ___________________________________________________ initial payment start
+        try {
+            $merchant_name = config('surjopay.merchant_name');
+            $merchant_password = config('surjopay.merchant_password');
+            $merchant_prefix = config('surjopay.merchant_prefix');
+            $get_token_url = config('surjopay.get_token_url');
 
-        $affiliatorOrder->payment_status = 'Paid';
-        $affiliatorOrder->save();
-
-        if ($affiliatorOrder->payment_status == 'Paid') {
-            $userId = Auth::guard('user')->user()->id;
-
-            // Find or create the account
-            $account = AffiliatorAccount::firstOrCreate(
-                ['user_id' => $userId], // Find by user ID
-                ['balance' => 0]       // Default values for a new account
-            );
-
-            $commission = 0.25;
-            // Calculate the affiliator's share (25% of the total order amount)
-            $affiliatorShare = $affiliatorOrder->total * $commission;
-
-            // Update the account balance by adding the affiliator's share
-            $account->update([
-                'balance' => $account->balance + $affiliatorShare
+            
+            $data = [
+                'username' => $merchant_name,
+                'password' => $merchant_password,
+            ];
+            
+ 
+            $ch = curl_init();
+            curl_setopt($ch, CURLOPT_URL, $get_token_url);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($ch, CURLOPT_POST, true);
+            curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
+            curl_setopt($ch, CURLOPT_HTTPHEADER, [
+                    'Content-Type: application/json',
             ]);
+
+            $response = curl_exec($ch);
+            $error = curl_error($ch);
+            curl_close($ch);
+
+            $responseObject = json_decode($response, true);
+
+            if ($error) {
+                echo 'cURL Error: ' . $error;
+            } else {
+                $response_data = json_decode($response, true);
+                if (isset($response_data['token'])) {
+                    // echo 'Token: ' . $response_data['token'];
+                    $res = $this->createPayment($responseObject, $affiliatorOrder);
+                    if (isset($res['checkout_url']) && $res['checkout_url'] != null) {
+                        return redirect()->away($res['checkout_url']);
+                        //For Inertia Js, Use this to avoid whole tab opening as modal
+                        return inertia()->location($res['checkout_url']);
+                    }else{
+                        // return redirect()->route('home')->with('error','Payment Generation Failed');
+                        print_r('Payment Generation Failed');
+                    }
+                } else {
+                    echo 'Token Generation Failed: ' . $response;
+                }
+            }
+
+        }catch (\Exception $exception){
+            return $exception->getMessage();
         }
-
-        return redirect()->route('affiliate.order.show', $affiliatorOrder->id)->with('success', 'Your Payment Complete successfully!');
-
+        // ___________________________________________________ initial payment end
 
     }
+
+
+
+    // ________________________________ payment function start
+    protected function createPayment($response, AffiliatorOrder $affiliatorOrder)
+    {
+          try {
+
+            $token = $response['token'];
+            $store_id   = $response['store_id'];
+            $authorizationToken = "Bearer $token";
+            $order_id = rand(000000000000,999999999999);
+
+            session()->put('token', $token);
+        
+            $curl = curl_init();
+
+            $secretpay_url = config('surjopay.secretpay_url');
+            $merchant_prefix = config('surjopay.merchant_prefix');
+       
+
+            curl_setopt_array($curl, array(
+                CURLOPT_URL => $secretpay_url,
+                CURLOPT_RETURNTRANSFER => true,
+                CURLOPT_ENCODING => '',
+                CURLOPT_MAXREDIRS => 10,
+                CURLOPT_TIMEOUT => 0,
+                CURLOPT_FOLLOWLOCATION => true,
+                CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+                CURLOPT_CUSTOMREQUEST => 'POST',
+                CURLOPT_POSTFIELDS =>'{
+                "prefix": "'.$merchant_prefix.'",
+                "token": "'.$token.'",
+                "return_url": "'.route('affiliate.payment.success',$affiliatorOrder->id).'",
+                "cancel_url": "'.route('affiliate.payment.cancel').'",
+                "store_id": "'.$store_id.'",
+                "amount": "'.$affiliatorOrder->total.'", 
+                "order_id": "'.$affiliatorOrder->order_id.'",
+                "currency": "BDT",
+                "customer_name": "Name, Not Provided",
+                "customer_address": "Address, Not Provided",
+                "customer_phone": "'.$affiliatorOrder->user->mobile.'",
+                "customer_city": "City, Not provided",
+                "customer_post_code": "none",
+                "client_ip": "102.101.1.1",
+                "discount_amount": "0",
+                "disc_percent": "",
+                "customer_email": "'.$affiliatorOrder->user->email.'",
+                "customer_state": "Bangladesh",
+                "customer_postcode": "7200",
+                "customer_country": "Bangladesh",
+                "shipping_address": "Jhenaidah, Khulna, Bangladesh",
+                "shipping_city": "Jhenaidah",
+                "shipping_country": "Bangladesh",
+                "received_person_name": "Reciver Name",
+                "shipping_phone_number": "01700000000",
+                "value1": "test value1",
+                "value2": "",
+                "value3": "",
+                "value4": "",
+                "type": "json"
+            }',
+                CURLOPT_HTTPHEADER => array(
+                    "Content-Type: application/json",
+                    "Authorization: $authorizationToken",
+                ),
+            ));
+
+            $res = curl_exec($curl);
+
+            curl_close($curl);
+            $resObject = json_decode($res, true);
+
+            return $resObject;
+
+        }catch (\Exception $e){
+            return $e->getMessage();
+        }
+    }
+
+    // ________________________________ payment function end
+
+    public function success(Request $request, AffiliatorOrder $affiliatorOrder)
+    {
+        try {
+            if (isset($request['order_id']) && $request['order_id'] != null) {
+
+                $verific_url = config('surjopay.verific_url');
+
+                $token = session()->get('token');
+                $order_id = $request['order_id'];
+                $authorizationToken = "Bearer $token";
+
+                $curl = curl_init();
+
+                curl_setopt_array($curl, array(
+                    CURLOPT_URL => $verific_url,
+                    CURLOPT_RETURNTRANSFER => true,
+                    CURLOPT_ENCODING => '',
+                    CURLOPT_MAXREDIRS => 10,
+                    CURLOPT_TIMEOUT => 0,
+                    CURLOPT_FOLLOWLOCATION => true,
+                    CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+                    CURLOPT_CUSTOMREQUEST => 'POST',
+                    CURLOPT_POSTFIELDS =>'{
+                        "order_id": "'.$order_id.'",
+                        "type": "json"
+                    }',
+                    CURLOPT_HTTPHEADER => array(
+                        "Content-Type: application/json",
+                        "Authorization: $authorizationToken",
+                    ),
+                ));
+
+                $res = curl_exec($curl);
+
+                curl_close($curl);
+
+                $resObject = json_decode($res, true);
+
+                if($resObject[0]['sp_message']=="Success"){
+
+                    // _________________________________ update data after payment start
+                    $affiliatorOrder->update([
+                        'payment_status' => 'Paid',
+                        'payment_method' => $resObject[0]['method'],
+                        'bank_trx_id' => $resObject[0]['bank_trx_id'],
+                        'invoice_no' => $resObject[0]['invoice_no'],
+                    ]);
+
+                    if ($affiliatorOrder->payment_status == 'Paid') {
+                        $userId = Auth::guard('user')->user()->id;
+
+                        // Find or create the account
+                        $account = AffiliatorAccount::firstOrCreate(
+                            ['user_id' => $userId], // Find by user ID
+                            ['balance' => 0]       // Default values for a new account
+                        );
+
+                        $commission = 0.25;
+                        // Calculate the affiliator's share (25% of the total order amount)
+                        $affiliatorShare = $affiliatorOrder->total * $commission;
+
+                        // Update the account balance by adding the affiliator's share
+                        $account->update([
+                            'balance' => $account->balance + $affiliatorShare
+                        ]);
+                    }
+
+                    return redirect()->route('affiliate.order.show', $affiliatorOrder->id)->with('success', 'Your Payment Complete successfully!');
+                    // _________________________________ update data after payment end
+                }else{
+
+                    dd('payment failed');
+
+                }
+
+            }
+        }catch (\Exception $exception){
+            return $exception->getMessage();
+        }
+    }
+
+    public function show($id)
+    {
+        $order = AffiliatorOrder::with('items')->find($id);
+        return view('front.users.user_dashboard.affiliate.order.show', compact('order'));
+    }
+
 
     public function destroy(AffiliatorOrder $affiliatorOrder)
     {

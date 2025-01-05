@@ -258,6 +258,8 @@ use App\Http\Controllers\BootcampController;
         // Payemt
         Route::get('/order/{id}/payment', [AffiliatorOrderController::class, 'payment'])->name('order.payment');
         Route::get('/order/{affiliatorOrder}/make-payment', [AffiliatorOrderController::class, 'paymentStore'])->name('order.payment.store');
+        Route::get('/affiliate-pay-success/{affiliatorOrder}', [AffiliatorOrderController::class, 'success'])->name('payment.success');
+        Route::get('/affiliate-pay-cancel', [AffiliatorOrderController::class, 'cancel'])->name('payment.cancel');
 
         // Transations
         route::get('/transaction', [AffiliatorTransactionController::class, 'index'])->name('transaction.index');
@@ -363,9 +365,9 @@ use App\Http\Controllers\BootcampController;
     Route::get('/cancel', [PaymentController::class, 'cancel'])->name('payment.cancel');
     Route::get('/successful/{order_id}/{book_id}/{book_title}/{price}/{email}',[PaymentController::class, 'successPay'])->name('successPay');
     // For Software
-    Route::post('/payment', [SoftPaymentController::class, 'softwarePayment'])->name('softwarePayment');
-    Route::get('/success', [SoftPaymentController::class, 'success'])->name('softPay.success');
-    Route::get('/cancel', [SoftPaymentController::class, 'cancel'])->name('softPay.cancel');
+    // Route::post('/payment', [SoftPaymentController::class, 'softwarePayment'])->name('softwarePayment');
+    // Route::get('/success', [SoftPaymentController::class, 'success'])->name('softPay.success');
+    // Route::get('/cancel', [SoftPaymentController::class, 'cancel'])->name('softPay.cancel');
 
 
     // test pay pruduct

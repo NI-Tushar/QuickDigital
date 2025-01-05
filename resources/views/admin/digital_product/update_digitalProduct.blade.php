@@ -143,8 +143,8 @@
                                             </div>
 
                                             <div class="form-group">
-                                                <label for="name">Enter Prodict File</label>
-                                                <input style="border-radius:5px;" type="text" id="name" class="form-control round" placeholder="Enter Product file (zip)" accept=".zip,.rar" name="zip_file" value="{{ $product['zip_file'] }}" >
+                                                <label for="name">Enter Prodict File (Zip)</label>
+                                                <input style="border-radius:5px;" type="file" id="name" class="form-control round" placeholder="Enter Product file (zip)" accept=".zip,.rar" name="zip_file" value="{{ $product['zip_file'] }}" >
                                             </div>
 
                                             <!-- ___________________________ thumbnail start -->

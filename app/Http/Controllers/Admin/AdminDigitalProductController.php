@@ -22,15 +22,15 @@ class AdminDigitalProductController extends Controller
             
             
             $request->validate([
-                'title' => 'required|max:100',
-                'description' => 'max:200',
+                'title' => 'required|max:200',
+                'description' => 'max:500',
                 'features' => 'array',
                 'thumbnail' => 'image|max:2048',
             ]);
 
             $rules = [
-                'title' => 'required|max:100',
-                'description' => 'max:200',
+                'title' => 'required|max:200',
+                'description' => 'max:500',
                 'features' => 'array',
                 'thumbnail' => 'image|max:2048',
             ];
@@ -129,15 +129,15 @@ class AdminDigitalProductController extends Controller
         
         
         $request->validate([
-            'title' => 'required|max:100',
-            'description' => 'max:200',
+            'title' => 'required|max:200',
+            'description' => 'max:500',
             'features' => 'array',
             'thumbnail' => 'image|max:2048',
         ]);
 
         $rules = [
-            'title' => 'required|max:100',
-            'description' => 'max:200',
+            'title' => 'required|max:200',
+            'description' => 'max:500',
             'features' => 'array',
             'thumbnail' => 'image|max:2048',
         ];
@@ -222,7 +222,7 @@ class AdminDigitalProductController extends Controller
                     $zip_tmp->move(public_path('admin/assets/zip/digital_product'), $zip_name);
 
                     // Store the file path in the database
-                    $digProd->zip_file = $zip_path;
+                    $data->zip_file = $zip_path;
                 } else {
                     return back()->with('error', 'The uploaded file must be a ZIP file.');
                 }

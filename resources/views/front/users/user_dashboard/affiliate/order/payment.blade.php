@@ -245,7 +245,10 @@
                                 </tbody>
                             </table>
                             @if ($order->payment_status !== 'Paid')
+                            <!-- __________________________________ payment method with payload start -->
+
                             <a style="width: 100%;display:inline-block;" href="{{ route('affiliate.order.payment.store', $order->id) }}" class="btn btn-success">Make Payment</a>
+                            <!-- __________________________________ payment method with payload end -->
                             @endif
                         </div>
                     </div>

@@ -84,6 +84,10 @@
                                                         <td style="text-align:center;width:50px;"> 
                                                             <img style="height:50px;width:50px;" src="https://icon-library.com/images/zipped-file-icon/zipped-file-icon-4.jpg" alt="">
                                                         </td> 
+                                                    @else
+                                                        <td style="text-align:center;width:50px;"> 
+                                                            No File
+                                                        </td> 
                                                     @endif
                                                     <td style="width: 100px; height: 100px; padding: 3px;">
                                                         <img src="{{ $product->thumbnail ? asset($product->thumbnail) : asset('no_image2.jpg') }}" class="img-fluid rounded" alt="No Image" style="width: 100%; height: 100%; object-fit: cover;margin:auto;">
