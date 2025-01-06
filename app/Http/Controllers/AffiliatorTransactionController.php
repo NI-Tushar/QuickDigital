@@ -27,7 +27,9 @@ class AffiliatorTransactionController extends Controller
             $transactions = collect(); // Empty collection for transactions
         }
 
-        return view('front.users.user_dashboard.affiliate.account.index', compact('account', 'transactions'));
+        $bank_details = Auth::guard('user')->user()->bankSetup;
+
+        return view('front.users.user_dashboard.affiliate.account.index', compact('account', 'transactions', 'bank_details'));
     }
 
     public function store(Request $request)

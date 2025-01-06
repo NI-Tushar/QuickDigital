@@ -62,4 +62,9 @@ class User extends Authenticatable
         return $this->hasOne(AffiliatorPromocode::class);
     }
 
+    public function bankSetup()
+    {
+        return $this->hasOne(AffiliatorBackSetup::class);
+    }
+
 }

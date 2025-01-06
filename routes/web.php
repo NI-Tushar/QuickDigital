@@ -15,7 +15,8 @@
     use App\Http\Controllers\CheckoutController;
     use App\Http\Controllers\DigitalServiceController;
     use App\Http\Controllers\Front\AffiliatorController;
-    use App\Http\Controllers\SmsController;
+use App\Http\Controllers\Front\UserDashboardController;
+use App\Http\Controllers\SmsController;
     use App\Http\Controllers\MailSendController;
     use App\Http\Controllers\QuickShopCategoryController;
     use App\Http\Controllers\QuickShopOrderController;
@@ -237,6 +238,10 @@
 
     ##---------- Affialiators -----------------##
     Route::prefix('/affiliate')->name('affiliate.')->group(function(){
+
+        // Account Manage
+        Route::get('account-setup', [UserDashboardController::class, 'accountSetup'])->name('account.setup');
+        Route::post('account-setup', [UserDashboardController::class, 'accountSetupStore'])->name('account.setup.store');
 
         // Digital Sercice
         Route::get('/digital-service', [DigitalServiceController::class, 'index'])->name('digialservice.index');
