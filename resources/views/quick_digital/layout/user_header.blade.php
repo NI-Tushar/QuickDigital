@@ -70,28 +70,28 @@
             max-width:120px;
             width:100%;
             height:auto;
-            font-size:15px; 
+            font-size:15px;
             overflow:hidden;
             margin-top:15px;
         }
-            
+
         .nav-item .nav-link .nav__user__img{
             height: 40px;
             width: 40px;
             border-radius: 50%;
         }
-   
+
         .navbar-nav{
             display:flex;
         }
         .nav-item{
             margin:auto;
         }
-        .nav-item .nav-link { 
+        .nav-item .nav-link {
             padding-top:5px !important;
             padding-bottom:5px !important;
             padding:8px;
-        } 
+        }
         .nav-item .nav-link:hover{
             background:transparent;
         }
@@ -134,7 +134,7 @@
                         <div class="offcanvas-body">
                             <ul class="navbar-nav">
                                 <li class="nav-item">
-                                    <a class="nav-link fw-semibold px-md-3" aria-current="page" 
+                                    <a class="nav-link fw-semibold px-md-3" aria-current="page"
                                         href="{{ route('rep.requestForm') }}" style="background: var(--primary-color);color:#ffff !important;">
                                         কুইক ব্যাবসা
                                     </a>
@@ -176,7 +176,7 @@
                                 <!-- <li class="nav-item nav-style">
                                         <a class="nav-link fw-semibold px-md-3" aria-current="page" href="./ebook.html">ই-বুক</a>
                                     </li> -->
-            
+
                                 <!-- <li class="nav-item">
                                     <a class="nav-link fw-semibold px-md-3" aria-current="page"
                                         href="{{ url('quick-digital/courses') }}">
@@ -212,7 +212,7 @@
                                         সফটওয়্যার
                                     </a>
                                 </li>
-                                
+
                                 <li class="nav-item">
                                     <a class="nav-link fw-semibold px-md-3" aria-current="page"
                                         href="{{ route('quick.digitalProduct') }}">
@@ -231,7 +231,7 @@
                                         href="{{ url('/quick-digital/contact-us') }}">যোগাযোগ</a>
                                 </li>
                                     <!-- __________________________ user profile li start -->
-                                  
+
                                     <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle d-flex gap-1 align-items-center" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                         @if (Auth::guard('user')->check())
@@ -328,6 +328,20 @@
                                                 প্রোফাইল আপডেট করুন
                                             </a>
                                         </li>
+
+                                        @if (auth()->guard('user')->user()->user_type === 'affiliator')
+                                        <li>
+                                            <a class="dropdown-item user__nav__item d-flex align-items-center gap-3" href="{{ route('affiliate.account.setup') }}">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <rect x="5" y="11" width="14" height="10" rx="2" ry="2"></rect>
+                                            <path d="M12 11V7a4 4 0 0 1 8 0v4"></path>
+                                            <line x1="12" y1="15" x2="12" y2="17"></line>
+                                            <line x1="10" y1="17" x2="14" y2="17"></line>
+                                            </svg>
+                                                একাউন্ট সেটআপ  করুন
+                                            </a>
+                                        </li>
+                                        @endif
                                         <li>
                                             <a class="dropdown-item user__nav__item d-flex align-items-center gap-3" href="{{ route('password.update') }}">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -383,7 +397,7 @@
                 </div>
             </nav>
         </div>
-    
+
     <!-- ______________________________________________________________ -->
     </div>
     <div class="header_gap"></div>
