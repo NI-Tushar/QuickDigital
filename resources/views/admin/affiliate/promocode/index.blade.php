@@ -76,7 +76,13 @@
                                                     <form action="{{ route('admin.affiliate.promocode.status', $promocode->id) }}" method="GET" class="status-form">
                                                         @csrf
                                                         @method('GET')
-                                                        <select name="status" class="form-control status_confirm" id="" {{ $promocode->status === 'Complete' || $promocode->status === 'Cencel' ? 'disabled' : '' }}>
+                                                        @if ($promocode->status === 'Active')
+                                                            <select style="border:1px solid green;color:green;font-weight:600;text-align:center;" name="status" class="form-control status_confirm" id="" 
+                                                            {{ $promocode->status === 'Complete' || $promocode->status === 'Cencel' ? 'disabled' : '' }}>
+                                                        @else
+                                                            <select style="border:1px solid red;color:red;font-weight:600;text-align:center;" name="status" class="form-control status_confirm" id="" 
+                                                            {{ $promocode->status === 'Complete' || $promocode->status === 'Cencel' ? 'disabled' : '' }}>
+                                                        @endif
                                                             <option value="Active" {{ $promocode->status === 'Active' ? 'selected' : '' }}>Active</option>
                                                             <option value="In-active" {{ $promocode->status === 'In-active' ? 'selected' : '' }}>In-active</option>
                                                         </select>

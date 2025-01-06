@@ -19,6 +19,8 @@ return new class extends Migration
             $table->enum('delivery_status', ['Pending', 'Confirmed', 'In-progress', 'Delivered'])->default('Pending');
             $table->enum('payment_status', ['Sixty-percent', 'forty-percent', 'Un-paid', 'Paid'])->default('Un-paid');
             $table->string('payment_method', 50)->nullable();
+            $table->string('service_id')->nullable();
+            $table->string('service_type',30)->nullable();
             $table->foreignId('user_id')->constrained('users')->onUpdate('cascade');
             $table->decimal('sub_total', 10, 2);
             $table->decimal('total', 10, 2);

@@ -108,6 +108,7 @@
                                             </div>
 
                                             
+                                            @if($product->features!='')
                                             <div class="form-group">
                                                 <label for="features">Features</label>
                                                 @php
@@ -124,9 +125,9 @@
                                                     </div>
                                                 </div>
                                                 @endforeach
-
                                                 <button type="button" id="add-feature" class="btn btn-secondary">Add Feature</button>
                                             </div>
+                                            @endif
 
                                             <div class="price_section">
                                                 <div class="form-group">

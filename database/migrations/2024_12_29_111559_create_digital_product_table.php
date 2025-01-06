@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('digital_product', function (Blueprint $table) {
             $table->id();
             $table->string('title')->nullable();
-            $table->string('description')->nullable();
+            $table->text('description')->nullable();
             $table->longText('features')->nullable();
             $table->decimal('price',10,2)->nullable();
             $table->decimal('affiliator_commission',10,2)->nullable();
