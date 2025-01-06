@@ -65,19 +65,22 @@
                                                     <td style="text-align:center;">{{ $product->id }}</td>
                                                     <td style="text-align:left;">{{ $product->title }}</td>
                                                     <td style="text-align:left;">{{ $product->description }}</td>
-                                                    <td style="text-align:center;">
-                                                        @php
-                                                            $product->features = json_decode($product->features, true);
-                                                            $index=1;
-                                                        @endphp
-                                                        <ol style="margin: 0; padding:0px;">
-                                                            @foreach ($product->features as $feature)
-                                                                <li style="text-align:left;"><span style="font-weight:700;">{{$index}}:</span> {{ $feature }}</li>
-                                                                    @php $index=$index+1; @endphp
-                                                            @endforeach
-                                                        </ol>
-
-                                                    </td>
+                                                    @if($product->features!='')
+                                                        <td style="text-align:center;">
+                                                            @php
+                                                                $product->features = json_decode($product->features, true);
+                                                                $index=1;
+                                                            @endphp
+                                                            <ol style="margin: 0; padding:0px;">
+                                                                @foreach ($product->features as $feature)
+                                                                    <li style="text-align:left;"><span style="font-weight:700;">{{$index}}:</span> {{ $feature }}</li>
+                                                                        @php $index=$index+1; @endphp
+                                                                @endforeach
+                                                            </ol>
+                                                        </td>
+                                                    @else
+                                                        <td></td>
+                                                    @endif
                                                     <td style="text-align:center;width:50px;">{{ $product->price }} BDT</td>
                                                     <td style="text-align:center;width:50px;">{{ $product->affiliator_commission }} %</td>
                                                     @if($product->zip_file!='')

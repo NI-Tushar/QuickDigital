@@ -54,7 +54,7 @@ class AdminDigitalProductController extends Controller
 
             $digProd->title = $data['title'];
             $digProd->description = $data['description'];
-            $digProd->features = json_encode($data['features'], JSON_UNESCAPED_UNICODE); 
+            // $digProd->features = json_encode($data['features'], JSON_UNESCAPED_UNICODE); 
             $digProd->price = $data['price'];
             $digProd->affiliator_commission = $data['affiliator_commission'];
 

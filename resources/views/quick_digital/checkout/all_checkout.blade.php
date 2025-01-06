@@ -11,7 +11,7 @@
             <div class="col-75">
             <div class="container">
 
-                <form action="{{ route('softwarePayment') }}" method="POST">
+                <form action="{{ route('customer.payment')}}" method="POST">
                     @csrf
                     
                     <div class="row">
@@ -46,43 +46,36 @@
                                 <input id="paid" type="checkbox" name="is_checked" required> আমি ওয়েবসাইটের শর্তগুলো পড়েছি এবং এতে সম্মতি দিয়েছি <a href="">শর্তাবলী</a>, 
                                 <a href="">গোপনীয়তা নীতি</a> এবং <a href="">রিফান্ড নীতি</a>.
                             </label>
+                            <p style="color:red;text-align:left;width:100%;padding:0;margin:0;">@error('is_checked'){{$message}}@enderror</p>
                         </div>
+
                         
                         <div class="col-50 payment_section">
                             <h3>আপনার অর্ডার</h3>
-                            @if (session()->has('title'))
-                                <p class="fname">{{ session('title') }}</p>
-                            @endif
+                            <p class="fname">{{$product->title}}</p>
                             <div class="desc">
-                                <p class="desc_head">বিবরনঃ</p>
-                                @if (session()->has('desc'))
-                                    <p>{{ session('desc') }}</p>
-                                @endif
+                                <p class="desc_head">বিবরণঃ</p>
+                                <p>{{ strlen($product->description) > 100 ? substr($product->description, 0, 150) . '...' : $product->description }}</p>
                             </div>
+
                             <div class="order_table">
                                 <ul>
-                                    @if (session()->has('package'))
-                                        <li><div class="part">প্যাকেজ</div><div class="part">: এক্সপ্রেস প্যাকেজ</div></li>
-                                    @endif
-                                    @if (session()->has('delivery_time'))
-                                        <li><div class="part">ডেলিভারি</div><div class="part">: পেমেন্ট এর পরেই</div></li>
-                                    @endif
-                                    @if (session()->has('subscription_price'))
-                                        <li><div class="part">সাবস্ক্রিপশন</div><div class="part">: ১ মাস</div></li>
-                                        <li><div class="part">সাবটোটাল</div><div class="part">: {{ session('subscription_price') }} BDT প্রতি মাসে</div></li>
-                                        <li><div class="part">সর্বমোট</div><div class="part">: {{ session('subscription_price') }} BDT প্রতি মাসে</div></li>
-                                    @endif
-                                    @if (session()->has('hosting_charge'))
-                                        <li><div class="part">হোস্টিং চার্জ</div><div class="part">: {{ session('hosting_charge') }} BDT প্রতি মাসে</div></li>
-                                        <li><div class="part">সফটওয়্যার প্রাইজ</div><div class="part">: {{ session('soft_price') }} BDT</div></li>
-                                        <li><div class="part">সর্বমোট</div><div class="part">: {{ session('total_price') }} BDT</div></li>
-                                    @endif
-                                    @if (session()->has('current_price'))
-                                        <li><div class="part">সফটওয়্যার প্রাইজ</div><div class="part">: {{ session('current_price') }} BDT</div></li>
-                                        <li><div class="part">সাবটোটাল</div><div class="part">: {{ session('current_price') }} BDT</div></li>
-                                        <li><div class="part">সর্বমোট</div><div class="part">: {{ session('current_price') }} BDT</div></li>
-                                    @endif
+                                    <!-- 
+                                    <li><div class="part">প্যাকেজ</div><div class="part">: এক্সপ্রেস প্যাকেজ</div></li>
+                                    <li><div class="part">ডেলিভারি</div><div class="part">: পেমেন্ট এর পরেই</div></li>
+                                    <li><div class="part">সাবস্ক্রিপশন</div><div class="part">: ১ মাস</div></li>
+                                    <li><div class="part">সাবটোটাল</div><div class="part">: {{ session('subscription_price') }} BDT প্রতি মাসে</div></li>
+                                    <li><div class="part">সর্বমোট</div><div class="part">: {{ session('subscription_price') }} BDT প্রতি মাসে</div></li> 
+                                    -->
+                                    <input type="hidden" name="service_id" value="{{$product->id}}">
+                                    <li><div class="part">মূল্য</div><div class="part">: {{$product->price}} BDT</div></li>
+                                    <li><div class="part">সাবটোটাল</div><div class="part">: {{$product->price}} BDT</div></li>
+                                    <li><div class="part">সর্বমোট</div><div class="part">: {{$product->price}} BDT</div></li>
                                 </ul>
+                            </div>
+                            <div class="promocod_div">
+                                <p>প্রোমোকোড দিন (যদি থাকে)</p>
+                                <input type="text" name="promocode">
                             </div>
                         </div>
     
