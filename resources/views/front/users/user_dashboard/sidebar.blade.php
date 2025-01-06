@@ -170,7 +170,9 @@
             <line x1="12" y1="18" x2="6" y2="20" />
             <line x1="15" y1="15" x2="12" y2="18" />
           </svg>
+
             <span class="link_name" style=" font-size: 15px;">সার্ভিস ক্রয় করুন</span>
+
           </a>
         </li>
 
@@ -187,11 +189,14 @@
             <line x1="12" y1="18" x2="6" y2="20" />
             <line x1="15" y1="15" x2="12" y2="18" />
           </svg>
+
             <span class="link_name" style=" font-size: 15px;">টাকা তুলুন</span>
+
           <path d="M6 2l1 3h10l1-3"></path>
           <path d="M3 6h18l-1.4 12.4a2 2 0 0 1-2 1.6H6.4a2 2 0 0 1-2-1.6L3 6z"></path>
           <path d="M16 10a4 4 0 0 1-8 0"></path>
         </svg>
+
           </a>
         </li>
 

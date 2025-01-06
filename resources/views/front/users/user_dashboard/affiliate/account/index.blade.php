@@ -32,8 +32,12 @@
                 <div class="card bg-white mt-3" style="width: 100%">
                     <div class="card-header">
                       <div class="d-flex flex-wrap justify-content-between align-items-center" style="gap: 1em">
+
                       {{--<h3>Curent Balance - {{ number_format($account->balance) ?? '' }} BDT</h3>--}}
                            <h3>Curent Balance - {{ $account->balance ?? '' }} BDT</h3>
+
+                          <h3>Curent Balance - {{ number_format($account->balance) ?? '' }} BDT</h3>
+
                           <a class="btn btn-primary" href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">Withdrawl</a>
                       </div>
                     </div>
@@ -81,6 +85,61 @@
 
         </div>
 
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Withdrawal Request</h5>
+                </div>
+                <form action="{{ route('affiliate.transaction.store') }}" method="POST">
+                    @csrf
+                    @method('POST')
+                    <div class="modal-body">
+                        <div class="form-group mb-2">
+                            <label for="">Account Type</label>
+                            <input class="form-control" type="text" value="Bkash" readonly>
+                        </div>
+                        <div class="form-group mb-2">
+                            <label for="">Account Number</label>
+                            <input class="form-control" type="text" value="01643381009" readonly>
+                        </div>
+                        <div class="form-group mb-2">
+                            <label for="">Withdrawal Amount</label>
+                            <input class="form-control" type="text" name="amount" placeholder="Minimum 500 BDT">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Submit Request</button>
+                    </div>
+                </form>
+            </div>
+            </div>
+        </div>
+
     </section>
 
 @endsection
+@push('script')
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    @if (session('success'))
+        <script>
+            Swal.fire({
+                icon: 'success',
+                title: 'Thank You',
+                text: '{{ session('success') }}',
+                confirmButtonText: 'OK',
+            });
+        </script>
+    @elseif (session('error'))
+        <script>
+            Swal.fire({
+                icon: 'error',
+                title: 'Opps..',
+                text: '{{ session('error') }}',
+                confirmButtonText: 'OK',
+            });
+        </script>
+    @endif
+@endpush

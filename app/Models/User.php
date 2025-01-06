@@ -51,4 +51,15 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Subscription::class);
     }
+
+    public function account()
+    {
+        return $this->hasOne(AffiliatorAccount::class);
+    }
+
+    public function promocode()
+    {
+        return $this->hasOne(AffiliatorPromocode::class);
+    }
+
 }
