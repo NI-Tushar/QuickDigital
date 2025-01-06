@@ -1,0 +1,478 @@
+
+.software_section{
+    width: 100%;
+    height: auto;
+    padding: 25px;
+    display: flex;
+}
+.software_section .centered_list{
+    max-width: 1000px;
+    width: 100%;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    border-radius: 10px;
+    margin: auto;
+    padding: 35px;
+} 
+  .software_section .order_center .order_headline{
+    padding-bottom: 20px;
+  }
+  .software_section .order_center .no_post_msg{
+    border-bottom:1px solid gray;
+    color: rgba(0, 0, 0, 0.604);
+    
+  }
+  
+    /* ___________________ order details start */
+    .enroll_container{
+      height: auto;
+      width: 100%;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      border-radius: 10px;
+    } 
+    .collapsible-header {
+      background: rgb(255, 255, 255);
+      /* box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px; */
+      border-bottom: none;
+      display: flex;
+      position: relative;
+      border-left: 5px solid var(--skin-color-1);
+    }
+    
+
+    @media screen and (max-width: 1500px){
+      .giver_jobs .giver_jobs_heading,
+      .expandable-list{
+        width: 100%;
+      }
+    }
+    
+    
+    .expandable-item {
+      padding-top: 10px;
+      padding-bottom: 10px;
+      border-radius: 5px;
+      width: 100%;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin-bottom: 15px;
+      height: auto;
+      box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+      
+    }
+    
+    .expandable-item:first-of-type{
+      border-radius: 5px 5px 0 0;
+    }
+    
+    .expandable-item:last-of-type{
+      border-radius: 0 0 5px 5px;
+    
+    }
+    
+    .expandable-header {
+      position: relative;
+      height: auto;
+      font-weight: bolder;
+      border-left: 5px solid var( --primery-color);
+    }
+    
+    .expandable-icon {
+      position: absolute;
+      right: 0px;
+      top: 0px;
+      transform: rotateZ(45deg);
+      border-radius: 5px;
+      width: 25px;
+      height: 25px;
+      transition: all .3s;
+    }
+    
+    .expandable-item.active .expandable-icon{
+    transform: rotateZ(0);
+    }
+    
+    .expandable-icon .line {
+      width: 15px;
+      height: 2px;
+      background: white;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      margin: auto;
+      transition: all .4s;
+    }
+    
+    
+  
+  
+  
+  .collapsible-container {
+      width: 100%;
+      max-width: 1000px;
+      margin: 0 auto;
+      font-family: Arial, sans-serif;
+  }
+  .collapsible-container .collapsible-section{
+      margin-bottom: 25px;
+      border-left: 5px solid var(--skin-color-1);
+  }
+    
+  
+  .collapsible-header .enr_img{
+      padding: 5px;
+      width: auto;
+      height: 70px;
+  }
+  .collapsible-header .enr_img img{
+      height:100%;
+      width: auto;
+      border-radius: 5px;
+  }
+  .collapsible-header .header_info{
+      display: flex;
+      width: 100%;
+      padding-right: 50px;
+      padding-left: 10px;
+      gap: 10px;
+  }
+  .collapsible-header .header_info .section_part{
+      /* border: 1px solid blue; */
+      width: 100%;
+      margin-top: auto;
+      margin-bottom: auto;
+  }
+  .collapsible-header .header_info .section_part label{
+      color: rgba(0, 0, 0, 0.674);
+      font-size: 12px;
+      font-weight: 600;
+  } 
+  .collapsible-header .header_info .section_part p{   
+      margin: 0;
+      padding: 0;
+      font-weight: 600;
+  }
+  
+  .collapsible-header .buy_button{
+        background-color: rgb(212, 212, 212);
+        display: block;
+        position: absolute;
+        right: 10px;
+          text-align: center;
+          height: 100%;
+        }
+        .collapsible-header .buy_button:hover{
+          background-color: rgb(66, 66, 66);
+        }
+        .collapsible-header .buy_button:hover svg{
+          color:aliceblue;
+        }
+      .collapsible-header .buy_button svg{
+          margin: auto;
+          margin-top: 5px;
+          padding-left:5px;
+          padding-right: 5px;
+          height: 30px;
+          width: 30px;
+          color: rgba(0, 0, 0, 0.493);
+      }
+      .collapsible-header .buy_button i:hover{
+          color: black;
+      }
+  
+  
+  
+      @media screen and (max-width: 720px){
+        .expandable-item .expandable-body .drop_text>div{
+          width: 100%;
+        }
+        .collapsible-header .enr_img img{
+          height: 40px;
+          width: 40px;
+        }
+        .collapsible-header .header_info{
+          padding-right: 50px;
+        }
+        .collapsible-header .header_info .section_part label{
+          font-size: 9px;
+        } 
+        .collapsible-header .header_info .section_part p{   
+          font-size: 10px;
+        }
+        .expandable-item.active .expandable-body {
+          height:450px;
+        }
+        .expandable-item .expandable-body .drop_text{
+          display: block;
+      }
+      .expandable-item .expandable-body .drop_text .drop_section label{
+        font-size: 12px;
+      }
+      .expandable-item .expandable-body .drop_text .drop_section p{
+        font-size: 12px;
+      }
+      .expandable-item .expandable-body .drop_text .drop_section{
+        margin-bottom: 10px;
+      }
+      .expandable-item .expandable-body .drop_text .drop_section li i{
+        font-size: 12px;
+      }
+      .expandable-item .expandable-body .expand_button button{
+        padding-bottom: 2px;
+        padding-left: 5px;
+        padding-right: 5px;
+        font-weight: 500;
+      }
+      .expandable-item .expandable-body .expand_button{
+        padding-bottom:10px;
+      }
+    }
+  
+  /* ___________________ order details end */
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  .contact-btn {
+      background-color: var( --primery-color);
+  }
+  
+  /* navbar */
+  
+  .nav-link:hover {
+      background-color: var( --primery-color);
+      color: #fff !important;
+      transition: all 0.5s ease-in-out;
+  }
+  
+  .nav-link {
+      color: var( --primery-color) !important;
+      font-size: 18px !important;
+  }
+  
+  .social-fb:hover {
+      color: rgb(0, 183, 255);
+  }
+  
+  .social-yt:hover {
+      color: rgb(231, 17, 17);
+  }
+  
+  /* footer */
+  
+  footer {
+      background-image: linear-gradient(180deg, #363643 0, #110e17 100%);
+  }
+  
+  .footer-logo {
+      width: 60%;
+  }
+  
+  .footer-text {
+      color: #d1cfcf;
+      text-align: start;
+  }
+  
+  .footer-link {
+      color: #d1cfcf;
+      display: block;
+      font-weight: 500;
+      line-height: 25px;
+  }
+  
+  .social-links-top-right {
+      justify-content: end;
+  }
+  
+  /* order track */
+  
+  .root {
+      position: relative;
+      display: block;
+      margin: 0 auto;
+  }
+  
+  .product-info {
+      border-bottom: 1px dashed var( --primery-color);
+  }
+  
+  .product-img {
+      border-radius: 50%;
+      border: 1px solid var( --primery-color);
+  }
+  
+  .title {
+      font-size: 1.4rem;
+      font-weight: 500;
+  }
+  
+  .track__category {
+      font-size: 1rem;
+      font-weight: 300;
+  }
+  
+  .price {
+      font-size: 1.6rem;
+      font-weight: 500;
+  }
+  
+  .status {
+      font-size: 1.3rem;
+      font-weight: 500;
+      margin-bottom: 3px;
+  }
+  
+  .date {
+      font-size: 1rem;
+      font-weight: 300;
+  }
+  
+  .progress-steps {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+  }
+  
+  .progress-steps li>span {
+      position: relative;
+      width: 40px;
+      height: 40px;
+      font-size: 16px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-right: 1em;
+      border-radius: 50%;
+      background-image: linear-gradient(to bottom, #E1F7F5, #1E0342, #0E46A3);
+      z-index: 1;
+  }
+  
+  .progress-steps li {
+      position: relative;
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 2em;
+  }
+  
+  .progress-steps li:not(:last-child)::before {
+      content: '';
+      position: absolute;
+      left: 20px;
+      right: 30px;
+      width: 2px;
+      height: 100px;
+      background-image: linear-gradient(to bottom, #0E46A3, #1E0342, #E1F7F5);
+  }
+  
+  @media (max-width: 992px) {
+      .contact-btn {
+          display: none !important;
+      }
+  
+      .nav-item .nav-link {
+          border-bottom: 2px solid var( --primery-color);
+      }
+  
+      .nav-item .nav-link {
+          border-bottom: 2px solid var( --primery-color);
+      }
+  
+      .custom-padding {
+          padding-left: 2rem !important;
+          padding-right: 2rem !important;
+      }
+  
+      .social-links-top-right {
+          justify-content: center;
+      }
+      .collapsible-header .buy_button svg{
+        margin-top: -3px;
+      }
+  
+  }
+  
+  @media (max-width: 576px) {
+    .software_section .order_center {
+      width: 100%;
+    }
+  
+    .collapsible-header .header_info{
+      display: block;
+      padding: 10px;
+      width: 100%;
+      gap: 10px;
+    }
+    .expandable-header .collapsible-header .enr_img{
+      padding-top: 25px;
+    }
+    .collapsible-header .buy_button{
+      display: none;
+    }
+    .software_section .header_info .section_part{
+      padding-top: 15px;
+      border-bottom: 0.5px solid rgba(0, 0, 0, 0.327);
+    }
+  
+  
+    .software_section{
+      width: 100%;
+      padding: 0px;
+    }
+    
+    .software_section .order_center {
+      max-width:100%;
+      width:100%;
+    }
+    .software_section .order_center {
+      padding-left:0px;
+      padding-right:0px;
+    }
+  
+  
+  
+  
+  
+      .nav-item .nav-link {
+          font-size: 16px !important;
+      }
+  
+      .nav-link {
+          font-size: 16px !important;
+      }
+  
+      .footer-elements {
+          padding-top: 3rem;
+          padding-left: 3rem;
+      }
+  
+      .footer-logo {
+          width: 30%;
+      }
+  
+      .footer-text {
+          max-width: 70%;
+      }
+  
+      .status {
+          font-size: 1rem;
+      }
+  }

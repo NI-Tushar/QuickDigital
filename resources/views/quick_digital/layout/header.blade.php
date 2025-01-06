@@ -132,12 +132,7 @@
                             <!-- <li class="nav-item nav-style">
                                     <a class="nav-link fw-semibold px-md-3" aria-current="page" href="./ebook.html">ই-বুক</a>
                                 </li> -->
-                            <!-- <li class="nav-item">
-                                <a class="nav-link fw-semibold px-md-3" aria-current="page"
-                                    href="{{ url('/') }}">
-                                    ডিজিটাল সার্ভিস
-                                </a>
-                            </li> -->
+                        
                             <!-- <li class="nav-item">
                                 <a class="nav-link fw-semibold px-md-3" aria-current="page"
                                     href="{{ url('quick-digital/courses') }}">
@@ -174,11 +169,16 @@
                                 </a>
                             </li>
                             
-                            
                             <li class="nav-item">
                                 <a class="nav-link fw-semibold px-md-3" aria-current="page"
                                     href="{{ route('quick.digitalProduct') }}">
                                     ডিজিটাল প্রোডাক্ট
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link fw-semibold px-md-3" aria-current="page"
+                                    href="{{ url('/') }}">
+                                    ডিজিটাল সার্ভিস
                                 </a>
                             </li>
 

@@ -5,72 +5,43 @@
 
     <div class="dig_prod_section">
         <div class="centered_product">
+
+            <div class="search_box">
+                <form action="">
+                    <div class="search">
+                        <input type="text" name="search_name">
+                        
+                    </div>
+                </form>
+            </div>
+
             <ul class="listing">
-                <li class="product">
-                    <a class="img-wrapper" href="#">
-                    <img src="https://digivateit.com/wp-content/uploads/2024/12/Advanced-Filter-Software-Reseller-Pack-with-Licence-Key-Generator-Keygen-300x300.jpg" alt="Blue running shoe" />
-                    </a>
-                    
-                    <div class="info">
-                        <div class="title">Wordpress Plugin</div>
-                        <div class="price">$34.99</div>
-                    </div>
-                    
-                    <div class="actions-wrapper">
-                        <a href="#" class="add-btn cart">Cart</a>
-                        <a href="#" class="add-btn cart">Buy</a>
-                    </div>
-                </li>
-                <li class="product">
-                    <a class="img-wrapper" href="#">
-                    <img src="https://digivateit.com/wp-content/uploads/2024/12/MultiSapp-Pro-Software-Reseller-Pack-with-Licence-Key-Generator-Keygen-300x300.jpg" alt="Green running shoe" />
-                    </a>
-                    <div class="note no-stock">Out of stock</div>
-                    
-                    <div class="info">
-                        <div class="title">Some Product</div>
-                        <div class="price">$34.99</div>
-                    </div>
-                    
-                    <div class="actions-wrapper">
-                        <a href="#" class="add-btn cart">Cart</a>
-                        <a href="#" class="add-btn cart">Buy</a>
-                    </div>
-                </li>
-                <li class="product">
-                    <a class="img-wrapper" href="#">
-                    <img src="https://digivateit.com/wp-content/uploads/2024/12/FB-Blaster-Software-Reseller-Pack-with-Licence-Key-Generator-Keygen-300x300.jpg" alt="Pink running shoe" />
-                    </a>
-                    <div class="note on-sale">On sale</div>
-                    
-                    <div class="info">
-                    <div class="title"><a href="#">Some Product</a></div>
-                    <div class="price sale">$20.50</div>
-                    <!-- <div class="price old">$34.99</div> -->
-                    </div>
-                    
-                    <div class="actions-wrapper">
-                        <a href="#" class="add-btn cart">Cart</a>
-                        <a href="#" class="add-btn cart">Buy</a>
-                    </div>
-                </li>
-                <li class="product">
-                    <a class="img-wrapper" href="#">
-                    <img src="https://digivateit.com/wp-content/uploads/2024/12/MultiSapp-Pro-Software-Reseller-Pack-with-Licence-Key-Generator-Keygen-300x300.jpg" alt="Green running shoe" />
-                    </a>
-                    <div class="note no-stock">Out of stock</div>
-                    
-                    <div class="info">
-                    <div class="title">Some Product</div>
-                    <div class="price">$34.99</div>
-                    </div>
-                    
-                    <div class="actions-wrapper">
-                        <a href="#" class="add-btn cart">Cart</a>
-                        <a href="#" class="add-btn cart">Buy</a>
-                    </div>
-                </li>
-               
+
+            @if (empty($products))
+                <p>No products available.</p>
+            @else
+            @foreach ($products as $product)
+            <!-- _________________________ product list start -->
+            <li class="product">
+                <a class="img-wrapper">
+                    <img src="{{ $product->thumbnail ? asset($product->thumbnail) : asset('no_image2.jpg') }}" alt="">
+                </a>
+                <!-- <div class="note no-stock">Out of stock</div> -->
+                <div class="note on-sale">On sale</div>
+                
+                <div class="info">
+                    <div class="title">{{$product->title}}</div>
+                    <div class="price">{{$product->price}} BDT</div>
+                </div>
+                
+                <div class="actions-wrapper">
+                    <!-- <a href="#" class="add-btn cart">Cart</a> -->
+                    <a href="#" class="add-btn cart">Buy</a>
+                </div>
+            </li>
+            <!-- _________________________ product list end -->
+            @endforeach
+            @endif
 
             </ul>
         </div>

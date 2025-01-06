@@ -2,9 +2,14 @@
 
     use App\Http\Controllers\Admin\InstructorRequestController;
     use App\Http\Controllers\AffiliatorOrderController;
+
+    use App\Http\Controllers\AffiliatorTransactionController;
+    use App\Http\Controllers\BootcampController;
+
 use App\Http\Controllers\AffiliatorPromocodeController;
 use App\Http\Controllers\AffiliatorTransactionController;
 use App\Http\Controllers\BootcampController;
+
     use App\Http\Controllers\SoftwareController;
     use App\Http\Controllers\DigitalProductController;
     use App\Http\Controllers\CartController;
@@ -55,8 +60,6 @@ use App\Http\Controllers\BootcampController;
             Route::get('reject-instructor/{id}', 'InstructorRequestController@rejectInstructor');
             Route::get('approve-instructor/{id}', 'InstructorRequestController@approveInstructor');
 
-
-
             //ebook
             Route::get('ebooks', 'EbookController@ebooks');
             Route::match(['get', 'post'], 'add-edit-ebook/{id?}', 'EbookController@addEditEbook');
@@ -67,7 +70,6 @@ use App\Http\Controllers\BootcampController;
             Route::post('order/update-status/{order_id}', 'OrderController@updateStatus')->name('admin.order.updateStatus');
             // Route::get('orders/filter/{status}', 'OrderController@filterByStatus')->name('admin.order.filter');
             Route::get('orders/filter/{status}', 'OrderController@filterByStatus')->name('admin.order.filter');
-
 
             //Order Products
             Route::get('product/orders', 'OrderProductController@index')->name('admin.order.product');
@@ -232,10 +234,9 @@ use App\Http\Controllers\BootcampController;
 
         Route::get('your-ebook', 'UserDashboardController@your_ebook')->name('user.ebook');
 
-
-
         // _______________ AFFILIATOR USER PANEL DASHBOARD CONTROLLER
         Route::get('software', 'AffiliatorController@software')->name('affilator.software');
+        Route::get('digital-product', 'AffiliatorController@digitalProduct')->name('affilator.digitalProduct');
 
     });
 
