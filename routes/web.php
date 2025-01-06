@@ -2,14 +2,9 @@
 
     use App\Http\Controllers\Admin\InstructorRequestController;
     use App\Http\Controllers\AffiliatorOrderController;
-
     use App\Http\Controllers\AffiliatorTransactionController;
     use App\Http\Controllers\BootcampController;
-
-use App\Http\Controllers\AffiliatorPromocodeController;
-use App\Http\Controllers\AffiliatorTransactionController;
-use App\Http\Controllers\BootcampController;
-
+    use App\Http\Controllers\AffiliatorPromocodeController;
     use App\Http\Controllers\SoftwareController;
     use App\Http\Controllers\DigitalProductController;
     use App\Http\Controllers\CartController;
