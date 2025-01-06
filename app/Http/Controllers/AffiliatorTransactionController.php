@@ -38,7 +38,13 @@ class AffiliatorTransactionController extends Controller
 
         if($request->amount >=500){
 
-            $account = Auth::guard('user')->user()->account;;
+            $account = Auth::guard('user')->user()->account;
+            $requestedAmmount = AffiliatorTransaction::where('user_id', Auth::guard('user')->user()->id)
+                ->where('status', 'Pending')->sum('amount');
+
+            if($requestedAmmount + $request->amount >= $account->balance){
+                return redirect()->back()->with('error', "Sorry, You do not have enough balance.");
+            }
 
             if($account->balance >= 500){
                 $transaction = new AffiliatorTransaction();
@@ -54,7 +60,7 @@ class AffiliatorTransactionController extends Controller
                     return redirect()->back()->with('success', "Your Balance was Successfully Transferred to your provided account. Kindly Check your Bank Account");
                 }
 
-                return redirect()->back()->with('success', "Your request has been submitted. Within 24 hours your transaction will completed. We will confirm with a message.");
+                return redirect()->back()->with('success', "Your request has been submitted. Within 48 hours your transaction will completed. We will confirm with a message.");
 
             }else{
 

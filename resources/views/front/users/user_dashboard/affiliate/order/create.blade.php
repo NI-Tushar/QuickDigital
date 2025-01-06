@@ -140,19 +140,19 @@
                                                 <td>
                                                     <input type="hidden" name="sale_items[0][ser_id]">
                                                     <input type="hidden" name="sale_items[0][ser_type]">
-                                                    <textarea name="sale_items[0][title]" rows="4" class="form-control" placeholder="Title"></textarea>
+                                                    <textarea name="sale_items[0][title]" rows="4" class="form-control" placeholder="Title" disabled></textarea>
                                                 </td>
                                                 <td>
-                                                    <textarea name="sale_items[0][description]" rows="4" class="form-control" placeholder="Description"></textarea>
+                                                    <textarea name="sale_items[0][description]" rows="4" class="form-control" placeholder="Description" disabled></textarea>
                                                 </td>
                                                 <td><input type="number" name="sale_items[0][quantity]"
                                                         min="0" value="1" class="form-control"
                                                         placeholder="Quantity"></td>
                                                 <td><input type="number" name="sale_items[0][rate]"
-                                                        class="form-control" placeholder="Rate"></td>
+                                                        class="form-control" placeholder="Rate" readonly></td>
                                                 <td>
                                                     <select name="sale_items[0][tax]"
-                                                        class="form-control select2bs4" style="width: 100%;">
+                                                        class="form-control select2bs4" style="width: 100%;" disabled>
                                                         <option value="" data-taxrate="">No Tax</option>
                                                         <option value="5.00" data-taxrate="5.00">5.00%</option>
                                                         <option value="10.00" data-taxrate="10.00">10.00%
@@ -162,7 +162,7 @@
                                                     </select>
                                                 </td>
                                                 <td><input type="text" min="0" class="form-control"
-                                                        placeholder="Amount" name="sale_items[0][amount]"></td>
+                                                        placeholder="Amount" name="sale_items[0][amount]" disabled></td>
                                                 <td><button type="button" class="btn btn-primary addRowBtn">Ok</button></td>
                                             </tr>
                                         </tbody>
@@ -548,6 +548,34 @@
 
             });
         });
+
+        document.addEventListener('contextmenu', function (e) {
+            e.preventDefault(); // Disable right-click
+        });
+
+        document.addEventListener('keydown', function (e) {
+            // Disable F12, Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+U, Ctrl+S, Ctrl+P
+            if (e.keyCode === 123 || // F12
+                (e.ctrlKey && e.shiftKey && (e.keyCode === 73 || e.keyCode === 74)) || // Ctrl+Shift+I/J
+                (e.ctrlKey && (e.keyCode === 85 || e.keyCode === 83 || e.keyCode === 80))) { // Ctrl+U/S/P
+                e.preventDefault();
+            }
+        });
+
+        document.addEventListener('selectstart', function (e) {
+            e.preventDefault(); // Disable text selection
+        });
+
+        // Disable drag-and-drop
+        document.addEventListener('dragstart', function (e) {
+            e.preventDefault();
+        });
+
+        // Hide DevTools detection
+        if (window.console) {
+            console.log = console.warn = console.error = console.info = function () {};
+        }
+
     </script>
 
 
