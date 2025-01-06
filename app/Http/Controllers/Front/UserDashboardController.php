@@ -3,6 +3,9 @@
 namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
+use App\Models\AffiliatorOrder;
+use App\Models\AffiliatorTransaction;
+use App\Models\CustomerOrder;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Quickbusiness;
@@ -18,14 +21,38 @@ class UserDashboardController extends Controller
 
     public function index()
     {
-        return view('front.users.user_dashboard.index');
+        if(Auth::guard('user')->user()->user_type === 'affiliator'){
+
+            $affiliator = Auth::guard('user')->user();
+            $data = [];
+            $data['balance'] = $affiliator->account->balance;
+            $data['totalOrders'] = AffiliatorOrder::where('user_id', $affiliator->id)->count();
+            $data['completeOrders'] = AffiliatorOrder::where('user_id', $affiliator->id)->where('payment_status', 'Paid')->count();
+            $data['pendingOrders'] = AffiliatorOrder::where('user_id', $affiliator->id)->where('payment_status', 'Un-Paid')->count();
+            $data['transactions'] = AffiliatorTransaction::where('user_id', $affiliator->id)->latest()->take(10)->get();
+
+            return view('front.users.user_dashboard.affiliate.dashboard.index', $data);
+
+        }else{
+
+            $user = Auth::guard('user')->user();
+            $data = [];
+            $data['totalOrders'] = CustomerOrder::where('user_id', $user->id)->count();
+            $data['completeOrders'] = CustomerOrder::where('user_id', $user->id)->where('payment_status', 'Paid')->count();
+            $data['pendingOrders'] = CustomerOrder::where('user_id', $user->id)->where('payment_status', 'Un-Paid')->count();
+            $data['cancelOrders'] = CustomerOrder::where('user_id', $user->id)->where('payment_status', 'Un-Paid')->count();
+            $data['orders'] = CustomerOrder::where('user_id', $user->id)->latest()->take(10)->get();
+
+            return view('front.users.user_dashboard.index', $data);
+        }
+
     }
 
 
 
     // UPDATE INFO
     public function update_info()
-    {         
+    {
         return view('front.users.user_dashboard.update_info');
     }
 
@@ -115,7 +142,7 @@ class UserDashboardController extends Controller
         if ($request->isMethod('post')) {
             $data = $request->all();
             // dd($data);
-            
+
             // Check if the new password matches the confirmation password
             if ($data['new_password'] !== $data['confirm_password']) {
                 return redirect()->back()->with('error_message', 'নতুন এবং কনফার্ম পাসওয়ার্ড এক হয়নি');
@@ -133,7 +160,7 @@ class UserDashboardController extends Controller
                 'new_password.min' => 'পাসওয়ার্ড নুন্যতম ৬ অক্ষরের হতে হবে',
                 'new_password.max' => 'পাসওয়ার্ড সর্বোচ্চ ৩০ অক্ষরের হতে হবে',
             ];
-            
+
             // Validate the request data
             $validator = Validator::make($data, $rules, $messages);
 
@@ -142,7 +169,7 @@ class UserDashboardController extends Controller
                 // If validation fails, set error message and redirect back
                 return redirect()->back()->with('error_message', $validator->errors()->first());
             }
-            
+
             // Check current password
             if (Hash::check($data['current_password_user'], Auth::guard('user')->user()->password)) {
                 // Update password
@@ -155,7 +182,7 @@ class UserDashboardController extends Controller
                 ]);
                 return redirect()->back()->with('success_message', 'আপনার পাসওয়ার্ড সফলভাবে আপডেট হয়েছে');
             } else {
-                return redirect()->back()->with('error_message', 'আপনার আগের পাসওয়ার্ড সঠিক নয়');             
+                return redirect()->back()->with('error_message', 'আপনার আগের পাসওয়ার্ড সঠিক নয়');
             }
         }
         return view('front.users.update_password');
