@@ -220,13 +220,13 @@ class AffiliatorOrderController extends Controller
             $merchant_prefix = config('surjopay.merchant_prefix');
             $get_token_url = config('surjopay.get_token_url');
 
-            
+
             $data = [
                 'username' => $merchant_name,
                 'password' => $merchant_password,
             ];
-            
- 
+
+
             $ch = curl_init();
             curl_setopt($ch, CURLOPT_URL, $get_token_url);
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -282,12 +282,12 @@ class AffiliatorOrderController extends Controller
             $order_id = rand(000000000000,999999999999);
 
             session()->put('token', $token);
-        
+
             $curl = curl_init();
 
             $secretpay_url = config('surjopay.secretpay_url');
             $merchant_prefix = config('surjopay.merchant_prefix');
-       
+
 
             curl_setopt_array($curl, array(
                 CURLOPT_URL => $secretpay_url,
@@ -304,7 +304,7 @@ class AffiliatorOrderController extends Controller
                 "return_url": "'.route('affiliate.payment.success',$affiliatorOrder->id).'",
                 "cancel_url": "'.route('affiliate.payment.cancel').'",
                 "store_id": "'.$store_id.'",
-                "amount": "'.$affiliatorOrder->total.'", 
+                "amount": "'.$affiliatorOrder->total.'",
                 "order_id": "'.$affiliatorOrder->order_id.'",
                 "currency": "BDT",
                 "customer_name": "Name, Not Provided",
@@ -393,6 +393,7 @@ class AffiliatorOrderController extends Controller
                     // _________________________________ update data after payment start
                     $affiliatorOrder->update([
                         'payment_status' => 'Paid',
+                        'delivery_status' => 'Confirmed',
                         'payment_method' => $resObject[0]['method'],
                         'bank_trx_id' => $resObject[0]['bank_trx_id'],
                         'invoice_no' => $resObject[0]['invoice_no'],

@@ -56,6 +56,10 @@
                                                             <td style="padding:5px 20px"><span class="badge badge-secondary ml-3" style="background: #008cff">{{ $order->delivery_status }}</span></td>
                                                         </tr>
                                                         <tr>
+                                                            <td style="padding:5px 20px">Payment status </td>
+                                                            <td style="padding:5px 20px"><span class="badge badge-secondary ml-3" style="background: #008cff">{{ $order->payment_status }}</span></td>
+                                                        </tr>
+                                                        <tr>
                                                             <td style="padding:5px 20px">Order date </td>
                                                             <td style="padding:5px 20px">{{ $order->created_at->format('d-m-Y h:i A') }}</td>
                                                         </tr>

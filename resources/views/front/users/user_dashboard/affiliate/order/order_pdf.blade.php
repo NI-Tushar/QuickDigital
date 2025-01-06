@@ -131,8 +131,8 @@
                     <td style="padding-left:25px">{{ $order->created_at->format('d-m-Y h:i A') }}</td>
                 </tr>
                 <tr>
-                    <td>Order status </td>
-                    <td style="padding-left:25px"><span class="badge badge-primary ml-3">{{ $order->delivery_status }}</span></td>
+                    <td>Payment status </td>
+                    <td style="padding-left:25px"><span class="badge badge-primary ml-3">{{ $order->payment_status }}</span></td>
                 </tr>
                 <tr>
                     <td>Payment method </td>

@@ -18,6 +18,12 @@
 
                 <div class="card bg-white mt-3 p-3" style="width: 100%;">
                     <div class="row">
+                        <div class="col-md-3">
+                            <div class="card p-3 bg-success text-white">
+                                <p>Balance</p>
+                                <h5>{{ number_format($balance) }} BDT</h5>
+                            </div>
+                        </div>
 
                         <div class="col-md-3">
                             <div class="card p-3 bg-secondary text-white">
@@ -39,17 +45,10 @@
                                 <h5>{{ $pendingOrders }}</h5>
                             </div>
                         </div>
-
-                        <div class="col-md-3">
-                            <div class="card p-3 bg-success text-white">
-                                <p>Cancel Orders</p>
-                                <h5>{{ $cancelOrders }}</h5>
-                            </div>
-                        </div>
                     </div>
                     <div class="row mt-4">
                         <div class="col-12">
-                            <h5>Last 10 Orders</h5>
+                            <h5>Last 10 Transactions</h5>
                             <table class="table table-bordered">
                                 <thead>
                                     <tr>
@@ -59,11 +58,11 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($orders as $order)
+                                    @foreach ($transactions as $transaction)
                                     <tr>
-                                        <td>{{ $order->created_at->format('F j, Y') }}</td>
-                                        <td>{{ $order->amount }}</td>
-                                        <td>{{ $order->status }}</td>
+                                        <td>{{ $transaction->created_at->format('F j, Y') }}</td>
+                                        <td>{{ $transaction->amount }}</td>
+                                        <td>{{ $transaction->status }}</td>
                                     </tr>
                                     @endforeach
                                 </tbody>
