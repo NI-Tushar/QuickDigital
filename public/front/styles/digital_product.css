@@ -5,13 +5,18 @@
     padding-bottom: 25px;
 }
 .dig_prod_section .centered_product{
-    max-width: 1000px;
-    width: 100%;
-    margin: auto;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    position: relative;
-    padding: 15px;
-    border-radius: 10px;
+  max-width: 1000px;
+  width: 100%;
+  margin: auto;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  position: relative;
+  padding: 15px;
+  border-radius: 10px;
+}
+.dig_prod_section .centered_product .search_box{
+  border: 1px solid red;
+  margin-bottom: 10px;
+  padding:10px;
 }
 .dig_prod_section .centered_product .listing {
   list-style: none;
@@ -24,8 +29,8 @@
 }
 
 .dig_prod_section .centered_product .product {
-    margin: auto;
-  width: 440px;
+  margin: auto;
+  width: auto;
   position: relative;
 }
 
@@ -41,6 +46,11 @@
   border-bottom: 0;
   overflow: hidden;
   text-align: center;
+}
+.dig_prod_section .centered_product .img-wrapper img{
+  max-width: 300px;
+  width: 100%;
+  height: 100%;
 }
 
 
@@ -59,7 +69,8 @@
   transition-property: color, height;
   transition-duration: 0.3s, 0.4s;
   transition-timing-function: ease-out;
-  height: 83px;
+  height: 100px;
+  display: flex;
 }
 
 .dig_prod_section .centered_product  .info:before {
@@ -92,7 +103,7 @@
 }
 
 .dig_prod_section .centered_product .product:hover .info {
-  height: 40px;
+  height: 100px;
 }
 
 .dig_prod_section .centered_product .product:hover .info:before {
@@ -106,6 +117,10 @@
 
 .dig_prod_section .centered_product .title {
   transition: transform 0.3s ease-out;
+  max-width: 250px;
+  padding: 0px;
+  font-size: 18px;
+  margin: auto;
 }
 .dig_prod_section .centered_product .title a {
   color: inherit;
@@ -124,6 +139,7 @@
   padding: 4px 13px;
   top: -15px;
   right: 10px;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
 }
 
 .dig_prod_section .centered_product .price.sale {
@@ -146,7 +162,7 @@
 }
 
 .dig_prod_section .centered_product .actions-wrapper * {
-  width: 50%;
+  width: 100%;
   padding: 2px 0;
   text-align: center;
   color: #191919;
