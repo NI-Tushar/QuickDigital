@@ -32,7 +32,7 @@
                 <div class="card bg-white mt-3" style="width: 100%">
                     <div class="card-header">
                       <div class="d-flex flex-wrap justify-content-between align-items-center" style="gap: 1em">
-                          <h3>Curent Balance - {{ number_format($account->balance) ?? '' }} BDT</h3>
+                          <h3>Curent Balance - {{ number_format(optional($account)->balance) ?? '0' }} BDT</h3>
                           <a class="btn btn-primary" href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">Withdrawl</a>
                       </div>
                     </div>
@@ -91,37 +91,45 @@
                     @csrf
                     @method('POST')
                     <div class="modal-body">
+                        @if (optional(Auth::guard('user')->user()->bankSetup)->account_type)
                         <div class="form-group mb-2">
                             <label for="">Account Type</label>
                             <select class="form-control" disabled>
-                                <option value="bank" {{ $bank_details->account_type === 'bank' ? 'selected' : '' }}>Bank Account</option>
-                                <option value="mobile_banking" {{ $bank_details->account_type === 'mobile_banking' ? 'selected' : '' }}>Mobile Banking</option>
+                                <option value="bank" {{ optional(Auth::guard('user')->user()->bankSetup)->account_type === 'bank' ? 'selected' : '' }}>Bank Account</option>
+                                <option value="mobile_banking" {{ optional(Auth::guard('user')->user()->bankSetup)->account_type === 'mobile_banking' ? 'selected' : '' }}>Mobile Banking</option>
                             </select>
                         </div>
 
-                        @if ($bank_details->account_type === 'mobile_banking')
+                        @if (optional(Auth::guard('user')->user()->bankSetup)->account_type === 'mobile_banking')
                         <div class="form-group mb-2">
                             <label for="">Mobile Bank Name</label>
                             <select class="form-control" disabled>
-                                <option value="bkash" {{ $bank_details->mobile_banking_type === 'bkash' ? 'selected' : '' }}>bKash</option>
-                                <option value="rocket" {{ $bank_details->mobile_banking_type === 'rocket' ? 'selected' : '' }}>Rocket</option>
-                                <option value="nagad" {{ $bank_details->mobile_banking_type === 'nagad' ? 'selected' : '' }}>Nagad</option>
+                                <option value="bkash" {{ optional(Auth::guard('user')->user()->bankSetup)->mobile_banking_type === 'bkash' ? 'selected' : '' }}>bKash</option>
+                                <option value="rocket" {{ optional(Auth::guard('user')->user()->bankSetup)->mobile_banking_type === 'rocket' ? 'selected' : '' }}>Rocket</option>
+                                <option value="nagad" {{ optional(Auth::guard('user')->user()->bankSetup)->mobile_banking_type === 'nagad' ? 'selected' : '' }}>Nagad</option>
                             </select>
                         </div>
                         @endif
 
                         <div class="form-group mb-2">
                             <label for="">Account Number</label>
-                            <input class="form-control" type="text" value="{{ $bank_details->account_type === 'mobile_banking' ?$bank_details->mobile_banking_number : $bank_details->account_number }}" readonly>
+                            <input class="form-control" type="text" value="{{ optional(Auth::guard('user')->user()->bankSetup)->account_type === 'mobile_banking' ?optional(Auth::guard('user')->user()->bankSetup)->mobile_banking_number : optional(Auth::guard('user')->user()->bankSetup)->account_number }}" readonly>
                         </div>
                         <div class="form-group mb-2">
                             <label for="">Withdrawal Amount</label>
                             <input class="form-control" type="text" name="amount" placeholder="Minimum 500 BDT">
                         </div>
+                        @else
+                        <div class="gorm-group">
+                            <label for="">Go to Your Account Setup Page and first set your bank account information then back here for the balance withdraw</label>
+                        </div>
+                        @endif
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary">Submit Request</button>
+                        @if (optional(Auth::guard('user')->user()->bankSetup)->account_type)
+                            <button type="submit" class="btn btn-primary">Submit Request</button>
+                        @endif
                     </div>
                 </form>
             </div>
