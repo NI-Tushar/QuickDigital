@@ -1,7 +1,9 @@
     <?php
 
     use App\Http\Controllers\Admin\InstructorRequestController;
-    use App\Http\Controllers\AffiliatorOrderController;
+use App\Http\Controllers\AffiliatorAccountController;
+use App\Http\Controllers\AffiliatorCommissionController;
+use App\Http\Controllers\AffiliatorOrderController;
     use App\Http\Controllers\CustomerPaymentController;
     use App\Http\Controllers\AffiliatorTransactionController;
     use App\Http\Controllers\BootcampController;
@@ -263,6 +265,9 @@ use App\Http\Controllers\SmsController;
         Route::get('/order/{affiliatorOrder}/make-payment', [AffiliatorOrderController::class, 'paymentStore'])->name('order.payment.store');
         Route::get('/affiliate-pay-success/{affiliatorOrder}', [AffiliatorOrderController::class, 'success'])->name('payment.success');
         Route::get('/affiliate-pay-cancel', [AffiliatorOrderController::class, 'cancel'])->name('payment.cancel');
+
+        // Earning History
+        Route::get('commission', [AffiliatorCommissionController::class, 'index'])->name('commission.index');
 
         // Transations
         route::get('/transaction', [AffiliatorTransactionController::class, 'index'])->name('transaction.index');

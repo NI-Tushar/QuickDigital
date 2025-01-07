@@ -51,8 +51,11 @@
             <!-- _________________________ product list end -->
             @endforeach
             @endif
-
             </ul>
+            <!-- Pagination Links -->
+            <div class="d-flex justify-content-end">
+                {{ $products->links('pagination::bootstrap-4') }}
+            </div>
         </div>
     </div>
 
