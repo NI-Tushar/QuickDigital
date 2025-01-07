@@ -52,6 +52,7 @@
                                 <h5>{{ $cancelOrders }}</h5>
                             </div>
                         </div>
+                        
                     </div>
                     <div class="row mt-4">
                         <div class="col-12">

@@ -76,7 +76,11 @@
                             <div class="promocod_div">
                                 <p>প্রোমোকোড দিন (যদি থাকে)</p>
                                 <input type="text" name="promocode">
+                                @if (session('error'))
+                                <p style="color:red;margin-top:-10px;padding:0;">{{ session('error') }}</p>
+                                @endif
                             </div>
+
                         </div>
     
                     </div>
