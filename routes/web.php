@@ -353,11 +353,12 @@ use App\Http\Controllers\SmsController;
         Route::get('/software', [SoftwareController::class, 'index'])->name('quick.software');
         Route::post('/software-order', [SoftwareController::class, 'softwareOrder'])->name('software.order');
         Route::get('/checkout', [SoftwareController::class,'checkout_page'])->name('digitalProductCheckout');
-        
+
         // _______________________________ DIGITAL PRODUCT
         Route::get('/digital-product', [DigitalProductController::class, 'index'])->name('quick.digitalProduct');
+        Route::get('/digital-product/suggestion', [DigitalProductController::class, 'suggestion'])->name('quick.digitalProduct.suggestion');
         Route::get('/digital-product-order/{id}', [CustomerOrderController::class, 'digitalProductOrder'])->name('digitalProduct.order');
-        
+
         // _______________________________ CUSTOMER PAYMENT CONTROLLER
         Route::post('/payment-customer-order', [CustomerPaymentController::class, 'paymentInitial'])->name('customer.payment');
 

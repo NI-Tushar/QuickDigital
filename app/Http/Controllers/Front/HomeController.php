@@ -73,12 +73,12 @@ class HomeController extends Controller
     {
         if(session()->has('subscription_price')){
             session()->forget('total_price');
-        }else{   
+        }else{
             if(session()->has('hosting_charge')){
                 $hosting_charge = session('hosting_charge');
                 $current_price = session('soft_price');
                 $total_price = number_format($hosting_charge + $current_price, 2);
-                Session::put('total_price', $total_price);  
+                Session::put('total_price', $total_price);
             }
         }
         return view('quick_digital.checkout.all_checkout');
@@ -283,7 +283,7 @@ class HomeController extends Controller
         return view('quick_digital.track_order', compact('orderStatus'));
     }
 
- 
+
 
 
 
@@ -390,20 +390,20 @@ class HomeController extends Controller
     {
         // Fetch the course along with the instructor, topics, and lessons
         $course = Course::with(['instructor', 'topics.lessons'])->withCount('topics')->findOrFail($course_id);
-        
+
         // Decode the JSON fields
         $course->what_will_i_learn = json_decode($course->what_will_i_learn, true);
         $course->tageted_audience = json_decode($course->tageted_audience, true);
         $course->materials_included = json_decode($course->materials_included, true);
         $course->requirements = json_decode($course->requirements, true);
-    
+
         // Calculate the total duration of lessons
         $totalDurationInSeconds = $course->getTotalDuration();
-    
+
         // Pass the total duration to the view
         return view('quick_digital.course_details', compact('course', 'totalDurationInSeconds'));
     }
-    
+
 
     /**
      * show all courses
