@@ -21,7 +21,7 @@
                         <div class="col-md-3">
                             <div class="card p-3 bg-success text-white">
                                 <p>Balance</p>
-                                <h5>{{ number_format($balance) }} BDT</h5>
+                                <h5>{{ $balance }} BDT</h5>
                             </div>
                         </div>
 

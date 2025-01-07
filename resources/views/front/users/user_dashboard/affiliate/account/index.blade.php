@@ -32,7 +32,7 @@
                 <div class="card bg-white mt-3" style="width: 100%">
                     <div class="card-header">
                       <div class="d-flex flex-wrap justify-content-between align-items-center" style="gap: 1em">
-                          <h3>Curent Balance - {{ number_format(optional($account)->balance) ?? '0' }} BDT</h3>
+                          <h3>Curent Balance - {{ optional($account)->balance ?? '0' }} BDT</h3>
                           <a class="btn btn-primary" href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">Withdrawl</a>
                       </div>
                     </div>

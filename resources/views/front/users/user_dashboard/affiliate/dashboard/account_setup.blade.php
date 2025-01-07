@@ -33,8 +33,8 @@
                                 <label for="account_type">Select Account Type (*)</label>
                                 <select class="form-control" name="account_type" id="account_type">
                                     <option value="">Select Account Type</option>
-                                    <option value="bank" {{ $account_details->account_type === 'bank' ? 'selected' : '' }}>Bank Account</option>
-                                    <option value="mobile_banking" {{ $account_details->account_type === 'mobile_banking' ? 'selected' : '' }}>Mobile Banking</option>
+                                    <option value="bank" {{ optional(Auth::guard('user')->user()->bankSetup)->account_type === 'bank' ? 'selected' : '' }}>Bank Account</option>
+                                    <option value="mobile_banking" {{ optional(Auth::guard('user')->user()->bankSetup)->account_type === 'mobile_banking' ? 'selected' : '' }}>Mobile Banking</option>
                                 </select>
                                 @error('account_type')
                                     <span class="text-danger">{{ $message }}</span>
@@ -42,31 +42,31 @@
                             </div>
 
                             <!-- Bank Details -->
-                            <div id="bank_details" class="account-details {{ $account_details->account_type === 'bank' ? '' : 'd-none' }}">
+                            <div id="bank_details" class="account-details {{ optional(Auth::guard('user')->user()->bankSetup)->account_type === 'bank' ? '' : 'd-none' }}">
                                 <div class="form-group mb-3">
                                     <label for="bank_name">Bank Name (*)</label>
-                                    <input type="text" class="form-control" name="bank_name" id="bank_name" value="{{ old('bank_name', $account_details->bank_name) }}">
+                                    <input type="text" class="form-control" name="bank_name" id="bank_name" value="{{ old('bank_name', optional(Auth::guard('user')->user()->bankSetup)->bank_name) }}">
                                     @error('bank_name')
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror
                                 </div>
                                 <div class="form-group mb-3">
                                     <label for="account_number">Account Number (*)</label>
-                                    <input type="text" class="form-control" name="account_number" id="account_number" value="{{ old('account_number', $account_details->account_number) }}">
+                                    <input type="text" class="form-control" name="account_number" id="account_number" value="{{ old('account_number', optional(Auth::guard('user')->user()->bankSetup)->account_number) }}">
                                     @error('account_number')
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror
                                 </div>
                                 <div class="form-group mb-3">
                                     <label for="branch_name">Branch Name (*)</label>
-                                    <input type="text" class="form-control" name="branch_name" id="branch_name" value="{{ old('branch_name', $account_details->branch_name) }}">
+                                    <input type="text" class="form-control" name="branch_name" id="branch_name" value="{{ old('branch_name', optional(Auth::guard('user')->user()->bankSetup)->branch_name) }}">
                                     @error('branch_name')
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror
                                 </div>
                                 <div class="form-group mb-3">
                                     <label for="routing_number">Routing Number (*)</label>
-                                    <input type="text" class="form-control" name="routing_number" id="routing_number" value="{{ old('routing_number', $account_details->routing_number) }}">
+                                    <input type="text" class="form-control" name="routing_number" id="routing_number" value="{{ old('routing_number', optional(Auth::guard('user')->user()->bankSetup)->routing_number) }}">
                                     @error('routing_number')
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror
@@ -74,14 +74,14 @@
                             </div>
 
                             <!-- Mobile Banking Details -->
-                            <div id="mobile_banking_details" class="account-details {{ $account_details->account_type === 'mobile_banking' ? '' : 'd-none' }}">
+                            <div id="mobile_banking_details" class="account-details {{ optional(Auth::guard('user')->user()->bankSetup)->account_type === 'mobile_banking' ? '' : 'd-none' }}">
                                 <div class="form-group mb-3">
                                     <label for="mobile_banking_type">Mobile Banking Type (*)</label>
                                     <select class="form-control" name="mobile_banking_type" id="mobile_banking_type">
                                         <option value="">Select Mobile Banking Type</option>
-                                        <option value="bkash" {{ $account_details->mobile_banking_type === 'bkash' ? 'selected' : '' }}>bKash</option>
-                                        <option value="rocket" {{ $account_details->mobile_banking_type === 'rocket' ? 'selected' : '' }}>Rocket</option>
-                                        <option value="nagad" {{ $account_details->mobile_banking_type === 'nagad' ? 'selected' : '' }}>Nagad</option>
+                                        <option value="bkash" {{ optional(Auth::guard('user')->user()->bankSetup)->mobile_banking_type === 'bkash' ? 'selected' : '' }}>bKash</option>
+                                        <option value="rocket" {{ optional(Auth::guard('user')->user()->bankSetup)->mobile_banking_type === 'rocket' ? 'selected' : '' }}>Rocket</option>
+                                        <option value="nagad" {{ optional(Auth::guard('user')->user()->bankSetup)->mobile_banking_type === 'nagad' ? 'selected' : '' }}>Nagad</option>
                                     </select>
                                     @error('mobile_banking_type')
                                         <span class="text-danger">{{ $message }}</span>
@@ -89,7 +89,7 @@
                                 </div>
                                 <div class="form-group mb-3">
                                     <label for="mobile_banking_number">Mobile Banking Number (*)</label>
-                                    <input type="text" class="form-control" name="mobile_banking_number" id="mobile_banking_number" value="{{ old('routing_number', $account_details->mobile_banking_number) }}">
+                                    <input type="text" class="form-control" name="mobile_banking_number" id="mobile_banking_number" value="{{ old('routing_number', optional(Auth::guard('user')->user()->bankSetup)->mobile_banking_number) }}">
                                     @error('mobile_banking_number')
                                     <span class="text-danger">{{ $message }}</span>
                                 @enderror
@@ -98,7 +98,7 @@
 
                             <div class="form-group mb-3">
                                 <label for="holder_name">Account Holder's Name (*)</label>
-                                <input type="text" class="form-control" name="holder_name" id="holder_name" value="{{ old('routing_number', $account_details->holder_name) }}">
+                                <input type="text" class="form-control" name="holder_name" id="holder_name" value="{{ old('routing_number', optional(Auth::guard('user')->user()->bankSetup)->holder_name) }}">
                                 @error('holder_name')
                                     <span class="text-danger">{{ $message }}</span>
                                 @enderror
@@ -106,7 +106,7 @@
 
                             <div class="form-group mb-3">
                                 <label for="email">Email Address</label>
-                                <input type="email" class="form-control" name="email" id="email" value="{{ old('routing_number', $account_details->email) }}">
+                                <input type="email" class="form-control" name="email" id="email" value="{{ old('routing_number', optional(Auth::guard('user')->user()->bankSetup)->email) }}">
                                 @error('email')
                                     <span class="text-danger">{{ $message }}</span>
                                 @enderror
@@ -114,7 +114,7 @@
 
                             <div class="form-group mb-3">
                                 <label for="phone">Phone Number</label>
-                                <input type="text" class="form-control" name="phone" id="phone" value="{{ old('routing_number', $account_details->phone) }}">
+                                <input type="text" class="form-control" name="phone" id="phone" value="{{ old('routing_number', optional(Auth::guard('user')->user()->bankSetup)->phone) }}">
                                 @error('phone')
                                     <span class="text-danger">{{ $message }}</span>
                                 @enderror
