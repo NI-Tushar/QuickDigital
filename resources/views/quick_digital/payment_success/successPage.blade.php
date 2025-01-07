@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>পেমেন্ট সাকসেস | কুইক ডিজিটাল</title>
     <link rel="stylesheet" href="{{ url('front/styles/successPage.css') }}">
-    <link rel="stylesheet" href="/public/front/styles/successPage.css">
+    <!-- <link rel="stylesheet" href="/public/front/styles/successPage.css"> -->
 </head>
 <body>
     <div class="success-message">
@@ -16,12 +16,12 @@
         <h1 class="success-message__title">পেমেন্ট সাকসেস</h1>
         <div class="success-message__content">
             <p>আপনি সফলভাবে পেমেন্ট করেছেন, অর্ডার সম্পর্কে জানতে ক্লিক করুন</p>
-        </div>
-        <div class="button_section">
-            <a href=""><button>আপনার অর্ডার</button></a>
+            <div class="button_section">
+                <a href=""><button>আপনার অর্ডার</button></a>
+            </div>
         </div>
     </div>
-    <script src="/public/front/js/successPage.js"></script>
+    <!-- <script src="/public/front/js/successPage.js"></script> -->
     <script src="{{ url('front/js/successPage.js') }}"></script>
 </body>
 </html>
