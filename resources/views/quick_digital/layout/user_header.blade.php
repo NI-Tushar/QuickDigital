@@ -139,7 +139,7 @@
                                         কুইক ব্যাবসা
                                     </a>
                                 </li>
-                                <li class="nav-item dropdown">
+                                <!-- <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle fw-semibold px-md-3"
                                         href="{{ url('quick-digital/ebook-list') }}" role="button"
                                         data-bs-toggle="dropdown" aria-expanded="false">
@@ -172,7 +172,7 @@
                                             </a>
                                         </li>
                                     </ul>
-                                </li>
+                                </li> -->
                                 <!-- <li class="nav-item nav-style">
                                         <a class="nav-link fw-semibold px-md-3" aria-current="page" href="./ebook.html">ই-বুক</a>
                                     </li> -->
@@ -219,12 +219,12 @@
                                         ডিজিটাল প্রোডাক্ট
                                     </a>
                                 </li>
-                                <li class="nav-item">
+                                <!-- <li class="nav-item">
                                     <a class="nav-link fw-semibold px-md-3" aria-current="page"
                                         href="{{ url('/') }}">
                                         ডিজিটাল সার্ভিস
                                     </a>
-                                </li>
+                                </li> -->
 
                                 <li class="nav-item">
                                     <a class="nav-link fw-semibold px-md-3" aria-current="page"
