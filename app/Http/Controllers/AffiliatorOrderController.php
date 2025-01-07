@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\AffiliatorAccount;
+use App\Models\AffiliatorCommission;
 use App\Models\AffiliatorOrder;
 use App\Models\AffiliatorOrderItem;
 use App\Models\DigitalProduct;
@@ -416,6 +417,14 @@ class AffiliatorOrderController extends Controller
                         $account->update([
                             'balance' => $account->balance + $affiliatorShare
                         ]);
+
+                        // Comission Save
+                        $commission = new AffiliatorCommission();
+                        $commission->user_id = $userId;
+                        $commission->purpose = 'Own';
+                        $commission->order_id = $affiliatorOrder->order_id;
+                        $commission->amount = $affiliatorShare;
+                        $commission->save();
                     }
 
                     return redirect()->route('affiliate.order.show', $affiliatorOrder->id)->with('success', 'Your Payment Complete successfully!');
