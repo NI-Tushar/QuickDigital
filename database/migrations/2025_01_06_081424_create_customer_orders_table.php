@@ -24,6 +24,7 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained('users')->onUpdate('cascade');
             $table->decimal('sub_total', 10, 2);
             $table->decimal('total', 10, 2);
+            $table->integer('promocode_id', 10, 2);
             $table->text('bank_trx_id')->nullable();
             $table->text('invoice_no')->nullable();
             $table->timestamps();
