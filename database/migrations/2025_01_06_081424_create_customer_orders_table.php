@@ -21,10 +21,10 @@ return new class extends Migration
             $table->string('payment_method', 50)->nullable();
             $table->string('service_id')->nullable();
             $table->string('service_type',30)->nullable();
-            $table->foreignId('user_id')->constrained('users')->onUpdate('cascade');
-            $table->decimal('sub_total', 10, 2);
-            $table->decimal('total', 10, 2);
-            $table->foreignId('affiliator_promocode_id')->constrained('affiliator_promocodes')->onUpdate('cascade');
+            $table->foreignId('user_id')->constrained('users')->onUpdate('cascade')->nullable();
+            $table->decimal('sub_total', 10, 2)->nullable();
+            $table->decimal('total', 10, 2)->nullable();
+            $table->foreignId('affiliator_promocode_id')->constrained('affiliator_promocodes')->onUpdate('cascade')->nullable();
             $table->text('bank_trx_id')->nullable();
             $table->text('invoice_no')->nullable();
             $table->timestamps();

@@ -17,6 +17,7 @@
         <div class="success-message__content">
             <p>আপনি সফলভাবে পেমেন্ট করেছেন, অর্ডার সম্পর্কে জানতে ক্লিক করুন</p>
             <div class="button_section">
+                @if()
                 <a href="{{ route('user.dashboard') }}"><button>আপনার অর্ডার</button></a>
             </div>
         </div>

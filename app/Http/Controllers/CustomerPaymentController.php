@@ -61,11 +61,9 @@ class CustomerPaymentController extends Controller
 
             } else {
                 // did not get any active promocode
+                return redirect()->back()->with('error', 'আপনার প্রোমোকোডটি সঠিক কিংবা এক্টিভ নয়');
             }
-        }else{
-            // did not get any input promocode
         }
-
 
         try {
             $merchant_name = config('surjopay.merchant_name');
@@ -256,22 +254,60 @@ class CustomerPaymentController extends Controller
 
 
                     // _______________________Genereting a default or random password to store and mail
-                    if (!Auth::guard('user')->check()) { // if not login
-                        $existing_user = User::where('email', $email)->first();
+                    if (!Auth::guard('user')->check()) { //======================================================== WHEN UESR NOT LOGGED IN
+                       $existing_user = User::where('email', $email)
+                        ->orWhere('mobile', $phone_no) 
+                        ->first();
+
 
                         if ($existing_user) {  //======================================================== WHEN UESR ALREADY REGISTERED
-                                $user_id = $existing_user->id;
-                                $phone = $existing_user->mobile;
-                                $email = $existing_user->email;
+                            $userId = $existing_user->id;
 
-                                session()->put('user_id', $user_id);
-                                session()->put('phone', $phone);
-                                session()->put('email', $email);
+                            // __________________ here data will be store in order page
+                            $add_order= new CustomerOrder();
+                            $add_order->user_id = $userId;
+                            $add_order->order_id = $resObject[0]['order_id'];
+                            $add_order->sub_total = $price;
+                            $add_order->total= $price;
+                            $add_order->service_id = $service_id;
+                            $add_order->service_type = $service_type;
+                            $add_order->payment_status = 'Paid';
+                            $add_order->payment_method = $resObject[0]['method'];
+                            $add_order->affiliator_promocode_id = $affiliator_promocode_id;
+                            $add_order->bank_trx_id= $resObject[0]['bank_trx_id'];
+                            $add_order->invoice_no= $resObject[0]['invoice_no'];
+                            $add_order->save();
 
-                                // Call the SMS controller method
-                                $smsController = new SmsController();
-                                $smsSent = $smsController->sendSms($phone, $book_title);
-                            }else{
+                            // _____________________________ storing data to affiliator commission table if promocode
+                            if ($add_order->payment_status == 'Paid' && $add_order->affiliator_promocode_id != null) {
+                                    $promoCode = AffiliatorPromocode::where('id', $add_order->affiliator_promocode_id)->first();
+                                    $userId = User::where('id', $promoCode->user_id)->first()->id;
+                                    // Find or create the account
+                                    $account = AffiliatorAccount::firstOrCreate(
+                                        ['user_id' => $userId], // Find by user ID
+                                        ['balance' => 0]       // Default values for a new account
+                                    );
+                                    
+                                    $commission = 0.25;
+                                    // Calculate the affiliator's share (25% of the total order amount)
+                                    $affiliatorShare = $add_order->total * $commission;
+                                    
+                                    // Update the account balance by adding the affiliator's share
+                                    $account->update([
+                                        'balance' => $account->balance + $affiliatorShare
+                                    ]);
+                                    
+                                    // Comission Save
+                                    $commission = new AffiliatorCommission();
+                                    $commission->user_id = $userId;
+                                    $commission->purpose = 'Customer';
+                                    $commission->order_id = $add_order->order_id;
+                                    $commission->amount = $affiliatorShare;
+                                    $commission->save();
+                                }
+                                return view('quick_digital.payment_success.successPage', ['loginBtn' => 'loginBtn']);
+
+                            }else{  //======================================================== WHEN UESR IS NEW TO SYSTEM (FRESHER)
                                 // creating default pass
                                 $length = 12;
                                 $characters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()';
@@ -313,34 +349,33 @@ class CustomerPaymentController extends Controller
                             $add_order->invoice_no= $resObject[0]['invoice_no'];
                             $add_order->save();
 
-                            // _____________________________ storing data to affiliator commission table
-                            if ($add_order->payment_status == 'Paid') {
-                                $promoCode = AffiliatorPromocode::where('id', $add_order->affiliator_promocode_id)->first();
-                                $userId = User::where('id', $promoCode->user_id)->first()->id;
-
-                                // Find or create the account
-                                $account = AffiliatorAccount::firstOrCreate(
-                                    ['user_id' => $userId], // Find by user ID
-                                    ['balance' => 0]       // Default values for a new account
-                                );
-
-                                $commission = 0.25;
-                                // Calculate the affiliator's share (25% of the total order amount)
-                                $affiliatorShare = $add_order->total * $commission;
-
-                                // Update the account balance by adding the affiliator's share
-                                $account->update([
-                                    'balance' => $account->balance + $affiliatorShare
-                                ]);
-
-                                // Comission Save
-                                $commission = new AffiliatorCommission();
-                                $commission->user_id = $userId;
-                                $commission->purpose = 'Customer';
-                                $commission->order_id = $add_order->order_id;
-                                $commission->amount = $affiliatorShare;
-                                $commission->save();
-                            }
+                            // _____________________________ storing data to affiliator commission table if promocode
+                            if ($add_order->payment_status == 'Paid' && $add_order->affiliator_promocode_id != null) {
+                                    $promoCode = AffiliatorPromocode::where('id', $add_order->affiliator_promocode_id)->first();
+                                    $userId = User::where('id', $promoCode->user_id)->first()->id;
+                                    // Find or create the account
+                                    $account = AffiliatorAccount::firstOrCreate(
+                                        ['user_id' => $userId], // Find by user ID
+                                        ['balance' => 0]       // Default values for a new account
+                                    );
+                                    
+                                    $commission = 0.25;
+                                    // Calculate the affiliator's share (25% of the total order amount)
+                                    $affiliatorShare = $add_order->total * $commission;
+                                    
+                                    // Update the account balance by adding the affiliator's share
+                                    $account->update([
+                                        'balance' => $account->balance + $affiliatorShare
+                                    ]);
+                                    
+                                    // Comission Save
+                                    $commission = new AffiliatorCommission();
+                                    $commission->user_id = $userId;
+                                    $commission->purpose = 'Customer';
+                                    $commission->order_id = $add_order->order_id;
+                                    $commission->amount = $affiliatorShare;
+                                    $commission->save();
+                                }
                             return view('quick_digital.payment_success.successPage');
                         }
 

@@ -9,6 +9,11 @@
 @section('content')
     @include('front.users.user_dashboard.sidebar')
 
+    <style>
+        .software_section .col-md-3 .card{
+            background-image: linear-gradient(var(--primary-hover-color), black);
+        }
+    </style>
 
     <section class="home-section">
 
@@ -18,43 +23,45 @@
 
                 <div class="card bg-white mt-3 p-3" style="width: 100%;">
                     <div class="row">
+                        
                         <div class="col-md-3">
-                            <div class="card p-3 bg-success text-white">
-                                <p>Balance</p>
+                            <div class="card p-3 text-white">
+                                <p>ব্যলেন্স</p>
                                 <h5>{{ $balance }} BDT</h5>
                             </div>
                         </div>
 
                         <div class="col-md-3">
-                            <div class="card p-3 bg-secondary text-white">
-                                <p>Total Orders</p>
+                            <div class="card p-3 text-white">
+                                <p>টোটাল অর্ডার</p>
                                 <h5>{{ $totalOrders }}</h5>
                             </div>
                         </div>
 
                         <div class="col-md-3">
-                            <div class="card p-3 bg-info text-white">
-                                <p>Complete Orders</p>
+                            <div class="card p-3 text-white">
+                                <p>কমপ্লিট অর্ডার</p>
                                 <h5>{{ $completeOrders }}</h5>
                             </div>
                         </div>
 
                         <div class="col-md-3">
-                            <div class="card p-3 bg-info text-white">
-                                <p>Pending Orders</p>
+                            <div class="card p-3 text-white">
+                                <p>পেন্ডিং অর্ডার</p>
                                 <h5>{{ $pendingOrders }}</h5>
                             </div>
                         </div>
+
                     </div>
                     <div class="row mt-4">
                         <div class="col-12">
-                            <h5>Last 10 Transactions</h5>
+                            <h5>সর্বশেষ 10 টি ট্রানজ্যকশন</h5>
                             <table class="table table-bordered">
                                 <thead>
                                     <tr>
-                                        <th>Date</th>
-                                        <th>Amount</th>
-                                        <th>Status</th>
+                                        <th>তারিখ</th>
+                                        <th>এমাউন্ট</th>
+                                        <th>বর্তমান অবস্থা</th>
                                     </tr>
                                 </thead>
                                 <tbody>
