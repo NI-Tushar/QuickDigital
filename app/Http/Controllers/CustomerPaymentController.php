@@ -16,6 +16,14 @@ class CustomerPaymentController extends Controller
 {
     public function paymentInitial(Request $request)
     {
+        // checking if user affiliator or not
+        if(Auth::guard('user')->id()){
+            $userType = Auth::guard('user')->user()->user_type;
+            if($userType=='affiliator'){
+                return view('quick_digital.payment_success.affiliatorWarning');
+            }
+        }
+        
         $request->validate([
             'service_id' => 'required',
             'name' => 'required|string',
