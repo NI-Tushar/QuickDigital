@@ -2,6 +2,7 @@
 
     use App\Http\Controllers\Admin\InstructorRequestController;
 use App\Http\Controllers\AffiliatorAccountController;
+use App\Http\Controllers\AffiliatorBackSetupController;
 use App\Http\Controllers\AffiliatorCommissionController;
 use App\Http\Controllers\AffiliatorOrderController;
     use App\Http\Controllers\CustomerPaymentController;
@@ -244,8 +245,8 @@ use App\Http\Controllers\SmsController;
     Route::prefix('/affiliate')->name('affiliate.')->group(function(){
 
         // Account Manage
-        Route::get('account-setup', [UserDashboardController::class, 'accountSetup'])->name('account.setup');
-        Route::post('account-setup', [UserDashboardController::class, 'accountSetupStore'])->name('account.setup.store');
+        Route::get('account-setup', [AffiliatorBackSetupController::class, 'accountSetup'])->name('account.setup');
+        Route::post('account-setup', [AffiliatorBackSetupController::class, 'accountSetupStore'])->name('account.setup.store');
 
         // Digital Sercice
         Route::get('/digital-service', [DigitalServiceController::class, 'index'])->name('digialservice.index');
