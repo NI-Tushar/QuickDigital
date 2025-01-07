@@ -32,6 +32,9 @@
     transform: translateY(0);
     opacity: 1;
   }
+  .warning_icon{
+    display:none;
+  }
   
   .success-message__content {
     color: #626363;
@@ -77,7 +80,8 @@
         border: 2px solid var(--warning-color);
     }
     .warning button:hover{
-        border: 2px solid var(--warning-color);
+        background-color: var(--warning-color);
+        color:aliceblue;
     }
 
   @media only screen and (max-width: 420px) {

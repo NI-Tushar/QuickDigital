@@ -10,6 +10,12 @@
     @include('front.users.user_dashboard.sidebar')
 
 
+<style>
+.software_section .col-md-3 .card{
+    background-image: linear-gradient(var(--primary-hover-color), black);
+}
+</style>
+
     <section class="home-section">
 
         <div class="home-content">
@@ -20,50 +26,50 @@
                     <div class="row">
 
                         <div class="col-md-3">
-                            <div class="card p-3 bg-secondary text-white">
-                                <p>Total Orders</p>
+                            <div class="card p-3 text-white">
+                                <p>টোটাল অর্ডার</p>
                                 <h5>{{ $totalOrders }}</h5>
                             </div>
                         </div>
 
                         <div class="col-md-3">
-                            <div class="card p-3 bg-info text-white">
-                                <p>Complete Orders</p>
+                            <div class="card p-3 text-white">
+                                <p>কমপ্লিট অর্ডার</p>
                                 <h5>{{ $completeOrders }}</h5>
                             </div>
                         </div>
 
                         <div class="col-md-3">
-                            <div class="card p-3 bg-info text-white">
-                                <p>Pending Orders</p>
+                            <div class="card p-3 text-white">
+                                <p>পেন্ডিং অর্ডার</p>
                                 <h5>{{ $pendingOrders }}</h5>
                             </div>
                         </div>
 
                         <div class="col-md-3">
-                            <div class="card p-3 bg-success text-white">
-                                <p>Cancel Orders</p>
+                            <div class="card p-3 text-white">
+                                <p>বাতিল করা অর্ডার</p>
                                 <h5>{{ $cancelOrders }}</h5>
                             </div>
                         </div>
                     </div>
                     <div class="row mt-4">
                         <div class="col-12">
-                            <h5>Last 10 Orders</h5>
+                            <h5>সর্বশেষ 10 টি অর্ডার</h5>
                             <table class="table table-bordered">
                                 <thead>
                                     <tr>
-                                        <th>Date</th>
-                                        <th>Amount</th>
-                                        <th>Status</th>
+                                        <th>তারিখ</th>
+                                        <th>এমাউন্ট</th>
+                                        <th>বর্তমান অবস্থা</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @foreach ($orders as $order)
                                     <tr>
                                         <td>{{ $order->created_at->format('F j, Y') }}</td>
-                                        <td>{{ $order->amount }}</td>
-                                        <td>{{ $order->status }}</td>
+                                        <td>{{ $order->amount }} BDT</td>
+                                        <td>{{ $order->status }} BDT</td>
                                     </tr>
                                     @endforeach
                                 </tbody>

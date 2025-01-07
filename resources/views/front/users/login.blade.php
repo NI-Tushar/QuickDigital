@@ -19,9 +19,11 @@
         <div class="update_form_wrapper">
             <div class="form_container">
 
-                <div class="logo_section">
-                  <img src="{{ asset('front/assets/images/primary_logo2.png') }}" alt="Wise-Corporation" style="width: 150px;">
-                </div>
+                <a href="{{ url('quick-digital/index') }}">
+                    <div class="logo_section">
+                        <img src="{{ asset('front/assets/images/primary_logo2.png') }}" alt="Wise-Corporation" style="width: 150px;">
+                    </div>
+                </a>
 
                 <div class="title_container">
                   <h2>লগইন করুন</h2>
