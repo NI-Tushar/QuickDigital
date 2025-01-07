@@ -26,7 +26,7 @@ class UserDashboardController extends Controller
 
             $affiliator = Auth::guard('user')->user();
             $data = [];
-            $data['balance'] = $affiliator->account->balance;
+            $data['balance'] = $affiliator->account->balance ?? '0';
             $data['totalOrders'] = AffiliatorOrder::where('user_id', $affiliator->id)->count();
             $data['completeOrders'] = AffiliatorOrder::where('user_id', $affiliator->id)->where('payment_status', 'Paid')->count();
             $data['pendingOrders'] = AffiliatorOrder::where('user_id', $affiliator->id)->where('payment_status', 'Un-Paid')->count();

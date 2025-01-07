@@ -20,6 +20,7 @@ class AffiliatorTransactionController extends Controller
     {
         $account = AffiliatorAccount::where('user_id', Auth::guard('user')->user()->id)->first();
 
+
         // Check if account exists
         if ($account) {
             $transactions = $account->transactions()->orderBy('created_at', 'desc')->paginate(10);
@@ -27,9 +28,7 @@ class AffiliatorTransactionController extends Controller
             $transactions = collect(); // Empty collection for transactions
         }
 
-        $bank_details = Auth::guard('user')->user()->bankSetup;
-
-        return view('front.users.user_dashboard.affiliate.account.index', compact('account', 'transactions', 'bank_details'));
+        return view('front.users.user_dashboard.affiliate.account.index', compact('account', 'transactions'));
     }
 
     public function store(Request $request)
