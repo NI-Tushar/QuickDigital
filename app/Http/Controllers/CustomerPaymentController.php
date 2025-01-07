@@ -107,7 +107,6 @@ class CustomerPaymentController extends Controller
         }catch (\Exception $exception){
             return $exception->getMessage();
         }
-
     }
 
 
@@ -117,8 +116,10 @@ class CustomerPaymentController extends Controller
         $phone =  $request->input('phone');
         $email =  $request->input('email');
         $service_id =  $request->input('service_id');
+        session()->put('service_id', $service_id);
         $price = Session::get('price');
         $service_type = Session::get('service_type');
+
 
         try {
             $token = $response['token'];
@@ -239,10 +240,11 @@ class CustomerPaymentController extends Controller
                     $phone_no = $resObject[0]['phone_no'];
                     $email = $resObject[0]['email'];
                     $price = Session::get('price');
-                    $service_id =  $request->input('service_id');
+                    $service_id = Session::get('service_id');
                     $service_type = Session::get('service_type');
                     $promocode_id = Session::get('promocode_id');
-            
+
+
 
                     // _______________________Genereting a default or random password to store and mail
                     if (!Auth::guard('user')->check()) { // if not login
@@ -304,7 +306,7 @@ class CustomerPaymentController extends Controller
                     $add_order->bank_trx_id= $resObject[0]['bank_trx_id'];
                     $add_order->invoice_no= $resObject[0]['invoice_no'];
                     $add_order->save();
-                    dd('payment and order success');
+                    return view('quick_digital.payment_success.successPage');
 
                 }else{
 
