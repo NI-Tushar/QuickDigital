@@ -41,12 +41,12 @@ class CustomerPaymentController extends Controller
         if($request->input('promocode')!=null){
             $isPromoCode = AffiliatorPromocode::where('code', $request->input('promocode'))
             ->where('status', 'active')
-            ->where('end_date', '>', now())
+            ->orWhere('end_date', '>', now())
             ->get();
 
             $promo = $isPromoCode->first(); // Get the first record
             if ($promo) {
-                Session::put('promocode_id', $promo->id);
+                Session::put('affiliator_promocode_id', $promo->id);
                 $price = Session::get('price');
                 $discountedPrice = $price - ($price * 0.25);
                 Session::put('price', $discountedPrice);
@@ -57,7 +57,7 @@ class CustomerPaymentController extends Controller
         }else{
             // did not get any input promocode
         }
-    
+
 
         try {
             $merchant_name = config('surjopay.merchant_name');
@@ -234,7 +234,7 @@ class CustomerPaymentController extends Controller
 
                 if($resObject[0]['sp_message']=="Success"){
 
-                    // dd(Session::get('promocode_id'));
+                    // dd(Session::get('affiliator_promocode_id'));
                     // dd($resObject[0]);
 
                     session()->forget('token');
@@ -244,7 +244,7 @@ class CustomerPaymentController extends Controller
                     $price = Session::get('price');
                     $service_id = Session::get('service_id');
                     $service_type = Session::get('service_type');
-                    $promocode_id = Session::get('promocode_id');
+                    $affiliator_promocode_id = Session::get('affiliator_promocode_id');
 
 
                     // _______________________Genereting a default or random password to store and mail
@@ -300,16 +300,16 @@ class CustomerPaymentController extends Controller
                             $add_order->service_type = $service_type;
                             $add_order->payment_status = 'Paid';
                             $add_order->payment_method = $resObject[0]['method'];
-                            $add_order->promocode_id = $promocode_id;
+                            $add_order->affiliator_promocode_id = $affiliator_promocode_id;
                             $add_order->bank_trx_id= $resObject[0]['bank_trx_id'];
                             $add_order->invoice_no= $resObject[0]['invoice_no'];
                             $add_order->save();
 
                             // _____________________________ storing data to affiliator commission table
                             if ($add_order->payment_status == 'Paid') {
-                                $promoCode = AffiliatorPromocode::where('id', $add_order->promocode_id)->first();
+                                $promoCode = AffiliatorPromocode::where('id', $add_order->affiliator_promocode_id)->first();
                                 $userId = User::where('id', $promoCode->user_id)->first()->id;
-                                
+
                                 // Find or create the account
                                 $account = AffiliatorAccount::firstOrCreate(
                                     ['user_id' => $userId], // Find by user ID
