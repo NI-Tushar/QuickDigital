@@ -9,8 +9,10 @@ use Illuminate\Support\Facades\Hash;
 use App\Models\Admin;
 use App\Models\AdminsPermission;
 use App\Models\AffiliatorOrder;
+use App\Models\AffiliatorTransaction;
 use App\Models\ContactForm;
 use App\Models\CourseOrder;
+use App\Models\CustomerOrder;
 use App\Models\User;
 use App\Models\ProjectForms;
 use Illuminate\Support\Facades\Validator;
@@ -29,7 +31,12 @@ class AdminController extends Controller
         $data['customerCount'] = User::where('user_type', 'customer')->count();
         $data['affiliatorCount'] = User::where('user_type', 'affiliator')->count();
         $data['affiliateOrders'] = AffiliatorOrder::count();
+        $data['customerOrders'] = CustomerOrder::count();
         $data['users'] = User::get();
+        $data['affiliatorOrderAmount'] = AffiliatorOrder::where('payment_status', 'Paid')->sum('total');
+        $data['customerOrderAmount'] = CustomerOrder::where('payment_status', 'Paid')->sum('total');
+        $data['CommissionPaid'] = AffiliatorTransaction::where('status', 'Complete')->sum('amount');
+        $data['CommissionPending'] = AffiliatorTransaction::where('status', 'Pending')->sum('amount');
 
         return view('admin.dashboard', $data);
     }
