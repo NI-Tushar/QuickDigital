@@ -360,6 +360,8 @@ use App\Http\Controllers\SmsController;
         
         // _______________________________ CUSTOMER PAYMENT CONTROLLER
         Route::post('/payment-customer-order', [CustomerPaymentController::class, 'paymentInitial'])->name('customer.payment');
+        Route::get('/service-payment-success', [CustomerPaymentController::class, 'success'])->name('cust.payment.success');
+        Route::get('/service-payment-cancel', [CustomerPaymentController::class, 'cancel'])->name('cust.payment.cancel');
 
 
     });
