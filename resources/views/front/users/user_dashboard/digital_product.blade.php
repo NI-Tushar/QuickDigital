@@ -15,44 +15,86 @@
                     <section class="container max-width custom-padding my-5">
                         <div class="order_center">
 
-                        <!-- <div class="order_headline">
-                            <h2 class="no_post_msg">কোনো অর্ডার নেই</h2>
-                        </div> -->
+                     
 
                         <div class="order_headline">
-                            <h3 class="no_post_msg">ডিজিটাল প্রোডাক্ট</h3>
+                            <h3 class="no_post_msg">আপনার ডিজিটাল প্রোডাক্ট</h3>
                         </div>
-                            <!-- ____________________ -->
-                            <div class="expandable-item">
-                                <div class="expandable-header">    
-                                    <div class="collapsible-header">
-                                        <div class="enr_img">
-                                            <img src="https://media.istockphoto.com/id/1328399434/photo/live-demo-symbol-concept-words-live-demo-on-wooden-blocks-on-a-beautiful-orange-background.jpg?s=612x612&w=0&k=20&c=xrEz6Zdkz2htzivAG-JrwhWTW0v2emTz6PZ_aFIHzPw=" alt="">
-                                        </div>
-                                        <div class="header_info">
-                                            <div class="section_part">
-                                                <p>প্রোডাক্ট / সার্ভিসের নাম</p>
-                                            </div>
-                                            <div class="section_part">
-                                                <label>প্যাকেজ</label>
-                                                <p></p>
-                                            </div>      
-                                            <div class="section_part">
-                                                <label>এমাউন্ট</label> 
-                                                <p><span>250</span> ৳</p>
-                                            </div>            
-                                            <div class="section_part">
-                                                <label>কমিশন</label> 
-                                                <p><span>250</span> ৳</p>
-                                            </div>
-                                            <div class="buy_button">
-                                                <a href="">কিনুন</a>
-                                            </div>
-                                        </div>
-                                    </div>    
+
+                            @if ($orderedProducts->isEmpty())
+                                <div class="order_headline">
+                                    <p style="font-weight:600;font-size:20px;color:red;">কোনো অর্ডার নেই</p>
                                 </div>
-                            </div>
+                            @else
+                            
+                            @foreach ($orderedProducts as $product)
                             <!-- _______________________ -->
+                            <div class="expandable-item">
+                                <div class="expandable-header">
+                                    
+                                <div class="collapsible-header">
+                                    <div class="enr_img">
+                                        <img src="{{ asset($product->digitalproduct->thumbnail) }}" alt="">
+                                    </div>
+                                    <div class="header_info">
+                                        <div class="section_part">
+                                            <label>সার্ভিস প্রোডাক্ট</label>
+                                            <p>{{$product->digitalproduct->title}}</p>
+                                        </div>      
+                                        <div class="section_part">
+                                            <label>মূল্য</label> 
+                                            <p><span>{{$product->digitalproduct->price}}</span> /BDT</p>
+                                        </div>            
+                                    </div>
+                                    <div class="section_part">
+                                        <div class="down_icon" onclick="toggle('0')">
+
+                                            <div class="up_down_arrow">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                    <path d="M12 19V5"></path> <!-- Vertical line -->
+                                                    <path d="M5 9l7-7 7 7"></path> <!-- Upward arrow -->
+                                                </svg>
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                    <path d="M12 5v14"></path> <!-- Vertical line -->
+                                                    <path d="M19 15l-7 7-7-7"></path> <!-- Downward arrow -->
+                                                </svg>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                </div>    
+                                </div>
+                                <div class="expandable-body">
+                                    <div id="drop_text" class="drop_text">
+                                        <div class="drop_section">
+                                            <label>Description / বিবরণঃ:</label>
+                                            <p>{{$product->digitalproduct->description}}</p>
+                                        </div>
+                                        <div class="drop_section file_section">
+                                            <div class="file_box">
+
+                                                <div class="file">
+                                                    <img src="https://icon-library.com/images/zipped-file-icon/zipped-file-icon-4.jpg" alt="">
+                                                    @if($product->digitalproduct && $product->digitalproduct->zip_file)
+                                                    <a href="{{ asset($product->digitalproduct->zip_file) }}" 
+                                                        download="DigitalProduct(QuickDigital){{ $product->id }}.zip">
+                                                        <button type="button">Download</button>
+                                                    </a>
+                                                    @else
+                                                    <p>No file available</p>
+                                                    @endif
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                </div>
+                            <!-- _______________________ -->
+                            @endforeach
+                            @endif
                         </div>
                     </section>
                 </main>
@@ -63,3 +105,11 @@
 
 
 @endsection
+
+@push('script')
+<script>
+    toggle = (idx) => {
+        document.querySelectorAll('.expandable-item')[idx].classList.toggle('active');
+    };
+</script>
+@endpush

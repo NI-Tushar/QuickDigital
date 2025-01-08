@@ -3,17 +3,37 @@
     --warning-color:#fa4112; 
 }
 .success-message {
-    text-align: center;
-    max-width: 500px;
-    width: 100%;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    padding: 15px;
-    border-radius: 10px;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  }
+  padding-top:10px;
+  background-image: linear-gradient(to right, var(--primary-hover-color) , rgb(12, 9, 16));
+  text-align: center;
+  max-width: 400px;
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border-bottom: 2px solid var(--primary-hover-color);
+}
+.success-message .logo_section{
+  padding-bottom: 5px;
+}
+.success-message .logo_section img{
+  max-width: 150px;
+  width: 100%;
+  height: auto;
+}
+.success-message .msg_body{
+  border-left: 1px solid var(--primary-hover-color);
+  border-right: 1px solid var(--primary-hover-color);
+  padding: 15px;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  background-color: aliceblue;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
   
   .success-message__icon {
     max-width: 75px;
@@ -24,6 +44,7 @@
     transform: translateY(25px);
     opacity: 0;
     transition: all 200ms ease;
+    text-shadow: 1px 1px 2px #000000;
 }
 .warning {
   color: var(--warning-color);
@@ -47,6 +68,15 @@
     transform: translateY(0);
     opacity: 1;
   }
+
+  .success-message__content .msg{
+    display: flex;
+    padding-bottom: 25px;
+  }
+  .success-message__content p{
+    margin: auto;
+    text-align: center;
+  }
   
   .icon-checkmark circle {
       fill: var(--color-1);
@@ -69,8 +99,11 @@
   .button_section button{
       border: 2px solid var(--color-1);
       padding: 10px;
+      padding-left: 35px;
+      padding-right: 35px;
       border-radius: 10px;
       font-weight: 600;
+      font-size: 17px;
       cursor: pointer;
     }
     .button_section button:hover{

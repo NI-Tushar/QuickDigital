@@ -156,6 +156,8 @@ use App\Http\Controllers\SmsController;
     // sms sending to customer
     Route::get('/send-sms',[SmsController::class,'sendSms'])->name('sendSMS');
     Route::get('/send-sms',[SmsController::class,'sendSmsNewUser'])->name('sendNewUserSMS');
+    Route::get('/send-sms',[SmsController::class,'sendSmsNewCustomer'])->name('sendSmsNewCustomer');
+
 
     // Mail send to customer for order confirmation
     Route::get('/mailsend/{order_id}/{book_title}/{price}/{email}', [MailSendController::class, 'sendEMail'])->name('mailsend');
@@ -235,9 +237,13 @@ use App\Http\Controllers\SmsController;
 
         Route::get('your-ebook', 'UserDashboardController@your_ebook')->name('user.ebook');
 
-        // _______________ AFFILIATOR USER PANEL DASHBOARD CONTROLLER
+        // _______________ affiliator USER DASHBOARD CONTROLLER
         Route::get('software', 'AffiliatorController@software')->name('affilator.software');
         Route::get('digital-product', 'AffiliatorController@digitalProduct')->name('affilator.digitalProduct');
+
+        // _______________ affiliator USER DASHBOARD CONTROLLER
+        // Route::get('software', 'CustomerController@software')->name('affilator.software');
+        Route::get('digital-product', 'CustomerController@digitalProduct')->name('customer.digitalProduct');
 
     });
 
