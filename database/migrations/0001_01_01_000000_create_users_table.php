@@ -18,13 +18,13 @@ return new class extends Migration
             $table->enum('user_type', ['cutomer', 'affiliator'])->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password')->nullable();
-            $table->rememberToken();
+            $table->rememberToken()->nullable();
             $table->timestamps();
         });
 
         Schema::create('password_reset_tokens', function (Blueprint $table) {
             $table->string('email')->primary();
-            $table->string('token');
+            $table->string('token')->nullable();
             $table->timestamp('created_at')->nullable();
         });
 
@@ -33,7 +33,7 @@ return new class extends Migration
             $table->foreignId('user_id')->nullable()->index();
             $table->string('ip_address', 45)->nullable();
             $table->text('user_agent')->nullable();
-            $table->longText('payload');
+            $table->longText('payload')->nullable();
             $table->integer('last_activity')->index();
         });
     }

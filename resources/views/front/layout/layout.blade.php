@@ -17,6 +17,8 @@
 <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 
+<link rel="icon" href="{{ url('icon.png') }}" type="image/png">
+
     <!-- BEGIN: Vendor CSS-->
     <link rel="stylesheet" type="text/css" href="{{ url('admin/vendors/css/vendors.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ url('admin/vendors/css/pickers/daterange/daterangepicker.css') }}">

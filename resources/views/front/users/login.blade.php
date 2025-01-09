@@ -57,8 +57,7 @@
                         <!-- Email input field -->
                         <input type="email" id="emailInput" name="email" placeholder="আপনার ইমেইলঃ" value="{{ old('email') }}" />
                     </div>
-
-                
+               
 
                       <div class="input_field">
                         <span>

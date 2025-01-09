@@ -121,6 +121,7 @@ class CustomerPaymentController extends Controller
 
     protected function createPayment($response, Request $request)
     {
+        $name =  $request->input('name');
         $phone =  $request->input('phone');
         $email =  $request->input('email');
         $service_id =  $request->input('service_id');
@@ -160,7 +161,7 @@ class CustomerPaymentController extends Controller
                 "amount": "'.$price.'",
                 "order_id": "'.$order_id.'",
                 "currency": "BDT",
-                "customer_name": "Name, Not Provided",
+                "customer_name": "'.$name.'",
                 "customer_address": "Address, Not Provided",
                 "customer_phone": "'.$phone.'",
                 "customer_city": "City, Not provided",
@@ -305,30 +306,95 @@ class CustomerPaymentController extends Controller
                                     $commission->amount = $affiliatorShare;
                                     $commission->save();
                                 }
-                                return view('quick_digital.payment_success.successPage', ['loginBtn' => 'loginBtn']);
+
+                                return view('quick_digital.payment_success.successPage', ['user' => 'registered']);
 
                             }else{  //======================================================== WHEN UESR IS NEW TO SYSTEM (FRESHER)
+                                // getting new user info
+                                $name = $resObject[0]['name'];
+                                $email = $resObject[0]['email'];
+                                $phone = $resObject[0]['phone_no'];
+
                                 // creating default pass
-                                $length = 12;
-                                $characters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()';
+                                $length = 4;
+                                // $characters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()';
+                                $characters = '0123456789';
                                 $charactersLength = strlen($characters);
                                 $randomPassword = '';
-                                    for ($i = 0; $i < $length; $i++) {
-                                        $randomPassword .= $characters[random_int(0, $charactersLength - 1)];
-                                    }
-                                session()->put('default_pass', $randomPassword);  // send this password in user email and number
+                                for ($i = 0; $i < $length; $i++) {
+                                    $randomPassword .= $characters[random_int(0, $charactersLength - 1)];
+                                }
+                                $randomPassword = $email.$randomPassword;
+                                session()->put('default_pass', $randomPassword);  // --> send this password in user email and number
                                 $add_user= new User();
+                                $add_user->name= $name;
                                 $add_user->mobile= $phone;
                                 $add_user->email= $email;
                                 $add_user->password= bcrypt($randomPassword);
                                 $add_user->status = 1;
-                                $add_user->save(); // save newly created user_id into session
+                                $add_user->save(); // save newly created user_id into user table
+
+                                // __________________ here data will be store in order page
+                                $userId = $add_user->id;
+                                $add_order= new CustomerOrder();
+                                $add_order->user_id = $userId;
+                                $add_order->order_id = $resObject[0]['order_id'];
+                                $add_order->sub_total = $price;
+                                $add_order->total= $price;
+                                $add_order->service_id = $service_id;
+                                $add_order->service_type = $service_type;
+                                $add_order->payment_status = 'Paid';
+                                $add_order->payment_method = $resObject[0]['method'];
+                                $add_order->affiliator_promocode_id = $affiliator_promocode_id;
+                                $add_order->bank_trx_id= $resObject[0]['bank_trx_id'];
+                                $add_order->invoice_no= $resObject[0]['invoice_no'];
+                                $add_order->save();
+
+                                // _____________________________ storing data to affiliator commission table if promocode start
+                                if ($add_order->payment_status == 'Paid' && $add_order->affiliator_promocode_id != null) {
+                                    $promoCode = AffiliatorPromocode::where('id', $add_order->affiliator_promocode_id)->first();
+                                    $userId = User::where('id', $promoCode->user_id)->first()->id;
+                                    // Find or create the account
+                                    $account = AffiliatorAccount::firstOrCreate(
+                                        ['user_id' => $userId], // Find by user ID
+                                        ['balance' => 0]       // Default values for a new account
+                                    );
+                                    
+                                    $commission = 0.25;
+                                    // Calculate the affiliator's share (25% of the total order amount)
+                                    $affiliatorShare = $add_order->total * $commission;
+                                    
+                                    // Update the account balance by adding the affiliator's share
+                                    $account->update([
+                                        'balance' => $account->balance + $affiliatorShare
+                                    ]);
+                                    
+                                    // Comission Save
+                                    $commission = new AffiliatorCommission();
+                                    $commission->user_id = $userId;
+                                    $commission->purpose = 'Customer';
+                                    $commission->order_id = $add_order->order_id;
+                                    $commission->amount = $affiliatorShare;
+                                    $commission->save();
+                                }
+                                // _____________________________ storing data to affiliator commission table if promocode end
 
                                 $user_id = $add_user->id;
                                 session()->put('user_id', $user_id);
-                                // Call the SMS controller method
-                                $smsController = new SmsController();
-                                $smsSent = $smsController->sendSmsNewUser($phone, $book_title);
+
+                                // Sending user credentials to customer phone number
+                                $smsController = new SmsController(); // Call the SMS controller method
+                                $smsSent = $smsController->sendSmsNewCustomer($phone, $email, $randomPassword);
+
+                                // __________ sending order info to customer email
+                                return redirect()->route('mailsend', [
+                                    'order_id' => $order_id,
+                                    'book_title' => $book_title,
+                                    'price' => $price,
+                                    'email' => $email,
+                                ]);
+
+                                return view('quick_digital.payment_success.successPage', ['user' => 'new_user']);
                             }
 
                         }else{ //======================================================== WHEN USER LOGGED IN
@@ -349,7 +415,7 @@ class CustomerPaymentController extends Controller
                             $add_order->invoice_no= $resObject[0]['invoice_no'];
                             $add_order->save();
 
-                            // _____________________________ storing data to affiliator commission table if promocode
+                            // _____________________________ storing data to affiliator commission table if promocode start
                             if ($add_order->payment_status == 'Paid' && $add_order->affiliator_promocode_id != null) {
                                     $promoCode = AffiliatorPromocode::where('id', $add_order->affiliator_promocode_id)->first();
                                     $userId = User::where('id', $promoCode->user_id)->first()->id;
@@ -376,11 +442,11 @@ class CustomerPaymentController extends Controller
                                     $commission->amount = $affiliatorShare;
                                     $commission->save();
                                 }
-                            return view('quick_digital.payment_success.successPage');
+                                // _____________________________ storing data to affiliator commission table if promocode end
+                            return view('quick_digital.payment_success.successPage', ['user' => 'logged_user']);
                         }
 
                 }else{
-
                     return view('quick_digital.payment_pages.cancelPay');
 
                     // GO TO THE FAILED PAGE

@@ -30,4 +30,9 @@ class CustomerOrder extends Model
     {
         return $this->belongsTo(User::class);
     }
+    public function digitalproduct()
+    {
+        return $this->belongsTo(DigitalProduct::class, 'service_id');
+    }
+    
 }
