@@ -43,11 +43,11 @@
                                         </div>      
                                         <div class="section_part">
                                             <label>মূল্য</label> 
-                                            <p><span>{{$product->digitalproduct->price}}</span> /BDT</p>
+                                            <p><span>{{$product->total}}</span> /BDT</p>
                                         </div>            
                                     </div>
                                     <div class="section_part">
-                                        <div class="down_icon" onclick="toggle('0')">
+                                        <div class="down_icon" onclick="toggle('<?php echo $loop->index; ?>')">
 
                                             <div class="up_down_arrow">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">

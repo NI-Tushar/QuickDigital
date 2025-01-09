@@ -386,15 +386,7 @@ class CustomerPaymentController extends Controller
                                 $smsController = new SmsController(); // Call the SMS controller method
                                 $smsSent = $smsController->sendSmsNewCustomer($phone, $email, $randomPassword);
 
-                                // __________ sending order info to customer email
-                                return redirect()->route('mailsend', [
-                                    'order_id' => $order_id,
-                                    'book_title' => $book_title,
-                                    'price' => $price,
-                                    'email' => $email,
-                                ]);
-
-                                return view('quick_digital.payment_success.successPage', ['user' => 'new_user']);
+                                       return view('quick_digital.payment_success.successPage', ['user' => 'new_user']);
                             }
 
                         }else{ //======================================================== WHEN USER LOGGED IN

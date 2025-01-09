@@ -20,15 +20,15 @@ class AdminSoftwareController extends Controller
         if ($request->isMethod('post')) {
             $data = $request->all();
             $request->validate([
-                'title' => 'required|max:100',
-                'description' => 'max:200',
+                'title' => 'required|max:200',
+                'description' => 'max:500',
                 'features' => 'array',
                 'thumbnail' => 'image|max:2048',
             ]);
 
             $rules = [
-                'title' => 'required|max:100',
-                'description' => 'max:200',
+                'title' => 'required|max:200',
+                'description' => 'max:500',
                 'features' => 'array',
                 'thumbnail' => 'image|max:2048',
             ];
@@ -114,14 +114,28 @@ class AdminSoftwareController extends Controller
         $software = Software::findOrFail($id);
         return view('admin.software.update_software')->with(compact('software'));
     }
+    public function enable_for_customer($id)
+    {
+        Session::put('page', 'software');
+        $enable = Software::findOrFail($id);
+        if($enable->customer_enabled == '1'){
+            $enable->customer_enabled = null;
+            $enable->save();
+            return redirect('admin/software-list');
+        }else{
+            $enable->customer_enabled = 1;
+            $enable->save();
+            return redirect('admin/software-list');
+        }
+    }
     public function updating_software(Request $request)
     {
         Session::put('page', 'software');
         $data = $request->all();
         
         $request->validate([
-            'title' => 'required|max:100',
-            'description' => 'max:200',
+            'title' => 'required|max:200',
+            'description' => 'max:500',
             'features' => 'array',
             'thumbnail' => 'image|max:2048',
             'image_1' => 'image|max:2048',
@@ -130,8 +144,8 @@ class AdminSoftwareController extends Controller
         ]);
 
         $rules = [
-            'title' => 'required|max:100',
-            'description' => 'max:200',
+            'title' => 'required|max:200',
+            'description' => 'max:500',
             'features' => 'array',
             'thumbnail' => 'image|max:2048',
         ];

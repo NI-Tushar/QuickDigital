@@ -80,8 +80,10 @@
 .software_section .centered_list .list_section .soft_list .desc_sec .desc{
     font-size: 12px;
     font-weight: 600;
-}
-.software_section .centered_list .list_section .soft_list .desc_sec ul li{
+    color: rgba(0, 0, 0, 0.598);
+  }
+  .software_section .centered_list .list_section .soft_list .desc_sec ul li{
+    color: rgba(0, 0, 0, 0.598);
     font-size: 12px;
     font-weight: 600;
     list-style:square;
@@ -234,6 +236,7 @@
         border: none;
     }
 }
+
 
 
 

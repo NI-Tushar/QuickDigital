@@ -11,13 +11,14 @@ class SoftwareController extends Controller
 {
     public function index()
     {
-        $softwares = Software::all();
+        $softwares = Software::where('customer_enabled', '1')->get();
         return view('quick_digital.software.software_view')->with(compact('softwares'));
     }
 
     public function softwareOrder(Request $request)
     {
         $data = $request->all();
+        dd($data);
         $request->validate([
             'software_type' => 'required',
         ]);

@@ -129,20 +129,40 @@
     .expandable-item .expandable-body .drop_text .file_section{
       width: 20%;
     }
+    .expandable-item .expandable-body .drop_text .drop_section label{
+      font-weight: 700;
+    }
+    .expandable-item .expandable-body .drop_text .drop_section p{
+      font-weight: 600;
+      color: rgba(0, 0, 0, 0.456);
+    }
 
     .expandable-item .expandable-body .drop_text .drop_section .file_box{
-      border: 1px solid red;
+      background-color: rgb(207, 206, 206);
       display: flex;
+      border: 1px solid black;
       height: 100%;
+      border-radius: 5px;
     }
     .expandable-item .expandable-body .drop_text .drop_section .file_box .file{
       margin: auto;
-      border: 1px solid red;
       width: auto;
     }
     .expandable-item .expandable-body .drop_text .drop_section .file_box .file img{
       height: 50px;
       width: 50px;
+    }
+    .expandable-item .expandable-body .drop_text .drop_section .file_box .file button{
+      border: 1px solid black;
+      padding: 5px;
+      padding-left: 7px;
+      padding-right: 7px;
+      border-radius: 5px;
+      font-weight: 600;
+    }
+    .expandable-item .expandable-body .drop_text .drop_section .file_box .file button:hover{
+      background-color: var(--primary-color);
+      color:aliceblue;
     }
 
 
@@ -203,6 +223,7 @@
     height: 100px;
     max-width: 150px;
     border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
 }
 .collapsible-header .header_info{
     display: flex;
@@ -258,7 +279,7 @@
         font-size: 10px;
       }
       .expandable-item.active .expandable-body {
-        height: 310px;
+        height:320px;
       }
       .expandable-item .expandable-body .drop_text{
         display: block;
@@ -269,9 +290,19 @@
       width: 100%;
     }
 
-    .expandable-item .expandable-body .drop_text .drop_section .file_box img{
-      display: none;
+
+    .expandable-item .expandable-body .drop_text .drop_section .file_box{
+      display: flex;
+      height: auto;
+      border-radius: 5px;
+      padding-top: 10px;
+      padding-bottom: 10px;
     }
+    .expandable-item .expandable-body .drop_text .drop_section .file_box .file{
+      margin: auto;
+      width: auto;
+    }
+
   }
   
   /* ___________________ order details end */
