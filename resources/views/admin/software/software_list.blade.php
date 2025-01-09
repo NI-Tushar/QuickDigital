@@ -1,4 +1,5 @@
 @extends('admin.layout.layout')
+<link rel="stylesheet" href="{{ url('front/styles/admin_software_list.css') }}">
 
 @section('content')
 <div class="app-content content">
@@ -56,6 +57,7 @@
                                                     <th>Demo Link</th>
                                                     <th>Thumbnail</th>
                                                     <th>Last Update</th>
+                                                    <th>Customer<br>Enable</th>
                                                     <th>ACTIONS</th>
                                                 </tr>
                                             </thead>
@@ -88,6 +90,29 @@
                                                         <img src="{{ $software->thumbnail ? asset($software->thumbnail) : asset('no_image2.jpg') }}" class="img-fluid rounded" alt="No Image" style="width: 100%; height: 100%; object-fit: cover;margin:auto;">
                                                     </td>
                                                     <td style="text-align:center;width: 100px;">{{ date('F j, Y, g:i a', strtotime($software->updated_at)) }}</td>
+                                                    <td style="text-align:center;width: 100px;">
+                                                    <style>
+                                                        .fa-toggle-on,
+                                                        .fa-toggle-off{
+                                                            font-size:35px;
+                                                        }
+                                                        .fa-toggle-on{
+                                                            color:green;
+                                                        }
+                                                        .fa-toggle-off{
+                                                            color:gray;
+                                                        }
+                                                    </style>
+
+                                                        <a user_id="{{ $software->id }}" href="{{ url('admin/enable_for_customer/'.$software['id']) }}">
+                                                            @if($software->customer_enabled == 1)
+                                                                <i class="fa fa-toggle-on" status="Active"></i>
+                                                            @else
+                                                                <i class="fa fa-toggle-off" status="Inactive"></i>
+                                                            @endif
+                                                        </a>
+
+                                                    </td>
                                                     <td style="text-align:center;">
                                                         <a href="{{ url('admin/update_software/'.$software['id']) }}"><i class="fa fa-edit"></i></a>
                                                         &nbsp;&nbsp;
@@ -119,6 +144,7 @@
                                                     <th>Demo Link</th>
                                                     <th>Thumbnail</th>
                                                     <th>Last Update</th>
+                                                    <th>Customer<br>Enable</th>
                                                     <th>ACTIONS</th>
                                                 </tr>
                                             </tfoot>

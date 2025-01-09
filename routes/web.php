@@ -122,6 +122,7 @@ use App\Http\Controllers\SmsController;
             Route::match(['get', 'post'], 'add_software', 'AdminSoftwareController@add_store_software')->name('software.add');
             Route::get('software-list', 'AdminSoftwareController@software_list')->name('software.list');
             Route::get('update_software/{id?}', 'AdminSoftwareController@update_software');
+            Route::get('enable_for_customer/{id?}', 'AdminSoftwareController@enable_for_customer');
             Route::post('updating-software', 'AdminSoftwareController@updating_software');
             Route::get('delete-software/{id?}', 'AdminSoftwareController@deleteSoftware');
 

@@ -103,13 +103,13 @@
                 <div class="container">
                     <h4>ম্যানুয়ালি অর্ডার করতে হোয়াটসঅ্যাপ অথবা ফেসবুকে মেসেজ দিন</h4>
                     <div class="btn_part">
-                        <a href="https://wa.me/+01973784959?text=Hello%20WiseCorporation!" target="_blank" class="text-decoration-none text-dark gap-3 d-flex align-items-center">
+                        <a href="https://wa.me/+8801973784959?text=Hello%20QuickDigital!" target="_blank" class="text-decoration-none text-dark gap-3 d-flex align-items-center">
                             <div class="icon">
                                 <ion-icon class="fs-5 text-success" name="logo-whatsapp"></ion-icon>
-                                <span> ওয়াটস-এপ এ চ্যাট করুন</span>
+                                <span> হোয়াটসঅ্যাপ-এপ এ চ্যাট করুন</span>
                             </div>
                         </a>
-                        <a href="https://www.facebook.com/WiseCorporationBD" target="_blank" class="text-decoration-none text-dark gap-3 d-flex align-items-center">
+                        <a href="https://www.facebook.com/quickdigital.official" target="_blank" class="text-decoration-none text-dark gap-3 d-flex align-items-center">
                             <div class="icon">
                                 <ion-icon class="fs-5 text-primary" name="logo-facebook"></ion-icon>
                                 <span> ফেসবুকে এ চ্যাট করুন</span>

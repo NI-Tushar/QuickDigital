@@ -38,7 +38,7 @@
                                 </div>
                                 <div class="price">
                                 @if(!empty($software->price))
-                                    <p class="current_price">{{ $software->price }}<span>/BDT per Month</span></p>
+                                    <p class="current_price">{{ $software->price }}<span>/টাকা প্রতি মাসে</span></p>
                                 @endif
                                 </div>
                                 <div class="review">
@@ -67,11 +67,11 @@
                             </div>
                             <div class="buttons">
                                 @if($software->demo_link !='')
-                                  <a href="{{ $software->demo_link }}" target="_blank"><button>Preview</button></a>
+                                  <a href="{{ $software->demo_link }}" target="_blank"><button>ডেমো</button></a>
                                 @else
-                                  <button style=" background-color: #ccc;color: #666; cursor: not-allowed; opacity: 0.6; pointer-events: none;">Preview</button>
+                                  <button style=" background-color: #ccc;color: #666; cursor: not-allowed; opacity: 0.6; pointer-events: none;">ডেমো</button>
                                 @endif
-                                <button onclick="showDetails('{{ $software->id }}', '{{ $software->title }}', '{{ $software->price }}')" class="active">Buy</button>
+                                <button onclick="showDetails('{{ $software->id }}', '{{ $software->title }}', '{{ $software->price }}')" class="active">কিনুন</button>
                             </div>
                         </div>
                     </div>
@@ -95,29 +95,29 @@
         <input id="soft_id" type="hidden" name="soft_id" value="">
         <div class="details_box">
           <div class="list">
-              <label for="">Software Title:</label> 
+              <label for="">সফটওয়্যার টাইটেলঃ</label> 
               <p id="title"></p>
           </div>
           <div class="list">
-            <label for="">Subscription Price:</label>
+            <label for="">সাবস্ক্রিপশন প্রাইজঃ</label>
             <p id="subsPrice"></p>
           </div>
           <div class="list">
-            <label for="">Select Option:</label>
+            <label for="">সিলেক্ট করুনঃ</label>
             <select name="software_type" id="options" required>
               <option selected value=""></option>
-              <option value="buy">Go to Customization Charge</option>
-              <option value="subscription">Go to Subscription</option>
+              <option value="custom">কাস্টম অর্ডার করুন</option>
+              <option value="subscription">সাবস্ক্রিপশন করুন</option>
             </select>
           </div>
 
-          <div id="checkboxContainer" style="display: none; margin-top: 5px;">
+          <!-- <div id="checkboxContainer" style="display: none; margin-top: 5px;">
             <input type="checkbox" id="buyCheckbox" name="hosting">
             <span for="buyCheckbox">With Hosting?</span>
-          </div>
+          </div> -->
 
           <div class="button_section">
-              <input type="submit" value="Order Now">
+              <input type="submit" value="এখনই অর্ডার করুন">
           </div>
 
         </div>
@@ -125,23 +125,22 @@
     </div>
   </div>
 </div>
-
 <!-- ______________________________ pop up show onlick by end -->
 
           
 <script>
-  // Get the dropdown and checkbox container elements
-  const selectElement = document.getElementById("options");
-  const checkboxContainer = document.getElementById("checkboxContainer");
+  // // Get the dropdown and checkbox container elements
+  // const selectElement = document.getElementById("options");
+  // const checkboxContainer = document.getElementById("checkboxContainer");
 
-  // Add event listener for change event
-  selectElement.addEventListener("change", function () {
-    if (selectElement.value === "buy") {
-      checkboxContainer.style.display = "block"; // Show checkbox
-    } else {
-      checkboxContainer.style.display = "none"; // Hide checkbox
-    }
-  });
+  // // Add event listener for change event
+  // selectElement.addEventListener("change", function () {
+  //   if (selectElement.value === "buy") {
+  //     checkboxContainer.style.display = "block"; // Show checkbox
+  //   } else {
+  //     checkboxContainer.style.display = "none"; // Hide checkbox
+  //   }
+  // });
 </script>
 
 <script>
@@ -173,13 +172,13 @@
             <div class="slide_viewer">
             <div id="slide_group" class="slide_group">
                 <div class="slide">
-                <img id="slider1" src="" alt="slider1">
+                  <img id="slider1" src="" alt="slider1">
                 </div>
                 <div class="slide">
-                <img id="slider2" src="" alt="slider2">
+                  <img id="slider2" src="" alt="slider2">
                 </div>
                 <div class="slide">
-                <img id="slider3" src="" alt="slider3">
+                  <img id="slider3" src="" alt="slider3">
                 </div>
             </div>
             </div>
