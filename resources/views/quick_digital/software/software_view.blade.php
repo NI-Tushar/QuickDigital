@@ -92,7 +92,7 @@
     <div class="content">
       <form id="formAction" action="{{ route('software.order') }}" method="POST">
         @csrf
-        <input id="soft_id" type="hidden" name="soft_id" value="">
+        <input id="soft_id" type="hidden" name="software_id" value="">
         <div class="details_box">
           <div class="list">
               <label for="">সফটওয়্যার টাইটেলঃ</label> 

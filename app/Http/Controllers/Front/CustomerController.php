@@ -30,4 +30,25 @@ class CustomerController extends Controller
         ])->get();
         return view('front.users.user_dashboard.digital_product')->with(compact('orderedProducts'));
     }
+    public function orderdSoftware()
+    {
+        $orderedSoftware = CustomerOrder::where([
+            ['user_id', '=', Auth::guard('user')->user()->id],   
+            ['service_type', '=', 'software'],
+        ])->get();
+        return view('front.users.user_dashboard.ordered_software')->with(compact('orderedSoftware'));
+    }
+    public function addCustomFeature(Request $request){
+        $id = $request->software_id;
+        $data = CustomerOrder::findOrFail($id);
+        if ($request->has('features')) {
+            if (is_array($request['features'])) {
+                $data->Custom_requirement_list = json_encode($request['features'], JSON_UNESCAPED_UNICODE);
+            } else {
+                $data->Custom_requirement_list = $request['features'];
+            }
+        } 
+        $data->save();
+        return redirect()->back();
+    }
 }

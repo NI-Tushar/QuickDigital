@@ -18,7 +18,7 @@ class SoftwareController extends Controller
     public function softwareOrder(Request $request)
     {
         $data = $request->all();
-        dd($data);
+
         $request->validate([
             'software_type' => 'required',
         ]);
@@ -26,31 +26,27 @@ class SoftwareController extends Controller
             'software_type' => 'required',
         ];
         $customMessages = [
-            'software_type.required' => 'Select Software Service Type',
+            'software_type.required' => 'সফটওয়্যার সার্ভিস টাইপ সিলেক্ট করুন',
         ];
 
-        $soft_id = $request->soft_id;
-
-        $softData = Software::findOrFail($soft_id); // getting selected software info
-        
+        $software_id = $request->software_id;
         $software_type = $request->software_type;
-        // __________ getting software_type
-        if($software_type == "buy"){
-            Session::put('current_price', $softData->current_price);
-            session()->forget('subscription_price');
-            // __________ hosting or not
-            if($request->hosting == "on"){
-                session()->forget('current_price');
-                Session::put('soft_price', $softData->current_price);
-                Session::put('hosting_charge', $softData->hosting_charge);
-            }else{
-                session()->forget('hosting_charge');
-            }
 
-        }else if($software_type == "subscription"){
-            Session::put('subscription_price',  $softData->subscription_price);
-            session()->forget('current_price');
-            session()->forget('hosting_charge');
+        $product = Software::findOrFail($software_id); // getting selected software info
+        // dd($sofwaretData);
+        
+  
+        // __________ getting software_type
+        if($software_type == "subscription"){
+            Session::put('service_type', 'software');
+            Session::put('software_type', 'subscription');
+            Session::put('price', $product->price);
+            return view('quick_digital.checkout.all_checkout')->with(compact('product'));
+        }else if($software_type == "custom"){
+            Session::put('service_type', 'software');
+            Session::put('software_type', 'custom');
+            Session::put('price', $product->price);
+            return view('quick_digital.checkout.all_checkout')->with(compact('product'));
         }
 
         

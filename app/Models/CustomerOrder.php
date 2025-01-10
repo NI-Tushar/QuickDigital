@@ -34,5 +34,9 @@ class CustomerOrder extends Model
     {
         return $this->belongsTo(DigitalProduct::class, 'service_id');
     }
+    public function softwareList()
+    {
+        return $this->belongsTo(Software::class, 'service_id');
+    }
     
 }

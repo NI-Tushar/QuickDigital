@@ -21,6 +21,8 @@ return new class extends Migration
             $table->string('payment_method', 50)->nullable();
             $table->string('service_id')->nullable();
             $table->string('service_type',30)->nullable();
+            $table->string('software_type',20)->nullable();
+            $table->longText('Custom_requirement_list')->nullable();
             $table->foreignId('user_id')->constrained('users')->onUpdate('cascade')->nullable();
             $table->decimal('sub_total', 10, 2)->nullable();
             $table->decimal('total', 10, 2)->nullable();

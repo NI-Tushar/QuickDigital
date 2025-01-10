@@ -272,6 +272,10 @@ class CustomerPaymentController extends Controller
                             $add_order->total= $price;
                             $add_order->service_id = $service_id;
                             $add_order->service_type = $service_type;
+                            if($service_type = 'software'){
+                                $software_type = Session::get('software_type');
+                                $add_order->software_type = $software_type;
+                            }
                             $add_order->payment_status = 'Paid';
                             $add_order->payment_method = $resObject[0]['method'];
                             $add_order->affiliator_promocode_id = $affiliator_promocode_id;
@@ -302,6 +306,7 @@ class CustomerPaymentController extends Controller
                                     $commission = new AffiliatorCommission();
                                     $commission->user_id = $userId;
                                     $commission->purpose = 'Customer';
+                                    $commission->service_type = $add_order->service_type;
                                     $commission->order_id = $add_order->order_id;
                                     $commission->amount = $affiliatorShare;
                                     $commission->save();
@@ -343,6 +348,10 @@ class CustomerPaymentController extends Controller
                                 $add_order->total= $price;
                                 $add_order->service_id = $service_id;
                                 $add_order->service_type = $service_type;
+                                if($service_type = 'software'){
+                                    $software_type = Session::get('software_type');
+                                    $add_order->software_type = $software_type;
+                                }
                                 $add_order->payment_status = 'Paid';
                                 $add_order->payment_method = $resObject[0]['method'];
                                 $add_order->affiliator_promocode_id = $affiliator_promocode_id;
@@ -373,6 +382,7 @@ class CustomerPaymentController extends Controller
                                     $commission = new AffiliatorCommission();
                                     $commission->user_id = $userId;
                                     $commission->purpose = 'Customer';
+                                    $commission->service_type = $add_order->service_type;
                                     $commission->order_id = $add_order->order_id;
                                     $commission->amount = $affiliatorShare;
                                     $commission->save();
@@ -400,6 +410,10 @@ class CustomerPaymentController extends Controller
                             $add_order->total= $price;
                             $add_order->service_id = $service_id;
                             $add_order->service_type = $service_type;
+                            if($service_type = 'software'){
+                                $software_type = Session::get('software_type');
+                                $add_order->software_type = $software_type;
+                            }
                             $add_order->payment_status = 'Paid';
                             $add_order->payment_method = $resObject[0]['method'];
                             $add_order->affiliator_promocode_id = $affiliator_promocode_id;
@@ -430,6 +444,7 @@ class CustomerPaymentController extends Controller
                                     $commission = new AffiliatorCommission();
                                     $commission->user_id = $userId;
                                     $commission->purpose = 'Customer';
+                                    $commission->service_type = $add_order->service_type;
                                     $commission->order_id = $add_order->order_id;
                                     $commission->amount = $affiliatorShare;
                                     $commission->save();
