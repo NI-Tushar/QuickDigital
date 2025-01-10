@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade')->onUpdate('cascade');
             $table->enum('purpose', ['Own', 'Customer'])->nullable();
+            $table->string('service_type', 20)->nullable();
             $table->string('order_id');
             $table->decimal('amount', 10, 2);
             $table->timestamps();

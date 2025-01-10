@@ -245,6 +245,8 @@ use App\Http\Controllers\SmsController;
         // _______________ affiliator USER DASHBOARD CONTROLLER
         // Route::get('software', 'CustomerController@software')->name('affilator.software');
         Route::get('digital-product', 'CustomerController@digitalProduct')->name('customer.digitalProduct');
+        Route::get('software', 'CustomerController@orderdSoftware')->name('customer.software');
+        Route::post('add-custom-feature', 'CustomerController@addCustomFeature')->name('add.custom.feature');
 
     });
 

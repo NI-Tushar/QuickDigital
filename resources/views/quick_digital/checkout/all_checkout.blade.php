@@ -58,6 +58,17 @@
                                 <p>{{ strlen($product->description) > 100 ? substr($product->description, 0, 150) . '...' : $product->description }}</p>
                             </div>
 
+                            @if(session()->has('software_type'))
+                                <div class="desc">
+                                    <p class="desc_head">সফটওয়্যার সার্ভিস টাইপঃ</p>
+                                    @if(session('software_type')=='subscription')
+                                        <p>সাবস্ক্রিপশন</p>
+                                    @else
+                                        <p>কাস্টোমাইজ</p>
+                                    @endif
+                                </div>
+                            @endif
+
                             <div class="order_table">
                                 <ul>
                                     <!-- 
@@ -75,7 +86,7 @@
                             </div>
                             <div class="promocod_div">
                                 <p>প্রোমোকোড দিন (যদি থাকে)</p>
-                                <input type="text" name="promocode">
+                                <input style="border-radius:5px;" type="text" name="promocode">
                                 @if (session('error'))
                                 <p style="color:red;margin-top:-10px;padding:0;">{{ session('error') }}</p>
                                 @endif

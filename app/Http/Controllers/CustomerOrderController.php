@@ -13,6 +13,7 @@ class CustomerOrderController extends Controller
 
         Session::put('service_type', 'digital_product');
         Session::put('price', $product->price);
+        Session::forget('software_type');
 
         if ($product) {
             return view('quick_digital.checkout.all_checkout')->with(compact('product'));

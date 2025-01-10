@@ -74,10 +74,10 @@
                                                     <form action="{{ route('admin.affiliate.transaction.status', $transaction->id) }}" method="GET" class="status-form">
                                                         @csrf
                                                         @method('GET')
-                                                        <select name="status" class="form-control status_confirm" id="" {{ $transaction->status === 'Complete' || $transaction->status === 'Cencel' ? 'disabled' : '' }}>
+                                                        <select name="status" class="form-control status_confirm" id="" {{ $transaction->status === 'Complete' || $transaction->status === 'Cancel' ? 'disabled' : '' }}>
                                                             <option value="Pending" {{ $transaction->status === 'Pending' ? 'selected' : '' }}>Pending</option>
                                                             <option value="Complete" {{ $transaction->status === 'Complete' ? 'selected' : '' }}>Complete</option>
-                                                            <option value="Cencel" {{ $transaction->status === 'Cencel' ? 'selected' : '' }}>Cencel</option>
+                                                            <option value="Cancel" {{ $transaction->status === 'Cancel' ? 'selected' : '' }}>Cancel</option>
                                                         </select>
                                                     </form>
                                                 </td>

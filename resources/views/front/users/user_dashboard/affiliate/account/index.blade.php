@@ -54,9 +54,15 @@
                                         <td>{{ $transaction->created_at->format('F j, Y') }}</td>
                                         <td>{{ number_format($transaction->amount, 2) }}</td>
                                         <td>
+                                            @if($transaction->status=='Cancel')
+                                            <span style="padding: 2px 15px; border: 1px solid rgba(233, 39, 39, 0.87); color:rgba(233, 39, 39, 0.87); border-radius: 10px;">
+                                                {{ $transaction->status }}
+                                            </span>
+                                            @else
                                             <span style="padding: 2px 15px; border: 1px solid #007bff; color: #007bff; border-radius: 10px;">
                                                 {{ $transaction->status }}
                                             </span>
+                                            @endif
                                         </td>
                                     </tr>
                                 @endforeach

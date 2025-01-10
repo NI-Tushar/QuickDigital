@@ -43,6 +43,7 @@
                                 <th>Order Date</th>
                                 <th>Order ID</th>
                                 <th>Purpose</th>
+                                <th>Service Type</th>
                                 <th>Amount</th>
                               </tr>
                           </thead>
@@ -53,13 +54,14 @@
                                     <td>{{ $commission->created_at->format('F j, Y') }}</td>
                                     <td>{{ $commission->order_id }}</td>
                                     <td>{{ $commission->purpose }}</td>
+                                    <td>{{ $commission->service_type }}</td>
                                     <td>{{ $commission->amount }}</td>
                                   </tr>
                               @endforeach
                           </tbody>
                           <tfoot>
                             <tr>
-                                <th colspan="4" style="text-align: right">Total</th>
+                                <th colspan="5" style="text-align: right">Total</th>
                                 <td>{{ $totalCommission }} BDT</td>
                             </tr>
                           </tfoot>

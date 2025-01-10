@@ -8,7 +8,7 @@
 .software_section .centered_list{
     max-width: 1000px;
     width: 100%;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    /* box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px; */
     border-radius: 10px;
     margin: auto;
     padding: 35px;
@@ -32,7 +32,7 @@
     } 
     .collapsible-header {
       background: rgb(255, 255, 255);
-      /* box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px; */
+      box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
       border-bottom: none;
       display: flex;
       position: relative;
@@ -114,6 +114,9 @@
   .expandable-item.active .expandable-body {
     height: 140px;
   }
+  .expandable-item.active .software {
+    height: 180px;
+  }
   
   .expandable-item .expandable-body .drop_text{
       display: flex;
@@ -129,35 +132,53 @@
     .expandable-item .expandable-body .drop_text .file_section{
       width: 20%;
     }
+    .expandable-item .software .drop_text .file_section{
+      width: 40%;
+    }
     .expandable-item .expandable-body .drop_text .drop_section label{
       font-weight: 700;
     }
+
+    .expandable-item .expandable-body .drop_text .drop_section ul li,
     .expandable-item .expandable-body .drop_text .drop_section p{
+      font-size: 13px;
       font-weight: 600;
-      color: rgba(0, 0, 0, 0.456);
+      color: rgba(0, 0, 0, 0.552);
     }
 
     .expandable-item .expandable-body .drop_text .drop_section .file_box{
-      background-color: rgb(207, 206, 206);
+      background-color: rgb(232, 234, 234);
       display: flex;
       border: 1px solid black;
       height: 100%;
       border-radius: 5px;
+    }
+    .expandable-item .expandable-body .drop_text .drop_section .file_box .software_datetime{
+      padding: 5px; 
+    }
+    .expandable-item .expandable-body .drop_text .drop_section .file_box .software_datetime label{
+      font-size: 13px;
+    }
+    .expandable-item .expandable-body .drop_text .drop_section .file_box .software_datetime p{
+      padding-bottom: 5px;
+      margin: 0;
     }
     .expandable-item .expandable-body .drop_text .drop_section .file_box .file{
       margin: auto;
       width: auto;
     }
     .expandable-item .expandable-body .drop_text .drop_section .file_box .file img{
-      height: 50px;
-      width: 50px;
+      height: 40px;
+      width: 40px;
     }
     .expandable-item .expandable-body .drop_text .drop_section .file_box .file button{
       border: 1px solid black;
-      padding: 5px;
+      padding: 3px;
       padding-left: 7px;
       padding-right: 7px;
       border-radius: 5px;
+      text-align: center;
+      font-size: 13px;
       font-weight: 600;
     }
     .expandable-item .expandable-body .drop_text .drop_section .file_box .file button:hover{
@@ -229,12 +250,33 @@
     display: flex;
     width: 100%;
     gap: 10px;
-}
-.collapsible-header .header_info .section_part{
+  }
+  .collapsible-header .header_info .section_part{
     width: 100%;
     margin-top: auto;
     margin-bottom: auto;
     padding-left: 10px;
+}
+.software_section .header_info .price_section{
+  text-align: right;
+  padding-right: 10px;
+}
+
+
+.software_section .header_info .custom p{
+  cursor: pointer;
+  border: 2px solid rgb(25, 158, 246);
+  width: fit-content;
+  font-size: 13px;
+  padding: 3px !important;
+  padding-left: 7px !important;
+  padding-right: 7px !important;
+  padding-bottom: 1px !important;
+  border-radius: 5px;
+}
+.software_section .header_info .custom p:hover{
+  background-color: rgb(25, 158, 246);
+  color: aliceblue;
 }
 .collapsible-header .header_info .section_part label{
     color: rgba(0, 0, 0, 0.674);
@@ -281,6 +323,9 @@
       .expandable-item.active .expandable-body {
         height:320px;
       }
+      .expandable-item.active .software {
+        height: 470px;
+      }
       .expandable-item .expandable-body .drop_text{
         display: block;
         width: 100%;
@@ -306,21 +351,6 @@
   }
   
   /* ___________________ order details end */
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
   
   
   
@@ -507,6 +537,7 @@
       padding-top: 15px;
       border-bottom: 0.5px solid rgba(0, 0, 0, 0.327);
     }
+    
   
   
     .software_section{
@@ -552,3 +583,276 @@
           font-size: 1rem;
       }
   }
+
+
+
+
+
+
+  /* ____________________________ custom features popup form start */
+  .btn-close {
+    cursor: pointer;
+    position: relative;
+    right: -5px;
+    top: 5px;
+    margin: 3px;
+    width: 20px;
+    height: 20px;
+    float: right;
+  }
+  
+  .clear {
+    clear: both;
+  }
+  
+  .btn-close::before,
+  .btn-close::after {
+    content: "";
+    height: 2px;
+    display: block;
+    background: #d6d6d6;
+  }
+  
+  .btn-close::before {
+    margin-top: 10px;
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+  
+  .btn-close::after {
+    margin-top: -2px;
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+  }
+  
+  .btn-close:hover:after, .btn-close:hover:before {
+    background: #FF8CB4;
+  }
+  
+  .buy_popup_section {
+    display: flex;
+    z-index: 1000;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    visibility: hidden;
+    top: 0;
+    left: 0;
+    background: rgba(25, 18, 12, 0.472);
+    opacity: 0;
+    filter: alpha(opacity=0);
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+  }
+  .buy_popup_section.open {
+    visibility: visible;
+    opacity: 1;
+    filter: alpha(opacity=1);
+  }
+  
+  .centered_popup_section {
+    padding-left: 15px;
+    padding-right: 15px;
+    display: inline-block;
+    max-height:80vh;
+    overflow:scroll;
+    width: 800px;
+    padding-bottom: 25px;
+    position: relative;
+    margin: auto;
+    background: #e8e8e8;
+    background: -webkit-linear-gradient(bottom, #e8e8e8, #fff);
+    background: -o-linear-gradient(bottom, #e8e8e8, #fff);
+    background: linear-gradient(to top, #e8e8e8, #fff);
+    box-shadow: 0px 16px 16px -6px rgba(47, 46, 38, 0.5);
+    opacity: 0;
+    filter: alpha(opacity=0);
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    -ms-transform: scale(0.7);
+    /* IE 9 */
+    -webkit-transform: scale(0.7);
+    /* Safari */
+    transform: scale(0.7);
+    border-radius: 5px;
+  }
+  
+  .buy_popup_section.open .centered_popup_section {
+    opacity: 1;
+    filter: alpha(opacity=100);
+    -ms-transform: scale(1);
+    /* IE 9 */
+    -webkit-transform: scale(1);
+    /* Safari */
+    transform: scale(1);
+  }
+  
+  .content {
+      text-align: center;
+    }
+      
+      .content .details_box {
+        background-color:#d6d6d6;
+        padding: 5px;
+        border-radius: 5px;
+        width: 100%; /* Optional: Limit the width of the box */
+        margin: 0 auto; /* Center the box */
+      }
+      
+      .content .details_box .list {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start; /* Align items to the left */
+        padding: 5px;
+        margin-bottom: 0px;
+      }
+      
+      .content .details_box .list label {
+        width: 120px; /* Adjust label width for consistent alignment */
+        text-align: left; /* Align text inside the label */
+        font-weight: 600;
+        font-size: 14px;
+      }
+      
+    
+      .content .details_box .list select,
+      .content .details_box .list p {
+        flex: 1; /* Make the input take the remaining space */
+        padding: 0;
+        margin: 0;
+        border-radius: 5px;
+        text-align: left;
+        font-size: 14px;
+        font-weight: 600;
+        color: rgba(0, 0, 0, 0.649);
+      }
+      
+      #checkboxContainer {
+        position: relative;
+        padding-left: 5px;
+      }
+      
+      #checkboxContainer input[type="checkbox"] {
+        margin-right: 100%;
+      }
+      #checkboxContainer span{
+        position: absolute;
+        left:30px;
+        top:0px;
+        font-size: 14px;
+        font-weight: 600;
+      }
+
+      .button_section{
+        width: 100%;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-left: 5px;
+        padding-right: 5px;
+      }
+      .button_section input{
+        width: 100%;
+        padding: 2px;
+        font-weight: 600;
+        border: none;
+        background-color: var(--primary-color);
+        color: aliceblue;
+        border-radius: 3px;
+      }
+      .button_section input:hover{
+        background-color: var(--primary-hover-color);
+      }
+      
+      
+    
+  @media screen and (max-width: 425px) {
+    .centered_popup_section {
+      width: 100%;
+      height: 70%;
+      padding: 0;
+    }
+  
+    .btn-close {
+      right: 5px;
+    }
+  }
+  
+  /* ____________________________ custom features popup form end */
+
+
+  /* ____________________________ custom featur input field add start */
+  .feature_box{
+    /* border: 1px solid red; */
+    padding: 10px;
+    padding-top: 25px;
+  }
+  .feature_box .feature_heading{
+    text-align: left;
+    font-weight: 600;
+    font-size: 20px;
+  }
+  .feature_box .input_fields_wrap>div{
+    display: flex;
+    margin-bottom: 10px;
+    gap: 10px;
+  }
+  .feature_box textarea{
+    width: 100%;
+    outline: none;
+    padding: 5px;
+    border-radius: 5px;
+  }
+  .feature_box .remove_field{
+    width: 100px;
+    text-align: center;
+    text-decoration: none;
+  }
+  .feature_box .remove_field p{
+    border: 1px solid rgba(255, 0, 0, 0.615);
+    color: rgba(255, 0, 0, 0.615);
+    font-weight: 600;
+    border-radius: 3px;
+  }
+  .feature_box .remove_field p:hover{
+    background-color: rgba(255, 0, 0, 0.615);
+    color: aliceblue;
+  }
+  .feature_box .add_feature{
+    width: 100%;
+    display: flex;
+    align-items: left;
+  }
+  .feature_box .add_field_button{
+    width: fit-content;
+    border: 1px solid green;
+    background-color: green;
+    border-radius: 5px;
+    font-size: 13px;
+    font-weight: 600;
+    padding-top: 5px;
+    padding-bottom: 4px;
+    padding-right: 10px;
+    padding-left: 10px;
+    color: aliceblue;
+  }
+  .feature_box .add_field_button:hover{
+    background: transparent;
+    color:green;
+  }
+  @media screen and (max-width: 725px) {
+    .feature_box .input_fields_wrap>div{
+      display: block;
+    }
+    .feature_box .input_fields_wrap>div textarea{
+      margin-bottom: 5px;
+    }
+  }
+  /* ____________________________ custom featur input field add end */
