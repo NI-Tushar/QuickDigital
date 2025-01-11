@@ -1,128 +1,113 @@
+
 <!DOCTYPE html>
-<html class="loading" lang="en" data-textdirection="ltr">
-<!-- BEGIN: Head-->
-
+<html lang="en">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
-    <meta name="description"
-        content="Stack admin is super flexible, powerful, clean &amp; modern responsive bootstrap 4 admin template with unlimited possibilities.">
-    <meta name="keywords"
-        content="admin template, stack admin template, dashboard template, flat admin template, responsive admin template, web app">
-    <meta name="author" content="PIXINVENT">
-    <title>FARHANX</title>
-    <link rel="apple-touch-icon" href="{{ asset('admin/images/ico/apple-icon-120.png') }}">
-    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('admin/images/ico/favicon.ico') }}">
-    <link
-        href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i%7COpen+Sans:300,300i,400,400i,600,600i,700,700i"
-        rel="stylesheet">
-
-    <!-- BEGIN: Vendor CSS-->
-    <link rel="stylesheet" type="text/css" href="{{ url('admin/vendors/css/vendors.min.css') }}">
-    <!-- END: Vendor CSS-->
-
-    <!-- BEGIN: Theme CSS-->
-    <link rel="stylesheet" type="text/css" href="{{ url('admin/css/bootstrap.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ url('admin/css/bootstrap-extended.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ url('admin/css/colors.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ url('admin/css/components.css') }}">
-    <!-- END: Theme CSS-->
-
-    <!-- BEGIN: Page CSS-->
-    <link rel="stylesheet" type="text/css" href="{{ url('admin/css/core/menu/menu-types/vertical-menu-modern.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ url('admin/css/core/colors/palette-gradient.css') }}">
-    <!-- END: Page CSS-->
-
-    <!-- BEGIN: Custom CSS-->
-    <link rel="stylesheet" type="text/css" href="{{ url('admin/assets/css/style.css') }}">
-    <!-- END: Custom CSS-->
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>রিসেট পাসওয়ার্ড | Quick Digital</title>
+    <link rel="stylesheet" href="{{ url ('front/styles/user_login.css') }}">
+    <link rel="stylesheet" href="{{ url('front/styles/color.css') }}">
+    <link rel="icon" href="{{ url('icon.PNG') }}" type="image/x-icon">
 </head>
-<!-- END: Head-->
 
-<!-- BEGIN: Body-->
+<body>
 
-<body class="vertical-layout vertical-menu-modern 1-column   menu-collapsed blank-page blank-page" data-open="click"
-    data-menu="vertical-menu-modern" data-col="1-column">
-    <!-- BEGIN: Content-->
-    <div class="app-content content">
-        <div class="content-overlay"></div>
-        <div class="content-wrapper">
-            <div class="content-header row">
-            </div>
-            <div class="content-body">
-                <section class="row flexbox-container">
-                    <div class="col-12 d-flex align-items-center justify-content-center">
-                        <div class="col-lg-4 col-md-8 col-10 box-shadow-2 p-0">
-                            <div class="card border-grey border-lighten-3 px-2 py-2 m-0">
-                                <div class="card-header border-0 pb-0">
-                                    <div class="card-title text-center">
-                                        <img height="50px" width="auto"
-                                            src="{{ asset('front/assets/images/logo.png') }}" alt="branding logo">
-                                    </div>
-                                    <h6 class="card-subtitle line-on-side text-muted text-center font-small-3 pt-2">
-                                        <span>
-                                            পাসওয়ার্ড রিসেট লিংক আপনার ইমেইল এ যাবে।
-                                        </span>
-                                    </h6>
-                                </div>
-                                <div class="card-content">
-                                    <div class="card-body">
-                                        <p id="forgot-success"></p>
-                                        <form class="form-horizontal" id="forgotForm" action="javascript:;"
-                                            method="post" novalidate>@csrf
-                                            <label for="email">ইমেইল এড্রেস</label>
-                                            <fieldset class="form-group position-relative has-icon-left">
-                                                <input type="email" class="form-control form-control-lg"
-                                                    id="user-email" name="email" placeholder="ইমেইল এড্রেস লিখুন  " required>
-                                                <p class="forgot-email"></p>
-                                                <div class="form-control-position">
-                                                    <i class="feather icon-mail"></i>
-                                                </div>
-                                            </fieldset>
-                                            <button type="submit" class="btn btn-outline-primary btn-lg btn-block"><i
-                                                    class="feather icon-unlock"></i> পাসওয়ার্ড পুনরুদ্ধার করুন</button>
-                                        </form>
-                                    </div>
-                                </div>
-                                <div class="card-footer border-0">
-                                    <p class="float-sm-left text-center"><a href="{{ url('user/login') }}"
-                                            class="card-link"> লগইন করুন </a></p>
-                                    <p class="float-sm-right text-center">কুইক ডিজিটালে নতুন ? <a
-                                            href="{{ url('user/register') }}" class="card-link">রেজিস্টার করুন </a></p>
-                                </div>
-                            </div>
-                        </div>
+<style>
+    .title_container h2{
+        text-shadow: 1px 1px 1px black;
+        color:rgb(2, 197, 2);
+        font-size:20px;
+    }
+    .centered_login .clearfix {
+        padding-top:3rem;
+        /* padding-bottom:3rem; */
+    }
+    .centered_login .clearfix label{
+        font-size:12px;
+    }
+    .centered_login .clearfix p{
+        color:red;
+    }
+    /* .centered_login .clearfix .resend:hover{
+        color:red;
+    } */
+    
+    .centered_login .clearfix .message p{
+        text-align:center;
+        padding:0;
+        margin:0;
+        font-size:14px;
+        font-weight:600;
+        color:rgb(2, 197, 2);
+        margin:auto;
+    }
+</style>
+
+    <div class="user_login_section">
+
+    <div class="centered_login">
+        <!-- ________________________________________________________________________ login -->
+        <div class="update_form_wrapper">
+            <div class="form_container">
+
+                <a href="{{ url('quick-digital/index') }}">
+                    <div class="logo_section">
+                        <img src="{{ asset('front/assets/images/primary_logo2.png') }}" alt="Wise-Corporation" style="width: 150px;">
                     </div>
-                </section>
+                </a>
+
+                <div class="title_container">
+                  <h2>পাসওয়ার্ড রিসেট করুন</h2>
+                </div>
+
+
+                <div class="row clearfix">
+
+                  <div class="">
+                    <form method="POST" action="{{ url('user/forgot/password') }}" method="POST">
+                      @csrf
+
+                        <label for="">নাম্বার দিয়ে রিসেট করুন</label>
+                        <div class="input_field">
+                            <span>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+                                <path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 .94-.27 11.36 11.36 0 0 0 3.58.57 1 1 0 0 1 1 1v3.44a1 1 0 0 1-1.1 1A19.91 19.91 0 0 1 3 4.1 1 1 0 0 1 4 3h3.44a1 1 0 0 1 1 1 11.36 11.36 0 0 0 .57 3.58 1 1 0 0 1-.27.94z" />
+                            </svg>
+                        </span>
+                            <input type="number" name="reset_phone" id="passInput" placeholder="মোবাইল নাম্বারঃ" value="{{ old('reset_phone') }}" />
+                        </div>
+                        <p style="font-size:13px;color:red;text-align:left;width:100%;padding:0;margin:0;margin-top:-15px;">@error('reset_phone'){{$message}}@enderror</p>
+
+                        @if (Session::has('pass_send_message'))
+
+                            @if(Session::get('pass_send_message')=='এই নাম্বারটি রেজিস্টার্ড নয়')
+                                <div class="message"><p style="color:red">{{ Session::get('pass_send_message') }}</p></div>
+                            @else
+                                <div class="message"><p>{{ Session::get('pass_send_message') }}</p></div>
+                            @endif
+                            <a href="{{ url('user/login') }}"><input class="button" value="লগইন"></a>
+                            <a href=""><p class="resend">আবার পাঠান</p></a>
+                        @else
+                            <input class="button" type="submit" value="সাবমিট" />
+                        @endif
+
+                </form>
+            </div>
             </div>
         </div>
     </div>
-    <!-- END: Content-->
+    <!-- ________________________________________________________________________ login -->
+     
+    </div>
 
 
-    <!-- BEGIN: Vendor JS-->
-    <script src="{{ url('admin/vendors/js/vendors.min.js') }}"></script>
-    <!-- BEGIN Vendor JS-->
 
-    <!-- BEGIN: Page Vendor JS-->
-    <script src="{{ url('admin/vendors/js/forms/validation/jqBootstrapValidation.js') }}"></script>
-    <!-- END: Page Vendor JS-->
+    </div>
 
-    <!-- BEGIN: Theme JS-->
-    <script src="{{ url('admin/js/core/app-menu.js') }}"></script>
-    <script src="{{ url('admin/js/core/app.js') }}"></script>
-    <!-- END: Theme JS-->
-
-    <!-- BEGIN: Page JS-->
-    <script src="{{ url('admin/js/scripts/forms/form-login-register.js') }}"></script>
-    <!-- END: Page JS-->
-    <!--  Custom JS-->
-    <script src="{{ url('front/js/custom.js') }}"></script>
-
-
+        <!--  Custom JS-->
+    <script src="{{ url('front/js/login.js') }}"></script> 
 </body>
-<!-- END: Body-->
-
 </html>
+
+
+

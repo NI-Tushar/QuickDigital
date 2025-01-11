@@ -1,10 +1,10 @@
     <?php
 
     use App\Http\Controllers\Admin\InstructorRequestController;
-use App\Http\Controllers\AffiliatorAccountController;
-use App\Http\Controllers\AffiliatorBackSetupController;
-use App\Http\Controllers\AffiliatorCommissionController;
-use App\Http\Controllers\AffiliatorOrderController;
+    use App\Http\Controllers\AffiliatorAccountController;
+    use App\Http\Controllers\AffiliatorBackSetupController;
+    use App\Http\Controllers\AffiliatorCommissionController;
+    use App\Http\Controllers\AffiliatorOrderController;
     use App\Http\Controllers\CustomerPaymentController;
     use App\Http\Controllers\AffiliatorTransactionController;
     use App\Http\Controllers\BootcampController;
@@ -20,8 +20,8 @@ use App\Http\Controllers\AffiliatorOrderController;
     use App\Http\Controllers\CheckoutController;
     use App\Http\Controllers\DigitalServiceController;
     use App\Http\Controllers\Front\AffiliatorController;
-use App\Http\Controllers\Front\UserDashboardController;
-use App\Http\Controllers\SmsController;
+    use App\Http\Controllers\Front\UserDashboardController;
+    use App\Http\Controllers\SmsController;
     use App\Http\Controllers\MailSendController;
     use App\Http\Controllers\QuickShopCategoryController;
     use App\Http\Controllers\QuickShopOrderController;
@@ -160,6 +160,7 @@ use App\Http\Controllers\SmsController;
     Route::get('/send-sms',[SmsController::class,'sendSmsNewCustomer'])->name('sendSmsNewCustomer');
 
 
+
     // Mail send to customer for order confirmation
     Route::get('/mailsend/{order_id}/{book_title}/{price}/{email}', [MailSendController::class, 'sendEMail'])->name('mailsend');
 
@@ -222,6 +223,10 @@ use App\Http\Controllers\SmsController;
         Route::match(['get', 'post'], 'register', 'UserController@registerUser')->name('user.register');
         Route::match(['get', 'post'], 'forgot-password', 'UserController@forgotPassword');
         Route::match(['get', 'post'], 'reset-password/{code?}', 'UserController@resetPassword');
+
+        Route::match(['get', 'post'], 'forgot/password', 'UserController@forgotPasswordInitiate'); // updated forgot password
+        Route::get('/send-sms','UserController@sendResetPassword')->name('sendResetPassword');
+
         Route::middleware('user')->group(function () {
             Route::get('index', 'UserController@index')->name('user.index');
             //  Route::match(['get','post'], '')

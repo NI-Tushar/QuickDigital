@@ -5,12 +5,15 @@ namespace App\Http\Controllers\Front;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Quickbusiness;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 use Intervention\Image\Facades\Image;
+use App\Services\MimSmsService;
+use GuzzleHttp\Client;
 
 class UserController extends Controller
 {
@@ -113,6 +116,120 @@ class UserController extends Controller
     }
 
  
+    public function forgotPasswordInitiate(Request $request)
+    {
+        $data = $request->all();
+        
+        $request->validate([
+            'reset_phone' => [
+                'required',
+                'regex:/^(?:\+?88)?01[3-9]\d{8}$/',
+            ]
+        ], [
+            'reset_phone.required' => 'মোবাইল নম্বর দিন',
+            'reset_phone.regex' => 'সঠিক বাংলাদেশি মোবাইল নম্বর দিন',
+        ]);
+
+        $phone =  $request->input('reset_phone');
+        $user = User::where('mobile', $phone)->first();
+        if ($user) {
+            // creating reset password
+            $length = 4;
+            $characters = '0123456789';
+            $charactersLength = strlen($characters);
+            $randomPassword = '';
+            for ($i = 0; $i < $length; $i++) {
+                $randomPassword .= $characters[random_int(0, $charactersLength - 1)];
+            }
+            $randomPassword = $user->email.$randomPassword;
+
+            // __________________________updating new password into user table password
+            $user->password = bcrypt($randomPassword);; // Update password field
+            $user->save(); 
+            // __________________________updating this password into affiliator list if user is affiliator
+            $affiliate = Quickbusiness::where([
+                ['email', '=', $user->email],
+                ['phone', '=', $phone]
+            ])->first(); // Use first() to get a single record
+            
+            if ($affiliate) {
+                $affiliate->password = $randomPassword; // Update the password field
+                $affiliate->save(); // Save the changes
+            }            
+
+            // __________________________ sending reset password to phone number
+            $user_email = $user->email;
+            $smsController = new UserController();
+            $smsSent = $smsController->sendResetPassword($phone, $user_email, $randomPassword);
+
+            if($smsSent==true){ // after seccess of sending password
+                return redirect()->back()->with("pass_send_message", "আপনার মোবাইল নাম্বারে একটি পাসওয়ার্ড পাঠানো হয়েছে। লগইন করতে পাসওয়ার্ডটি ব্যবহার করুন");
+            }else{ 
+                return redirect()->back()->with("pass_send_message", "দুক্ষিত, সার্ভার সমস্যা। আবার চেস্টা করুন");
+            }
+
+        }else{
+            return redirect()->back()->with("pass_send_message", "এই নাম্বারটি রেজিস্টার্ড নয়");
+        }
+
+        
+        dd($data);
+        
+        // if (Hash::check($data['current_password_user'], Auth::guard('user')->user()->password)) {
+        //     return "true";
+        // } else {
+        //     return "false";
+        // }
+    }
+
+     // ============================================================ FOR RESET PASSWORD SENDING
+     public function sendResetPassword($phone, $user_email, $randomPassword)
+     {
+         // ___________ sending sms to customer start
+         $phone = "88".$phone; // Example phone number
+         // $new_otp = rand(100000, 999999); // Example OTP generation
+ 
+         $message = "কুইক-ডিজিটাল। রিসেট পাসওয়ার্ড। ইউজারঃ $user_email নতুন পাসওয়ার্ডঃ $randomPassword";
+         $queryParams = [
+                 "UserName" => "neoshah121@gmail.com", // MiMSMS registered email
+                 "Apikey" => "81GE7QJJS4KIGIY",        // MiMSMS API Key
+                 "MobileNumber" => $phone,             // Must be in international format
+                 "CampaignId" => "null",               // Keep it 'null' unless required
+                 "SenderName" => "BOOTCAMP",           // Provided by "Company Name"
+                 "TransactionType" => "T",             // 'T' for transactional messages
+                 "Message" =>  $message,  // Valid message
+         ];
+ 
+ 
+         $url = "https://api.mimsms.com/api/SmsSending/Send";
+ 
+         try {
+             $client = new Client();
+             $response = $client->get($url, [
+                 'query' => $queryParams, // Send query parameters
+             ]);
+ 
+             // Decode the response body
+             $responseBody = json_decode($response->getBody(), true);
+ 
+             $smsSent = true;
+             return $smsSent;
+ 
+             // return response()->json([
+             //     'success' => true,
+             //     'response' => $responseBody,
+             // ]);
+             
+         } catch (\Exception $e) {
+             // Handle exceptions
+             return response()->json([
+                 'success' => false,
+                 'error' => $e->getMessage(),
+             ], 500);
+         }
+         // ___________ sending sms to customer start
+     }
+
     public function checkCurrentPassword(Request $request)
     {
         $data = $request->all();

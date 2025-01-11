@@ -20,6 +20,7 @@ return new class extends Migration
             $table->decimal('affiliator_commission',10,2)->nullable();
             $table->string('thumbnail')->nullable();
             $table->string('demo_link')->nullable();
+            $table->boolean('customer_enabled')->default(false);
             $table->timestamps();
         });
     }
