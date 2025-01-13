@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Validator;
 use Intervention\Image\Facades\Image;
 use App\Services\MimSmsService;
 use GuzzleHttp\Client;
+use Illuminate\Support\Facades\Session;
 
 class UserController extends Controller
 {
@@ -47,6 +48,9 @@ class UserController extends Controller
             if (Auth::guard('user')->attempt(['email' => $data['email'], 'password' => $data['password']], $remember)) {
                 $user = Auth::guard('user')->user();
                 if ($user->status == 1) {
+                    if ($user->user_type == 'affiliator'){
+                        Session::put('dashboard_page', 'affiliator');
+                    }
                     return redirect()->route('user.dashboard');
                 } else {
                     Auth::guard('user')->logout();
@@ -242,6 +246,10 @@ class UserController extends Controller
 
     public function logoutUser(Request $request)
     {
+        $user = Auth::guard('user')->user();
+        if ($user->user_type == 'affiliator'){
+            Session::forget('dashboard_page');
+        }
         Auth::guard('user')->logout();
 
         return redirect()->route('quick-digital.index')->with('success_message', 'Logged out successfully.');

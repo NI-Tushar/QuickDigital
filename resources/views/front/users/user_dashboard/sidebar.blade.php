@@ -297,14 +297,45 @@
 
 
 <div class="mov_arrow" onclick="show_sidebar_mov()">
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-<!-- Background box -->
-<rect x="2" y="2" width="20" height="20" rx="3" ry="3" fill="#11101d" /> <!-- Background color -->
-<!-- Right arrow -->
-<path d="M10 7l5 5-5 5" stroke="#FFFFFF" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" /> <!-- Arrow color -->
-</svg>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+    <!-- Background box -->
+    <rect x="2" y="2" width="20" height="20" rx="3" ry="3" fill="#11101d" /> <!-- Background color -->
+    <!-- Right arrow -->
+    <path d="M10 7l5 5-5 5" stroke="#FFFFFF" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" /> <!-- Arrow color -->
+  </svg>
 </div>
 
+
+
+<!-- _________________________________________ hiding footer and change header bar if in the affiliator dashboard start -->
+@if (Session::has('dashboard_page') && Session::get('dashboard_page') === 'affiliator')
+    <style>
+      /* ___________________________ header */
+      .header_bar{
+        max-width:100% !important; 
+      }
+      
+      .header_bar .offcanvas-body ul .hide{
+        display:none !important;
+      }
+      
+      /* ___________________________ footer*/
+      footer {
+        display: none !important;
+      }
+      
+      @media (max-width: 995px) {
+        .dropdown-menu{
+          display:flex !important;
+        }
+        .header_bar .nav__user__img{
+          display:none !important;
+        }
+      }
+
+    </style>
+@endif
+<!-- _________________________________________ hiding footer and change header bar if in the affiliator dashboard end -->
 
 
 
@@ -314,7 +345,6 @@
       const sidebar = document.querySelector(".sidebar.close");
       const homeSection = document.querySelector(".home-section");
       const top_icon = document.querySelector(".toggle_expend");
-
 
       // Check the current width of the sidebar
       if (sidebar.style.width === "78px") {

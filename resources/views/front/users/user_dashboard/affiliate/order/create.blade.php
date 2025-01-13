@@ -119,7 +119,7 @@
                                     </div>
                                 </div>
                                 <div class="table-responsive s_table">
-                                    <table
+                                    <table style="overflow-x: auto;"
                                         class="table estimate-items-table items table-main-estimate-edit has-calculations no-mtop">
                                         <thead>
                                             <tr>
@@ -169,7 +169,7 @@
                                     </table>
                                 </div>
                                 <div class="col-md-8 offset-md-4">
-                                    <table class="table text-right">
+                                    <table style="overflow-x: auto;" class="table text-right">
                                         <tbody>
                                             <tr id="subtotal">
                                                 <td><span class="bold tw-text-neutral-700">Sub Total :</span></td>

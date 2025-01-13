@@ -46,7 +46,7 @@
 
                                             <div class="d-flex justify-content-between">
                                                 <div class="">
-                                                    <table>
+                                                    <table style="overflow-x: auto;">
                                                         <tr>
                                                             <td style="padding:5px 20px">Order #</td>
                                                             <td style="padding:5px 20px">{{ $order->order_id }}</td>
@@ -89,7 +89,7 @@
 
                                             <br>
 
-                                            <table class="table">
+                                            <table style="overflow-x: auto;" class="table">
                                                 <thead>
                                                     <tr>
                                                         <th>#</th>
@@ -129,7 +129,7 @@
 
                                             <div class="row justify-content-end">
                                                 <div class="col-md-4 col-of">
-                                                    <table class="table">
+                                                    <table style="overflow-x: auto;" class="table">
                                                         <tr>
                                                             <td>Sub Total :</td>
                                                             <td>{{ number_format($order->sub_total) }} Taka</td>

@@ -133,19 +133,19 @@
 
                         <div class="offcanvas-body">
                             <ul class="navbar-nav">
-                                <li class="nav-item">
+                                <li class="nav-item hide">
                                     <a class="nav-link fw-semibold px-md-3" aria-current="page"
                                         href="{{ route('rep.requestForm') }}" style="background: var(--primary-color);color:#ffff !important;">
                                         কুইক ব্যাবসা
                                     </a>
                                 </li>
-                                <!-- <li class="nav-item dropdown">
+                                <!-- <li class="nav-item dropdown hide">
                                     <a class="nav-link dropdown-toggle fw-semibold px-md-3"
                                         href="{{ url('quick-digital/ebook-list') }}" role="button"
                                         data-bs-toggle="dropdown" aria-expanded="false">
                                         ই-বুক
                                     </a>
-                                    <ul class="dropdown-menu">
+                                    <ul class="dropdown-menu ">
 
                                         <li>
                                             <a class="dropdown-item fw-semibold px-md-4 nav-link"
@@ -173,17 +173,17 @@
                                         </li>
                                     </ul>
                                 </li> -->
-                                <!-- <li class="nav-item nav-style">
+                                <!-- <li class="nav-item nav-style hide">
                                         <a class="nav-link fw-semibold px-md-3" aria-current="page" href="./ebook.html">ই-বুক</a>
                                     </li> -->
 
-                                <!-- <li class="nav-item">
+                                <!-- <li class="nav-item hide">
                                     <a class="nav-link fw-semibold px-md-3" aria-current="page"
                                         href="{{ url('quick-digital/courses') }}">
                                         মোবাইল ফ্রিল্যান্সিং
                                     </a>
                                 </li> -->
-                                <!-- <li class="nav-item dropdown">
+                                <!-- <li class="nav-item dropdown hide">
                                     <a class="nav-link dropdown-toggle fw-semibold px-md-3 d-block" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     কোর্স
                                     </a>
@@ -200,20 +200,20 @@
                                         </li>
                                     </ul>
                                 </li> -->
-                                <!-- <li class="nav-item">
+                                <!-- <li class="nav-item hide">
                                     <a class="nav-link fw-semibold px-md-3" aria-current="page"
                                         href="{{ url('quick-digital/digital-products') }}" target="_blank">কুইক শপ</a>
                                 </li>
                                 -->
 
-                                <li class="nav-item">
+                                <li class="nav-item hide">
                                     <a class="nav-link fw-semibold px-md-3" aria-current="page"
                                         href="{{ route('quick.software') }}">
                                         সফটওয়্যার
                                     </a>
                                 </li>
 
-                                <li class="nav-item">
+                                <li class="nav-item hide">
                                     <a class="nav-link fw-semibold px-md-3" aria-current="page"
                                         href="{{ route('quick.digitalProduct') }}">
                                         ডিজিটাল প্রোডাক্ট
@@ -226,7 +226,7 @@
                                     </a>
                                 </li> -->
 
-                                <li class="nav-item">
+                                <li class="nav-item hide">
                                     <a class="nav-link fw-semibold px-md-3" aria-current="page"
                                         href="{{ url('/quick-digital/contact-us') }}">যোগাযোগ</a>
                                 </li>
@@ -255,7 +255,7 @@
                                         Guest
                                         @endif
                                     </a>
-                                    <ul class="dropdown-menu" style="right: 0 !important; left: inherit !important; min-width:300px;">
+                                    <ul class="dropdown-menu" style="right: 0 !important; left: inherit !important; min-width:100%;">
                                         <li class="d-flex justify-centent-center flex-column align-items-center mt-3 gap-1 mb-3">
                                             @if (Auth::guard('user')->check())
                                             @php
@@ -338,7 +338,7 @@
                                             <line x1="12" y1="15" x2="12" y2="17"></line>
                                             <line x1="10" y1="17" x2="14" y2="17"></line>
                                             </svg>
-                                                একাউন্ট সেটআপ  করুন
+                                                একাউন্ট সেটআপ করুন
                                             </a>
                                         </li>
                                         @endif

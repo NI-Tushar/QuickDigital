@@ -196,7 +196,7 @@
                     </div>
                     <div class="card-body">
                             <h2 class="proposal-headline">Order Summery</h2>
-                            <table>
+                            <table style="overflow-x: auto;">
                                 <thead>
                                     <tr>
                                         <th>#</th>
@@ -224,7 +224,7 @@
                                 </tbody>
                             </table>
 
-                            <table class="summarytable">
+                            <table style="overflow-x: auto;" class="summarytable">
                                 <tbody>
                                     <tr>
                                         {{-- <th></th> --}}

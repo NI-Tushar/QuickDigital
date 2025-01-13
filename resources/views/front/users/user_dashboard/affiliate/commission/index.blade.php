@@ -35,8 +35,8 @@
                           <h3>Commission Histories</h3>
                       </div>
                     </div>
-                    <div class="card-body">
-                        <table class="table table-bordered">
+                    <div class="card-body" style="overflow-x: auto;">
+                        <table style="overflow-x: auto;" class="table table-bordered">
                           <thead>
                               <tr>
                                 <th>Sl</th>

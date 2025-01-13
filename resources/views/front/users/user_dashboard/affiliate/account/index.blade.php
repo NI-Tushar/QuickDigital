@@ -37,7 +37,7 @@
                       </div>
                     </div>
                     <div class="card-body">
-                        <table class="table table-bordered">
+                        <table style="overflow-x: auto;" class="table table-bordered">
                           <thead>
                               <tr>
                                 <th>Sl</th>
