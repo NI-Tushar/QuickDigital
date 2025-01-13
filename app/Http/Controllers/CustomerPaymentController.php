@@ -473,7 +473,6 @@ class CustomerPaymentController extends Controller
 
     public function cancel()
     {
-        dd('payment cancel or failed');
         return view('quick_digital.payment_pages.cancelPay');
     }
 

@@ -32,18 +32,18 @@
                 <div class="card bg-white mt-3" style="width: 100%">
                     <div class="card-header">
                       <div class="d-flex flex-wrap justify-content-between align-items-center" style="gap: 1em">
-                          <h3>Curent Balance - {{ optional($account)->balance ?? '0' }} BDT</h3>
-                          <a class="btn btn-primary" href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">Withdrawl</a>
+                          <h3>বর্তমান ব্যালেন্স - {{ optional($account)->balance ?? '0' }} BDT</h3>
+                          <a class="btn btn-primary" href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">টাকা তুলুন</a>
                       </div>
                     </div>
                     <div class="card-body">
                         <table style="overflow-x: auto;" class="table table-bordered">
                           <thead>
                               <tr>
-                                <th>Sl</th>
-                                <th>Withdrawal Date</th>
-                                <th>Amount</th>
-                                <th>Status</th>
+                                <th>নং</th>
+                                <th>উইথড্রো তারিখ</th>
+                                <th>এমাউন্ট</th>
+                                <th>স্ট্যাটাস</th>
                               </tr>
                           </thead>
                           <tbody>
@@ -68,7 +68,7 @@
                                 @endforeach
                             @else
                                 <tr>
-                                    <td colspan="4" style="text-align: center;">No transactions found</td>
+                                    <td colspan="4" style="text-align: center;">কোনো ট্রানজ্যকশন নেই</td>
                                 </tr>
                             @endif
                         </tbody>
@@ -91,7 +91,7 @@
             <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Withdrawal Request</h5>
+                <h5 class="modal-title" id="exampleModalLabel">উইথড্রো রিকোয়েস্ট</h5>
                 </div>
                 <form action="{{ route('affiliate.transaction.store') }}" method="POST">
                     @csrf
@@ -99,42 +99,42 @@
                     <div class="modal-body">
                         @if (optional(Auth::guard('user')->user()->bankSetup)->account_type)
                         <div class="form-group mb-2">
-                            <label for="">Account Type</label>
+                            <label for="">একাউন্ট টাইপ</label>
                             <select class="form-control" disabled>
-                                <option value="bank" {{ optional(Auth::guard('user')->user()->bankSetup)->account_type === 'bank' ? 'selected' : '' }}>Bank Account</option>
-                                <option value="mobile_banking" {{ optional(Auth::guard('user')->user()->bankSetup)->account_type === 'mobile_banking' ? 'selected' : '' }}>Mobile Banking</option>
+                                <option value="bank" {{ optional(Auth::guard('user')->user()->bankSetup)->account_type === 'bank' ? 'selected' : '' }}>ব্যাংক একাউন্ট</option>
+                                <option value="mobile_banking" {{ optional(Auth::guard('user')->user()->bankSetup)->account_type === 'mobile_banking' ? 'selected' : '' }}>মোবাইল ব্যাংকিং</option>
                             </select>
                         </div>
 
                         @if (optional(Auth::guard('user')->user()->bankSetup)->account_type === 'mobile_banking')
                         <div class="form-group mb-2">
-                            <label for="">Mobile Bank Name</label>
+                            <label for="">মোবাইল ব্যাংকের নাম</label>
                             <select class="form-control" disabled>
-                                <option value="bkash" {{ optional(Auth::guard('user')->user()->bankSetup)->mobile_banking_type === 'bkash' ? 'selected' : '' }}>bKash</option>
-                                <option value="rocket" {{ optional(Auth::guard('user')->user()->bankSetup)->mobile_banking_type === 'rocket' ? 'selected' : '' }}>Rocket</option>
-                                <option value="nagad" {{ optional(Auth::guard('user')->user()->bankSetup)->mobile_banking_type === 'nagad' ? 'selected' : '' }}>Nagad</option>
+                                <option value="bkash" {{ optional(Auth::guard('user')->user()->bankSetup)->mobile_banking_type === 'bkash' ? 'selected' : '' }}>বিকাশ</option>
+                                <option value="rocket" {{ optional(Auth::guard('user')->user()->bankSetup)->mobile_banking_type === 'rocket' ? 'selected' : '' }}>রকেট</option>
+                                <option value="nagad" {{ optional(Auth::guard('user')->user()->bankSetup)->mobile_banking_type === 'nagad' ? 'selected' : '' }}>নগদ</option>
                             </select>
                         </div>
                         @endif
 
                         <div class="form-group mb-2">
-                            <label for="">Account Number</label>
+                            <label for="">একাউন্ট নাম্বার</label>
                             <input class="form-control" type="text" value="{{ optional(Auth::guard('user')->user()->bankSetup)->account_type === 'mobile_banking' ?optional(Auth::guard('user')->user()->bankSetup)->mobile_banking_number : optional(Auth::guard('user')->user()->bankSetup)->account_number }}" readonly>
                         </div>
                         <div class="form-group mb-2">
-                            <label for="">Withdrawal Amount</label>
-                            <input class="form-control" type="text" name="amount" placeholder="Minimum 500 BDT">
+                            <label for="">টাকার পরিমান</label>
+                            <input class="form-control" type="text" name="amount" placeholder="সর্বনিম্ন ৫00 BDT">
                         </div>
                         @else
                         <div class="gorm-group">
-                            <label for="">Go to Your Account Setup Page and first set your bank account information then back here for the balance withdraw</label>
+                            <label for="">কোনো একাউন্ট সম্পর্কিত তথ্য পাওয়া যায় নি। একাউন্ট সেটাপ পেইজে গিয়ে আপানার একাউন্ট সম্পর্কিত তথ্য দিন।</label>
                         </div>
                         @endif
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                         @if (optional(Auth::guard('user')->user()->bankSetup)->account_type)
-                            <button type="submit" class="btn btn-primary">Submit Request</button>
+                            <button type="submit" class="btn btn-primary">রিকোয়েস্ট সামবিট করুন</button>
                         @endif
                     </div>
                 </form>
@@ -150,8 +150,8 @@
     @if (session('success'))
         <script>
             Swal.fire({
-                icon: 'success',
-                title: 'Thank You',
+                icon: 'সাকসেস',
+                title: 'ধন্যবাদ',
                 text: '{{ session('success') }}',
                 confirmButtonText: 'OK',
             });

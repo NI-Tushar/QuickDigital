@@ -24,27 +24,25 @@
 
 
     <section class="home-section">
-
         <div class="home-content">
-
             <div class="software_section">
 
                 <div class="card bg-white mt-3" style="width: 100%">
                     <div class="card-header">
                       <div class="d-flex flex-wrap justify-content-between align-items-center" style="gap: 1em">
-                          <h3>Commission Histories</h3>
+                          <h3>কমিশন হিস্টরী</h3>
                       </div>
                     </div>
                     <div class="card-body" style="overflow-x: auto;">
                         <table style="overflow-x: auto;" class="table table-bordered">
                           <thead>
                               <tr>
-                                <th>Sl</th>
-                                <th>Order Date</th>
-                                <th>Order ID</th>
-                                <th>Purpose</th>
-                                <th>Service Type</th>
-                                <th>Amount</th>
+                                <th>নং</th>
+                                <th>অর্ডার ডেইট</th>
+                                <th>অর্ডার আইডি</th>
+                                <th>লক্ষ্য</th>
+                                <th>সার্ভিস টাইপ</th>
+                                <th>এমাউন্ট</th>
                               </tr>
                           </thead>
                           <tbody>
@@ -61,7 +59,7 @@
                           </tbody>
                           <tfoot>
                             <tr>
-                                <th colspan="5" style="text-align: right">Total</th>
+                                <th colspan="5" style="text-align: right">টোটাল</th>
                                 <td>{{ $totalCommission }} BDT</td>
                             </tr>
                           </tfoot>

@@ -29,8 +29,8 @@
                 <div class="card bg-white mt-3" style="width: 100%">
                     <div class="card-header">
                       <div class="d-flex flex-wrap justify-content-between align-items-center" style="gap: 1em">
-                          <h3>All Orders</h3>
-                          <a class="btn btn-primary" href="{{ route('affiliate.order.create') }}">Create Order</a>
+                          <h3>সকল অর্ডার</h3>
+                          <a class="btn btn-primary" href="{{ route('affiliate.order.create') }}">নতুন অর্ডার</a>
                       </div>
                     </div>
                     <div class="card-body" style=" backgrond-color: red;">
@@ -51,14 +51,14 @@
                             <table style="width: 100%;" class="table table-bordered">
                                 <thead>
                                     <tr>
-                                        <th>Sl</th>
-                                        <th>Order Date</th>
-                                        <th>Order ID</th>
-                                        <th>Total</th>
-                                        <th>Start Date</th>
-                                        <th>End Date</th>
-                                        <th>Delivery Status</th>
-                                        <th>Payment Status</th>
+                                        <th>নং</th>
+                                        <th>অর্ডার ডেইট</th>
+                                        <th>অর্ডার আইডি</th>
+                                        <th>টোটাল</th>
+                                        <th>স্টার্ট ডেইট</th>
+                                        <th>রিনিউ ডেইট</th>
+                                        <th>ডেলিভারি স্ট্যাটাস</th>
+                                        <th>পেমেন্ট স্ট্যাটাস</th>
                                         <th>Actions</th>
                                     </tr>
                                 </thead>
