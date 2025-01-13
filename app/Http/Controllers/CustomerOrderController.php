@@ -16,7 +16,8 @@ class CustomerOrderController extends Controller
         Session::forget('software_type');
 
         if ($product) {
-            return view('quick_digital.checkout.all_checkout')->with(compact('product'));
+            return view('quick_digital.digital_product.digitalProductDesc');
+            // return view('quick_digital.checkout.all_checkout')->with(compact('product'));
         } else {
             dd('No product found for this ID.');
         }
