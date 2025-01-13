@@ -19,7 +19,7 @@ class DigitalProductController extends Controller
             $query->where('title', 'like', '%' . $request->input('name') . '%');
         }
 
-        $products = $query->latest()->paginate(1);
+        $products = $query->latest()->paginate(10);
         return view('quick_digital.digital_product.digital_product', compact('products'))->with('request', $request);
     }
 
