@@ -6,6 +6,7 @@
     <div class="dig_prod_section">
         <div class="centered_product">
 
+            <!-- ___________________________ product search start -->
             <div class="search_box">
                 <form method="GET" action="{{ route('quick.digitalProduct') }}">
                     <div class="search">
@@ -23,6 +24,7 @@
                     </div>
                 </form>
             </div>
+            <!-- ___________________________ product search end -->
 
             <ul class="listing">
 
@@ -44,7 +46,7 @@
                 </div>
 
                 <div class="actions-wrapper">
-                    <!-- <a href="#" class="add-btn cart">Cart</a> -->
+                    <a href="{{ route('digitalProduct.details', ['id' => $product->id]) }}" class="add-btn cart">Details</a>
                     <a href="{{ route('digitalProduct.order', ['id' => $product->id]) }}" class="add-btn cart">Buy</a>
                 </div>
             </li>

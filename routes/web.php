@@ -367,16 +367,17 @@
         Route::get('all-course', 'HomeController@show_all_courses')->name('course.all');
         Route::get('/checkout/{id}', [CartController::class, 'checkout'])->name('user_checkout');
 
-
-
+        
         // _______________________________ SOFTWARE
         Route::get('/software', [SoftwareController::class, 'index'])->name('quick.software');
         Route::post('/software-order', [SoftwareController::class, 'softwareOrder'])->name('software.order');
+        Route::get('/software/suggestion', [SoftwareController::class, 'suggestion'])->name('quick.software.suggestion');
         Route::get('/checkout', [SoftwareController::class,'checkout_page'])->name('digitalProductCheckout');
 
         // _______________________________ DIGITAL PRODUCT
         Route::get('/digital-product', [DigitalProductController::class, 'index'])->name('quick.digitalProduct');
         Route::get('/digital-product/suggestion', [DigitalProductController::class, 'suggestion'])->name('quick.digitalProduct.suggestion');
+        Route::get('/digital-product-details/{id}', [CustomerOrderController::class, 'digitalProductDetails'])->name('digitalProduct.details');
         Route::get('/digital-product-order/{id}', [CustomerOrderController::class, 'digitalProductOrder'])->name('digitalProduct.order');
 
         // _______________________________ CUSTOMER PAYMENT CONTROLLER
