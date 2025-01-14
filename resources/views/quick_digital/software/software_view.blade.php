@@ -9,8 +9,8 @@
             <h3>ম্যানেজমেন্ট সফটওয়্যার লিস্টঃ</h3>
         </div>
 
-          <!-- ___________________________ product search start -->
-          <div class="search_box">
+            <!-- ___________________________ product search start -->
+            <div class="search_box">
                 <form method="GET" action="{{ route('quick.software') }}">
                     <div class="search">
                         <input type="text" id="nameInput" name="nameField" placeholder="নাম দিয়ে সার্চ করুন" value="{{ request('name') }}" autocomplete="off">
@@ -28,6 +28,71 @@
                 </form>
             </div>
             <!-- ___________________________ product search end -->
+             
+
+        <!-- _______________________________________ suggesion for search start -->
+        
+            <script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script>
+            <script>
+                $(document).ready(function () {
+                    // Handle input change for dynamic suggestions
+                    $('#nameInput').on('input', function () {
+                        const query = $(this).val();
+
+                        // If the input is cleared, submit the form to show all products
+                        if (query.length === 0) {
+                            $('#name').val('');
+                            $(this).closest('form').submit();
+                            return;
+                        }
+
+                        // Fetch suggestions if input is non-empty
+                        $.ajax({
+                            url: '{{ route("quick.software.suggestion") }}',
+                            type: 'GET',
+                            data: { query: query },
+                            dataType: 'json',
+                            success: function (res) {
+                                displaySuggestions(res);
+                            },
+                            error: function (xhr, status, error) {
+                                console.error(xhr.responseText);
+                            }
+                        });
+                    });
+
+                    // Display suggestions in the dropdown
+                    function displaySuggestions(data) {
+                        let suggestions = data.map(item => `
+                            <a href="#" class="dropdown-item" data-name="${item.title}">${item.title}</a>
+                        `).join('');
+                        $('#nameSuggestion').html(suggestions).show();
+                    }
+
+                    // When a suggestion is clicked, set input and hidden field values
+                    $('#nameSuggestion').on('click', '.dropdown-item', function (e) {
+                        e.preventDefault();
+                        const name = $(this).data('name');
+                        $('#nameInput').val(name);
+                        $('#name').val(name); // Set hidden field with selected value
+                        $('#nameSuggestion').hide();
+
+                        // Auto-submit form
+                        $(this).closest('form').submit();
+                    });
+
+                    // Clear suggestions if clicking outside
+                    $(document).on('click', function (e) {
+                        if (!$(e.target).closest('#nameInput').length) {
+                            $('#nameSuggestion').hide();
+                        }
+                    });
+                });
+            </script>
+        <!-- _______________________________________ suggesion for search end -->
+
+
+
         <div class="list_section">
             <!-- _____________________________ -->
             @if (empty($softwares))
@@ -103,6 +168,8 @@
         </div>
     </div>
 </div>
+
+
 
 
 <!-- ______________________________ pop up show onlick by start -->
@@ -232,67 +299,6 @@
        <!-- _______________ -->
     </div>
 </div>
-
-<!-- _______________________________________ suggesion for search start -->
- 
-<script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script>
-    <script>
-        $(document).ready(function () {
-            // Handle input change for dynamic suggestions
-            $('#nameInput').on('input', function () {
-                const query = $(this).val();
-
-                // If the input is cleared, submit the form to show all products
-                if (query.length === 0) {
-                    $('#name').val('');
-                    $(this).closest('form').submit();
-                    return;
-                }
-
-                // Fetch suggestions if input is non-empty
-                $.ajax({
-                    url: '{{ route("quick.software.suggestion") }}',
-                    type: 'GET',
-                    data: { query: query },
-                    dataType: 'json',
-                    success: function (res) {
-                        displaySuggestions(res);
-                    },
-                    error: function (xhr, status, error) {
-                        console.error(xhr.responseText);
-                    }
-                });
-            });
-
-            // Display suggestions in the dropdown
-            function displaySuggestions(data) {
-                let suggestions = data.map(item => `
-                    <a href="#" class="dropdown-item" data-name="${item.title}">${item.title}</a>
-                `).join('');
-                $('#nameSuggestion').html(suggestions).show();
-            }
-
-            // When a suggestion is clicked, set input and hidden field values
-            $('#nameSuggestion').on('click', '.dropdown-item', function (e) {
-                e.preventDefault();
-                const name = $(this).data('name');
-                $('#nameInput').val(name);
-                $('#name').val(name); // Set hidden field with selected value
-                $('#nameSuggestion').hide();
-
-                // Auto-submit form
-                $(this).closest('form').submit();
-            });
-
-            // Clear suggestions if clicking outside
-            $(document).on('click', function (e) {
-                if (!$(e.target).closest('#nameInput').length) {
-                    $('#nameSuggestion').hide();
-                }
-            });
-        });
-    </script>
-<!-- _______________________________________ suggesion for search end -->
 
 
 

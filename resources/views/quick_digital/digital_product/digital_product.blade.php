@@ -28,31 +28,31 @@
 
             <ul class="listing">
 
-            @if (empty($products))
-                <p>No products available.</p>
-            @else
-            @foreach ($products as $product)
-            <!-- _________________________ product list start -->
-            <li class="product">
-                <a class="img-wrapper">
-                    <img src="{{ $product->thumbnail ? asset($product->thumbnail) : asset('no_image2.jpg') }}" alt="">
-                </a>
-                <!-- <div class="note no-stock">Out of stock</div> -->
-                <div class="note on-sale">On sale</div>
+                @if (empty($products))
+                    <p>No products available.</p>
+                @else
+                @foreach ($products as $product)
+                <!-- _________________________ product list start -->
+                <li class="product">
+                    <a class="img-wrapper">
+                        <img src="{{ $product->thumbnail ? asset($product->thumbnail) : asset('no_image2.jpg') }}" alt="">
+                    </a>
+                    <!-- <div class="note no-stock">Out of stock</div> -->
+                    <div class="note on-sale">On sale</div>
 
-                <div class="info">
-                    <div class="title">{{$product->title}}</div>
-                    <div class="price">{{$product->price}} BDT</div>
-                </div>
+                    <div class="info">
+                        <div class="title">{{$product->title}}</div>
+                        <div class="price">{{$product->price}} BDT</div>
+                    </div>
 
-                <div class="actions-wrapper">
-                    <a href="{{ route('digitalProduct.details', ['id' => $product->id]) }}" class="add-btn cart">Details</a>
-                    <a href="{{ route('digitalProduct.order', ['id' => $product->id]) }}" class="add-btn cart">Buy</a>
-                </div>
-            </li>
-            <!-- _________________________ product list end -->
-            @endforeach
-            @endif
+                    <div class="actions-wrapper">
+                        <a href="{{ route('digitalProduct.details', ['id' => $product->id]) }}" class="add-btn cart">Details</a>
+                        <a href="{{ route('digitalProduct.order', ['id' => $product->id]) }}" class="add-btn cart">Buy</a>
+                    </div>
+                </li>
+                <!-- _________________________ product list end -->
+                @endforeach
+                @endif
             </ul>
             <!-- Pagination Links -->
             <div class="d-flex justify-content-end">
@@ -72,6 +72,7 @@
             // Handle input change for dynamic suggestions
             $('#nameInput').on('input', function () {
                 const query = $(this).val();
+                console.log(query);
 
                 // If the input is cleared, submit the form to show all products
                 if (query.length === 0) {
