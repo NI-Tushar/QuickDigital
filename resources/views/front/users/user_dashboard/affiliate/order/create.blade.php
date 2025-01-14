@@ -32,7 +32,7 @@
                 <div class="card bg-white mt-3" style="width: 100%">
                     <div class="card-header">
                         <div class="d-flex flex-wrap justify-content-between align-items-center">
-                            <h5>Create New Order</h5>
+                            <h5>নতুন অর্ডার করুন</h5>
                             <a class="btn btn-primary" href="{{ route('affiliate.order.index') }}">Back</a>
                         </div>
                     </div>
@@ -45,13 +45,13 @@
                                 <div class="col-md-6 com-sm-12 pr-3" style="border-right: 1px solid #ddd">
 
                                     <div class="form-group">
-                                        <label for="service_type" class="text-gray">Select Your Services (*)</label>
+                                        <label for="service_type" class="text-gray">সার্ভিস সিলেক্ট করুন (*)</label>
                                         <select name="service_type" id="service_type" class="form-control"
                                             style="width: 100%;" required>
-                                            <option selected="selected" value="">Select one</option>
-                                            <option value="Software">Software</option>
-                                            <option value="DigitalService">Digital Service</option>
-                                            <option value="DigitalProduct">Digital Product</option>
+                                            <option selected="selected" value="">সিলেক্ট করুন</option>
+                                            <option value="Software">সফটওয়্যার</option>
+                                            <option value="DigitalService">ডিজিটাল সার্ভিস</option>
+                                            <option value="DigitalProduct">ডিজিটাল প্রোডাক্ট</option>
                                         </select>
                                     </div>
 
@@ -60,7 +60,7 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label for="start_date" class="text-gray">Start Date</label>
+                                                <label for="start_date" class="text-gray">স্টার্ট ডেইট</label>
                                                 <div class="input-group date" id="start_date"
                                                     data-target-input="nearest">
                                                     <input type="date" name="start_date" class="form-control"
@@ -70,7 +70,7 @@
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label for="end_date" class="text-gray">End Date</label>
+                                                <label for="end_date" class="text-gray">রিনিউ ডেইট</label>
                                                 <div class="input-group date" id="end_date"
                                                     data-target-input="nearest">
                                                     <input type="date" name="end_date" class="form-control">
@@ -85,10 +85,10 @@
                                 <div class="row">
                                     <div class="col-md-4">
                                         <div class="form-group" id="software" style="display: none;">
-                                            <label for="software_select" class="text-gray">Software (*)</label>
+                                            <label for="software_select" class="text-gray">সফটওয়্যার (*)</label>
                                             <select name="software" id="software_select" class="form-control"
                                                 style="width: 100%;">
-                                                <option selected="selected" value="">System Default</option>
+                                                <option selected="selected" value="">সিস্টেম ডিফল্ট</option>
                                                 @foreach ($softwares as $software)
                                                     <option value="{{ $software->id }}">{{ $software->title }}</option>
                                                     @endforeach
@@ -96,10 +96,10 @@
                                         </div>
 
                                         <div class="form-group" id="digitalService" style="display: none;">
-                                            <label for="digitalService_select" class="text-gray">Digital Service (*)</label>
+                                            <label for="digitalService_select" class="text-gray">ডিজিটাল সার্ভিস (*)</label>
                                             <select name="digitalService" id="digitalService_select"
                                                 class="form-control" style="width: 100%;">
-                                                <option selected="selected" value="">System Default</option>
+                                                <option selected="selected" value="">সিস্টেম ডিফল্ট</option>
                                                 @foreach ($digitalServices as $digitalService)
                                                     <option value="{{ $digitalService->id }}">{{ $digitalService->title }}</option>
                                                     @endforeach
@@ -107,10 +107,10 @@
                                         </div>
 
                                         <div class="form-group" id="digitalProduct" style="display: none;">
-                                            <label for="digitalProduct_select" class="text-gray">* Digital Product (*)</label>
+                                            <label for="digitalProduct_select" class="text-gray">* ডিজিটাল প্রোডাক্ট (*)</label>
                                             <select name="digitalProduct" id="digitalProduct_select"
                                                 class="form-control" style="width: 100%;">
-                                                <option selected="selected" value="">System Default</option>
+                                                <option selected="selected" value="">সিস্টেম ডিফল্ট</option>
                                                 @foreach ($digitalProducts as $digitalProduct)
                                                 <option value="{{ $digitalProduct->id }}">{{ $digitalProduct->title }}</option>
                                                 @endforeach
@@ -119,18 +119,17 @@
                                     </div>
                                 </div>
                                 <div class="table-responsive s_table">
-                                    <table
+                                    <table style="overflow-x: auto;"
                                         class="table estimate-items-table items table-main-estimate-edit has-calculations no-mtop">
                                         <thead>
                                             <tr>
-                                                <th>Sl</th>
-                                                <th width="20%" align="left">Item</th>
-                                                <th width="25%" align="left">Description</th>
-                                                <th width="10%" class="qty" align="right"
-                                                    id="quantityLabel">Qty</th>
-                                                <th width="15%" align="right">Rate</th>
-                                                <th width="20%" align="right">Tax</th>
-                                                <th width="10%" align="right">Amount</th>
+                                                <th>নং</th>
+                                                <th width="20%" align="left">আইটেম</th>
+                                                <th width="25%" align="left">ডেস্ক্রিপশন</th>
+                                                <th width="10%" class="qty" align="right"id="quantityLabel">পরিমান</th>
+                                                <th width="15%" align="right">মূল্য</th>
+                                                <th width="20%" align="right">ট্যাক্স</th>
+                                                <th width="10%" align="right">মোট টাকা</th>
                                                 <th align="center">Action</th>
                                             </tr>
                                         </thead>
@@ -153,11 +152,11 @@
                                                 <td>
                                                     <select name="sale_items[0][tax]"
                                                         class="form-control select2bs4" style="width: 100%;" disabled>
-                                                        <option value="" data-taxrate="">No Tax</option>
-                                                        <option value="5.00" data-taxrate="5.00">5.00%</option>
-                                                        <option value="10.00" data-taxrate="10.00">10.00%
+                                                        <option value="" data-taxrate="">কোনো ট্যাক্স নেই</option>
+                                                        <option value="5.00" data-taxrate="5.00">৫.00%</option>
+                                                        <option value="10.00" data-taxrate="10.00">১০.00%
                                                         </option>
-                                                        <option value="18.00" data-taxrate="18.00">18.00%
+                                                        <option value="18.00" data-taxrate="18.00">১৮.00%
                                                         </option>
                                                     </select>
                                                 </td>
@@ -169,10 +168,10 @@
                                     </table>
                                 </div>
                                 <div class="col-md-8 offset-md-4">
-                                    <table class="table text-right">
+                                    <table style="overflow-x: auto;" class="table text-right">
                                         <tbody>
                                             <tr id="subtotal">
-                                                <td><span class="bold tw-text-neutral-700">Sub Total :</span></td>
+                                                <td><span class="bold tw-text-neutral-700">সাব-টোটাল :</span></td>
                                                 <td>
                                                     <span class="subtotal">$0.00</span>
                                                     <input type="hidden" name="sub_total" value="0.00">
@@ -182,7 +181,7 @@
                                                 <td>
                                                     <div class="row">
                                                         <div class="col-md-7">
-                                                            <span class="bold tw-text-neutral-700">Discount</span>
+                                                            <span class="bold tw-text-neutral-700">ডিস্কাউন্ট</span>
                                                         </div>
                                                         <div class="col-md-5">
                                                             <div class="input-group" id="discount-total">
@@ -210,7 +209,7 @@
                                                     <div class="row">
                                                         <div class="col-md-7">
                                                             <span
-                                                                class="bold tw-text-neutral-700">Adjustment</span>
+                                                                class="bold tw-text-neutral-700">এডজাস্টমেন্ট</span>
                                                         </div>
                                                         <div class="col-md-5">
                                                             <input type="number" data-toggle="tooltip"
@@ -223,7 +222,7 @@
                                                 <td class="adjustment">$0.00</td>
                                             </tr>
                                             <tr>
-                                                <td><span class="bold tw-text-neutral-700">Total :</span></td>
+                                                <td><span class="bold tw-text-neutral-700">টোটাল :</span></td>
                                                 <td>
                                                     <span class="total">$0.00</span>
                                                     <input type="hidden" name="total" value="0.00">
@@ -236,7 +235,7 @@
 
 
                             <div class="text-right tw-space-x-1" id="profile-save-section">
-                                <button class="btn btn-primary only-save customer-form-submiter">Submit</button>
+                                <button class="btn btn-primary only-save customer-form-submiter">সাবমিট করুন</button>
                             </div>
                         </form>
 
@@ -489,9 +488,9 @@
                         if (response.success) {
                             // Show success alert
                             Swal.fire({
-                                icon: 'success',
-                                title: 'Success',
-                                text: response.message || 'Order saved successfully',
+                                icon: 'সাকসেস',
+                                title: 'সাকসেস',
+                                text: response.message || 'অর্ডার সেইভ সাকসেস',
                                 confirmButtonText: 'OK',
                             }).then((result) => {
                                 if (result.isConfirmed && response.redirect_url) {

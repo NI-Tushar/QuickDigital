@@ -200,6 +200,13 @@
       background: #fafafa;
     }
   
+    .update_form_wrapper a{
+      text-align: center;
+    }
+    .update_form_wrapper a .button{
+      text-align: center;
+    }
+    .update_form_wrapper a .button,
     .update_form_wrapper input[type=submit] {
       border-radius: 5px;
       height: 40px;
@@ -220,6 +227,10 @@
       border: 2px solid var( --primary-color);
     }
     .update_form_wrapper input[type=submit]:hover {
+        background: var( --primary-color);
+        color: #fff;
+    }
+    .update_form_wrapper a .button:hover {
         background: var( --primary-color);
         color: #fff;
     }

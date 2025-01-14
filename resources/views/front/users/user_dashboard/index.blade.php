@@ -69,8 +69,8 @@
                                     @foreach ($orders as $order)
                                     <tr>
                                         <td>{{ $order->created_at->format('F j, Y') }}</td>
-                                        <td>{{ $order->amount }} BDT</td>
-                                        <td>{{ $order->status }} BDT</td>
+                                        <td>{{ $order->total }} BDT</td>
+                                        <td>{{ $order->payment_status }}</td>
                                     </tr>
                                     @endforeach
                                 </tbody>

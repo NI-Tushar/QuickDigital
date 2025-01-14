@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Services\MimSmsService;
-use Illuminate\Http\Request;
 use GuzzleHttp\Client;
+use Illuminate\Http\Request;
 
 class SmsController extends Controller
 {
@@ -15,7 +15,7 @@ class SmsController extends Controller
         $phone = "88".$phone; // Example phone number
         // $new_otp = rand(100000, 999999); // Example OTP generation
 
-        $message = "ধন্যবাদ। কুইক-ডিজিটাল থেকে '$book_title' বইটির অর্ডার কনফার্ম হয়েছে।";
+        $message = "ধন্যবাদ। কুইক-ডিজিটাল থেকে $book_title বইটির অর্ডার কনফার্ম হয়েছে।";
         $queryParams = [
                 "UserName" => "neoshah121@gmail.com",  // MiMSMS registered email
                 "Apikey" => "81GE7QJJS4KIGIY",        // MiMSMS API Key
@@ -55,6 +55,8 @@ class SmsController extends Controller
         }
         // ___________ sending sms to customer start
     }
+
+   
 
 
 

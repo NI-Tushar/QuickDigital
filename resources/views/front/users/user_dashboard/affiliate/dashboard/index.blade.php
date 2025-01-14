@@ -12,6 +12,7 @@
     <style>
         .software_section .col-md-3 .card{
             background-image: linear-gradient(var(--primary-hover-color), black);
+            margin-bottom:5px;
         }
     </style>
 
@@ -56,7 +57,7 @@
                     <div class="row mt-4">
                         <div class="col-12">
                             <h5>সর্বশেষ 10 টি ট্রানজ্যকশন</h5>
-                            <table class="table table-bordered">
+                            <table style="overflow-x: auto;" class="table table-bordered">
                                 <thead>
                                     <tr>
                                         <th>তারিখ</th>

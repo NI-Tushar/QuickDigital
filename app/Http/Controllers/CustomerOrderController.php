@@ -17,6 +17,7 @@ class CustomerOrderController extends Controller
 
         if ($product) {
             return view('quick_digital.checkout.all_checkout')->with(compact('product'));
+            // return view('quick_digital.digital_product.digitalProductDesc');
         } else {
             dd('No product found for this ID.');
         }

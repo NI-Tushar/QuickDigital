@@ -20,21 +20,21 @@
                     <div class="card-header">
                         <div class="d-flex flex-wrap justify-content-between align-items-center" style="gap: 1em">
 
-                            <h5>Setup Your Account</h5>
+                            <h5>আপনার একাউন্ট সেটাপ করুন</h5>
                             <a class="btn btn-primary" href="{{ route('user.dashboard') }}">Back</a>
                         </div>
                     </div>
                     <div class="card-body">
-                        <h5 style="padding: 10px;box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;">Get Paid within 2 days of withdrawal Request</h5>
+                        <h5 style="padding: 10px;box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;">উইথড্রো রিকোয়েস্টের ২ দিনের মদ্ধেই টাকা তুলতে পারবেন</h5>
                         <form action="{{ route('affiliate.account.setup.store') }}" method="POST" class="mt-3">
                             @csrf
                             @method('POST')
                             <div class="form-group mb-3">
-                                <label for="account_type">Select Account Type (*)</label>
+                                <label for="account_type">একাউন্ট টাইপ সিলেক্ট করুন (*)</label>
                                 <select class="form-control" name="account_type" id="account_type">
-                                    <option value="">Select Account Type</option>
-                                    <option value="bank" {{ optional(Auth::guard('user')->user()->bankSetup)->account_type === 'bank' ? 'selected' : '' }}>Bank Account</option>
-                                    <option value="mobile_banking" {{ optional(Auth::guard('user')->user()->bankSetup)->account_type === 'mobile_banking' ? 'selected' : '' }}>Mobile Banking</option>
+                                    <option value="">একাউন্ট টাইপ সিলেক্ট করুন</option>
+                                    <option value="bank" {{ optional(Auth::guard('user')->user()->bankSetup)->account_type === 'bank' ? 'selected' : '' }}>ব্যাংক একাউন্ট</option>
+                                    <option value="mobile_banking" {{ optional(Auth::guard('user')->user()->bankSetup)->account_type === 'mobile_banking' ? 'selected' : '' }}>মোবাইল ব্যাংকিং</option>
                                 </select>
                                 @error('account_type')
                                     <span class="text-danger">{{ $message }}</span>
@@ -44,28 +44,28 @@
                             <!-- Bank Details -->
                             <div id="bank_details" class="account-details {{ optional(Auth::guard('user')->user()->bankSetup)->account_type === 'bank' ? '' : 'd-none' }}">
                                 <div class="form-group mb-3">
-                                    <label for="bank_name">Bank Name (*)</label>
+                                    <label for="bank_name">ব্যাংকের নাম (*)</label>
                                     <input type="text" class="form-control" name="bank_name" id="bank_name" value="{{ old('bank_name', optional(Auth::guard('user')->user()->bankSetup)->bank_name) }}">
                                     @error('bank_name')
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror
                                 </div>
                                 <div class="form-group mb-3">
-                                    <label for="account_number">Account Number (*)</label>
+                                    <label for="account_number">একাউন্ট নাম্বার (*)</label>
                                     <input type="text" class="form-control" name="account_number" id="account_number" value="{{ old('account_number', optional(Auth::guard('user')->user()->bankSetup)->account_number) }}">
                                     @error('account_number')
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror
                                 </div>
                                 <div class="form-group mb-3">
-                                    <label for="branch_name">Branch Name (*)</label>
+                                    <label for="branch_name">ব্রাঞ্চের নাম (*)</label>
                                     <input type="text" class="form-control" name="branch_name" id="branch_name" value="{{ old('branch_name', optional(Auth::guard('user')->user()->bankSetup)->branch_name) }}">
                                     @error('branch_name')
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror
                                 </div>
                                 <div class="form-group mb-3">
-                                    <label for="routing_number">Routing Number (*)</label>
+                                    <label for="routing_number">রুটিং নাম্বার (*)</label>
                                     <input type="text" class="form-control" name="routing_number" id="routing_number" value="{{ old('routing_number', optional(Auth::guard('user')->user()->bankSetup)->routing_number) }}">
                                     @error('routing_number')
                                         <span class="text-danger">{{ $message }}</span>
@@ -76,19 +76,19 @@
                             <!-- Mobile Banking Details -->
                             <div id="mobile_banking_details" class="account-details {{ optional(Auth::guard('user')->user()->bankSetup)->account_type === 'mobile_banking' ? '' : 'd-none' }}">
                                 <div class="form-group mb-3">
-                                    <label for="mobile_banking_type">Mobile Banking Type (*)</label>
+                                    <label for="mobile_banking_type">মোবাইল ব্যাংকিং টাইপ (*)</label>
                                     <select class="form-control" name="mobile_banking_type" id="mobile_banking_type">
-                                        <option value="">Select Mobile Banking Type</option>
-                                        <option value="bkash" {{ optional(Auth::guard('user')->user()->bankSetup)->mobile_banking_type === 'bkash' ? 'selected' : '' }}>bKash</option>
-                                        <option value="rocket" {{ optional(Auth::guard('user')->user()->bankSetup)->mobile_banking_type === 'rocket' ? 'selected' : '' }}>Rocket</option>
-                                        <option value="nagad" {{ optional(Auth::guard('user')->user()->bankSetup)->mobile_banking_type === 'nagad' ? 'selected' : '' }}>Nagad</option>
+                                        <option value="">মোবাইল ব্যাংকিং টাইপ সিলেক্ট করুন</option>
+                                        <option value="bkash" {{ optional(Auth::guard('user')->user()->bankSetup)->mobile_banking_type === 'bkash' ? 'selected' : '' }}>বিকাশ</option>
+                                        <option value="rocket" {{ optional(Auth::guard('user')->user()->bankSetup)->mobile_banking_type === 'rocket' ? 'selected' : '' }}>রকেট</option>
+                                        <option value="nagad" {{ optional(Auth::guard('user')->user()->bankSetup)->mobile_banking_type === 'nagad' ? 'selected' : '' }}>নগদ</option>
                                     </select>
                                     @error('mobile_banking_type')
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror
                                 </div>
                                 <div class="form-group mb-3">
-                                    <label for="mobile_banking_number">Mobile Banking Number (*)</label>
+                                    <label for="mobile_banking_number">মোবাইল ব্যাংকিং নাম্বার (*)</label>
                                     <input type="text" class="form-control" name="mobile_banking_number" id="mobile_banking_number" value="{{ old('routing_number', optional(Auth::guard('user')->user()->bankSetup)->mobile_banking_number) }}">
                                     @error('mobile_banking_number')
                                     <span class="text-danger">{{ $message }}</span>
@@ -97,7 +97,7 @@
                             </div>
 
                             <div class="form-group mb-3">
-                                <label for="holder_name">Account Holder's Name (*)</label>
+                                <label for="holder_name">একাউন্ট হোল্ডারের নাম (*)</label>
                                 <input type="text" class="form-control" name="holder_name" id="holder_name" value="{{ old('routing_number', optional(Auth::guard('user')->user()->bankSetup)->holder_name) }}">
                                 @error('holder_name')
                                     <span class="text-danger">{{ $message }}</span>
@@ -105,7 +105,7 @@
                             </div>
 
                             <div class="form-group mb-3">
-                                <label for="email">Email Address</label>
+                                <label for="email">ই-মেইল এড্রেস</label>
                                 <input type="email" class="form-control" name="email" id="email" value="{{ old('routing_number', optional(Auth::guard('user')->user()->bankSetup)->email) }}">
                                 @error('email')
                                     <span class="text-danger">{{ $message }}</span>
@@ -113,14 +113,14 @@
                             </div>
 
                             <div class="form-group mb-3">
-                                <label for="phone">Phone Number</label>
+                                <label for="phone">ফোন নাম্বার</label>
                                 <input type="text" class="form-control" name="phone" id="phone" value="{{ old('routing_number', optional(Auth::guard('user')->user()->bankSetup)->phone) }}">
                                 @error('phone')
                                     <span class="text-danger">{{ $message }}</span>
                                 @enderror
                             </div>
 
-                            <button type="submit" class="btn btn-primary mt-3">Save Details</button>
+                            <button type="submit" class="btn btn-primary mt-3">ডিটেইলস সেইভ করুন</button>
                         </form>
 
                     </div>
@@ -176,8 +176,8 @@
     @if (session('success'))
         <script>
             Swal.fire({
-                icon: 'success',
-                title: 'Thank You',
+                icon: 'সাকসেস',
+                title: 'ধন্যবাদ',
                 text: '{{ session('success') }}',
                 confirmButtonText: 'OK',
             });
