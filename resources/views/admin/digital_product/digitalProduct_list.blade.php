@@ -64,17 +64,23 @@
                                                 <tr>
                                                     <td style="text-align:center;">{{ $product->id }}</td>
                                                     <td style="text-align:left;">{{ $product->title }}</td>
-                                                    <td style="text-align:left;">{{ $product->description }}</td>
+                                                    <td style="text-align:left;">{{ strlen($product->description) > 100 ? substr($product->description, 0, 300) . '...' : $product->description }}</td>
                                                     @if($product->features!='')
                                                         <td style="text-align:center;">
                                                             @php
                                                                 $product->features = json_decode($product->features, true);
                                                                 $index=1;
+                                                                $count = 0;
                                                             @endphp
                                                             <ol style="margin: 0; padding:0px;">
                                                                 @foreach ($product->features as $feature)
-                                                                    <li style="text-align:left;"><span style="font-weight:700;">{{$index}}:</span> {{ $feature }}</li>
-                                                                        @php $index=$index+1; @endphp
+                                                                @if ($count < 2)
+                                                                <li style="text-align:left;"><span style="font-weight:700;">{{$index}}:</span> {{ $feature }}</li>
+                                                                    @php $count++; @endphp
+                                                                @else
+                                                                    @break
+                                                                @endif
+                                                                    @php $index=$index+1; @endphp
                                                                 @endforeach
                                                             </ol>
                                                         </td>

@@ -58,4 +58,27 @@ class SoftwareController extends Controller
         return redirect()->route('checkout');
     }
 
+
+    
+    public function suggestion(Request $request)
+    {
+        // Validate the request input to ensure a query is provided.
+        $request->validate([
+            'query' => 'required|string|min:1'
+        ]);
+
+        // Retrieve the query from the request.
+        $query = $request->input('query');
+
+        // Fetch unique client names that match the query.
+        $product = Software::where('title', 'LIKE', '%' . $query . '%')
+            ->select('title')
+            ->distinct()
+            ->limit(10)
+            ->get();
+
+        // Return the unique client names as a JSON response.
+        return response()->json($product);
+    }
+
 }
