@@ -27,9 +27,8 @@
             <!-- ___________________________ product search end -->
 
             <ul class="listing">
-
                 @if (empty($products))
-                    <p>No products available.</p>
+                    <p>কোনো প্রোডাক্ট পাওয়া যায়নি</p>
                 @else
                 @foreach ($products as $product)
                 <!-- _________________________ product list start -->
@@ -68,6 +67,7 @@
 
 <script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script>
     <script>
+
         $(document).ready(function () {
             // Handle input change for dynamic suggestions
             $('#nameInput').on('input', function () {

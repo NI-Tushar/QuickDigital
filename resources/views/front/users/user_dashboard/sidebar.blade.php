@@ -308,22 +308,18 @@
 
 
 <!-- _________________________________________ hiding footer and change header bar if in the affiliator dashboard start -->
-@if (Session::has('dashboard_page') && Session::get('dashboard_page') === 'affiliator')
+@if (Auth::guard('user')->check())
     <style>
       /* ___________________________ header */
       .header_bar{
         max-width:100% !important; 
       }
       
+      .sticky_bar .top_bar, footer,
       .header_bar .offcanvas-body ul .hide{
         display:none !important;
       }
-      
-      /* ___________________________ footer*/
-      footer {
-        display: none !important;
-      }
-      
+         
       @media (max-width: 995px) {
         .dropdown-menu{
           display:flex !important;

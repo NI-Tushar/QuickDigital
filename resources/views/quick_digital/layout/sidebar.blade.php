@@ -1,3 +1,5 @@
+
+@include('quick_digital.layout.loader')
 <div class="shadow py-3 rounded">
     <div class="d-flex justify-centent-center flex-column align-items-center mt-3 gap-1 mb-3">
         @if (Auth::guard('user')->check())
@@ -65,3 +67,4 @@
         </a>
     </div>
 </div>
+
