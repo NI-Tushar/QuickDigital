@@ -64,22 +64,27 @@
                                             <tbody>
                                                 @foreach ($softwares as $software)
                                                 <tr>
-                                                    <td style="text-align:center;">{{ $software->id }}</td>
-                                                    <td style="text-align:left;">{{ $software->title }}</td>
-                                                    <td style="text-align:left;">{{ $software->description }}</td>
+                                                    <td style="text-align:center;font-size:14px;">{{ $software->id }}</td>
+                                                    <td style="text-align:left;font-size:14px;">{{ $software->title }}</td>
+                                                    <td style="text-align:left;font-size:14px;">{{ strlen($software->description) > 100 ? substr($software->description, 0, 100) . '...' : $software->description }}</td>
                                                     <td style="text-align:center;">
-                                                        @php
-                                                            $software->features = json_decode($software->features, true);
-                                                            $index=1;
-                                                        @endphp
-                                                        <ol style="margin: 0; padding:0px;">
-                                                            @foreach ($software->features as $feature)
-                                                                <li style="text-align:left;"><span style="font-weight:700;">{{$index}}:</span> {{ $feature }}</li>
+                                                            @php
+                                                                $software->features = json_decode($software->features, true);
+                                                                $index=1;
+                                                                $count = 0;
+                                                            @endphp
+                                                            <ol style="margin: 0; padding:0px;">
+                                                                @foreach ($software->features as $feature)
+                                                                @if ($count < 2)
+                                                                <li style="text-align:left;font-size:14px;"><span style="font-weight:700;">{{$index}}:</span> {{ $feature }}</li>
+                                                                    @php $count++; @endphp
+                                                                @else
+                                                                    @break
+                                                                @endif
                                                                     @php $index=$index+1; @endphp
-                                                            @endforeach
-                                                        </ol>
-
-                                                    </td>
+                                                                @endforeach
+                                                            </ol>
+                                                        </td>
                                                     <td style="text-align:center;width:50px;">{{ $software->price }} BDT</td>
                                                     <td style="text-align:center;width:50px;">{{ $software->affiliator_commission }} %</td>
                                                     <td style="text-align:center;width:50px;">

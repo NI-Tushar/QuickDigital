@@ -1,16 +1,54 @@
 @extends('quick_digital.layout.layout')
 @section('content')
 <link rel="stylesheet" href="{{ url ('front/styles/software.css') }}">
-<link rel="stylesheet" href="{{ url('front/styles/digital_product.css') }}">
 
 <div class="software_section">
     <div class="centered_list">
         <div class="soft_heading">
             <h3>ম্যানেজমেন্ট সফটওয়্যার লিস্টঃ</h3>
         </div>
+        <style>
+          
+        /* ___________________ search box start */
+        .search_box{
+          margin-bottom: 2rem;
+          padding:10px;
+          border-radius: 5px;
+          box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+        }
+        .search_box .search{
+          display: flex;
+          gap:5px;
+          border: none;
+        }
+        .search_box .search input{
+          width: 100%;
+          padding: 5px;
+          font-size: 17px;
+          border-radius: 5px;
+          border: 1px solid var(--primary-color);
+          outline: none;
+        }
+        .search_box .search .icon{
+          width: 50px;
+          display: flex;
+          border-radius: 5px;
+          border: 1px solid var(--primary-color);
+        }
+        .search_box .search .icon:hover{
+          background-color: var(--primary-color);
+        }
+        .search_box .search .icon:hover svg{
+          color: aliceblue;
+        }
+        .search_box .search .icon svg{
+          margin: auto;
+        }
+        /* ___________________ search box end */
+        </style>
 
-          <!-- ___________________________ product search start -->
-          <div class="search_box">
+            <!-- ___________________________ product search start -->
+            <div class="search_box">
                 <form method="GET" action="{{ route('quick.software') }}">
                     <div class="search">
                         <input type="text" id="nameInput" name="nameField" placeholder="নাম দিয়ে সার্চ করুন" value="{{ request('name') }}" autocomplete="off">
@@ -28,10 +66,81 @@
                 </form>
             </div>
             <!-- ___________________________ product search end -->
+             
+             
+
+        <!-- _______________________________________ suggesion for search start -->
+        @push('script')
+
+          <script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script>
+              <script>
+
+                  $(document).ready(function () {
+                      // Handle input change for dynamic suggestions
+                      $('#nameInput').on('input', function () {
+                          const query = $(this).val();
+                          console.log(query);
+
+                          // If the input is cleared, submit the form to show all products
+                          if (query.length === 0) {
+                              $('#name').val('');
+                              $(this).closest('form').submit();
+                              return;
+                          }
+
+                          // Fetch suggestions if input is non-empty
+                          $.ajax({
+                              url: '{{ route("quick.software.suggestion") }}',
+                              type: 'GET',
+                              data: { query: query },
+                              dataType: 'json',
+                              success: function (res) {
+                                  displaySuggestions(res);
+                              },
+                              error: function (xhr, status, error) {
+                                  console.error(xhr.responseText);
+                              }
+                          });
+                      });
+
+                      // Display suggestions in the dropdown
+                      function displaySuggestions(data) {
+                          let suggestions = data.map(item => `
+                              <a href="#" class="dropdown-item" data-name="${item.title}">${item.title}</a>
+                          `).join('');
+                          $('#nameSuggestion').html(suggestions).show();
+                      }
+
+                      // When a suggestion is clicked, set input and hidden field values
+                      $('#nameSuggestion').on('click', '.dropdown-item', function (e) {
+                          e.preventDefault();
+                          const name = $(this).data('name');
+                          $('#nameInput').val(name);
+                          $('#name').val(name); // Set hidden field with selected value
+                          $('#nameSuggestion').hide();
+
+                          // Auto-submit form
+                          $(this).closest('form').submit();
+                      });
+
+                      // Clear suggestions if clicking outside
+                      $(document).on('click', function (e) {
+                          if (!$(e.target).closest('#nameInput').length) {
+                              $('#nameSuggestion').hide();
+                          }
+                      });
+                  });
+              </script>
+
+          @endpush
+        <!-- _______________________________________ suggesion for search end -->
+
+
+
         <div class="list_section">
             <!-- _____________________________ -->
             @if (empty($softwares))
-                <p>No software available.</p>
+                <p>কোনো সফটওয়্যার পাওয়া যায়নি</p>
             @else
                 @foreach ($softwares as $software)
                 <div class="soft_list">
@@ -40,7 +149,7 @@
                     </div>
                     <div class="desc_sec">
                         <p class="sof_name">{{ $software->title }}</p>
-                        <p class="desc">{{ $software->description }}</p>
+                        <p class="desc">{{ strlen($software->description) > 100 ? substr($software->description, 0, 200) . '...' : $software->description }}</p>
                         <ul>
                             @php
                                 $software->features = json_decode($software->features, true);
@@ -99,10 +208,16 @@
                 </div>
                 @endforeach
             @endif
+              <!-- Pagination Links -->
+              <div class="d-flex justify-content-end">
+                {{ $softwares->links('pagination::bootstrap-4') }}
+            </div>
             <!-- _____________________________ -->
         </div>
     </div>
 </div>
+
+
 
 
 <!-- ______________________________ pop up show onlick by start -->
@@ -232,67 +347,6 @@
        <!-- _______________ -->
     </div>
 </div>
-
-<!-- _______________________________________ suggesion for search start -->
- 
-<script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script>
-    <script>
-        $(document).ready(function () {
-            // Handle input change for dynamic suggestions
-            $('#nameInput').on('input', function () {
-                const query = $(this).val();
-
-                // If the input is cleared, submit the form to show all products
-                if (query.length === 0) {
-                    $('#name').val('');
-                    $(this).closest('form').submit();
-                    return;
-                }
-
-                // Fetch suggestions if input is non-empty
-                $.ajax({
-                    url: '{{ route("quick.software.suggestion") }}',
-                    type: 'GET',
-                    data: { query: query },
-                    dataType: 'json',
-                    success: function (res) {
-                        displaySuggestions(res);
-                    },
-                    error: function (xhr, status, error) {
-                        console.error(xhr.responseText);
-                    }
-                });
-            });
-
-            // Display suggestions in the dropdown
-            function displaySuggestions(data) {
-                let suggestions = data.map(item => `
-                    <a href="#" class="dropdown-item" data-name="${item.title}">${item.title}</a>
-                `).join('');
-                $('#nameSuggestion').html(suggestions).show();
-            }
-
-            // When a suggestion is clicked, set input and hidden field values
-            $('#nameSuggestion').on('click', '.dropdown-item', function (e) {
-                e.preventDefault();
-                const name = $(this).data('name');
-                $('#nameInput').val(name);
-                $('#name').val(name); // Set hidden field with selected value
-                $('#nameSuggestion').hide();
-
-                // Auto-submit form
-                $(this).closest('form').submit();
-            });
-
-            // Clear suggestions if clicking outside
-            $(document).on('click', function (e) {
-                if (!$(e.target).closest('#nameInput').length) {
-                    $('#nameSuggestion').hide();
-                }
-            });
-        });
-    </script>
-<!-- _______________________________________ suggesion for search end -->
 
 
 

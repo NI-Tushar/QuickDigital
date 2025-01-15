@@ -9,11 +9,41 @@ use Illuminate\Support\Facades\Session;
 
 class SoftwareController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $softwares = Software::where('customer_enabled', '1')->get();
-        return view('quick_digital.software.software_view')->with(compact('softwares'));
+        $query = Software::query();
+
+        // Apply filters based on query parameters
+        if ($request->filled('name')) {
+            $query->where('title', 'like', '%' . $request->input('name') . '%');
+        }
+
+        $softwares = $query->where('customer_enabled', '1')->latest()->paginate(10);
+        return view('quick_digital.software.software_view', compact('softwares'))->with('request', $request);
+
     }
+    
+    public function suggestion(Request $request)
+    {
+        // Validate the request input to ensure a query is provided.
+        $request->validate([
+            'query' => 'required|string|min:1'
+        ]);
+
+        // Retrieve the query from the request.
+        $query = $request->input('query');
+
+        // Fetch unique client names that match the query.
+        $product = Software::where('title', 'LIKE', '%' . $query . '%')
+            ->select('title')
+            ->distinct()
+            ->limit(10)
+            ->get();
+
+        // Return the unique client names as a JSON response.
+        return response()->json($product);
+    }
+
 
     public function softwareOrder(Request $request)
     {
@@ -60,25 +90,5 @@ class SoftwareController extends Controller
 
 
     
-    public function suggestion(Request $request)
-    {
-        // Validate the request input to ensure a query is provided.
-        $request->validate([
-            'query' => 'required|string|min:1'
-        ]);
-
-        // Retrieve the query from the request.
-        $query = $request->input('query');
-
-        // Fetch unique client names that match the query.
-        $product = Software::where('title', 'LIKE', '%' . $query . '%')
-            ->select('title')
-            ->distinct()
-            ->limit(10)
-            ->get();
-
-        // Return the unique client names as a JSON response.
-        return response()->json($product);
-    }
 
 }

@@ -9,9 +9,12 @@
   gtag('config', 'G-MBXJWQEP3W');
 </script>
 
+@include('quick_digital.layout.loader')
+
+
 <div class="sticky_bar">
 
-    <div class="bg-first text-white">
+    <div class="bg-first text-white top_bar">
         <div class="container max-width">
             <div class="top-contacts">
 

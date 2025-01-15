@@ -92,26 +92,7 @@
                 </ul>
             </li> -->
 
-            @php
-            $active = Session::get('page') == 'ebooks' || Session::get('page') == 'add_ebook' ? 'active' : '';
-            @endphp
-            <li class="nav-item {{ $active }}"><a href="#"><i class="feather icon-file"></i><span class="menu-title" data-i18n="Users">E-books</span></a>
-                <ul class="menu-content">
-                    @php
-                    $active = Session::get('page') == 'ebooks' ? 'active' : '';
-                    @endphp
-                    <li class="{{ $active }}">
-                        <a class="menu-item" href="{{ url('admin/ebooks') }}" data-i18n="Vertical">Manage E-books</a>
-                    </li>
-
-                    @php
-                    $active = Session::get('page') == 'add_ebook' ? 'active' : '';
-                    @endphp
-                    <li class="{{ $active }}">
-                        <a class="menu-item" href="{{ url('admin/add-edit-ebook') }}" data-i18n="Vertical">Add E-book</a>
-                    </li>
-                </ul>
-            </li>
+          
 
             <!-- @php
             $active = Session::get('page') == 'order' ? 'active' : '';
@@ -173,16 +154,34 @@
               @php
               $active = Session::get('page') == 'affiliator' ? 'active' : '';
               @endphp
-            <li class="nav-item {{ $active }}"><a href="#"><i class="feather icon-file"></i><span class="menu-title" data-i18n="Users">QuickBusiness</span></a>
+                <li class="nav-item {{ $active }}"><a href="#"><i class="feather icon-file"></i><span class="menu-title" data-i18n="Users">QuickBusiness</span></a>
+                    <ul class="menu-content">
+                        <li>
+                            <a class="menu-item" href="{{ route('bootcamp.index') }}" data-i18n="Vertical">Registration List</a>
+                        </li>
+                        <li>
+                            <a class="menu-item" href="{{ route('bootcamp.affiliators') }}" data-i18n="Vertical">Affiliator List</a>
+                        </li>
+                    </ul>
+                </li>
+
+                @php
+                $active = Session::get('page') == 'Affiliate' ? 'active' : '';
+              @endphp
+            <li class="nav-item {{ $active }}"><a href="#"><i class="feather icon-file"></i><span class="menu-title" data-i18n="Users">Affiliate</span></a>
                 <ul class="menu-content">
                     <li>
-                        <a class="menu-item" href="{{ route('bootcamp.index') }}" data-i18n="Vertical">Registration List</a>
+                        <a class="menu-item" href="{{ route('admin.affiliate.order') }}" data-i18n="Vertical">Orders</a>
                     </li>
                     <li>
-                        <a class="menu-item" href="{{ route('bootcamp.affiliators') }}" data-i18n="Vertical">Affiliator List</a>
+                        <a class="menu-item" href="{{ route('admin.affiliate.transaction.index') }}" data-i18n="Vertical">Transaction</a>
+                    </li>
+                    <li>
+                        <a class="menu-item" href="{{ route('admin.affiliate.promocode.index') }}" data-i18n="Vertical">Promo Codes</a>
                     </li>
                 </ul>
             </li>
+
 
             <!-- ____________________ SOFTWARE -->
             @php
@@ -229,19 +228,48 @@
             </li>
 
             {{-- Affiliate --}}
+
+            <!-- __________________________________________ ALL ORDERS START -->
             @php
-              $active = Session::get('page') == 'Affiliate' ? 'active' : '';
-              @endphp
-            <li class="nav-item {{ $active }}"><a href="#"><i class="feather icon-file"></i><span class="menu-title" data-i18n="Users">Affiliate</span></a>
+            $active = Session::get('page') == 'orders' || Session::get('page') == 'orders' ? 'active' : '';
+            @endphp
+            <li class="nav-item {{ $active }}"><a href="#"><i class="feather icon-file"></i><span class="menu-title" data-i18n="Users">Customer Order's</span></a>
                 <ul class="menu-content">
-                    <li>
-                        <a class="menu-item" href="{{ route('admin.affiliate.order') }}" data-i18n="Vertical">Orders</a>
+                    @php
+                    $active = Session::get('page') == 'orders' ? 'active' : '';
+                    @endphp
+                    <li class="{{ $active }}">
+                        <a class="menu-item" href="{{ route('software.order.list') }}" data-i18n="Vertical">Software Orders</a>
                     </li>
-                    <li>
-                        <a class="menu-item" href="{{ route('admin.affiliate.transaction.index') }}" data-i18n="Vertical">Transaction</a>
+
+                    @php
+                    $active = Session::get('page') == 'orders' ? 'active' : '';
+                    @endphp
+                    <li class="{{ $active }}">
+                        <a class="menu-item" href="{{ url('admin/add-edit-ebook') }}" data-i18n="Vertical">Digital Product Orders</a>
                     </li>
-                    <li>
-                        <a class="menu-item" href="{{ route('admin.affiliate.promocode.index') }}" data-i18n="Vertical">Promo Codes</a>
+                </ul>
+            </li>
+            <!-- __________________________________________ ALL ORDERS END -->
+
+
+            @php
+            $active = Session::get('page') == 'ebooks' || Session::get('page') == 'add_ebook' ? 'active' : '';
+            @endphp
+            <li class="nav-item {{ $active }}"><a href="#"><i class="feather icon-file"></i><span class="menu-title" data-i18n="Users">E-books</span></a>
+                <ul class="menu-content">
+                    @php
+                    $active = Session::get('page') == 'ebooks' ? 'active' : '';
+                    @endphp
+                    <li class="{{ $active }}">
+                        <a class="menu-item" href="{{ url('admin/ebooks') }}" data-i18n="Vertical">Manage E-books</a>
+                    </li>
+
+                    @php
+                    $active = Session::get('page') == 'add_ebook' ? 'active' : '';
+                    @endphp
+                    <li class="{{ $active }}">
+                        <a class="menu-item" href="{{ url('admin/add-edit-ebook') }}" data-i18n="Vertical">Add E-book</a>
                     </li>
                 </ul>
             </li>

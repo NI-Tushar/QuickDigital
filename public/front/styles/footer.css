@@ -8,3 +8,14 @@
     -webkit-transform: scale(1.05); /* Safari 3-8 */
     transform: scale(1.05); 
 }
+
+    
+@media only screen and (max-width: 520px) {
+    
+    .footer-elements{
+        padding: 10px !important;
+        width: 100% !important;
+        max-width: 300px !important;
+        margin: auto;
+    }
+}

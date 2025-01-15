@@ -5,7 +5,8 @@
 
 <section class="contact-page-sec">
   <div class="container">
-    <div class="row">
+    <div class="row card_section">
+
       <div class="col-md-4">
         <div class="contact-info">
           <div class="contact-info-item">
@@ -61,6 +62,7 @@
         </div>
       </div>
     </div>
+
     <div class="row">
       <div class="col-md-8">
         <div class="contact-page-form" method="post">

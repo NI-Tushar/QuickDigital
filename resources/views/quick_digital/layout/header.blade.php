@@ -6,11 +6,10 @@
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-MBXJWQEP3W');
 </script>
 
-
+@include('quick_digital.layout.loader')
 
 <div class="sticky_bar">
 
@@ -64,11 +63,12 @@
             </div>
         </div>
     </div>
+
     <!-- ______________________________________________________________ -->
     <div class="container max-width header_bar" style="padding:0px;">
         <nav class="navbar custom-padding navbar-expand-lg" style="width:100%;">
             <div class="container-fluid">
-                <a class="navbar-brand w-25" href="{{ url('quick-digital/index') }}">
+                <a class="navbar-brand w-60" href="{{ url('quick-digital/index') }}">
                     <img src="{{ asset('front/assets/images/primary_logo2.png') }}"
                         alt="">
                 </a>

@@ -140,6 +140,11 @@
             Route::post('updating-service', 'AdminDigitalServiceController@updating_digService');
             Route::get('delete-digService/{id?}', 'AdminDigitalServiceController@deleteService');
 
+            // CUSTOMER ORDERS
+            // Software Order list
+            Route::get('software-order-list', 'AdminCustomerOrderController@software_order_list')->name('software.order.list');
+
+
 
             //subadmin
             Route::group(['middleware' => ['adminAccessOnly']], function () {
