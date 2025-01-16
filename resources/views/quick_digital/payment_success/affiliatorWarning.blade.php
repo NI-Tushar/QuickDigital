@@ -6,6 +6,7 @@
     <title>এফিলিয়েটর ওয়ার্নিং | কুইক ডিজিটাল</title>
     <link rel="stylesheet" href="{{ url('front/styles/successPage.css') }}">
     <link rel="stylesheet" href="/public/front/styles/successPage.css">
+    <link rel="icon" href="{{ url('icon.png') }}" type="image/png">
 </head>
 <body>
     <div class="success-message">
@@ -15,7 +16,7 @@
         </svg>
          
         <h1 class="success-message__title warning">Warning!</h1>
-        <div class="success-message__content">
+        <div style="padding-bottom:25px;" class="success-message__content">
             <p>আপনি একজন এফিলিয়েটর।</p>
             <p>অর্ডার করতে হলে আপনার ড্যাশবোর্ড এ যান</p>
             <div class="button_section warning">

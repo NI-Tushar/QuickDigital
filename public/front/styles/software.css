@@ -345,11 +345,11 @@
     transform: scale(1);
   }
   
-  .content {
+  .buy_popup_section .content {
       text-align: center;
     }
       
-      .content .details_box {
+    .buy_popup_section  .content .details_box {
         background-color:#d6d6d6;
         padding: 5px;
         border-radius: 5px;
@@ -357,7 +357,7 @@
         margin: 0 auto; /* Center the box */
       }
       
-      .content .details_box .list {
+      .buy_popup_section  .content .details_box .list {
         display: flex;
         align-items: center;
         justify-content: flex-start; /* Align items to the left */
@@ -365,7 +365,7 @@
         margin-bottom: 0px;
       }
       
-      .content .details_box .list label {
+      .buy_popup_section .content .details_box .list label {
         width: 120px; /* Adjust label width for consistent alignment */
         text-align: left; /* Align text inside the label */
         font-weight: 600;
@@ -373,8 +373,8 @@
       }
       
     
-      .content .details_box .list select,
-      .content .details_box .list p {
+      .buy_popup_section  .content .details_box .list select,
+      .buy_popup_section  .content .details_box .list p {
         flex: 1; /* Make the input take the remaining space */
         padding: 0;
         margin: 0;

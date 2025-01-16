@@ -231,19 +231,19 @@
 
             <!-- __________________________________________ ALL ORDERS START -->
             @php
-            $active = Session::get('page') == 'orders' || Session::get('page') == 'orders' ? 'active' : '';
+            $active = Session::get('page') == 'customer_order' || Session::get('page') == 'customer_order' ? 'active' : '';
             @endphp
             <li class="nav-item {{ $active }}"><a href="#"><i class="feather icon-file"></i><span class="menu-title" data-i18n="Users">Customer Order's</span></a>
                 <ul class="menu-content">
                     @php
-                    $active = Session::get('page') == 'orders' ? 'active' : '';
+                    $active = Session::get('page') == 'customer_order' ? 'active' : '';
                     @endphp
                     <li class="{{ $active }}">
                         <a class="menu-item" href="{{ route('software.order.list') }}" data-i18n="Vertical">Software Orders</a>
                     </li>
 
                     @php
-                    $active = Session::get('page') == 'orders' ? 'active' : '';
+                    $active = Session::get('page') == 'customer_order' ? 'active' : '';
                     @endphp
                     <li class="{{ $active }}">
                         <a class="menu-item" href="{{ url('admin/add-edit-ebook') }}" data-i18n="Vertical">Digital Product Orders</a>
