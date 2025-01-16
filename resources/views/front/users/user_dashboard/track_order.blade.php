@@ -91,11 +91,11 @@
 
               
                  <script>
-                
-                toggle = (idx) => {
-                    document.querySelectorAll('.expandable-item')[idx].classList.toggle('active');
-                    console.log('clicked lskflskdf');
-                };
+                    
+                    toggle = (idx) => {
+                        document.querySelectorAll('.expandable-item')[idx].classList.toggle('active');
+                        console.log('clicked lskflskdf');
+                    };
                  </script>
 
             </div>

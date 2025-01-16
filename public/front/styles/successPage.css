@@ -48,6 +48,7 @@
 }
 .warning {
   color: var(--warning-color);
+  padding-top: 15px;
 }
   .active .success-message__title {
     transform: translateY(0);

@@ -94,7 +94,7 @@
             Route::match(['get', 'post'], 'add-edit-product/{id?}', 'QuickShopController@add_edit_product');
             Route::get('delete-product/{id?}', 'QuickShopController@destroyProduct');
 
-            // Digital Sercice
+            // Digital Sercive
             Route::get('/digital-service', [DigitalServiceController::class, 'getAllOrder'])->name('admin.digialservice.index');
             Route::delete('/digital-service/{digitalService}', [DigitalServiceController::class, 'destroy'])->name('admin.digialservice.destroy');
 
@@ -143,6 +143,7 @@
             // CUSTOMER ORDERS
             // Software Order list
             Route::get('software-order-list', 'AdminCustomerOrderController@software_order_list')->name('software.order.list');
+            Route::get('update_ordered_software/{id?}', 'AdminCustomerOrderController@updateOrderedSoftware');
 
 
 

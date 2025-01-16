@@ -16,10 +16,13 @@ class AdminCustomerOrderController extends Controller
 {
     public function software_order_list()
     {
-        Session::put('page', 'software');
+        Session::put('page', 'customer_order');
         // $order_softwares = CustomerOrder::all();
         $order_softwares = CustomerOrder::where('service_type', 'software')->latest()->paginate(10);
-        // dd($order_softwares);
         return view('admin.customer_orders.software_order.softwareOrderList')->with(compact('order_softwares'));
+    }
+    public function updateOrderedSoftware($id){
+        Session::put('page', 'customer_order');
+        return view('admin.customer_orders.software_order.orderDetails');
     }
 }
