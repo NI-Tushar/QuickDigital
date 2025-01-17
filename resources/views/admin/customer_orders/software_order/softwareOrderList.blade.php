@@ -34,7 +34,7 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                
+                                <h3>Total Software Order: {{$totalCount}}</h3>
                                 <div class="heading-elements">
                                     <ul class="list-inline mb-0">
                                         <li><a data-action="collapse"><i class="feather icon-minus"></i></a></li>
@@ -64,6 +64,11 @@
                                                 </tr>
                                             </thead>
                                             <style>
+                                                .card-header h3{
+                                                    margin:0;
+                                                    padding:0;
+                                                    font-weight:600;
+                                                }
                                                 table tbody tr:hover{
                                                     background:rgba(3, 126, 128, 0.08) !important;
                                                 }

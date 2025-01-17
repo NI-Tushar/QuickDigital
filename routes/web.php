@@ -145,6 +145,8 @@
             Route::get('software-order-list', 'AdminCustomerOrderController@software_order_list')->name('software.order.list');
             Route::get('update_ordered_software/{id?}', 'AdminCustomerOrderController@updateOrderedSoftware');
 
+            Route::post('update_status_software_order', 'AdminCustomerOrderController@updateStatusSoftwareOrder');
+
 
 
             //subadmin

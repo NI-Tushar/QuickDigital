@@ -256,11 +256,18 @@
     margin-top: auto;
     margin-bottom: auto;
     padding-left: 10px;
-}
-.software_section .header_info .price_section{
-  text-align: right;
-  padding-right: 10px;
-}
+  }
+  .collapsible-header .header_info .title p{
+    font-size: 13px;
+  }
+  .software_section .header_info .price_section{
+    text-align: right;
+    padding-right: 10px;
+  }
+  .collapsible-header .header_info .button_part{
+    width: 100px;
+    padding: 0;
+  }
 
 
 .software_section .header_info .custom p{
@@ -289,32 +296,82 @@
     font-weight: 600;
 }
 
-.collapsible-header .down_icon{
+.collapsible-header .section_part .down_icon{
   background-color: rgb(212, 212, 212);
-  display: flex;
   position: relative;
   text-align: center;
   height: 100%;
+  width: 100px;
+  padding-top: 15px;
+  padding: 5px;
+}
+.collapsible-header .section_part .down_icon button{
+  border-radius: 5px;
+  border: 1px solid var(--primary-color);
+  font-size: 15px;
+  width: 100%;
+  font-weight: 600;
+}
+.collapsible-header .section_part .down_icon button:hover{
+  background-color: var(--primary-color);
+  color: aliceblue;
 }
 .collapsible-header .down_icon .up_down_arrow{
-        margin: auto;
-        padding-left: 10px;
-        padding-right: 10px;
-        font-size: 25px;
-        color: rgba(0, 0, 0, 0.493);
-    }
-    .collapsible-header .down_icon .up_down_arrow:hover{
-        color: black;
-    }
+  display: flex;
+  color: rgba(0, 0, 0, 0.493);
+  height: 70%;
+}
+.collapsible-header .down_icon .up_down_arrow .icon{
+  margin: auto;
+}
+
+.collapsible-header .down_icon .up_down_arrow:hover{
+    color: black;
+}
 
 
 
     @media screen and (max-width: 720px){
-      .collapsible-header .enr_img img{
-        height: 40px;
-        width: 40px;
+      .collapsible-header{
+        display: block;
       }
-      .collapsible-header .header_info .section_part label{
+      .collapsible-header .enr_img {
+        padding-left: 20px;
+        padding-top: 10px;
+        width: 100%;
+      }
+      .collapsible-header .enr_img img{
+        height: auto;
+        width: 100%;
+      }
+      .collapsible-header .header_info{
+        display: block;
+        width: 100%;
+      }
+      .collapsible-header .section_part{
+        padding: 0px;
+        border: none;
+      }
+      .software,
+      .collapsible-header .section_part .up_down_arrow,
+      .collapsible-header .header_info .custom,
+      .collapsible-header .header_info .price_section{
+        display: none;
+      }
+      .collapsible-header .header_info .button_part{
+        width: 100%;
+      }
+      .collapsible-header .section_part .down_icon{
+        padding: 0px !important;
+        height: auto;
+        width: 100%;
+        background-color: transparent;
+      }
+      .collapsible-header .section_part .down_icon button{
+        width: 100%;
+      }
+
+      /* .collapsible-header .header_info .section_part label{
         font-size: 9px;
       } 
       .collapsible-header .header_info .section_part p{   
@@ -329,8 +386,8 @@
       .expandable-item .expandable-body .drop_text{
         display: block;
         width: 100%;
-    }
-    .expandable-item .expandable-body .drop_text .file_section,
+    } */
+    /* .expandable-item .expandable-body .drop_text .file_section,
     .expandable-item .expandable-body .drop_text .drop_section{
       width: 100%;
     }
@@ -346,7 +403,7 @@
     .expandable-item .expandable-body .drop_text .drop_section .file_box .file{
       margin: auto;
       width: auto;
-    }
+    } */
 
   }
   
@@ -535,7 +592,6 @@
     }
     .software_section .header_info .section_part{
       padding-top: 15px;
-      border-bottom: 0.5px solid rgba(0, 0, 0, 0.327);
     }
     
   

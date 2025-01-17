@@ -238,6 +238,7 @@ padding-left: 10px;
 
 
 .home-section {
+  margin-top: -3rem;
   position: relative;
   background: #e4e9f7;
   min-height: 100vh;
