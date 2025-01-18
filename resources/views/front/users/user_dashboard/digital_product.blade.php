@@ -37,24 +37,24 @@
                                         <img src="{{ asset($product->digitalproduct->thumbnail) }}" alt="">
                                     </div>
                                     <div class="header_info">
-                                        <div class="section_part">
+                                        <div class="section_part title">
                                             <label>সার্ভিস প্রোডাক্ট</label>
                                             <p>{{$product->digitalproduct->title}}</p>
                                         </div>      
-                                        <div class="section_part">
-                                            <label>মূল্য</label> 
+                                        <div class="section_part price_section">
+                                            <label>পেইড এমাউন্ট</label> 
                                             <p><span>{{$product->total}}</span> /BDT</p>
                                         </div>            
                                     </div>
-                                    <div class="section_part">
-                                        <div class="down_icon" onclick="toggle('<?php echo $loop->index; ?>')">
+                                    <div class="section_part button_part">
+                                        <div class="down_icon down_icon_product" onclick="toggle('<?php echo $loop->index; ?>')">
 
-                                            <div class="up_down_arrow">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <div class="up_down_arrow arrow_product">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                                     <path d="M12 19V5"></path> <!-- Vertical line -->
                                                     <path d="M5 9l7-7 7 7"></path> <!-- Upward arrow -->
                                                 </svg>
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                                     <path d="M12 5v14"></path> <!-- Vertical line -->
                                                     <path d="M19 15l-7 7-7-7"></path> <!-- Downward arrow -->
                                                 </svg>
@@ -65,11 +65,11 @@
 
                                 </div>    
                                 </div>
-                                <div class="expandable-body">
+                                <div class="expandable-body exp_body_product">
                                     <div id="drop_text" class="drop_text">
                                         <div class="drop_section">
                                             <label>Description / বিবরণঃ:</label>
-                                            <p>{{$product->digitalproduct->description}}</p>
+                                            <p>{{ strlen($product->digitalproduct->description) > 100 ? substr($product->digitalproduct->description, 0, 700) . '...' : $product->digitalproduct->description }}</p>
                                         </div>
                                         <div class="drop_section file_section">
                                             <div class="file_box">

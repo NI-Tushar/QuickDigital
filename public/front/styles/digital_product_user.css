@@ -19,7 +19,6 @@
   .software_section .order_center .no_post_msg{
     border-bottom:1px solid gray;
     color: rgba(0, 0, 0, 0.604);
-    
   }
   
     /* ___________________ order details start */
@@ -71,6 +70,7 @@
     position: relative;
     height: 100%px;
     font-weight: bolder;
+    
   }
   
   .expandable-icon {
@@ -85,7 +85,7 @@
   }
   
   .expandable-item.active .expandable-icon{
-  transform: rotateZ(0);
+    transform: rotateZ(0);
   }
   
   .expandable-icon .line {
@@ -256,6 +256,7 @@
     margin-top: auto;
     margin-bottom: auto;
     padding-left: 10px;
+    
   }
   .collapsible-header .header_info .title p{
     font-size: 13px;
@@ -264,8 +265,23 @@
     text-align: right;
     padding-right: 10px;
   }
+  .software_section .header_info .price_section button{
+    border: 1px solid var(--primary-color);
+    border-radius: 3px;
+    padding-left: 10px;
+    padding-right:10px;
+    padding-top:5px;
+    padding-bottom:5px;
+    font-size: 14px;
+    font-weight: 600;
+    margin-top: 10px;
+  }
+  .software_section .header_info .price_section button:hover{
+    background-color: var(--primary-color);
+    color: aliceblue;
+  }
   .collapsible-header .header_info .button_part{
-    width: 100px;
+    width: 40px;
     padding: 0;
   }
 
@@ -301,9 +317,10 @@
   position: relative;
   text-align: center;
   height: 100%;
-  width: 100px;
+  width: 40px;
   padding-top: 15px;
   padding: 5px;
+  cursor:pointer;
 }
 .collapsible-header .section_part .down_icon button{
   border-radius: 5px;
@@ -311,6 +328,7 @@
   font-size: 15px;
   width: 100%;
   font-weight: 600;
+  display: none;
 }
 .collapsible-header .section_part .down_icon button:hover{
   background-color: var(--primary-color);
@@ -319,8 +337,18 @@
 .collapsible-header .down_icon .up_down_arrow{
   display: flex;
   color: rgba(0, 0, 0, 0.493);
-  height: 70%;
+  height: 100%;
 }
+/* ______________________________________ DIGITAL PRODUCT START */
+.collapsible-header .down_icon_product{
+  display: flex;
+}
+.collapsible-header .down_icon_product .arrow_product{
+  display: block;
+  height: auto;
+  margin: auto;
+}
+/* ______________________________________ DIGITAL PRODUCT END */
 .collapsible-header .down_icon .up_down_arrow .icon{
   margin: auto;
 }
@@ -332,83 +360,111 @@
 
 
     @media screen and (max-width: 720px){
-      .collapsible-header{
+      /* .expandable-item.active .expandable-body {
+        display: none;
+      } */
+      /* .expandable-item.active .dig_prod_expend_body{
+        border: 1px solid red;
         display: block;
+      } */
+      .expandable-item {
+        box-shadow: rgba(60, 64, 67, 0.001) 0px 1px 2px 0px, rgba(60, 64, 67, 0) 0px 2px 6px 2px;
+        border-left: 5px solid var(--primary-hover-color);
+      }
+      .collapsible-header{
+        padding: 2px !important;
       }
       .collapsible-header .enr_img {
-        padding-left: 20px;
-        padding-top: 10px;
-        width: 100%;
+        display: none;
       }
       .collapsible-header .enr_img img{
         height: auto;
         width: 100%;
       }
       .collapsible-header .header_info{
-        display: block;
         width: 100%;
       }
-      .collapsible-header .section_part{
-        padding: 0px;
-        border: none;
+      .collapsible-header .header_info .title{
+        padding-left: 10px;
+        padding: 0px !important;
       }
       .software,
       .collapsible-header .section_part .up_down_arrow,
       .collapsible-header .header_info .custom,
-      .collapsible-header .header_info .price_section{
+      .collapsible-header .header_info .price_section
+      {
         display: none;
       }
+    
       .collapsible-header .header_info .button_part{
         width: 100%;
+        padding: 0px !important;
       }
       .collapsible-header .section_part .down_icon{
-        padding: 0px !important;
         height: auto;
         width: 100%;
         background-color: transparent;
+        display: flex;
+        gap: 5px;
       }
-      .collapsible-header .section_part .down_icon button{
+      .collapsible-header .section_part .down_icon a{
+        text-decoration: none;
         width: 100%;
       }
+      .collapsible-header .section_part .down_icon button{
+        padding-top: 3px;
+        width: 100%;
+        display: block;
+      }
+
 
       /* .collapsible-header .header_info .section_part label{
         font-size: 9px;
-      } 
-      .collapsible-header .header_info .section_part p{   
+      }  */
+      /* .collapsible-header .header_info .section_part p{   
         font-size: 10px;
+      } */
+
+      /* _________________________________________ DIGITAL PRODUCT START*/
+      .collapsible-header .section_part .down_icon_product{
+        height: 100%;
+        background-color: rgb(212, 212, 212);
       }
-      .expandable-item.active .expandable-body {
+      .collapsible-header .section_part .arrow_product{
+        display: block;
+      }
+      .expandable-item.active .exp_body_product {
         height:320px;
       }
       .expandable-item.active .software {
         height: 470px;
       }
-      .expandable-item .expandable-body .drop_text{
+      .expandable-item .exp_body_product .drop_text{
         display: block;
         width: 100%;
-    } */
-    /* .expandable-item .expandable-body .drop_text .file_section,
-    .expandable-item .expandable-body .drop_text .drop_section{
+    }
+    .expandable-item .exp_body_product .drop_text .file_section,
+    .expandable-item .exp_body_product .drop_text .drop_section{
       width: 100%;
     }
 
 
-    .expandable-item .expandable-body .drop_text .drop_section .file_box{
+    .expandable-item .exp_body_product .drop_text .drop_section .file_box{
       display: flex;
       height: auto;
       border-radius: 5px;
       padding-top: 10px;
       padding-bottom: 10px;
     }
-    .expandable-item .expandable-body .drop_text .drop_section .file_box .file{
+    .expandable-item .exp_body_product .drop_text .drop_section .file_box .file{
       margin: auto;
       width: auto;
-    } */
+    }
+    /* _________________________________________ DIGITAL PRODUCT END*/
 
   }
   
   /* ___________________ order details end */
-  
   
   
   
@@ -646,12 +702,21 @@
 
 
   /* ____________________________ custom features popup form start */
-  .btn-close {
-    cursor: pointer;
+  .buy_popup_section{
     position: relative;
-    right: -5px;
+  }
+  .buy_popup_section .close_icon_section{
+    position: absolute;
+    width: 100%;
+    left: 0px;
     top: 5px;
+    padding-right: 5px;
+    border-bottom: 0.5px solid rgba(0, 0, 0, 0.175);
+  }
+
+  .buy_popup_section .btn-close {
     margin: 3px;
+    cursor: pointer;
     width: 20px;
     height: 20px;
     float: right;
@@ -713,12 +778,12 @@
   }
   
   .centered_popup_section {
+    padding-top: 50px;
     padding-left: 15px;
     padding-right: 15px;
     display: inline-block;
-    max-height:80vh;
-    overflow:scroll;
-    width: 800px;
+    height:auto;
+    width: 1000px;
     padding-bottom: 25px;
     position: relative;
     margin: auto;
@@ -739,6 +804,7 @@
     /* Safari */
     transform: scale(0.7);
     border-radius: 5px;
+    border-top: 10px solid var(--primary-hover-color);
   }
   
   .buy_popup_section.open .centered_popup_section {
@@ -752,7 +818,9 @@
   }
   
   .content {
+    max-height: 80vh;
       text-align: center;
+      overflow:scroll;
     }
       
       .content .details_box {
@@ -832,8 +900,9 @@
   @media screen and (max-width: 425px) {
     .centered_popup_section {
       width: 100%;
-      height: 70%;
+      height: 90%;
       padding: 0;
+      padding-top: 50px;
     }
   
     .btn-close {
@@ -846,7 +915,7 @@
 
   /* ____________________________ custom featur input field add start */
   .feature_box{
-    /* border: 1px solid red; */
+    /*  */
     padding: 10px;
     padding-top: 25px;
   }
