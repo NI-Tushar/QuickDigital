@@ -37,7 +37,7 @@
                                         <img src="{{ asset($software->softwareList->thumbnail) }}" alt="">
                                     </div>
                                     <div class="header_info">
-                                        <div class="section_part">
+                                        <div class="section_part title">
                                             <label>সফটওয়্যার টাইটেলঃ</label>
                                             <p>{{$software->softwareList->title}}</p>
                                         </div>      
@@ -57,22 +57,29 @@
                                             <label>পেইড এমাউন্ট</label> 
                                             <p><span>{{$software->total}}</span> /BDT</p>
                                         </div>
-                                    </div>
-                                    <div class="section_part">
+                                    
+                                    <div class="section_part button_part">
                                         <div class="down_icon" onclick="toggle('<?php echo $loop->index; ?>')">
 
+                                            <a href="">
+                                                <button>Open</button>
+                                            </a>
+
                                             <div class="up_down_arrow">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                                    <path d="M12 19V5"></path> <!-- Vertical line -->
-                                                    <path d="M5 9l7-7 7 7"></path> <!-- Upward arrow -->
-                                                </svg>
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                                    <path d="M12 5v14"></path> <!-- Vertical line -->
-                                                    <path d="M19 15l-7 7-7-7"></path> <!-- Downward arrow -->
-                                                </svg>
+                                                <div class="icon">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                        <path d="M12 19V5"></path>
+                                                        <path d="M5 9l7-7 7 7"></path>
+                                                    </svg>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                        <path d="M12 5v14"></path> <!-- Vertical line -->
+                                                        <path d="M19 15l-7 7-7-7"></path> <!-- Downward arrow -->
+                                                    </svg>
+                                                </div>
                                             </div>
 
                                         </div>
+                                    </div>
                                     </div>
 
                                 </div>    

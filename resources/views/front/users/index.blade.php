@@ -23,7 +23,7 @@
                                                 </ul>
                                             </div>
                                         @endif
-<h1>LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL</h1>
+
 <a href="{{ url('user/update_password') }}">Update Password</a>
 <br></br>
 <a href="{{ url('user/update_user_details') }}">Update Profile</a>

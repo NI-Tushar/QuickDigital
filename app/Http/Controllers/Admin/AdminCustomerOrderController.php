@@ -16,13 +16,21 @@ class AdminCustomerOrderController extends Controller
 {
     public function software_order_list()
     {
+        $totalCount = CustomerOrder::where('service_type', 'software')->count();
         Session::put('page', 'customer_order');
-        // $order_softwares = CustomerOrder::all();
         $order_softwares = CustomerOrder::where('service_type', 'software')->latest()->paginate(10);
-        return view('admin.customer_orders.software_order.softwareOrderList')->with(compact('order_softwares'));
+        return view('admin.customer_orders.software_order.softwareOrderList')->with(compact('order_softwares','totalCount'));
     }
     public function updateOrderedSoftware($id){
         Session::put('page', 'customer_order');
-        return view('admin.customer_orders.software_order.orderDetails');
+        $order = CustomerOrder::where('id', $id)->first();
+        return view('admin.customer_orders.software_order.orderDetails')->with(compact('order'));
+    }
+    public function updateStatusSoftwareOrder(Request $request){
+        $data = $request->all();
+        CustomerOrder::where('id', $data['order_id'])->update([
+            'delivery_status' => $data['delivery_status'],
+        ]);
+        return redirect()->route('software.order.list');    
     }
 }
