@@ -31,18 +31,22 @@
 }
 .banner .button_div .buttons button{
     width: 150px;
-    border: 1px solid var(--banner-front-color);
+    border: 1px solid var(--primary-hover-color);
     border-radius: 5px;
     padding-top: 10px;
     padding-bottom: 10px;
 }
 .banner .button_div .buttons button:hover{
-    background-color: var(--banner-front-color);
+    background-color: var(--primary-hover-color);
     color: aliceblue;
 }
 .banner .button_div .buttons .active{
-    background-color: var(--banner-front-color);
+    background-color: var(--primary-hover-color);
     color: aliceblue;
+}
+.banner .button_div .buttons .active:hover{
+    background-color: var(--plyr-color-main);
+    border: 1px solid var(--plyr-color-main);
 }
 
 @media (max-width: 1200px) {

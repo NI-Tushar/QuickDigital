@@ -14,6 +14,7 @@ use Intervention\Image\Facades\Image;
 
 class AdminCustomerOrderController extends Controller
 {
+    // _____________________________________________________ FOR SOFTWARE ORDER MANAGEMENT
     public function software_order_list()
     {
         $totalCount = CustomerOrder::where('service_type', 'software')->count();
@@ -32,5 +33,14 @@ class AdminCustomerOrderController extends Controller
             'delivery_status' => $data['delivery_status'],
         ]);
         return redirect()->route('software.order.list');    
+    }
+
+    // _____________________________________________________ FOR DIGITAL PRODUCT ORDER MANAGEMENT
+    public function digitalProduct_order_list()
+    {
+        $totalCount = CustomerOrder::where('service_type', 'digital_product')->count();
+        Session::put('page', 'customer_order');
+        $order_softwares = CustomerOrder::where('service_type', 'digital_product')->latest()->paginate(10);
+        return view('admin.customer_orders.digital_product_order.digitalProductOrderList')->with(compact('order_softwares','totalCount'));
     }
 }

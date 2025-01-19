@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2-bootstrap-5-theme@1.3.0/dist/select2-bootstrap-5-theme.rtl.min.css" />
 
     <link rel="stylesheet" href="{{ url('front/styles/quick_business.css') }}">
+    <link rel="stylesheet" href="{{ url('front/styles/affiliator_req_form.css') }}">
 
 @endpush
 @section('content')
@@ -57,8 +58,82 @@
         </div>
         </div>
     </section>
+
+
+
+    <!-- ______________________________________ new designed form start -->
+     <section id="quick_form">
+         <!-- ___________________ -->
+            <div class="affiliator_reg_section">
+                <div class="centered_list">
+                    <div class="form_wrapper">
+                        <div class="form_container">
+                        <div class="title_container">
+                            <h2>আমাদের কুইক ব্যবসায় জয়েন করুন</h2>
+                        </div>
+                        <form action="{{ route('rep.store') }}" method="POST" enctype="multipart/form-data">
+                            @csrf
+                            @method('POST')
+                        <div class="row clearfix">
+                            <div class="">
+                                <div class="input_field"> <span><i aria-hidden="true" class="fa fa-envelope"></i></span>
+                                    <label for="">আপনার পুরো নাম দিনঃ</label>
+                                    <input type="text" name="name" placeholder="আপানার নাম"  value="{{ old('name') }}"/>
+                                    @error('name')
+                                        <p style="color:red;">{{ $message }}</p>
+                                    @enderror
+                                </div>
+                                <div class="input_field"> <span><i aria-hidden="true" class="fa fa-envelope"></i></span>
+                                    <label for="">আপানার ই-মেইল দিনঃ</label>
+                                    <input type="email" name="email" placeholder="আপানার ই-মেইল এড্রেস"  value="{{ old('email') }}"/>
+                                    @error('email')
+                                        <p style="color:red;">{{ $message }}</p>
+                                    @enderror
+                                </div>
+                                <div class="input_field"> <span><i aria-hidden="true" class="fa fa-envelope"></i></span>
+                                    <label for="">আপনার মোবাইল নম্বর দিনঃ</label>
+                                    <input type="number" name="phone" placeholder="মোবাইল নম্বর- 01973784959"  value="{{ old('phone') }}"/>
+                                    @error('phone')
+                                        <p style="color:red;">{{ $message }}</p>
+                                    @enderror
+                                </div>
+
+                                <div class="input_field"> <span><i aria-hidden="true" class="fa fa-envelope"></i></span>
+                                <label for="">Gender সিলেক্ট করুনঃ</label>
+
+                                <div class="input_field radio_option">
+                                    <input type="radio" name="gender" id="rd1">
+                                    <label for="rd1">Male</label>
+                                    <input type="radio" name="gender" id="rd2">
+                                    <label for="rd2">Female</label>
+                                    
+                                    @error('gender')
+                                    <p style="color:red;" class="">{{ $message }}</p>
+                                    @enderror
+                                </div>
+                                </div>
+                                
+                                <input type="submit" value="সাবমিট করুন">
+                            </div>
+                        </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ___________________ -->
+     </section>
+    <!-- ______________________________________ new designed form end -->
+
+
+
+
+
+
+
+
  <main>
-        <section class="my-5" id="quick_form">
+        <section class="my-5" id="quick_form" style="display:none;">
             <div class="container">
                 <div class="card">
                     <div class="card-header text-center">
@@ -88,13 +163,10 @@
                                 <label for="phone" class="mb-1">আপনার মোবাইল নম্বর দিন</label>
                                 <input type="text" class="form-control @error('phone') is-invalid @enderror" id="phone" name="phone" placeholder="মোবাইল নম্বর- 01648800000" value="{{ old('phone') }}">
                                 @error('phone')
-                                <span class="text-danger bold">{{ $message }}</span>
-                            @enderror
+                                    <span class="text-danger bold">{{ $message }}</span>
+                                @enderror
                             </div>
 
-                           
-
-                           
                             <div class="form-group mb-3">
                                 <label for="gender" class="mb-1">Gender সিলেক্ট করুন</label>
                                 <div class="d-flex" style="gap: 1em">

@@ -68,7 +68,7 @@
             <div class="col-12 col-md-6 d-flex gap-5 social-links-top-left" style="text-align:center;width:100%;">
                 <div class="text-center" style="text-align:center;width:100%;">
                     <p class="text-control-6 fw-medium" style="text-align:center;width:100%;">
-                        Copyright &copy; 2024 - Quick Digital - All Rights Reserved.
+                        Copyright &copy; <?php echo date("Y"); ?> - Quick Digital - All Rights Reserved.
                     </p>
                 </div>
             </div>

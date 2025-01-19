@@ -412,6 +412,7 @@
         border: none;
         background-color: var(--primary-color);
         color: aliceblue;
+        /* color: rgb(210, 217, 223); */
         border-radius: 3px;
       }
       .button_section input:hover{

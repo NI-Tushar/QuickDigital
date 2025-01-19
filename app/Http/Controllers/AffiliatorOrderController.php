@@ -144,8 +144,8 @@ class AffiliatorOrderController extends Controller
         $validatedData = $request->validate([
             'service_type' => 'required|string',
 
-            'start_date' => 'required|date',
-            'end_date' => 'nullable|date',
+            // 'start_date' => 'required|date',
+            // 'end_date' => 'nullable|date',
             'discount_type' => 'nullable|string',
             'user_id' => 'nullable|integer',
             'sub_total' => 'required|numeric|min:0',

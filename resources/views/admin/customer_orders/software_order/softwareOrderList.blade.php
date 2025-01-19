@@ -55,7 +55,7 @@
                                                     <th>Title</th>
                                                     <th style="width:150px;text-align:center;">Start-End</th>
                                                     <th style="width:100px;">Order Type</th>
-                                                    <th>Pay-Amount</th>
+                                                    <th>Paid-Amount</th>
                                                     <th>Pay-Method</th>
                                                     <th>TXN-ID</th>
                                                     <th>Order Date</th>
@@ -166,7 +166,7 @@
                                                     <th>Title</th>
                                                     <th>Start-End</th>
                                                     <th>Order Type</th>
-                                                    <th>Pay-Amount</th>
+                                                    <th>Paid-Amount</th>
                                                     <th>Pay-Method</th>
                                                     <th>TXN-ID</th>
                                                     <th>Order Date</th>

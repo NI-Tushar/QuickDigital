@@ -351,6 +351,7 @@
           sidebar.style.width = "78px";
           homeSection.style.left = "78px";
           homeSection.style.width = `calc(100% - 78px)`;
+          // homeSection.style.width = `calc(100% - 78px)`;
       }
   }
 

@@ -3,22 +3,22 @@
 <div class="ripple_section">
     <div class="OuterBorderRippleAnimation">
         <div class="plus">
-            <a href="#" class="bdr-ripple-ani-btn">
+            <a href="https://wa.me/+8801973784959?text=Hello%20QuickDigital!" target="_blank" class="bdr-ripple-ani-btn">
                 <img src="{{ asset('front/assets/images/whatsapp.png') }}" alt="">
             </a>
             <div class="tooltip">
-                <p>Click Here</p>
+                <p>হোয়াটস-এপ এ মেসেজ দিন</p>
                 <i class="fa fa-play"></i>
             </div>
         </div>
     </div>
     <div class="OuterBorderRippleAnimation">
         <div class="plus">
-            <a href="#" class="bdr-ripple-ani-btn">
+            <a href="https://www.facebook.com/quickdigital.official" target="_blank" class="bdr-ripple-ani-btn">
                 <img src="{{ asset('front/assets/images/messenger.png') }}" alt="">
             </a>
             <div class="tooltip messenger">
-                <p>Click Here</p>
+                <p>ফেইসবুকে মেসেজ দিন</p>
                 <i class="fa fa-play"></i>
             </div>
         </div>

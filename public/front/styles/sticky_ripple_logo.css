@@ -44,8 +44,71 @@
   .bdr-ripple-ani-btn:hover i {
     transform: rotate(180deg);
   }
+ /* Green Ripple Animation  FOR THEME COLOR*/
  /* Green Ripple Animation */
-@-webkit-keyframes at-ripple {
+ @-webkit-keyframes at-ripple {
+  0% {
+    box-shadow: 0 4px 10px rgba(108, 3, 160, 0.1),
+                0 0 0 0 rgba(108, 3, 160, 0.1),
+                0 0 0 5px rgba(108, 3, 160, 0.1),
+                0 0 0 10px rgba(108, 3, 160, 0.1);
+  }
+  100% {
+    box-shadow: 0 4px 10px rgba(108, 3, 160, 0.1),
+                0 0 0 5px rgba(108, 3, 160, 0.1),
+                0 0 0 10px rgba(108, 3, 160, 0.1),
+                0 0 0 20px rgba(108, 3, 160, 0);
+  }
+}
+
+@keyframes at-ripple {
+  0% {
+    box-shadow: 0 4px 10px rgba(108, 3, 160, 0.1),
+                0 0 0 0 rgba(108, 3, 160, 0.1),
+                0 0 0 5px rgba(108, 3, 160, 0.1),
+                0 0 0 10px rgba(108, 3, 160, 0.1);
+  }
+  100% {
+    box-shadow: 0 4px 10px rgba(108, 3, 160, 0.1),
+                0 0 0 5px rgba(108, 3, 160, 0.1),
+                0 0 0 10px rgba(108, 3, 160, 0.1),
+                0 0 0 20px rgba(108, 3, 160, 0);
+  }
+}
+
+/* Purple Pink Ripple Animation */
+@-webkit-keyframes at-ripple-pink {
+  0% {
+    box-shadow: 0 4px 10px rgba(108, 3, 160, 0.1),
+                0 0 0 0 rgba(108, 3, 160, 0.1),
+                0 0 0 5px rgba(108, 3, 160, 0.1),
+                0 0 0 10px rgba(108, 3, 160, 0.1);
+  }
+  100% {
+    box-shadow: 0 4px 10px rgba(108, 3, 160, 0.1),
+                0 0 0 5px rgba(108, 3, 160, 0.1),
+                0 0 0 10px rgba(108, 3, 160, 0.1),
+                0 0 0 20px rgba(108, 3, 160, 0);
+  }
+}
+
+@keyframes at-ripple-pink {
+  0% {
+    box-shadow: 0 4px 10px rgba(108, 3, 160, 0.1),
+                0 0 0 0 rgba(108, 3, 160, 0.1),
+                0 0 0 5px rgba(108, 3, 160, 0.1),
+                0 0 0 10px rgba(108, 3, 160, 0.1);
+  }
+  100% {
+    box-shadow: 0 4px 10px rgba(108, 3, 160, 0.1),
+                0 0 0 5px rgba(108, 3, 160, 0.1),
+                0 0 0 10px rgba(108, 3, 160, 0.1),
+                0 0 0 20px rgba(108, 3, 160, 0);
+  }
+}
+
+ /* Green Ripple Animation  FOR GREEN COLOR*/
+/* @-webkit-keyframes at-ripple {
     0% {
       box-shadow: 0 4px 10px rgba(0, 255, 0, 0.1),
         0 0 0 0 rgba(0, 255, 0, 0.1), 
@@ -75,7 +138,7 @@
     }
   }
   
-  /* Green Glow Animation */
+
   @-webkit-keyframes glow {
     0% {
       -webkit-box-shadow: 0 0 50px 50px rgba(50, 160, 50, 0.9);
@@ -98,7 +161,7 @@
     100% {
       box-shadow: 0 0 50px rgba(50, 160, 50, 0.9);
     }
-  }
+  } */
   
   
   /* Tooltip */
@@ -124,7 +187,7 @@
   }
   .tooltip {
     position: absolute;
-    bottom: 6px;
+    bottom: 2px;
     right: 65px;
     display: table;
     visibility: hidden;
@@ -136,14 +199,14 @@
 /* Tooltip Background */
 .tooltip p {
     color: #fff;
-    background: rgba(12, 246, 8, 0.971);
+    background: rgba(4, 140, 1, 0.971);
     display: table-cell;
     vertical-align: middle;
     padding: 10px;
     border-radius: 3px;
 }
 .messenger p {
-    background: rgba(246, 68, 8, 0.971) !important;    
+  background: linear-gradient(to right, rgb(54, 46, 187),rgb(197, 36, 171)) !important;  
 }
   .tooltip i {
     display: table-cell;

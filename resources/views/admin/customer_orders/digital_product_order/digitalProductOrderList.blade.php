@@ -1,17 +1,20 @@
 @extends('admin.layout.layout')
 
+ <!-- for featureDetails show -->
+ <link rel="stylesheet" href="{{ url('front/styles/admin_ordered_feature.css') }}">
+
 @section('content')
 <div class="app-content content">
     <div class="content-overlay"></div>
     <div class="content-wrapper">
         <div class="content-header row">
             <div class="content-header-left col-md-6 col-12 mb-2">
-                <h3 class="content-header-title mb-0">Digital Product List</h3>
+                <h3 class="content-header-title mb-0">Digital Product Order List</h3>
                 <div class="row breadcrumbs-top">
                     <div class="breadcrumb-wrapper col-12">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="{{ url('admin/dashboard') }}">Home</a></li>
-                            <li class="breadcrumb-item active">Digital Product List</li>
+                            <li class="breadcrumb-item active">Digital Product Order List</li>
                         </ol>
                     </div>
                 </div>
@@ -31,7 +34,7 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <a href="{{ route('digProduct.add') }}"><button type="button" class="btn btn-secondary btn-min-width mr-1 mb-1"><i class="feather icon-edit"></i> Add product</button></a>
+                                <h3>Total Digital Product Order: {{$totalCount}}</h3>
                                 <div class="heading-elements">
                                     <ul class="list-inline mb-0">
                                         <li><a data-action="collapse"><i class="feather icon-minus"></i></a></li>
@@ -46,94 +49,79 @@
                                     <div style="overflow-x: auto;">
                                         <table id="subadmins" class="table table-striped table-bordered custom-toolbar-elements">
                                             <thead>
-                                                <tr>
-                                                    <th>ID</th>
-                                                    <th>Product Title</th>
-                                                    <th>Description</th>
-                                                    <th>Features</th>
-                                                    <th>Subscription Price</th>
-                                                    <th>Affiliator Commission</th>
-                                                    <th>File (zip)</th>
-                                                    <th>Thumbnail</th>
-                                                    <th>Last Update</th>
-                                                    <th>ACTIONS</th>
+                                                <tr style="background:rgb(3, 126, 128);color:aliceblue;">
+                                                    <th style="width:30px;">ID</th>
+                                                    <th style="width:150px;">Order ID</th>
+                                                    <th>Customer Name</th>
+                                                    <th>Mobile</th>
+                                                    <th>Title</th>
+                                                    <th>Paid-Amount</th>
+                                                    <th>Pay-Method</th>
+                                                    <th>TXN-ID</th>
+                                                    <th>Affiliate?</th>
+                                                    <th>Order Date</th>
+                                                    <th>Status</th>
                                                 </tr>
                                             </thead>
+                                            <style>
+                                                .card-header h3{
+                                                    margin:0;
+                                                    padding:0;
+                                                    font-weight:600;
+                                                }
+                                                table tbody tr:hover{
+                                                    background:rgba(3, 126, 128, 0.08) !important;
+                                                }
+                                                table tbody tr td button:hover{
+                                                    background-color:rgb(3, 126, 128);
+                                                    color:aliceblue;
+                                                }
+                                                .requirement_list{
+                                                    padding:0;
+                                                    padding-left:15px;
+                                                    margin:0;
+                                                    font-weight:600;
+                                                }
+                                                .requirement_list li{
+                                                    list-style: decimal;
+                                                    text-align:left;
+                                                    color:black;
+                                                    font-size:12px;
+                                                }
+                                            </style>
                                             <tbody>
-                                                @foreach ($digProd as $product)
+                                                @foreach ($order_softwares as $order)
                                                 <tr>
-                                                    <td style="text-align:center;">{{ $product->id }}</td>
-                                                    <td style="text-align:left;font-size:14px;">{{ $product->title }}</td>
-                                                    <td style="text-align:left;font-size:14px;">{{ strlen($product->description) > 100 ? substr($product->description, 0, 300) . '...' : $product->description }}</td>
-                                                    @if($product->features!='')
-                                                        <td style="text-align:center;">
-                                                            @php
-                                                                $product->features = json_decode($product->features, true);
-                                                                $index=1;
-                                                                $count = 0;
-                                                            @endphp
-                                                            <ol style="margin: 0; padding:0px;">
-                                                                @foreach ($product->features as $feature)
-                                                                @if ($count < 2)
-                                                                <li style="text-align:left;font-size:14px;"><span style="font-weight:700;">{{$index}}:</span> {{ $feature }}</li>
-                                                                    @php $count++; @endphp
-                                                                @else
-                                                                    @break
-                                                                @endif
-                                                                    @php $index=$index+1; @endphp
-                                                                @endforeach
-                                                            </ol>
-                                                        </td>
-                                                    @else
-                                                        <td></td>
-                                                    @endif
-                                                    <td style="text-align:center;width:50px;">{{ $product->price }} BDT</td>
-                                                    <td style="text-align:center;width:50px;">{{ $product->affiliator_commission }} %</td>
-                                                    @if($product->zip_file!='')
-                                                        <td style="text-align:center;width:50px;"> 
-                                                            <img style="height:50px;width:50px;" src="https://icon-library.com/images/zipped-file-icon/zipped-file-icon-4.jpg" alt="">
-                                                        </td> 
-                                                    @else
-                                                        <td style="text-align:center;width:50px;"> 
-                                                            No File
-                                                        </td> 
-                                                    @endif
-                                                    <td style="width: 100px; height: 100px; padding: 3px;">
-                                                        <img src="{{ $product->thumbnail ? asset($product->thumbnail) : asset('no_image2.jpg') }}" class="img-fluid rounded" alt="No Image" style="width: 100%; height: 100%; object-fit: cover;margin:auto;">
-                                                    </td>
-                                                    <td style="text-align:center;width: 100px;">{{ date('F j, Y, g:i a', strtotime($product->updated_at)) }}</td>
-                                                    <td style="text-align:center;">
-                                                        <a href="{{ url('admin/update_product/'.$product['id']) }}"><i class="fa fa-edit"></i></a>
-                                                        &nbsp;&nbsp;
-                                                        <a href="javascript:void(0);" onclick="confirmAndRedirect('{{ url('admin/delete-digProduct/'.$product['id']) }}')">
-                                                            <i class="fa fa-trash"></i>
-                                                        </a>
-                                                        <script>
-                                                            function confirmAndRedirect(route) {
-                                                                    // Show a confirmation popup
-                                                                    if (confirm("Are you sure you want to delete this item?")) {
-                                                                        // If confirmed, redirect to the route
-                                                                        window.location.href = route;
-                                                                    }
-                                                                    // If canceled, do nothing
-                                                                }
-                                                            </script>
+                                                    <td style="text-align:center; padding:5px;">{{ $order->id }}</td>
+                                                    <td style="text-align:left;font-size:14px;padding:5px;">{{ $order->order_id }}</td>
+                                                    <td style="text-align:left;font-size:14px;padding:5px;">{{$order->user->name}}</td>
+                                                    <td style="text-align:left;font-size:14px;padding:5px;">{{$order->user->mobile}}</td>
+                                                    <td style="text-align:left;font-size:14px;padding:5px;">{{$order->digitalproduct->title}}</td>
+                                                    <td style="text-align:center;width:50px;padding:5px;">{{ $order->total}} BDT</td>
+                                                    <td style="text-align:center;width:50px;padding:5px;">{{ $order->payment_method}}</td>
+                                                    <td style="text-align:center;width:50px;padding:5px;">{{ $order->bank_trx_id}}</td>
+                                                    <td style="text-align:center;width:50px;padding:5px;">@if($order->affiliator_promocode_id != null)Yes @endif</td>
+                                                    <td style="text-align:center;width: 100px;padding:5px;">{{ date('F j, Y, g:i a', strtotime($order->created_at)) }}</td>
+                                                    <td style="text-align:center;width: 100px;padding:5px;">
+                                                        <p style="border:2px solid green; background-color: green;color:aliceblue;border-radius:5px;padding-top:5px;padding-bottom:5px;font-weight:600;font-size:13px;">Paid</p>
                                                     </td>
                                                 </tr>
                                                 @endforeach
+
                                             </tbody>
                                             <tfoot>
-                                                <tr>
+                                                <tr style="color:rgb(3, 126, 128);border:1px solid rgb(3, 126, 128);">
                                                     <th>ID</th>
-                                                    <th>product Title</th>
-                                                    <th>Description</th>
-                                                    <th>Features</th>
-                                                    <th>Subscription Price</th>
-                                                    <th>Affiliator Commission</th>
-                                                    <th>File (zip)</th>
-                                                    <th>Thumbnail</th>
-                                                    <th>Last Update</th>
-                                                    <th>ACTIONS</th>
+                                                    <th>Order ID</th>
+                                                    <th>Customer Name</th>
+                                                    <th>Mobile</th>
+                                                    <th>Title</th>
+                                                    <th>Paid-Amount</th>
+                                                    <th>Pay-Method</th>
+                                                    <th>TXN-ID</th>
+                                                    <th>Affiliate?</th>
+                                                    <th>Order Date</th>
+                                                    <th>Status</th>
                                                 </tr>
                                             </tfoot>
                                         </table>
@@ -148,3 +136,45 @@
     </div>
 </div>
 @endsection
+
+
+<!-- ____________________________________ SOFTWARE FEATURE LIST START -->
+ 
+<div id="showFeatures" class="buy_popup_section">
+    <div class="centered_popup_section">
+      <div onclick="closeFeatures()" class="btn-close"></div>
+    <div class="clear"></div>
+    <div class="feature_list">
+        <span>Software Name:</span>
+        <h5 id="title"></h5>
+        <p>Customer Provide Features:</p>
+        <ul>
+            <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique cupiditate rerum animi iste autem placeat</li>
+            <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique cupiditate rerum animi iste autem placeat</li>
+            <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique cupiditate rerum animi iste autem placeat</li>
+            <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique cupiditate rerum animi iste autem placeat</li>
+            <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique cupiditate rerum animi iste autem placeat</li>
+        </ul>                                                 
+    </div>
+  </div>
+</div>
+
+
+<script>
+
+
+    // function showFeatures(title, requirement_list) {
+        // var modal = document.getElementById("showFeatures");
+        // document.getElementById("title").innerText = title;
+        // modal.classList.add("open");
+        // var modal = document.getElementById("requirement_list");
+        
+    // }
+
+//   function closeFeatures(){
+//     var modal = document.getElementById("showFeatures");
+//     modal.classList.remove("open");
+//   }
+</script>
+<!-- ____________________________________ SOFTWARE FEATURE LIST END -->
+

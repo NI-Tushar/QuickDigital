@@ -241,7 +241,7 @@
           <div class="list">
             <label for="">সিলেক্ট করুনঃ</label>
             <select name="software_type" id="options" required>
-              <option selected value=""></option>
+              <option selected disabled value="">সিলেক্ট করুন</option>
               <option value="custom">কাস্টম অর্ডার করুন</option>
               <option value="subscription">সাবস্ক্রিপশন করুন</option>
             </select>

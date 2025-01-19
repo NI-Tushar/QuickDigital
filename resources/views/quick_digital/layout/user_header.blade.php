@@ -10,6 +10,7 @@
 </script>
 
 @include('quick_digital.layout.loader')
+@include('quick_digital.layout.sticky_ripple_logo')
 
 
 <div class="sticky_bar">
