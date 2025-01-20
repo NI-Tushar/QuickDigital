@@ -144,8 +144,9 @@
             // Software Order list
             Route::get('software-order-list', 'AdminCustomerOrderController@software_order_list')->name('software.order.list');
             Route::get('update_ordered_software/{id?}', 'AdminCustomerOrderController@updateOrderedSoftware');
-
             Route::post('update_status_software_order', 'AdminCustomerOrderController@updateStatusSoftwareOrder');
+            // Digital Product Order list
+            Route::get('digital-product-order-list', 'AdminCustomerOrderController@digitalProduct_order_list')->name('digitalProduct.order.list');
 
 
 
@@ -255,11 +256,12 @@
         Route::get('software', 'AffiliatorController@software')->name('affilator.software');
         Route::get('digital-product', 'AffiliatorController@digitalProduct')->name('affilator.digitalProduct');
 
-        // _______________ affiliator USER DASHBOARD CONTROLLER
+        // _______________ CUSTOMER USER DASHBOARD CONTROLLER
         // Route::get('software', 'CustomerController@software')->name('affilator.software');
         Route::get('digital-product', 'CustomerController@digitalProduct')->name('customer.digitalProduct');
         Route::get('software', 'CustomerController@orderdSoftware')->name('customer.software');
         Route::post('add-custom-feature', 'CustomerController@addCustomFeature')->name('add.custom.feature');
+        Route::get('software-order-details/{orderId}', 'CustomerController@softwareOrderDetails')->name('software.order.details');
 
     });
 
@@ -295,7 +297,6 @@
         // Transations
         route::get('/transaction', [AffiliatorTransactionController::class, 'index'])->name('transaction.index');
         route::post('/transaction', [AffiliatorTransactionController::class, 'store'])->name('transaction.store');
-
 
         Route::get('/get-software-details/{id}', [AffiliatorOrderController::class, 'getSoftwareDetails']);
         Route::get('/get-digitalService-details/{id}', [AffiliatorOrderController::class, 'getDigitalServiceDetails']);

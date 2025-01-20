@@ -51,4 +51,8 @@ class CustomerController extends Controller
         $data->save();
         return redirect()->back();
     }
+    public function softwareOrderDetails($orderId){
+        $orderData = CustomerOrder::where('id', $orderId)->first();
+        return view('front.users.user_dashboard.ordered_software_details')->with(compact('orderData'));
+    }
 }

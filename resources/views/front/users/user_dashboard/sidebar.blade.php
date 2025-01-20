@@ -201,7 +201,7 @@
               <line x1="15" y1="15" x2="12" y2="18" />
             </svg>
 
-              <span class="link_name" style=" font-size: 15px;">কমিশন হিস্টরী </span>
+              <span class="link_name" style=" font-size: 15px;">কমিশন হিস্টরী</span>
 
             </a>
         </li>
@@ -351,6 +351,7 @@
           sidebar.style.width = "78px";
           homeSection.style.left = "78px";
           homeSection.style.width = `calc(100% - 78px)`;
+          // homeSection.style.width = `calc(100% - 78px)`;
       }
   }
 

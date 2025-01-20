@@ -1,0 +1,324 @@
+.ripple_section{
+    position: fixed;
+    top:70%;
+    right:25px;
+    z-index: 1900 !important;
+}
+.OuterBorderRippleAnimation {
+    width: 100%;
+    height: auto;
+    padding: 50px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  .bdr-ripple-ani-btn {
+    display: block;
+    background: #fff;
+    width: 45px;
+    height: 45px;
+    line-height: 48px;
+    text-align: center;
+    border-radius: 50%;
+    box-sizing: border-box;
+    color: #666;
+    animation: at-ripple 0.6s linear infinite;
+    overflow: hidden;
+  }
+  .bdr-ripple-ani-btn.pink {
+    background: #ff4081;
+    color: white;
+    animation: at-ripple-pink 0.6s linear infinite;
+  }
+  .bdr-ripple-ani-btn.two {
+    right: 300px;
+    z-index: 2;
+    /*   position: fixed; */
+    /*   bottom: 50px; */
+  }
+  .bdr-ripple-ani-btn i {
+    transform: rotate(0deg);
+    transition: 0.5s ease;
+  }
+  .bdr-ripple-ani-btn:hover i {
+    transform: rotate(180deg);
+  }
+ /* Green Ripple Animation  FOR THEME COLOR*/
+ /* Green Ripple Animation */
+ @-webkit-keyframes at-ripple {
+  0% {
+    box-shadow: 0 4px 10px rgba(108, 3, 160, 0.1),
+                0 0 0 0 rgba(108, 3, 160, 0.1),
+                0 0 0 5px rgba(108, 3, 160, 0.1),
+                0 0 0 10px rgba(108, 3, 160, 0.1);
+  }
+  100% {
+    box-shadow: 0 4px 10px rgba(108, 3, 160, 0.1),
+                0 0 0 5px rgba(108, 3, 160, 0.1),
+                0 0 0 10px rgba(108, 3, 160, 0.1),
+                0 0 0 20px rgba(108, 3, 160, 0);
+  }
+}
+
+@keyframes at-ripple {
+  0% {
+    box-shadow: 0 4px 10px rgba(108, 3, 160, 0.1),
+                0 0 0 0 rgba(108, 3, 160, 0.1),
+                0 0 0 5px rgba(108, 3, 160, 0.1),
+                0 0 0 10px rgba(108, 3, 160, 0.1);
+  }
+  100% {
+    box-shadow: 0 4px 10px rgba(108, 3, 160, 0.1),
+                0 0 0 5px rgba(108, 3, 160, 0.1),
+                0 0 0 10px rgba(108, 3, 160, 0.1),
+                0 0 0 20px rgba(108, 3, 160, 0);
+  }
+}
+
+/* Purple Pink Ripple Animation */
+@-webkit-keyframes at-ripple-pink {
+  0% {
+    box-shadow: 0 4px 10px rgba(108, 3, 160, 0.1),
+                0 0 0 0 rgba(108, 3, 160, 0.1),
+                0 0 0 5px rgba(108, 3, 160, 0.1),
+                0 0 0 10px rgba(108, 3, 160, 0.1);
+  }
+  100% {
+    box-shadow: 0 4px 10px rgba(108, 3, 160, 0.1),
+                0 0 0 5px rgba(108, 3, 160, 0.1),
+                0 0 0 10px rgba(108, 3, 160, 0.1),
+                0 0 0 20px rgba(108, 3, 160, 0);
+  }
+}
+
+@keyframes at-ripple-pink {
+  0% {
+    box-shadow: 0 4px 10px rgba(108, 3, 160, 0.1),
+                0 0 0 0 rgba(108, 3, 160, 0.1),
+                0 0 0 5px rgba(108, 3, 160, 0.1),
+                0 0 0 10px rgba(108, 3, 160, 0.1);
+  }
+  100% {
+    box-shadow: 0 4px 10px rgba(108, 3, 160, 0.1),
+                0 0 0 5px rgba(108, 3, 160, 0.1),
+                0 0 0 10px rgba(108, 3, 160, 0.1),
+                0 0 0 20px rgba(108, 3, 160, 0);
+  }
+}
+
+ /* Green Ripple Animation  FOR GREEN COLOR*/
+/* @-webkit-keyframes at-ripple {
+    0% {
+      box-shadow: 0 4px 10px rgba(0, 255, 0, 0.1),
+        0 0 0 0 rgba(0, 255, 0, 0.1), 
+        0 0 0 5px rgba(0, 255, 0, 0.1),
+        0 0 0 10px rgba(0, 255, 0, 0.1);
+    }
+    100% {
+      box-shadow: 0 4px 10px rgba(0, 255, 0, 0.1),
+        0 0 0 5px rgba(0, 255, 0, 0.1), 
+        0 0 0 10px rgba(0, 255, 0, 0.1),
+        0 0 0 20px rgba(0, 255, 0, 0);
+    }
+  }
+  
+  @keyframes at-ripple {
+    0% {
+      box-shadow: 0 4px 10px rgba(0, 255, 0, 0.1),
+        0 0 0 0 rgba(0, 255, 0, 0.1), 
+        0 0 0 5px rgba(0, 255, 0, 0.1),
+        0 0 0 10px rgba(0, 255, 0, 0.1);
+    }
+    100% {
+      box-shadow: 0 4px 10px rgba(0, 255, 0, 0.1),
+        0 0 0 5px rgba(0, 255, 0, 0.1), 
+        0 0 0 10px rgba(0, 255, 0, 0.1),
+        0 0 0 20px rgba(0, 255, 0, 0);
+    }
+  }
+  
+
+  @-webkit-keyframes glow {
+    0% {
+      -webkit-box-shadow: 0 0 50px 50px rgba(50, 160, 50, 0.9);
+    }
+    50% {
+      -webkit-box-shadow: 0 0 50px 0px rgba(50, 160, 50, 0.2);
+    }
+    100% {
+      -webkit-box-shadow: 0 0 50px 50px rgba(50, 160, 50, 0.9);
+    }
+  }
+  
+  @keyframes glow {
+    0% {
+      box-shadow: 0 0 50px rgba(50, 160, 50, 0.9);
+    }
+    50% {
+      box-shadow: 0 0 50px rgba(50, 160, 50, 0.2);
+    }
+    100% {
+      box-shadow: 0 0 50px rgba(50, 160, 50, 0.9);
+    }
+  } */
+  
+  
+  /* Tooltip */
+  .ripple_section .OuterBorderRippleAnimation,
+  .ripple_section .OuterBorderRippleAnimation .plus {
+      position: relative;
+      z-index: 2;
+      padding: 0px;
+      /*   position: fixed; */
+      /*   right: 24px; */
+      /*   bottom: 50px; */
+    }
+
+   .ripple_section .OuterBorderRippleAnimation .plus a img{
+    margin-top: -4px;
+    margin-left: -3px;
+    width: 52px;
+    height: 52px;
+    }
+  .plus:hover .tooltip {
+    visibility: visible;
+    opacity: 1;
+  }
+  .tooltip {
+    position: absolute;
+    bottom: 2px;
+    right: 65px;
+    display: table;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.5s;
+    white-space: nowrap;
+  }
+
+/* Tooltip Background */
+.tooltip p {
+    color: #fff;
+    background: rgba(4, 140, 1, 0.971);
+    display: table-cell;
+    vertical-align: middle;
+    padding: 10px;
+    border-radius: 3px;
+}
+.messenger p {
+  background: linear-gradient(to right, rgb(54, 46, 187),rgb(197, 36, 171)) !important;  
+}
+  .tooltip i {
+    display: table-cell;
+    vertical-align: middle;
+    color: #333;
+    opacity: 0.5;
+  }
+  
+  .glow-shadow {
+    background: #fff;
+    width: 100px;
+    height: 100px;
+    /*     left:50px; */
+    /*     margin-left:50px; */
+    /*     margin-top:15%; */
+    border-radius: 50%;
+    -webkit-animation: throb 1.5s infinite ease-in-out;
+    animation: glow 1.5s infinite ease-in-out;
+  }
+  @-webkit-keyframes glow {
+    0% {
+      -webkit-box-shadow: 0 0 50px 50px rgba(50, 160, 50, 0.9);
+    }
+    50% {
+      -webkit-box-shadow: 0 0 50px 0px rgba(50, 160, 50, 0.2);
+    }
+    100% {
+      -webkit-box-shadow: 0 0 50px 50px rgba(50, 160, 50, 0.9);
+    }
+  }
+  @keyframes glow {
+    0% {
+      box-shadow: 0 0 50px rgba(50, 160, 50, 0.9);
+    }
+    50% {
+      box-shadow: 0 0 50px rgba(50, 160, 50, 0.2);
+    }
+    100% {
+      box-shadow: 0 0 50px rgba(50, 160, 50, 0.9);
+    }
+  }
+  
+  .custom-shape {
+    width: 100%;
+    height: auto;
+    padding: 50px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  .egg {
+    display: block;
+    width: 130px;
+    height: 175px;
+    background-color: #11ff00;
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  }
+  
+  .flag {
+    width: 110px;
+    height: 56px;
+    box-sizing: content-box;
+    padding-top: 15px;
+    position: relative;
+    background: #2aff09;
+    color: #7eb4e2;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-align: center;
+    text-transform: uppercase;
+  
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 0;
+      border-bottom: 13px solid #7eb4e2;
+      border-left: 55px solid transparent;
+      border-right: 55px solid transparent;
+    }
+  }
+  
+  .hexagon {
+    width: 100px;
+    height: 55px;
+    background: #32557f;
+    position: relative;
+  
+    &::before {
+      content: "";
+      position: absolute;
+      top: -25px;
+      left: 0;
+      width: 0;
+      height: 0;
+      border-left: 50px solid transparent;
+      border-right: 50px solid transparent;
+      border-bottom: 25px solid #32557f;
+    }
+  
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -25px;
+      left: 0;
+      width: 0;
+      height: 0;
+      border-left: 50px solid transparent;
+      border-right: 50px solid transparent;
+      border-top: 25px solid #32557f;
+    }
+  }
+  

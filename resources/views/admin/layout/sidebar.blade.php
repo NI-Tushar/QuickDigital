@@ -246,7 +246,7 @@
                     $active = Session::get('page') == 'customer_order' ? 'active' : '';
                     @endphp
                     <li class="{{ $active }}">
-                        <a class="menu-item" href="{{ url('admin/add-edit-ebook') }}" data-i18n="Vertical">Digital Product Orders</a>
+                        <a class="menu-item" href="{{ route('digitalProduct.order.list') }}" data-i18n="Vertical">Digital Product Orders</a>
                     </li>
                 </ul>
             </li>

@@ -33,7 +33,7 @@
                     <div class="card-header">
                         <div class="d-flex flex-wrap justify-content-between align-items-center">
                             <h5>নতুন অর্ডার করুন</h5>
-                            <a class="btn btn-primary" href="{{ route('affiliate.order.index') }}">Back</a>
+                            <a class="btn" style="background-color:var(--primary-hover-color);color:aliceblue;" href="{{ route('affiliate.order.index') }}">Back</a>
                         </div>
                     </div>
                     <div class="card-body">
@@ -50,8 +50,8 @@
                                             style="width: 100%;" required>
                                             <option selected="selected" value="">সিলেক্ট করুন</option>
                                             <option value="Software">সফটওয়্যার</option>
-                                            <option value="DigitalService">ডিজিটাল সার্ভিস</option>
                                             <option value="DigitalProduct">ডিজিটাল প্রোডাক্ট</option>
+                                            <!-- <option value="DigitalService">ডিজিটাল সার্ভিস</option> -->
                                         </select>
                                     </div>
 
@@ -63,8 +63,7 @@
                                                 <label for="start_date" class="text-gray">স্টার্ট ডেইট</label>
                                                 <div class="input-group date" id="start_date"
                                                     data-target-input="nearest">
-                                                    <input type="date" name="start_date" class="form-control"
-                                                        required>
+                                                    <input type="date" name="start_date" class="form-control">
                                                 </div>
                                             </div>
                                         </div>
@@ -162,7 +161,7 @@
                                                 </td>
                                                 <td><input type="text" min="0" class="form-control"
                                                         placeholder="Amount" name="sale_items[0][amount]" disabled></td>
-                                                <td><button type="button" class="btn btn-primary addRowBtn">Ok</button></td>
+                                                <td><button type="button" class="btn addRowBtn" style="background-color:var(--primary-hover-color);color:aliceblue;">Ok</button></td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -235,7 +234,7 @@
 
 
                             <div class="text-right tw-space-x-1" id="profile-save-section">
-                                <button class="btn btn-primary only-save customer-form-submiter">সাবমিট করুন</button>
+                                <button class="btn only-save customer-form-submiter" style="background-color:var(--primary-hover-color);color:aliceblue;">সাবমিট করুন</button>
                             </div>
                         </form>
 

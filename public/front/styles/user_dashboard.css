@@ -238,7 +238,7 @@ padding-left: 10px;
 
 
 .home-section {
-  margin-top: -3rem;
+  margin-top: -4rem;
   position: relative;
   background: #e4e9f7;
   min-height: 100vh;
@@ -272,7 +272,7 @@ padding-left: 10px;
   display: none;
   position: fixed;
   left: 10px;
-  top: 5rem;
+  top: 4rem;
   z-index: 200;
 }
 .mov_arrow svg{
@@ -290,6 +290,12 @@ padding-left: 10px;
 
 }
 
+@media (max-width: 600px) {
+  .home-section {
+    margin-top: -2rem;
+  }
+
+}
 @media (max-width: 520px) { 
   .toggle_expend{
     display: none;

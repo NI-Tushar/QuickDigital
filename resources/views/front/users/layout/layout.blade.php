@@ -58,6 +58,7 @@
     <!-- BEGIN: Custom CSS-->
     <link rel="stylesheet" type="text/css" href="{{ url('admin/assets/css/style.css') }}">
     <!-- END: Custom CSS-->
+    <link rel="icon" href="{{ url('icon.png') }}" type="image/png">
 
 </head>
 <!-- END: Head-->

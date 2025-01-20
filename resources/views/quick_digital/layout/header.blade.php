@@ -10,6 +10,7 @@
 </script>
 
 @include('quick_digital.layout.loader')
+@include('quick_digital.layout.sticky_ripple_logo')
 
 <div class="sticky_bar">
 
@@ -91,7 +92,7 @@
                         <ul class="navbar-nav" >
                             <li class="nav-item">
                                 <a class="nav-link fw-semibold px-md-3" aria-current="page"
-                                    href="{{ route('rep.requestForm') }}" style="background: var(--primary-color);color:#ffff !important">
+                                    href="{{ route('rep.requestForm') }}">
                                     কুইক ব্যাবসা
                                 </a>
                             </li>
@@ -203,7 +204,7 @@
     <!-- ______________________________________________________________ -->
 </div>
 
-<div class="header_gap"></div>
+<!-- <div class="header_gap"></div> -->
 
 
 

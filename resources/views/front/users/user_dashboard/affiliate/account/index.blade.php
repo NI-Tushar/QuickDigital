@@ -33,7 +33,7 @@
                     <div class="card-header">
                       <div class="d-flex flex-wrap justify-content-between align-items-center" style="gap: 1em">
                           <h3>বর্তমান ব্যালেন্স - {{ optional($account)->balance ?? '0' }} BDT</h3>
-                          <a class="btn btn-primary" href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">টাকা তুলুন</a>
+                          <a class="btn" style="background-color:var(--primary-hover-color);color:aliceblue;" href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">টাকা তুলুন</a>
                       </div>
                     </div>
                     <div class="card-body">

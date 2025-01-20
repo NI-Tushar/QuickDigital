@@ -6,8 +6,9 @@
     top:0;
     left:0;
     z-index:1000;
-    background-color:white;
-    box-shadow: 0px 15px 10px -15px #111;    
+    background-color:transparent;
+    border: 1px solid red;
+    /* box-shadow: 0px 15px 10px -15px #111;     */
 }
 .sticky_bar>div{
     width: 100%;
@@ -34,7 +35,7 @@
 .sticky_bar .top-contacts div a{
     display: flex;
     float: right;
-    color: aliceblue;
+    color: black;
     width: fit-content;
     text-decoration:none;
 }
@@ -48,7 +49,7 @@
     margin-right: 5px;
 }
 .sticky_bar .top-contacts .user_part>div a span{
-    color: aliceblue;
+    color: black;
     width: 100%;
     text-align: right;
 }
@@ -86,6 +87,9 @@
 }
 .offcanvas-body .navbar-nav li{
     margin-left: 10px;
+}
+.offcanvas-body .navbar-nav li a{
+    color: black;
 }
 
 

@@ -75,6 +75,7 @@
       }
       .update_form_wrapper p{
           color: aliceblue;
+          color: rgb(218, 255, 7);
       }
     .update_form_wrapper .title_container {
       text-align: center;
@@ -97,7 +98,8 @@
       font-weight: 600;
     }
     .update_form_wrapper .row a{
-      color: rgb(238, 85, 85);
+      /* color: rgb(238, 85, 85); */
+      color: black;
       text-decoration: none;
       font-weight: 600;
       font-size: 12px;

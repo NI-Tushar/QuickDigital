@@ -50,20 +50,27 @@
                                             <p onclick="showDetails('{{ $software->id }}', {{ json_encode($software->Custom_requirement_list) }})">
                                                 <span>ফিচার এড করুন</span>
                                             </p>
-
                                         </div>
                                         @endif           
                                         <div class="section_part price_section">
                                             <label>পেইড এমাউন্ট</label> 
                                             <p><span>{{$software->total}}</span> /BDT</p>
+                                            <a href="{{ route('software.order.details', ['orderId' => $software->id]) }}">
+                                                <button>ডিটেইলস</button>
+                                            </a>
                                         </div>
                                     
                                     <div class="section_part button_part">
                                         <div class="down_icon" onclick="toggle('<?php echo $loop->index; ?>')">
 
-                                            <a href="">
-                                                <button>Open</button>
-                                            </a>
+                                            @if($software->software_type=='custom')
+                                                <a href="#!">
+                                                    <button onclick="showDetails('{{ $software->id }}', {{ json_encode($software->Custom_requirement_list) }})">ফিচার</button>
+                                                </a>
+                                            @endif
+                                                <a href="{{ route('software.order.details', ['orderId' => $software->id]) }}">
+                                                    <button>ডিটেইলস</button>
+                                                </a>
 
                                             <div class="up_down_arrow">
                                                 <div class="icon">
@@ -137,9 +144,11 @@
 <!-- ____________________________________ Custom Features start -->
 
 <div id="showDetails" class="buy_popup_section">
-  <div class="centered_popup_section">
-    <div onclick="closeDetails()" class="btn-close"></div>
-    <div class="clear"></div>
+    <div class="centered_popup_section">
+      <div class="close_icon_section">
+          <div onclick="closeDetails()" class="btn-close"></div>
+          <div class="clear"></div>
+      </div>
     <div class="content">
       <form id="formAction" action="{{ route('add.custom.feature') }}" method="POST">
         @csrf

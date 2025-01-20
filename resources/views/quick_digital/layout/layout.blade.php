@@ -12,7 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
 
-    <link rel="icon" href="{{ url('icon.png') }}" type="image/png">
+    
     <!-- index -->
 
     
@@ -49,6 +49,8 @@
     <link rel="stylesheet" href="{{ url('front/styles/course_details.css') }}">
     <!-- All Courses -->
     <link rel="stylesheet" href="{{ url('front/styles/all_courses.css') }}">
+
+    <link rel="icon" href="{{ url('icon.png') }}" type="image/png">
 
 
     {{-- bootstrap --}}

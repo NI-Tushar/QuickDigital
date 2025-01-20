@@ -96,9 +96,9 @@
     
                     </div>
 
-                        <input id="submit_btn" type="submit" value="অর্ডার প্লেস করুন" class="btn">
-                    </form>
-                    </div>
+                </form>
+            </div>
+            <input id="submit_btn" type="submit" value="অর্ডার প্লেস করুন" class="pay_btn">
                     </div>
 
                     

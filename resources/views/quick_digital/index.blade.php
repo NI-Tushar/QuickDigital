@@ -1,7 +1,7 @@
 @extends('quick_digital.layout.layout')
 @section('content')
 @push('css')
-
+    <link rel="stylesheet" href="{{ url ('front/styles/landing_page/banner.css') }}">
 @endpush
 
 <main>
@@ -30,17 +30,42 @@
         </ul>
     </div>
     @endif -->
+
+
+    <!-- _______________________________________ BANNER SECTION START -->
+     <section>
+        <div class="whole_banner">
+            <img class="banner_bg" src="{{ asset('front/assets/images/landing/banner_bg.png') }}" alt="">
+            <div class="centered_banner">
+                <div class="banner_part part_left">
+                    <div class="banner_text">
+                        <h1>আপনার ব্যবসা এবং দক্ষতা বৃদ্ধি করুন <span>কুইক ডিজিটাল</span> এর মাধ্যমে</h1>
+                        <p>ক্যারিয়ার গড়তে এবং আয়ের নতুন পথ তৈরি করতে আজই জয়েন করুন আমাদের কুইক ডিজিটালে</p>
+                        <div class="button_part">
+                            <a href=""><button class="active">সফটওয়্যার সল্যুশন</button></a>
+                            <a href=""><button>ডিজীটাল প্রোডাক্ট</button></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="banner_part part_right">
+                        
+                </div>
+            </div>
+        </div>
+     </section>
+    <!-- _______________________________________ BANNER SECTION END -->
     
-    <section>
+    <section style="display:none;">
         <div class="home_slider">
             <img class="w-100" src="{{ asset('front/assets/images/banner_bg.png') }}" alt="">
             <div class="centered_div">
                 <div class="slider_text">
                     <h1>আপনার <span>ব্যবসা</span> এবং <span>দক্ষতা</span> বৃদ্ধি করুন কুইক ডিজিটাল এর মাধ্যমে </h1>
-                    <p>ডিজিটাল মার্কেটিং এ দক্ষতা এবং কৌশল আয়ত্ত করে আপনার ব্যবসা অনলাইনে প্রশার বাড়ান, আরও গ্রাহক বাড়ান এবং নির্ভরযোগ্য ফলাফল অর্জন করুন।</p>
+                    <p>ক্যারিয়ার গড়তে এবং আয়ের নতুন পথ তৈরি করতে আজই জয়েন করুন আমাদের কুইক ডিজিটালে</p>
+                    <!-- <p>ডিজিটাল মার্কেটিং এ দক্ষতা এবং কৌশল আয়ত্ত করে আপনার ব্যবসা অনলাইনে প্রশার বাড়ান, আরও গ্রাহক বাড়ান এবং নির্ভরযোগ্য ফলাফল অর্জন করুন।</p> -->
                     <div class="slider_buttons">
-                        <a href="#"><button class="active">কোর্সগুলো দেখুন</button></a>
-                        <a href="#"><button>সার্ভিসগুলো দেখুন</button></a>
+                        <a href="{{ route('quick.software') }}"><button class="active">সফটওয়্যার সল্যুশন</button></a>
+                        <a href="{{ route('quick.digitalProduct') }}"><button>ডিজিটাল প্রোডাক্ট</button></a>
                     </div>
                 </div>
                 <div class="banner_img">
@@ -79,14 +104,14 @@
 
 
     <!-- __________________________________ banner start -->
-     <section>
+     <section style="display:none;">
         <div class="banner">
             <img src="{{ asset('front/assets/images/newmarkeing.jpg') }}" alt="">
             <div class="button_div">
                 <div class="buttons">
-                    <a href="#"><button>আমাদের বইগুলো</button></a>
-                    <a href="#"><button class="active">ডিজিটাল সার্ভিস</button></a>
-                    <a href="#"><button>আমাদের সার্ভিসগুলো</button></a>
+                    <!-- <a href="#"><button>আমাদের বইগুলো</button></a> -->
+                    <a href="{{ route('quick.digitalProduct') }}"><button class="active">ডিজিটাল প্রোডাক্ট</button></a>
+                    <a href="{{ route('quick.software') }}"><button>সফটওয়্যার সল্যুশন</button></a>
                 </div>
             </div>
         </div>
@@ -151,7 +176,7 @@
                 <!-- ______________________ -->
                 <div class="col-12 col-md-5 d-flex justify-content-center align-items-center">
                     <div class="about-img-element">
-                        <img class="img-fluid rounded-3" src="{{ asset('front/assets/images/tech_team.jpg') }}" alt="">
+                        <img class="img-fluid rounded-3" src="{{ asset('front/assets/images/tech_team2.png') }}" alt="">
                     </div>
                 </div>
                 <!-- ______________________ -->
@@ -168,7 +193,7 @@
                     </p>
                     <p class="about-descripttion text-center py-1">
                     "কুইক ডিজিটাল"একটি ডিজিটাল উদ্ভাবনী প্ল্যাটফর্ম। আজকের যুবকদের গতিশীল ডিজিটাল চাহিদার জন্য আমরা সদা সচেষ্ট। কুইক ডিজিটাল হচ্ছে একটি সাম্প্রতিকতম বেস্টসেলার প্লাটফর্ম।
-                    </p>
+                    </p=>
 
                     <!-- <div class="">
                             <button class="border-0 rounded-1  py-2 px-4 btn-stylish">
@@ -204,7 +229,7 @@
                         <div class="card-body d-flex flex-column justify-content-between">
                             <div class="d-flex flex-column justify-content-center align-items-center">
                                 <p class="card-text fs-5 text-center fw-bold">
-                                    <a class="text-decoration-none resource-link" href="{{ route('quick-digital.contact') }}">
+                                    <a class="text-decoration-none resource-link" href="https://wa.me/+8801973784959?text=Hello%20QuickDigital!" target="_blank">
                                        হয়ে উঠুন একজন সফল গ্রাফিক্স ডিজাইনার আপনার ভালো ক্যারিয়ার এর জন্য।
                                     </a>
                                     <!-- <p>Become a Proffesional Graphics Designer</p> -->
@@ -212,7 +237,7 @@
                             </div>
                             <div class="d-flex justify-content-center my-2">
                                 <button class="border-1 rounded-1 py-2 px-4 btn-stylish" style="width:95%;">
-                                    <a class="text-decoration-none py-auto fw-medium fs-5" aria-current="page" href="{{ route('quick-digital.contact') }}">এখনই বুক করুন</a>
+                                    <a class="text-decoration-none py-auto fw-medium fs-5" aria-current="page" href="https://wa.me/+8801973784959?text=Hello%20QuickDigital!" target="_blank">এখনই বুক করুন</a>
                                 </button>
                             </div>
                         </div>
@@ -224,14 +249,14 @@
                         <div class="card-body d-flex flex-column justify-content-between">
                             <div class="d-flex flex-column justify-content-center align-items-center">
                                 <p class="card-text fs-5 text-center fw-bold">
-                                    <a class="text-decoration-none resource-link" href="{{ route('quick-digital.contact') }}">
-                                    পেশাদার ভিডিও এডিটিং সার্ভিসের মাধ্যমে আপনার প্রোজেক্টকে আরও আকর্ষণীয় এবং প্রভাবশালী করে তুলুন।
+                                    <a class="text-decoration-none resource-link" href="https://wa.me/+8801973784959?text=Hello%20QuickDigital!" target="_blank">
+                                        আপনার প্রজেক্টের মান উন্নত করতে এবং দর্শকের মনোযোগ আকর্ষণ করতে প্রফেশনাল ভিডিও এডিটিং সার্ভিস গ্রহণ করুন।
                                     </a>
                                 </p>
                             </div>
                             <div class="d-flex justify-content-center my-2">
                                 <button class="border-1 rounded-1  py-2 px-4 btn-stylish" style="width:95%;">
-                                    <a class="text-decoration-none py-auto fw-medium fs-5" aria-current="page" href="{{ route('quick-digital.contact') }}">এখনই বুক করুন</a>
+                                    <a class="text-decoration-none py-auto fw-medium fs-5" aria-current="page" href="https://wa.me/+8801973784959?text=Hello%20QuickDigital!" target="_blank">এখনই বুক করুন</a>
                                 </button>
                             </div>
                         </div>
@@ -239,18 +264,18 @@
                 </div>
                 <div class="col-12 col-lg-4 d-flex justify-content-center card-container p-1">
                     <div class="card shadow border-0" style="width: 22rem;">
-                        <img class="card-img-top rounded" src="{{ asset('front/assets/images/services/S-3-03.jpg') }}" alt="Card image cap">
+                        <img class="card-img-top rounded" src="{{ asset('front/assets/images/services/S-4-04.jpg') }}" alt="Card image cap">
                         <div class="card-body d-flex flex-column justify-content-between">
                             <div class="d-flex flex-column justify-content-center align-items-center">
                                 <p class="card-text fs-5 text-center fw-bold">
-                                    <a class="text-decoration-none resource-link" href="{{ route('quick-digital.contact') }}">
-                                    পেশাদার ভিডিও কন্টেন্ট তৈরি সার্ভিসের মাধ্যমে আপনার ব্র্যান্ড বা প্রোজেক্টকে আরও আকর্ষণীয় ও প্রভাবশালী করে তুলুন।
+                                    <a class="text-decoration-none resource-link" href="https://wa.me/+8801973784959?text=Hello%20QuickDigital!" target="_blank">
+                                    একটি আধুনিক এবং সকল ডিভাইসের সাথে সামঞ্জস্যপূর্ন, কার্যকরী এবং দর্শকদের আকর্ষণীয় করে তুলতে আমাদের প্রফেশনাল ওয়েব ডিজাইন সার্ভিস বেছে নিন।
                                     </a>
                                 </p>
                             </div>
                             <div class="d-flex justify-content-center my-2">
                                 <button class="border-1 rounded-1  py-2 px-4 btn-stylish" style="width:95%;">
-                                    <a class="text-decoration-none py-auto fw-medium fs-5" aria-current="page" href="{{ route('quick-digital.contact') }}">এখনই বুক করুন</a>
+                                    <a class="text-decoration-none py-auto fw-medium fs-5" aria-current="page" href="https://wa.me/+8801973784959?text=Hello%20QuickDigital!" target="_blank">এখনই বুক করুন</a>
                                 </button>
                             </div>
                         </div>
@@ -262,7 +287,7 @@
 
 
 
-    <section class="courses_book">
+    <section class="courses_book" style="display:none;">
         <div class="centered_div">
             <div class="centered_part">
                 <div class="img">
@@ -292,7 +317,7 @@
     </section>
 
 
-
+ 
 
 
     </main>
