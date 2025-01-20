@@ -1,6 +1,9 @@
 :root{
-    --primary-color:#3A0256;
+    --primary-color:#006e39;
+    --logo-red-color:rgb(225, 33, 68);
+    /* --primary-color:#3A0256; */
     --primary-hover-color:#6c03a0;
+
 
     /* for slider color */
     --plyr-color-main: #c21ac2;

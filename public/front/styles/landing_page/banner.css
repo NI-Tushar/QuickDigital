@@ -1,0 +1,44 @@
+.whole_banner{
+    border: 1px solid red;
+    height: 80vh;
+    width: 100%;
+    position: relative;
+    display:flex;
+    padding-top:3rem;
+}
+.whole_banner .banner_bg{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top:0px;
+    left: 0px;
+}
+.whole_banner .centered_banner{
+    border: 1px solid red;
+    margin: auto;
+    display: flex;
+    height: 80%;
+    max-width: 1150px;
+    width: 100%;
+    z-index: 100;
+}
+.whole_banner .centered_banner .banner_part{
+    border: 1px solid blue;
+    width: 50%;
+    height: 100%;
+}
+.whole_banner .centered_banner .banner_part .banner_text{
+    padding-top: 20%;
+}
+.whole_banner .centered_banner .banner_part .banner_text h1{
+    font-weight: 700;
+}
+.whole_banner .centered_banner .banner_part .banner_text h1 span{
+    color:var(--logo-red-color);
+}
+.whole_banner .centered_banner .banner_part .banner_text p{
+    font-size: 20px;
+    font-weight: 600;
+    margin-top: 10px;
+    color:rgba(0, 0, 0, 0.513)
+}

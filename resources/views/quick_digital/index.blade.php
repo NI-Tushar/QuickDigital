@@ -1,7 +1,7 @@
 @extends('quick_digital.layout.layout')
 @section('content')
 @push('css')
-
+    <link rel="stylesheet" href="{{ url ('front/styles/landing_page/banner.css') }}">
 @endpush
 
 <main>
@@ -30,8 +30,32 @@
         </ul>
     </div>
     @endif -->
+
+
+    <!-- _______________________________________ BANNER SECTION START -->
+     <section>
+        <div class="whole_banner">
+            <img class="banner_bg" src="{{ asset('front/assets/images/landing/banner_bg.png') }}" alt="">
+            <div class="centered_banner">
+                <div class="banner_part part_left">
+                    <div class="banner_text">
+                        <h1>আপনার ব্যবসা এবং দক্ষতা বৃদ্ধি করুন <span>কুইক ডিজিটাল</span> এর মাধ্যমে</h1>
+                        <p>ক্যারিয়ার গড়তে এবং আয়ের নতুন পথ তৈরি করতে আজই জয়েন করুন আমাদের কুইক ডিজিটালে</p>
+                        <div class="button_part">
+                            <a href=""><button class="active">সফটওয়্যার সল্যুশন</button></a>
+                            <a href=""><button>ডিজীটাল প্রোডাক্ট</button></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="banner_part part_right">
+                        
+                </div>
+            </div>
+        </div>
+     </section>
+    <!-- _______________________________________ BANNER SECTION END -->
     
-    <section>
+    <section style="display:none;">
         <div class="home_slider">
             <img class="w-100" src="{{ asset('front/assets/images/banner_bg.png') }}" alt="">
             <div class="centered_div">
@@ -80,7 +104,7 @@
 
 
     <!-- __________________________________ banner start -->
-     <section>
+     <section style="display:none;">
         <div class="banner">
             <img src="{{ asset('front/assets/images/newmarkeing.jpg') }}" alt="">
             <div class="button_div">

@@ -1,6 +1,6 @@
 * {
-    /* padding: 0;
-    margin: 0; */
+    padding: 0;
+    margin: 0;
     box-sizing: border-box;
     font-family: "Hind Siliguri", sans-serif;
 }
@@ -25,7 +25,8 @@
 }
 
 .bg-first {
-    background-color: var(--primary-color);
+    background-color: transparent;
+    /* background-color: var(--primary-color); */
 }
 
 .social-links-top-right {
@@ -53,7 +54,11 @@
     margin-top: 0.125rem;
 }
 
-.nav-link:hover {
+.offcanvas-body .nav-item .nav-link {
+    color: black !important;
+    font-size: 18px !important;
+}
+.offcanvas-body .nav-item .nav-link:hover {
     background-color: var(--primary-color) !important;
     color: #fff !important;
     transition: all 0.5s ease-in-out;
@@ -69,10 +74,6 @@
     border-left: 0 !important;
 }
 
-.nav-link {
-    color: var(--primary-color) !important;
-    font-size: 18px !important;
-}
 
 .hero-section {
     background-color: #8C52FF;

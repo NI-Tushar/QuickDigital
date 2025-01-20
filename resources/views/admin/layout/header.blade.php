@@ -1,3 +1,15 @@
+@if (Session::has('new_order'))
+    @php
+        $new_order = Session::get('new_order');
+    @endphp
+    @if ($new_order == 'placed')
+        @include('admin.layout.notification')
+        @php
+            Session::forget('new_order');
+        @endphp
+    @endif
+@endif
+
     <nav class="header-navbar navbar-expand-lg navbar navbar-with-menu fixed-top navbar-semi-dark">
         <div class="navbar-wrapper">
             <div class="navbar-header">
@@ -5,9 +17,19 @@
                     <li class="nav-item mobile-menu d-lg-none mr-auto"><a
                             class="nav-link nav-menu-main menu-toggle hidden-xs" href="#"><i
                                 class="feather icon-menu font-large-1"></i></a></li>
-                    <li class="nav-item mr-auto"><a class="navbar-brand"
-                            href="{{ url('admin/dashboard') }}"><img class="brand-logo"
-                                alt="stack admin logo" src="{{ asset('admin/images/logo/stack-logo-light.png') }}">
+                            <li class="nav-item mr-auto"><a class="navbar-brand"
+                            href="{{ url('admin/dashboard') }}"><img class="brand-logo" style="max-width:200px;height:auto;margin-top:-10px;margin-left:100%;"
+                                alt="stack admin logo" src="{{ asset('front/assets/images/primary_logo2.png') }}">
+
+                            <!-- @php $userId = Auth::guard('user')->id(); @endphp -->
+                            <!-- <script>
+                                const userId = {{ json_encode($userId) }};
+                                window.Echo.private(`App.Models.User.${userId}`)
+                                    .notification((notification) => {
+                                        alert(notification.message); // Display the notification
+                                    });
+                            </script> -->
+
                             <h2 class="brand-text">Stack</h2>
                         </a></li>
                     <li class="nav-item d-none d-lg-block nav-toggle"><a class="nav-link modern-nav-toggle pr-0"data-toggle="collapse">

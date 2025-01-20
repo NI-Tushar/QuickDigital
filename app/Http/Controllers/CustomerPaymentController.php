@@ -241,6 +241,8 @@ class CustomerPaymentController extends Controller
 
                 if($resObject[0]['sp_message']=="Success"){
 
+                    Session::put('new_order', 'placed'); // session to send notification to admin 
+                    
                     // dd(Session::get('affiliator_promocode_id'));
                     // dd($resObject[0]);
 
