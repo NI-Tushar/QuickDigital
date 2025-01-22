@@ -1,6 +1,7 @@
 :root{
     --primary-color:#006e39;
-    --logo-red-color:rgb(225, 33, 68);
+    --primary-color-light:rgb(123, 205, 0);
+    --logo-red-color:rgb(226, 72, 101);
     /* --primary-color:#3A0256; */
     --primary-hover-color:#6c03a0;
 

@@ -55,11 +55,11 @@
 }
 
 .offcanvas-body .nav-item .nav-link {
-    color: black !important;
+    color: white !important;
     font-size: 18px !important;
 }
 .offcanvas-body .nav-item .nav-link:hover {
-    background-color: var(--primary-color) !important;
+    background-color: var(--primary-color-light) !important;
     color: #fff !important;
     transition: all 0.5s ease-in-out;
 }
@@ -129,7 +129,7 @@
 --------------------------------------- */
 
 .about-section {
-    background-color: #f6e3FFFC;
+    background-color: #006e3965;
 }
 
 .about-heading {

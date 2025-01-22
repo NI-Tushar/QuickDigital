@@ -7,7 +7,6 @@
     left:0;
     z-index:1000;
     background-color:transparent;
-    border: 1px solid red;
     /* box-shadow: 0px 15px 10px -15px #111;     */
 }
 .sticky_bar>div{
@@ -35,7 +34,7 @@
 .sticky_bar .top-contacts div a{
     display: flex;
     float: right;
-    color: black;
+    color: white;
     width: fit-content;
     text-decoration:none;
 }
@@ -49,7 +48,7 @@
     margin-right: 5px;
 }
 .sticky_bar .top-contacts .user_part>div a span{
-    color: black;
+    color: white;
     width: 100%;
     text-align: right;
 }
@@ -87,9 +86,10 @@
 }
 .offcanvas-body .navbar-nav li{
     margin-left: 10px;
+    color: white;
 }
 .offcanvas-body .navbar-nav li a{
-    color: black;
+    color: white !important;
 }
 
 
@@ -108,7 +108,6 @@
     .offcanvas-body .navbar-nav li{
         margin-left: 0px;
     }
-
 }
 
 @media (max-width: 550px) {

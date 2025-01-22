@@ -115,7 +115,7 @@ class UserController extends Controller
             return redirect()->route('user.login')->with('reg_success_message', 'আপনি সফল ভাবে রেজিস্ট্রেশন করেছেন, লগইন করুন.');
         } else {
             // Handle GET request for displaying the registration form
-            return view('front.users.register');
+            return view('front.boot_camp.request_form');
         }
     }
 
