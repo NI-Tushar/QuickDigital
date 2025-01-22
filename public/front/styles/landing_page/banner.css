@@ -12,6 +12,9 @@
     width: 100%;
     top:0px;
     left: 0px;
+    border-bottom-right-radius: 100px;
+    filter: blur(8px);
+    -webkit-filter: blur(8px);
 }
 .whole_banner .centered_banner{
     border: 1px solid red;
@@ -42,3 +45,22 @@
     margin-top: 10px;
     color:rgba(0, 0, 0, 0.513)
 }
+
+
+
+.bg-image {
+    /* The image used */
+    background-image: url("photographer.jpg");
+    
+    /* Add the blur effect */
+    filter: blur(8px);
+    -webkit-filter: blur(8px);
+    
+    /* Full height */
+    height: 100%; 
+    
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }

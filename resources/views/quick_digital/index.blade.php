@@ -35,7 +35,7 @@
     <!-- _______________________________________ BANNER SECTION START -->
      <section>
         <div class="whole_banner">
-            <img class="banner_bg" src="{{ asset('front/assets/images/landing/banner_bg.png') }}" alt="">
+            <img class="banner_bg" src="{{ asset('front/assets/images/landing/banner_bg2.png') }}" alt="">
             <div class="centered_banner">
                 <div class="banner_part part_left">
                     <div class="banner_text">
