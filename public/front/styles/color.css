@@ -1,5 +1,5 @@
 :root{
-    --primary-color:#006e39;
+    --primary-color:#00964e;
     --primary-color-light:rgb(123, 205, 0);
     --logo-red-color:rgb(226, 72, 101);
     /* --primary-color:#3A0256; */
@@ -7,6 +7,6 @@
 
 
     /* for slider color */
-    --plyr-color-main: #c21ac2;
+    --plyr-color-main: #111dbc;
     --banner-front-color:rgb(253, 172, 57);
 }

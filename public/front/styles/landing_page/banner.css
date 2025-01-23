@@ -8,6 +8,9 @@
     background-repeat: no-repeat;
     background-size: cover;
 }
+.whole_banner .bg_mobile{
+    display: none;
+}
 .whole_banner .banner_bg_img{
     position: absolute;
     height: 100%;
@@ -139,6 +142,12 @@
     .whole_banner .centered_banner .part_right .image_box{
         max-width: 400px;
         width: 100%;
+    }
+    .whole_banner .bg_desktop{
+        display: none;
+    }
+    .whole_banner .bg_mobile{
+        display: block;
     }
   }
   @media (max-width: 950px) {

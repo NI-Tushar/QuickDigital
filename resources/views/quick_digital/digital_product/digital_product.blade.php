@@ -3,6 +3,24 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
     <link rel="stylesheet" href="{{ url('front/styles/digital_product.css') }}">
 
+
+<!-- __________________ BANNER SECTION START -->
+ <section class="banner_section">
+    <div class="banner_center">
+      <h3>আপনার ব্যবসার কার্যক্রমকে সহজ, দ্রুত এবং নির্ভুল করতে চান? আমাদের ম্যানেজমেন্ট সফটওয়্যার ঠিক সেই কাজটিই করবে!</h3>
+      <p>কেন আমাদের ম্যানেজমেন্ট সফটওয়্যার ব্যবহার করবেন?</p>
+        <ul>
+            <li><strong>সম্পূর্ণ অটোমেশন:</strong> কাজের ঝামেলা দূর করুন, সময় ও খরচ বাঁচান।</li>
+            <li><strong>রিয়েল-টাইম রিপোর্টিং:</strong> আপনার ব্যবসার সকল তথ্য এক ক্লিকে।</li>
+            <li><strong>সহজ ইন্টারফেস:</strong> ব্যবহার করতে কোনো অতিরিক্ত প্রশিক্ষণের প্রয়োজন নেই।</li>
+            <li><strong>কাস্টমাইজড সলিউশন:</strong> আপনার ব্যবসার চাহিদা অনুযায়ী ব্যক্তিগতকরণ।</li>
+            <li><strong>নিরাপত্তার নিশ্চয়তা:</strong> আপনার ডেটা সম্পূর্ণ সুরক্ষিত।</li>
+        </ul>
+    </div>
+ </section>
+<!-- __________________ BANNER SECTION END -->
+ 
+
     <div class="dig_prod_section">
         <div class="centered_product">
 

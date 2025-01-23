@@ -24,12 +24,13 @@ class HomeController extends Controller
 {
     public function index()
     {
-        // Session::put('page', 'index');
+        Session::forget('page');
         $user = Auth::user();
         return view('quick_digital.index', compact('user'));
     }
     public function contact_us()
     {
+        Session::put('page', 'contactUs');
        return view('quick_digital.contact_us');
     }
 

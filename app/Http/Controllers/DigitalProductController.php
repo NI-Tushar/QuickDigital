@@ -6,12 +6,14 @@ use App\Models\User;
 use App\Models\DigitalProduct;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Session;
 
 
 class DigitalProductController extends Controller
 {
     public function index(Request $request)
     {
+        Session::put('page', 'digitaProduct');
         $query = DigitalProduct::query();
 
         // Apply filters based on query parameters

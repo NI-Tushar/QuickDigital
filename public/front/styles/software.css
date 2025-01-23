@@ -1,3 +1,59 @@
+/* ========================================= */
+.banner_section{
+  height: auto;
+  width: 100%;  
+  background-color:hsla(120,95%,11%,1);
+  background-image:
+  radial-gradient(at 40% 20%, hsla(159,93%,21%,1) 0px, transparent 50%),
+  radial-gradient(at 80% 0%, hsla(166,49%,37%,1) 0px, transparent 50%),
+  radial-gradient(at 0% 50%, hsla(150,100%,22%,1) 0px, transparent 50%),
+  radial-gradient(at 80% 50%, hsla(193,53%,35%,1) 0px, transparent 50%),
+  radial-gradient(at 0% 100%, hsla(147,56%,31%,1) 0px, transparent 50%),
+  radial-gradient(at 80% 100%, hsla(150,28%,50%,1) 0px, transparent 50%),
+  radial-gradient(at 0% 0%, hsla(158,81%,31%,1) 0px, transparent 50%);
+  display: flex;
+  padding-top: 7rem;
+  padding-bottom: 5rem;
+}
+.banner_section .banner_center{
+  max-width: 1050px;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.224);
+  height: auto;
+  margin: auto;
+  padding:25px;
+  border-radius: 15px;
+}
+.banner_section .banner_center h3{
+  font-size: 30px;
+  font-weight: 700;
+  color: var(--primary-color-light);
+  text-shadow: 1px 1px 2px #000000;
+}
+.banner_section .banner_center p{
+  font-weight: 600;
+}
+.banner_section .banner_center p,
+.banner_section .banner_center ul li{
+  color: #ffffffc1;
+}
+
+@media (max-width: 550px) {
+  .banner_section .banner_center h3{
+    font-size: 20px;
+  }
+  .banner_section{
+    padding-bottom: 2px;
+  }
+  .banner_section .banner_center p{
+    font-size: 15px;
+    font-weight: 500;
+  }
+  .banner_section .banner_center ul li{
+    font-size: 13px;
+  }
+}
+/* ========================================= */
 .software_section{
     width: 100%;
     height: auto;
@@ -19,6 +75,7 @@
     border-left: 3px solid var(--primary-color);
     padding-left: 10px;
     color: var(--primary-color);
+    text-shadow: 1px 1px 1px #000000;
 }
 
 /* .software_section .centered_list ol li{
@@ -44,8 +101,8 @@
     border: 2px solid transparent;
 }
 .software_section .centered_list .list_section .soft_list:hover{
-    border: 2px solid var(--primary-hover-color);
-    box-shadow: rgba(191, 61, 239, 0.794) 0px 2px 8px 0px;
+    border: 2px solid var(--primary-color-light);
+    box-shadow: var(--primary-color-light) 0px 2px 8px 0px;
 }
 .software_section .centered_list .list_section .soft_list .img_sec{
     width: 40%;
@@ -110,7 +167,7 @@
     cursor: pointer;
 }
 .software_section .centered_list .list_section .soft_list .price_sec .cart svg:hover{
-    fill:var(--primary-hover-color);
+    fill:var(--primary-color-light);
 }
 .software_section .centered_list .list_section .soft_list .price_sec .price{
     padding-top: 10px;
@@ -191,8 +248,8 @@
     color:aliceblue;
 }
 .software_section .centered_list .list_section .soft_list .price_sec .buttons .active:hover{
-    border: 1px solid var(--primary-hover-color);
-    background-color: var(--primary-hover-color);
+    border: 1px solid var(--primary-color-light);
+    background-color: var(--primary-color-light);
 }
 
 
@@ -416,7 +473,7 @@
         border-radius: 3px;
       }
       .button_section input:hover{
-        background-color: var(--primary-hover-color);
+        background-color: var(--primary-color-light);
       }
       
       

@@ -28,6 +28,7 @@
     use App\Http\Controllers\QuickShopProductController;
     use App\Http\Controllers\SslCommerzPaymentController;
     use Illuminate\Support\Facades\Route;
+    use Illuminate\Support\Facades\Session;
 
     Route::get('/', function () {
         return view('quick_digital.index');

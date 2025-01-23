@@ -9,13 +9,24 @@
   gtag('config', 'G-MBXJWQEP3W');
 </script>
 
+<script>
+    window.addEventListener('scroll', function () {
+        const header = document.getElementById('sticky_bar');
+        if (window.scrollY > 500) { // Change 50 to the scroll threshold you want
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+    });
+</script>
+
 @include('quick_digital.layout.loader')
 @include('quick_digital.layout.sticky_ripple_logo')
 
 
-<div class="sticky_bar">
+<div id="sticky_bar" class="sticky_bar">
 
-    <div class="bg-first text-white top_bar">
+    <div class="bg-first text-white">
         <div class="container max-width">
             <div class="top-contacts">
 
@@ -137,9 +148,14 @@
 
                         <div class="offcanvas-body">
                             <ul class="navbar-nav">
-                                <li class="nav-item hide">
+
+                                @php
+                                $active = Session::get('page') == 'quickBusiness_req' ? 'active' : '';
+                                @endphp
+
+                                <li class="nav-item hide {{ $active }}">
                                     <a class="nav-link fw-semibold px-md-3" aria-current="page"
-                                        href="{{ route('rep.requestForm') }}" style="background: var(--primary-color);color:#ffff !important;">
+                                        href="{{ route('rep.requestForm') }}">
                                         কুইক ব্যাবসা
                                     </a>
                                 </li>
@@ -210,14 +226,20 @@
                                 </li>
                                 -->
 
-                                <li class="nav-item hide">
+                                @php
+                                $active = Session::get('page') == 'software' ? 'active' : '';
+                                @endphp
+                                <li class="nav-item hide {{ $active }}">
                                     <a class="nav-link fw-semibold px-md-3" aria-current="page"
                                         href="{{ route('quick.software') }}">
                                         সফটওয়্যার
                                     </a>
                                 </li>
 
-                                <li class="nav-item hide">
+                                @php
+                                $active = Session::get('page') == 'digitaProduct' ? 'active' : '';
+                                @endphp
+                                <li class="nav-item hide {{$active}}">
                                     <a class="nav-link fw-semibold px-md-3" aria-current="page"
                                         href="{{ route('quick.digitalProduct') }}">
                                         ডিজিটাল প্রোডাক্ট
@@ -230,7 +252,10 @@
                                     </a>
                                 </li> -->
 
-                                <li class="nav-item hide">
+                                @php
+                                $active = Session::get('page') == 'contactUs' ? 'active' : '';
+                                @endphp
+                                <li class="nav-item hide {{ $active }}">
                                     <a class="nav-link fw-semibold px-md-3" aria-current="page"
                                         href="{{ url('/quick-digital/contact-us') }}">যোগাযোগ</a>
                                 </li>

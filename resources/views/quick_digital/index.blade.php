@@ -36,7 +36,8 @@
     <!-- _______________________________________ BANNER SECTION START -->
      <section>
         <div class="whole_banner">
-            <img class="banner_bg_img" src="{{ asset('front/assets/images/landing/banner_bg.png') }}" alt="">
+            <img class="banner_bg_img bg_desktop" src="{{ asset('front/assets/images/landing/banner_bg.png') }}" alt="">
+            <img class="banner_bg_img bg_mobile" src="{{ asset('front/assets/images/landing/mobile_bg.png') }}" alt="">
             <div class="centered_banner">
                 <div class="banner_part part_left">
                     <div class="banner_text">
@@ -60,8 +61,8 @@
     <!-- _______________________________________ BANNER SECTION END -->
 
 
-<!-- ________________________________________________________________________ SERVICE CARD START -->
-<section class="service_section">
+    <!-- ________________________________________________________________________ SERVICE CARD START -->
+    <section class="service_section">
         <div class="service_heading">
             <h1>আমাদের সার্ভিসসমূহ</h1>
             <p>সৃজনশীলতা, প্রযুক্তি এবং কৌশল—একই জায়গায় একত্রিত আপনার ব্যবসার জন্য</p>
@@ -430,7 +431,7 @@
 
         <div class="container max-width px-0">
             <h3 class="resources-heading text-center custom-padding">
-                আমাদের সার্ভিস সমূহ
+                আমাদের জনপ্রিয় সার্ভিস সমূহ
                 <span class="d-flex justify-content-center">
                     <div class="b-bottom-middle"></div>
                 </span>
@@ -439,7 +440,7 @@
                 <!-- আপনার জন্য আমরা নিয়ে এসেছি ডিজিটাল জগতের সবকিছু। যা দিয়ে এই নতুন যুগের ডিজিটাল বিজনেস গুলোকে আপনি নিয়ে যেতে পারবেন অনন্য উচ্চতায়।
                 আমাদের মোবাইল ফ্রিল্যান্সিং কোর্স গুলো শিখে আপনি উপার্জনের নতুন পন্থাগুলো সম্পর্কে জানতে পারবেন...ইনশাল্লাহ। -->
             </p>
-            <div class="button"><a href="{{ route('quick-digital.contact') }}"><button>সব সার্ভিস</button></a></div>
+            <!-- <div class="button"><a href="{{ route('quick-digital.contact') }}"><button>সব সার্ভিস</button></a></div> -->
             <div class="row resource-package-container">
                 <div class="col-12 col-lg-4 d-flex justify-content-center card-container p-1">
                     <div class="card shadow border-0" style="width: 22rem;">
@@ -455,7 +456,8 @@
                             </div>
                             <div class="d-flex justify-content-center my-2">
                                 <button class="border-1 rounded-1 py-2 px-4 btn-stylish" style="width:95%;">
-                                    <a class="text-decoration-none py-auto fw-medium fs-5" aria-current="page" href="https://wa.me/+8801973784959?text=Hello%20QuickDigital!" target="_blank">এখনই বুক করুন</a>
+                                    <a class="text-decoration-none py-auto fw-medium fs-5" aria-current="page" 
+                                    href="https://wa.me/+8801973784959?text=Hello%20QuickDigital!" target="_blank">হোয়াটসএপে অর্ডার করুন</a>
                                 </button>
                             </div>
                         </div>
@@ -474,7 +476,8 @@
                             </div>
                             <div class="d-flex justify-content-center my-2">
                                 <button class="border-1 rounded-1  py-2 px-4 btn-stylish" style="width:95%;">
-                                    <a class="text-decoration-none py-auto fw-medium fs-5" aria-current="page" href="https://wa.me/+8801973784959?text=Hello%20QuickDigital!" target="_blank">এখনই বুক করুন</a>
+                                    <a class="text-decoration-none py-auto fw-medium fs-5" aria-current="page" 
+                                    href="https://wa.me/+8801973784959?text=Hello%20QuickDigital!" target="_blank">হোয়াটসএপে অর্ডার করুন</a>
                                 </button>
                             </div>
                         </div>
@@ -493,7 +496,8 @@
                             </div>
                             <div class="d-flex justify-content-center my-2">
                                 <button class="border-1 rounded-1  py-2 px-4 btn-stylish" style="width:95%;">
-                                    <a class="text-decoration-none py-auto fw-medium fs-5" aria-current="page" href="https://wa.me/+8801973784959?text=Hello%20QuickDigital!" target="_blank">এখনই বুক করুন</a>
+                                    <a class="text-decoration-none py-auto fw-medium fs-5" aria-current="page" 
+                                    href="https://wa.me/+8801973784959?text=Hello%20QuickDigital!" target="_blank">হোয়াটসএপে অর্ডার করুন</a>
                                 </button>
                             </div>
                         </div>
