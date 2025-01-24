@@ -19,15 +19,13 @@
     border-left: 3px solid var(--primary-color);
     padding-left: 10px;
     font-size: 18px;
-    color: var(--primary-color);
+    color: var( --primary-color);
 }
 
 .affiliator_reg_section{   
     height: auto;
     width: 100%;
     /* display: none; */
-}
-.affiliator_reg_section .centered_list .form_container{
 }
 
 .affiliator_reg_section .clearfix:after {
@@ -39,15 +37,15 @@
   }
   
   .affiliator_reg_section .form_wrapper {
-      background: #fff;
-      width: 100%;
+    background: #fff;
+    width: 100%;
     max-width: 100%;
     box-sizing: border-box;
     padding: 25px;
     margin: 0% auto 0;
     position: relative;
     z-index: 1;
-    border-top: 5px solid var(--primary-hover-color);
+    border-top: 5px solid var(--primary-color);
     -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
     -moz-box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
     box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
@@ -164,7 +162,7 @@
     background: #fafafa;
   }
   .affiliator_reg_section .form_wrapper input[type=submit] {
-    background: var(--primary-hover-color);
+    background: var(--primary-color);
     height: 35px;
     line-height: 35px;
     width: 100%;
@@ -180,10 +178,10 @@
     transition: all 0.3s ease-in-out;
   }
   .affiliator_reg_section .form_wrapper input[type=submit]:hover {
-    background: var( --plyr-color-main);
+    background: var(--primary-color-light);
   }
   .affiliator_reg_section .form_wrapper input[type=submit]:focus {
-    background: var( --plyr-color-main);
+    background: var(--primary-color-light);
   }
   .affiliator_reg_section .form_wrapper input[type=checkbox], 
   .affiliator_reg_section .form_wrapper input[type=radio] {
@@ -329,7 +327,7 @@
   }
 
   .affiliator_reg_section .form_container button{
-      border: 1.5px solid var(--primary-hover-color);
+      border: 1.5px solid var(--primary-color);
       border-radius: 5px;
       padding-left: 15px;
     padding-right: 15px;
@@ -339,7 +337,7 @@
     padding-bottom: 5px;
 }
 .affiliator_reg_section .form_container button:hover{
-    background-color: var(--primary-hover-color);
+    background-color: var(--primary-color);
     color: aliceblue;
 }
   

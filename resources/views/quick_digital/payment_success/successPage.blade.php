@@ -13,7 +13,7 @@
     <div class="success-message">
         <a href="{{ url('quick-digital/index') }}">
             <div class="logo_section">
-                <img src="{{ asset('front/assets/images/primary_logo2.png') }}" alt="Wise-Corporation" style="width: 150px;">
+                <img src="{{ asset('front/assets/images/primary_logo2.png') }}" alt="" style="width: 150px;">
                  <!-- <img src="/public/front/assets/images/primary_logo2.png" alt=""> -->
             </div>
         </a>

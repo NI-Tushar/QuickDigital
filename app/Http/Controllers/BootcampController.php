@@ -12,6 +12,7 @@ class BootcampController extends Controller
 {
     public function requestForm()
     {
+        Session::put('page', 'quickBusiness_req');
         return view('quick_digital.boot_camp.request_form');
     }
 

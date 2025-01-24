@@ -1,49 +1,56 @@
 
-    input[type="checkbox"]:checked,
-    input[type="radio"]:checked {
-        accent-color: var(--primary-color); 
-    }
-    button[type="submit"]{
-        background-color: var(--primary-color); 
-        color:aliceblue;
-        border:1px solid  var(--primary-color); 
-    }
-    button[type="submit"]:hover{
-        background:transparent;
-        border:1px solid  var(--primary-color); 
-    }
-
-    .hero {
-    background-image: linear-gradient(to bottom, #000000,  var(--primary-color));
+input[type="checkbox"]:checked,
+input[type="radio"]:checked {
+    accent-color: var(--primary-color); 
 }
+button[type="submit"]{
+    background-color: var(--primary-color); 
+    color:aliceblue;
+    border:1px solid  var(--primary-color); 
+}
+button[type="submit"]:hover{
+    background:transparent;
+    border:1px solid  var(--primary-color); 
+}
+
+.hero {
+    background-image: linear-gradient(to bottom, #000000,  var(--primary-color));
+    padding-top: 10rem;
+}
+.shapes-container #left-box,
+.shapes-container #right-box{
+    /* border-bottom: 20vh solid var(--primary-color-light); */
+    border-bottom: 20vh solid var(--primary-color-light);
+}
+
 .page_head_text{
     height:auto;
     width: 100%;
     padding-top:25px;
-    color:var(--plyr-color-main);
     font-size:35px;
 }
 .page_head_text h1{
     width: 100%;
     text-align:center;
+    color: var(--primary-color);
 }
 
 .reg_button{
     padding-left:10px;
     padding-right:10px;
     padding:20px;
-    background-color:var(--primary-color);
-    border:2px solid var(--plyr-color-main);
+    background-color:var(--primary-color-light);
+    border:2px solid var(--primary-color-light);
     border-radius:10px;
     font-size:25px;
     font-weight:700;
+    text-shadow: 1px 1px 2px #000000;
 }
 .reg_button:hover{
-    background-color:var(--plyr-color-main);
-    border:2px solid var(--primary-color);
+    background-color:var(--primary-color);
 }
 .iframe-wrapper iframe{
-    border:5px solid var(--plyr-color-main);
+    border:5px solid var(--primary-color);
 }
 
 
@@ -64,6 +71,7 @@
 }
 .faq .container .faq-heading{
     color: aliceblue;
+    background-color: var(--primary-color);
 }
 .faq .button_section{
     width: 100%;

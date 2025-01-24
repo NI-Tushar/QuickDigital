@@ -11,6 +11,7 @@ class SoftwareController extends Controller
 {
     public function index(Request $request)
     {
+        Session::put('page', 'software');
         $query = Software::query();
 
         // Apply filters based on query parameters

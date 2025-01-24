@@ -54,14 +54,9 @@
     margin-top: 0.125rem;
 }
 
-.offcanvas-body .nav-item .nav-link {
-    color: black !important;
-    font-size: 18px !important;
-}
-.offcanvas-body .nav-item .nav-link:hover {
-    background-color: var(--primary-color) !important;
-    color: #fff !important;
-    transition: all 0.5s ease-in-out;
+.navbar-toggler-icon{
+    background-color: aliceblue !important;
+    border-radius:3px;
 }
 
 
@@ -129,12 +124,21 @@
 --------------------------------------- */
 
 .about-section {
-    background-color: #f6e3FFFC;
+    background-color:hsla(190,72%,32%,0.28);
+    background-image:
+    radial-gradient(at 40% 20%, hsla(122,94%,39%,0.27) 0px, transparent 50%),
+    radial-gradient(at 80% 0%, hsla(128,51%,41%,0.37) 0px, transparent 50%),
+    radial-gradient(at 0% 50%, hsla(193,81%,30%,0.53) 0px, transparent 50%),
+    radial-gradient(at 80% 50%, hsla(120,100%,16%,0.35) 0px, transparent 50%),
+    radial-gradient(at 0% 100%, hsla(85,96%,18%,0.42) 0px, transparent 50%),
+    radial-gradient(at 80% 100%, hsla(118,59%,27%,0.23) 0px, transparent 50%),
+    radial-gradient(at 0% 0%, hsla(105,100%,45%,0.3) 0px, transparent 50%);
 }
 
 .about-heading {
     font-size: 40px;
     color: var(--primary-color);
+    text-shadow: 1px 1px 2px #000000;
 }
 
 
@@ -155,6 +159,9 @@
 .about-img-element {
     padding: 1rem;
 }
+.about-img-element img{
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}
 
 /*---------------------------------------
 |          resources section            |
@@ -165,16 +172,16 @@
     color: aliceblue;
 }
 .resources-section  .d-flex button{
-    border: 1px solid var(--plyr-color-main);
-    background-color: var(--plyr-color-main);
+    border: 2px solid var(--primary-color);
+    background-color: var(--primary-color);
 }
 .resources-section  .d-flex button:hover{
-    background-color:aliceblue;
-    color: black;
-    border: 1px solid var(--plyr-color-main);
+    background-color:transparent;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
 }
 .resources-section  .d-flex button:hover a{
-    color: black;
+    color: var(--primary-color);
 }
 .resources-section  .button{
     width: 100%;
@@ -233,11 +240,13 @@
 }
 
 .card {
-    background-color: #f6e3FFFC !important;
+    background-color: #02550935 !important;
 }
 
 .resource-link {
     color: var(--primary-color);
+    font-weight: 600;
+    font-size: 17px;
 }
 
 

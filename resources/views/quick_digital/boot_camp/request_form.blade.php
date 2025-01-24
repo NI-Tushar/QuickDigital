@@ -52,10 +52,10 @@
                 </div>
     
         </div>
-        <div class="shapes-container d-flex mt-3">
-            <div id="right-box"></div>
-            <div id="left-box"></div>
-        </div>
+            <div class="shapes-container d-flex mt-3">
+                <div id="right-box"></div>
+                <div id="left-box"></div>
+            </div>
         </div>
     </section>
 

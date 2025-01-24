@@ -15,10 +15,7 @@
     .hero {
     background-image: linear-gradient(to bottom, #000000, var(--primary-color));
 }
-.shapes-container #left-box,
-.shapes-container #right-box{
-    border-bottom: 20vh solid var(--plyr-color-main);
-}
+
 .page_head_text{
     height:auto;
     width: 100%;
@@ -72,9 +69,6 @@
 }
 
 /* ________________________ faq start */
-.faq{
-    background-image: linear-gradient(to bottom,  #711271, #3A0256);
-}
 .faq .container h4{
     background-color: aliceblue;
     /* color: var(--plyr-color-main); */
