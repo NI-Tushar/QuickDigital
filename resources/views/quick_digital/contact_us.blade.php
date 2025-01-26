@@ -3,6 +3,16 @@
 
 <script src="https://kit.fontawesome.com/5f7bc44e9f.js" crossorigin="anonymous"></script> 
 
+
+<!-- __________________ BANNER SECTION START -->
+<section class="banner_section">
+    <div class="banner_center">
+        <h3>আমাদের সাথে যোগাযোগ করুন</h3>
+        <p>নিচের দেওয়া মোবাইল নাম্বার, হোয়াটস-এপ, ই-মেইল কিংবা আমাদের ঠিকানায়</p>
+    </div>
+</section>
+<!-- __________________ BANNER SECTION END -->
+
 <section class="contact-page-sec">
   <div class="container">
     <div class="row card_section">

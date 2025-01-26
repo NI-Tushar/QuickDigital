@@ -25,7 +25,7 @@
                 <div class="d-flex flex-column justify-content-center align-items-center col-md-8 py-3">
                     <div class="iframe-wrapper">
                     <iframe 
-                        src="{{ asset('front/assets/vid/quick_business_vid.mp4') }}" 
+                        src="{{ asset('front/assets/vid/quick_business_video.mp4') }}" 
                         title="Quick Business Video" 
                         frameborder="0" 
                         allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"

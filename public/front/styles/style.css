@@ -126,18 +126,19 @@
 .about-section {
     background-color:hsla(190,72%,32%,0.28);
     background-image:
-    radial-gradient(at 40% 20%, hsla(122,94%,39%,0.27) 0px, transparent 50%),
+    radial-gradient(at 40% 20%, hsla(121, 36%, 47%, 0.27) 0px, transparent 50%),
     radial-gradient(at 80% 0%, hsla(128,51%,41%,0.37) 0px, transparent 50%),
-    radial-gradient(at 0% 50%, hsla(193,81%,30%,0.53) 0px, transparent 50%),
+    radial-gradient(at 0% 50%, hsla(193, 28%, 43%, 0.53) 0px, transparent 50%),
     radial-gradient(at 80% 50%, hsla(120,100%,16%,0.35) 0px, transparent 50%),
     radial-gradient(at 0% 100%, hsla(85,96%,18%,0.42) 0px, transparent 50%),
-    radial-gradient(at 80% 100%, hsla(118,59%,27%,0.23) 0px, transparent 50%),
-    radial-gradient(at 0% 0%, hsla(105,100%,45%,0.3) 0px, transparent 50%);
+    radial-gradient(at 80% 100%, hsla(163, 46%, 46%, 0.23) 0px, transparent 50%),
+    radial-gradient(at 0% 0%, hsla(161, 42%, 41%, 0.3) 0px, transparent 50%);
 }
 
 .about-heading {
     font-size: 40px;
-    color: var(--primary-color);
+    /* color: var(--primary-color); */
+    color: aliceblue;
     text-shadow: 1px 1px 2px #000000;
 }
 

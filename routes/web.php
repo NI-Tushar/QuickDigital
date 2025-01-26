@@ -192,6 +192,7 @@
         // Bootcamp
         Route::get('/bootcamp', [BootcampController::class, 'index'])->name('bootcamp.index');
         Route::get('/bootcamp/affiliator', [BootcampController::class, 'affiliators'])->name('bootcamp.affiliators');
+        Route::get('/bootcamp/add/affiliator', [BootcampController::class, 'addAffiliators'])->name('bootcamp.add.affiliators');
         Route::get('/bootcamp/{bootcamp}/show', [BootcampController::class, 'show'])->name('bootcamp.show');
         Route::delete('/bootcamp/{bootcamp}', [BootcampController::class, 'destroy'])->name('bootcamp.destroy');
 
@@ -220,6 +221,7 @@
     // Boot Request Form
     Route::get('/rep', [BootcampController::class, 'requestForm'])->name('rep.requestForm');
     Route::post('/rep', [BootcampController::class, 'store'])->name('rep.store');
+    Route::post('/add/rep', [BootcampController::class, 'addAffiliatorPost'])->name('add.affiliator');
 
 
 

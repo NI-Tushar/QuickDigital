@@ -1,18 +1,18 @@
 
-    input[type="checkbox"]:checked,
-    input[type="radio"]:checked {
-        accent-color: var(--primary-color); 
-    }
-    button[type="submit"]{
-        background-color:var(--primary-color); 
-        color:aliceblue;
-        border:1px solid var(--primary-color); 
-    }
-    button[type="submit"]:hover{
-        background:transparent;
-        border:1px solid var(--primary-color); 
-    }
-    .hero {
+input[type="checkbox"]:checked,
+input[type="radio"]:checked {
+    accent-color: var(--primary-color); 
+}
+button[type="submit"]{
+    background-color:var(--primary-color); 
+    color:aliceblue;
+    border:1px solid var(--primary-color); 
+}
+button[type="submit"]:hover{
+    background:transparent;
+    border:1px solid var(--primary-color); 
+}
+.hero {
     background-image: linear-gradient(to bottom, #000000, var(--primary-color));
 }
 

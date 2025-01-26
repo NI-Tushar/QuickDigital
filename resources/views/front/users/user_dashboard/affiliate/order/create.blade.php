@@ -161,7 +161,7 @@
                                                 </td>
                                                 <td><input type="text" min="0" class="form-control"
                                                         placeholder="Amount" name="sale_items[0][amount]" disabled></td>
-                                                <td><button type="button" class="btn addRowBtn" style="background-color:var(--primary-hover-color);color:aliceblue;">Ok</button></td>
+                                                <td><button type="button" class="btn addRowBtn" style="background-color:var(--primary-hover-color);color:aliceblue;">Add</button></td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -172,7 +172,7 @@
                                             <tr id="subtotal">
                                                 <td><span class="bold tw-text-neutral-700">সাব-টোটাল :</span></td>
                                                 <td>
-                                                    <span class="subtotal">$0.00</span>
+                                                    <span class="subtotal">BDT 0.00</span>
                                                     <input type="hidden" name="sub_total" value="0.00">
                                                 </td>
                                             </tr>
@@ -201,7 +201,7 @@
                                                         </div>
                                                     </div>
                                                 </td>
-                                                <td class="discount-total">-$0.00</td>
+                                                <td class="discount-total">-BDT 0.00</td>
                                             </tr>
                                             <tr style="display: none">
                                                 <td>
@@ -218,12 +218,12 @@
                                                         </div>
                                                     </div>
                                                 </td>
-                                                <td class="adjustment">$0.00</td>
+                                                <td class="adjustment">BDT 0.00</td>
                                             </tr>
                                             <tr>
                                                 <td><span class="bold tw-text-neutral-700">টোটাল :</span></td>
                                                 <td>
-                                                    <span class="total">$0.00</span>
+                                                    <span class="total">BDT 0.00</span>
                                                     <input type="hidden" name="total" value="0.00">
                                                 </td>
                                             </tr>

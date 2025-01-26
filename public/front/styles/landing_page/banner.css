@@ -36,7 +36,7 @@
     /* border: 1px solid red; */
     display: flex;
 }
-.whole_banner .centered_banner .part_right .image_box{
+/* .whole_banner .centered_banner .part_right .image_box{
     margin: auto;
     min-height: 300px;
     height: 100%;
@@ -49,7 +49,60 @@
     padding-top:10%;
     padding-left:10%;
     position: relative;
+    border: 1px solid red;
+} */
+
+/* ___________________landing posrter poster 2nd option start*/
+.whole_banner .centered_banner .part_right .image_box{
+    margin: auto;
+    min-height: 250px;
+    height: 100%;
+    min-width: 300px;
+    width: 100%;
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.167);
+    position: relative;
+    padding: 20px;
 }
+.whole_banner .centered_banner .part_right .image_box .box1{
+    height: 48%;
+    width: 100%;
+    margin-bottom: 10px;
+    display: flex;
+    gap: 10px;
+}
+.whole_banner .centered_banner .part_right .image_box .box2{
+    height: 48%;
+    width: 100%;
+    display: flex;
+    gap: 10px;
+}
+.whole_banner .centered_banner .part_right .image_box .box1 img,
+.whole_banner .centered_banner .part_right .image_box .box2 img{
+    border-radius: 10px;
+}
+.whole_banner .centered_banner .part_right .image_box .box1 img{
+    height: 100%;
+    margin: auto;
+}
+.whole_banner .centered_banner .part_right .image_box .box1 .img1{
+    width: 60%;
+}
+.whole_banner .centered_banner .part_right .image_box .box1 .img2{
+    width: 40%;
+}
+.whole_banner .centered_banner .part_right .image_box .box2 img{
+    height:100%;
+    margin: auto;
+}
+.whole_banner .centered_banner .part_right .image_box .box2 .img3{
+    width: 40%;
+}
+.whole_banner .centered_banner .part_right .image_box .box2 .img4{
+    width: 55% !important;
+}
+/* ___________________landing posrter poster 2nd option end*/
+
 .whole_banner .centered_banner .part_right .img_shadow{
     height: 70%;
     width: 70%;
@@ -63,14 +116,14 @@
     box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
 }
 
-.whole_banner .centered_banner .part_right .image_box img{
+/* .whole_banner .centered_banner .part_right .image_box img{
     border-radius: 10px;
     border-top-left-radius: 70px;
     border-bottom-right-radius: 70px;
     height: 80%;
     width: 80%;
     border: 2px solid var(--primary-color-light);
-}
+} */
 .whole_banner .centered_banner .banner_part .banner_text{
     padding-top: 20%;
 }
@@ -78,13 +131,13 @@
     font-weight: 700;
     color:aliceblue;
     text-shadow: 1px 1px 2px #000000;
-    font-size: 30px;
+    font-size: 55px;
 }
 .whole_banner .centered_banner .banner_part .banner_text h1 span{
     color:var(--primary-color-light);
 }
 .whole_banner .centered_banner .banner_part .banner_text p{
-    font-size: 17px;
+    font-size: 20px;
     font-weight: 600;
     margin-top: 10px;
     color:rgba(255, 255, 255, 0.809)
@@ -92,33 +145,73 @@
 
 .whole_banner .centered_banner .button_part{
     margin-top: 3rem;
-    
     display: flex;
     gap:10px;
 }
 
 .whole_banner .centered_banner .button_part button{
     width: 150px;
-    border: 1.5px solid var(--primary-color-light);
+    border: 1.5px solid var(--logo-red-color);
     padding-top: 7px;
     padding-bottom: 7px;
     border-radius: 5px;
     font-weight: 600;
-    color: var(--primary-color-light);
+    color: var(--logo-red-color);
     background-color: transparent;
 }
 .whole_banner .centered_banner .button_part button:hover{
-    background-color: var(--primary-color-light);
+    background-color: var(--logo-red-color);
     color:aliceblue;
 }
 .whole_banner .centered_banner .button_part .active{
-    background-color: var(--primary-color-light);
+    background-color: var(--logo-red-color);
     color: aliceblue;
 }
 .whole_banner .centered_banner .button_part .active:hover{
-    background-color: rgb(180, 244, 83);
+    background-color: rgb(252, 103, 130);
     color:black;
 }
+
+/* __________________________ page button part start */
+
+.page_button_part{
+    display: flex;
+    gap:10px;
+    margin-bottom: 3rem;
+}
+
+.page_button_part .page_buttons{
+    width: fit-content;
+    height: auto;
+    margin: auto;
+    display: flex;
+    gap:25px;
+ }
+ .page_button_part .page_buttons button{
+    width: 150px;
+    border: 1.5px solid var(--logo-red-color);
+    padding-top: 7px;
+    padding-bottom: 7px;
+    border-radius: 5px;
+    font-weight: 600;
+    color: var(--logo-red-color);
+    background-color: transparent;
+}
+
+.page_button_part .page_buttons button:hover{
+    background-color: var(--logo-red-color);
+    color:aliceblue;
+}
+
+.page_button_part .page_buttons .active{
+    background-color: var(--logo-red-color);
+    color: aliceblue;
+}
+.page_button_part .page_buttons .active:hover{
+    background-color: rgb(252, 103, 130);
+    color:black;
+}
+/* __________________________ page button part end */
 
 .bg-image {
     /* The image used */
@@ -142,6 +235,7 @@
     .whole_banner .centered_banner .part_right .image_box{
         max-width: 400px;
         width: 100%;
+
     }
     .whole_banner .bg_desktop{
         display: none;
@@ -168,12 +262,13 @@
 
     .whole_banner .centered_banner .part_right{
         display: flex;
+        padding: 10px;
     }
     .whole_banner .centered_banner .part_left{
         padding-left: 10px;
         padding-right: 10px;
     }
-    .whole_banner .centered_banner .part_right .image_box{
+    /* .whole_banner .centered_banner .part_right .image_box{
         margin: auto;
         height: auto;
         width: 300px;
@@ -182,6 +277,13 @@
         border-top-left-radius: 60px;
         border-bottom-right-radius: 60px;
         position: relative;
+    } */
+    .whole_banner .centered_banner .part_right .image_box{
+        height: 200px;
+        width: 100%;
+        border-radius: 20px;
+        position: relative;
+        margin: auto;
     }
     .whole_banner .centered_banner .banner_part .banner_text h1{
         font-size: 25px;
@@ -189,12 +291,13 @@
     .whole_banner .centered_banner .banner_part .banner_text p{
         font-size: 12px;
     }
-}
 
+}
+/* 
 @media (max-width: 350px) {
     .whole_banner .centered_banner .part_right .image_box{
         margin: auto;
         height: 280px;
         width: 280px;
     }
-}
+} */

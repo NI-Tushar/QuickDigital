@@ -15,7 +15,6 @@
         <li><strong>কাস্টমাইজড সলিউশন:</strong> আপনার ব্যবসার চাহিদা অনুযায়ী ব্যক্তিগতকরণ।</li>
         <li><strong>নিরাপত্তার নিশ্চয়তা:</strong> আপনার ডেটা সম্পূর্ণ সুরক্ষিত।</li>
     </ul>
-
     </div>
  </section>
 <!-- __________________ BANNER SECTION END -->
@@ -33,7 +32,7 @@
           margin-bottom: 2rem;
           padding:10px;
           border-radius: 5px;
-          box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+          /* box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px; */
         }
         .search_box .search{
           display: flex;
@@ -42,7 +41,7 @@
         }
         .search_box .search input{
           width: 100%;
-          padding: 5px;
+          padding: 10px;
           font-size: 17px;
           border-radius: 5px;
           border: 1px solid var(--primary-color);

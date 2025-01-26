@@ -9,16 +9,6 @@
   gtag('config', 'G-MBXJWQEP3W');
 </script>
 
-<script>
-    window.addEventListener('scroll', function () {
-        const header = document.getElementById('sticky_bar');
-        if (window.scrollY > 500) { // Change 50 to the scroll threshold you want
-            header.classList.add('scrolled');
-        } else {
-            header.classList.remove('scrolled');
-        }
-    });
-</script>
 
 @include('quick_digital.layout.loader')
 @include('quick_digital.layout.sticky_ripple_logo')
@@ -52,7 +42,7 @@
                             </path>
                         </svg>
                         <span class="">
-                            01973784959
+                            01973-784959
                         </span>
                     </a>
 
@@ -124,12 +114,35 @@
 
     </style>
 
+<script>
+    window.addEventListener('scroll', function () {
+        const header = document.getElementById('sticky_bar');
+        if (window.scrollY > 100) { // Change 50 to the scroll threshold you want
+            header.classList.add('scrolled');
+
+            const logo_black = document.getElementById('logo_black');
+            logo_black.style.display="flex";
+
+            const logo_white = document.getElementById('logo_white');
+            logo_white.style.display="none";
+        } else {
+            header.classList.remove('scrolled');
+
+            const logo_black = document.getElementById('logo_black');
+            logo_black.style.display="none";
+            const logo_white = document.getElementById('logo_white');
+            logo_white.style.display="flex";
+        }
+    });
+</script>
+
+
     <div class="container max-width header_bar" style="padding:0px;">
             <nav class="navbar custom-padding navbar-expand-lg" style="width:100%;">
                 <div class="container-fluid">
                     <a class="navbar-brand" href="{{ url('quick-digital/index') }}">
-                        <img src="{{ asset('front/assets/images/primary_logo2.png') }}"
-                            alt="">
+                        <img id="logo_white" src="{{ asset('front/assets/images/logo_white.png') }}"alt="">
+                        <img id="logo_black" src="{{ asset('front/assets/images/logo_black.png') }}"alt="">
                     </a>
                     <button class="navbar-toggler shadow-none border-0" type="button" data-bs-toggle="offcanvas"
                         data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
@@ -139,8 +152,8 @@
                         aria-labelledby="offcanvasNavbarLabel">
                         <div class="offcanvas-header">
                             <a class="navbar-brand" href="{{ url('quick-digital/index') }}" style="">
-                                <img class="py-2" height="auto" width="50%"
-                                    src="{{ asset('front/assets/images/primary_logo2.png') }}" alt="">
+                                <img id="logo_white" class="py-2" height="auto" width="50%"src="{{ asset('front/assets/images/logo_white.png') }}" alt="">
+                                <img id="logo_black" class="py-2" height="auto" width="50%"src="{{ asset('front/assets/images/logo_black.png') }}" alt="">
                             </a>
                             <button type="button" class="btn-close" data-bs-dismiss="offcanvas"
                                 aria-label="Close"></button>
@@ -251,6 +264,15 @@
                                         ডিজিটাল সার্ভিস
                                     </a>
                                 </li> -->
+
+                                
+                                @php
+                                $active = Session::get('page') == 'training' ? 'active' : '';
+                                @endphp 
+                                <li class="nav-item {{ $active }}">
+                                    <a class="nav-link fw-semibold px-md-3" aria-current="page"
+                                        href="{{ url('/quick-digital/contact-us') }}">ট্রেইনিং</a>
+                                </li>
 
                                 @php
                                 $active = Session::get('page') == 'contactUs' ? 'active' : '';

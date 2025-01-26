@@ -41,7 +41,41 @@
             <div class="centered_banner">
                 <div class="banner_part part_left">
                     <div class="banner_text">
-                        <h1>আপনার <span>ব্যবসা</span> এবং <span>দক্ষতা</span> বৃদ্ধি করুন <span>কুইক ডিজিটাল</span> এর মাধ্যমে</h1>
+                        <h1>আপনার <span>ব্যবসা</span> এবং <span>দক্ষতা</span> বৃদ্ধি করুন</h1>
+                        <p>ক্যারিয়ার গড়তে এবং আয়ের নতুন পথ তৈরি করতে আজই কুইক ডিজিটালের সাথে যুক্ত হোন</p>
+                        <div class="button_part">
+                            <a href=""><button class="active">সফটওয়্যার সল্যুশন</button></a>
+                            <a href=""><button>ডিজিটাল প্রোডাক্ট</button></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="banner_part part_right">
+                    <div class="image_box">
+                        <div class="box1">
+                            <img src="{{ asset('front/assets/images/landing/poster2.png') }}" alt="" class="img1">
+                            <img src="{{ asset('front/assets/images/landing/poster3.png') }}" alt="" class="img2">
+                        </div>
+                        <div class="box2">
+                            <img src="{{ asset('front/assets/images/landing/poster1.png') }}" alt="" class="img3">
+                            <img src="{{ asset('front/assets/images/landing/poster4.png') }}" alt="" class="img4">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+     </section>
+    <!-- _______________________________________ BANNER SECTION END -->
+
+
+    <!-- _______________________________________ BANNER SECTION START -->
+     <section>
+        <div class="whole_banner" style="display:none;">
+            <img class="banner_bg_img bg_desktop" src="{{ asset('front/assets/images/landing/banner_bg.png') }}" alt="">
+            <img class="banner_bg_img bg_mobile" src="{{ asset('front/assets/images/landing/mobile_bg.png') }}" alt="">
+            <div class="centered_banner">
+                <div class="banner_part part_left">
+                    <div class="banner_text">
+                        <h1>আপনার <span>ব্যবসা</span> এবং <span>দক্ষতা</span> বৃদ্ধি করুন</h1>
                         <p>ক্যারিয়ার গড়তে এবং আয়ের নতুন পথ তৈরি করতে আজই জয়েন করুন আমাদের কুইক ডিজিটালে</p>
                         <div class="button_part">
                             <a href=""><button class="active">সফটওয়্যার সল্যুশন</button></a>
@@ -52,7 +86,9 @@
                 <div class="banner_part part_right">
                     <div class="image_box">
                         <img src="{{ asset('front/assets/images/landing/banner_front_img.png') }}" alt="">
-                        <div class="img_shadow"></div>
+                        <div class="img_shadow">
+                            <img src="" alt="">
+                        </div>
                     </div>
                 </div>
             </div>
@@ -65,7 +101,7 @@
     <section class="service_section">
         <div class="service_heading">
             <h1>আমাদের সার্ভিসসমূহ</h1>
-            <p>সৃজনশীলতা, প্রযুক্তি এবং কৌশল—একই জায়গায় একত্রিত আপনার ব্যবসার জন্য</p>
+            <p>সৃজনশীলতা, প্রযুক্তি এবং কৌশল—একই জায়গায় একত্রিত আপনার ব্যবসার জন্য দক্ষ ও দায়িত্তশীল টিম আপনার সেবায় নিয়জিত</p>
         </div>
         <div class="service_card">
             <div class="blank-1"></div>
@@ -81,8 +117,8 @@
                         <path d="M43.1817 38H32.818C32.1847 38 31.6665 38.228 31.6665 38.5067V42.56C31.6665 42.8387 32.1847 43.0667 32.818 43.0667H43.1817C43.815 43.0667 44.3332 42.8387 44.3332 42.56V38.5067C44.3332 38.228 43.815 38 43.1817 38ZM43.1817 42.56H32.818V39.0133H43.1817V42.56Z" fill="#E02143"/>
                         </svg>
                         <div class="card_desc">
-                            <p class="title">ল্যান্ডিং পেইজ</p>
-                            <p>আপনার লক্ষ্য পূরণের জন্য এক্সপার্ট ল্যান্ডিং পেজ ডিজাইন। পেজ লোড স্পিড এবং মোবাইল রেসপন্সিভনেস উন্নয়ন।</p>
+                            <p class="title">ল্যান্ডিং পেইজ তৈরি</p>
+                            <p>আপনার ফেইসবুক পেইজ ভিত্তিক ব্যবসার জন্য, একটি আধুনিক পেমেন্ট গেইটওয়ে সম্বলিত, ল্যান্ডিং পেইজ তৈরি করুন আজই।</p>
                         </div>
                         <div class="button_section">
                             <a href="!"><button>বিস্তারিত</button></a>
@@ -112,8 +148,8 @@
                     <path d="M12.0571 5.04648V3.6004H13.5251V5.04648H12.0571Z" fill="#525EA4"/>
                     </svg>
                         <div class="card_desc">
-                            <p class="title">ভিডিও তৈরি</p>
-                            <p>আপনার ব্যবসার জন্য কার্যকরী ফেসবুক বিজ্ঞাপন কৌশল তৈরি। ভিডিও ক্লিপিং, ট্রানজিশন, কালার গ্রেডিং, মিউজিক এবং সাউন্ড ইফেক্টস যুক্ত করা।</p>
+                            <p class="title">ভিডিও মেকিং ও এডিটিং</p>
+                            <p>বিজ্ঞাপন, ইভেন্ট, প্রোডাক্ট ভিডিও সহ যেকোনো ধরনের ভিডিও তৈরি করুন। ভিডিও ক্লিপিং, ট্রানজিশন, কালার গ্রেডিং, মিউজিক এবং সাউন্ড ইফেক্টস যুক্ত করুন।</p>
                         </div>
                         <div class="button_section">
                             <a href="!"><button>বিস্তারিত</button></a>
@@ -271,6 +307,12 @@
         </div>
 </section>
 <!-- ________________________________________________________________________ SERVICE CARD END -->
+<div class="page_button_part">
+    <div class="page_buttons">
+        <a href=""><button class="active">সফটওয়্যার সল্যুশন</button></a>
+        <a href=""><button>ডিজিটাল প্রোডাক্ট</button></a>
+    </div>
+</div>
     
     <section style="display:none;">
         <div class="home_slider">
