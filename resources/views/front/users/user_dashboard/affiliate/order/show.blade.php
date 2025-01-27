@@ -33,7 +33,7 @@
                     <div class="card-header">
                       <div class="d-flex flex-wrap justify-content-between align-items-center" style="gap: 1em">
                           <h3>অর্ডারের বিবরনঃ</h3>
-                          <a class="btn" style="background-color:var(--primary-hover-color);color:aliceblue;" href="{{ route('affiliate.order.index') }}">Back</a>
+                          <a class="btn" style="background-color:var(--primary-color);color:aliceblue;" href="{{ route('affiliate.order.index') }}">Back</a>
                       </div>
                     </div>
                     <div class="card-body">
@@ -53,11 +53,11 @@
                                                         </tr>
                                                         <tr>
                                                             <td style="padding:5px 20px">অর্ডার স্ট্যাটাসঃ </td>
-                                                            <td style="padding:5px 20px"><span class="badge badge-secondary ml-3" style="background-color:var(--primary-hover-color);">{{ $order->delivery_status }}</span></td>
+                                                            <td style="padding:5px 20px"><span class="badge badge-secondary ml-3" style="background-color:var(--primary-color);">{{ $order->delivery_status }}</span></td>
                                                         </tr>
                                                         <tr>
                                                             <td style="padding:5px 20px">পেমেন্ট স্ট্যাটাসঃ </td>
-                                                            <td style="padding:5px 20px"><span class="badge badge-secondary ml-3" style="background-color:var(--primary-hover-color);">{{ $order->payment_status }}</span></td>
+                                                            <td style="padding:5px 20px"><span class="badge badge-secondary ml-3" style="background-color:var(--primary-color);">{{ $order->payment_status }}</span></td>
                                                         </tr>
                                                         <tr>
                                                             <td style="padding:5px 20px">অর্ডারের তারিখঃ </td>

@@ -132,6 +132,7 @@
   margin: auto;
   width: auto;
   position: relative;
+  border: 1px solid red;
 }
 
 .dig_prod_section .centered_product .product a {

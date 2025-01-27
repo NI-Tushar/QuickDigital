@@ -121,6 +121,12 @@
 .sticky_bar.scrolled .offcanvas-body .nav-item .nav-link:hover {
     border: 2px solid var(--primary-color);
 }
+.offcanvas-body .nav-item .dropdown-toggle {
+    border:none !important;
+}
+.offcanvas-body .nav-item .dropdown-toggle:hover{
+    background:transparent !important;
+}
 .offcanvas-body .navbar-nav .active{
     background-color: var(--primary-color);
     border-radius: 5px;
@@ -189,6 +195,9 @@
 .offcanvas-body ul li ul li{
     line-height: 2;
 }
+.offcanvas-body .navbar-nav .dropdown{
+    padding: 0 !important; 
+}
 .offcanvas-body .navbar-nav .dropdown-menu{
     padding: 10px;
 }
@@ -210,11 +219,6 @@
     margin-top:15px;
 }
     
-.nav-item .nav-link .nav__user__img{
-    height: 40px;
-    width: 40px;
-    border-radius: 50%;
-}
 
 .navbar-nav{
     display:flex;

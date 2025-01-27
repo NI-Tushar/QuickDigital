@@ -7,8 +7,6 @@
 <!-- End -->
 
 
-
-
 <div class="sidebar close">
 
 <div class="toggle_expend logo-details">
@@ -351,7 +349,6 @@
           sidebar.style.width = "78px";
           homeSection.style.left = "78px";
           homeSection.style.width = `calc(100% - 78px)`;
-          // homeSection.style.width = `calc(100% - 78px)`;
       }
   }
 

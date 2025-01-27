@@ -46,7 +46,7 @@
   }
  /* Green Ripple Animation  FOR THEME COLOR*/
  /* Green Ripple Animation */
- @-webkit-keyframes at-ripple {
+ /* @-webkit-keyframes at-ripple {
   0% {
     box-shadow: 0 4px 10px rgba(108, 3, 160, 0.1),
                 0 0 0 0 rgba(108, 3, 160, 0.1),
@@ -74,10 +74,10 @@
                 0 0 0 10px rgba(108, 3, 160, 0.1),
                 0 0 0 20px rgba(108, 3, 160, 0);
   }
-}
+} */
 
 /* Purple Pink Ripple Animation */
-@-webkit-keyframes at-ripple-pink {
+/* @-webkit-keyframes at-ripple-pink {
   0% {
     box-shadow: 0 4px 10px rgba(108, 3, 160, 0.1),
                 0 0 0 0 rgba(108, 3, 160, 0.1),
@@ -105,10 +105,10 @@
                 0 0 0 10px rgba(108, 3, 160, 0.1),
                 0 0 0 20px rgba(108, 3, 160, 0);
   }
-}
+} */
 
  /* Green Ripple Animation  FOR GREEN COLOR*/
-/* @-webkit-keyframes at-ripple {
+@-webkit-keyframes at-ripple {
     0% {
       box-shadow: 0 4px 10px rgba(0, 255, 0, 0.1),
         0 0 0 0 rgba(0, 255, 0, 0.1), 
@@ -161,7 +161,7 @@
     100% {
       box-shadow: 0 0 50px rgba(50, 160, 50, 0.9);
     }
-  } */
+  }
   
   
   /* Tooltip */

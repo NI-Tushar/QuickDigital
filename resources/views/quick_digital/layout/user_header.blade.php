@@ -79,13 +79,16 @@
             overflow:hidden;
             margin-top:15px;
         }
-
+        .nav-item .nav-link{
+            border:1px solid red;
+        }
+    
         .nav-item .nav-link .nav__user__img{
             height: 40px;
             width: 40px;
             border-radius: 50%;
+            box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
         }
-
         .navbar-nav{
             display:flex;
         }
@@ -269,7 +272,7 @@
                                 @php
                                 $active = Session::get('page') == 'training' ? 'active' : '';
                                 @endphp 
-                                <li class="nav-item {{ $active }}">
+                                <li class="nav-item hide {{ $active }}">
                                     <a class="nav-link fw-semibold px-md-3" aria-current="page"
                                         href="{{ url('/quick-digital/contact-us') }}">ট্রেইনিং</a>
                                 </li>
@@ -284,18 +287,19 @@
                                     <!-- __________________________ user profile li start -->
 
                                     <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle d-flex gap-1 align-items-center" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                         @if (Auth::guard('user')->check())
                                         @php
                                         $user = Auth::guard('user')->user();
                                         @endphp
                                         @if (!empty($user->image))
-                                        <img class="nav__user__img" src="{{ asset('admin/images/user_images/' . $user->image) }}" alt="">
+                                        <img class="nav__user__img" src="{{ asset('admin/images/user_images/' . $user->image) }}" alt="user image">
                                         @else
-                                        <svg height="20px" width="20px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                        <img class="nav__user__img" src="{{ asset('no_image.png') }}" alt="user image">
+                                        <!-- <svg height="20px" width="20px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
                                             <path d="M20 22H4V20C4 17.2386 6.23858 15 9 15H15C17.7614 15 20 17.2386 20 20V22ZM12 13C8.68629 13 6 10.3137 6 7C6 3.68629 8.68629 1 12 1C15.3137 1 18 3.68629 18 7C18 10.3137 15.3137 13 12 13Z">
                                             </path>
-                                        </svg>
+                                        </svg> -->
                                         @endif
                                             <!-- <h5 class="m-0" >{{ $user->name }}</h5> -->
                                         @else
@@ -313,12 +317,13 @@
                                             $user = Auth::guard('user')->user();
                                             @endphp
                                             @if (!empty($user->image))
-                                            <img class="nav__user__img__main" src="{{ asset('admin/images/user_images/' . $user->image) }}" alt="">
+                                            <img class="nav__user__img__main" src="{{ asset('admin/images/user_images/' . $user->image) }}" alt="user image">
                                             @else
-                                            <svg class="nav__user__img__main" height="50px" width="50px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                            <img class="nav__user__img__main" src="{{ asset('no_image.png') }}" alt="user image">
+                                            <!-- <svg class="nav__user__img__main" height="50px" width="50px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
                                                 <path d="M20 22H4V20C4 17.2386 6.23858 15 9 15H15C17.7614 15 20 17.2386 20 20V22ZM12 13C8.68629 13 6 10.3137 6 7C6 3.68629 8.68629 1 12 1C15.3137 1 18 3.68629 18 7C18 10.3137 15.3137 13 12 13Z">
                                                 </path>
-                                            </svg>
+                                            </svg> -->
                                             @endif
                                             <h4 class="text-center">{{ $user->name }}</h4>
                                             <div class="d-flex gap-2 justify-content-center align-items-center">

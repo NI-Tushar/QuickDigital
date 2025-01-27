@@ -5,7 +5,7 @@
 
 
 <!-- __________________ BANNER SECTION START -->
-<section class="banner_section" style="display:none;">
+<section class="banner_section">
     <div class="banner_center">
         <h3>আপনার ওয়েবসাইটকে আধুনিক, দ্রুত এবং ইউজার ফ্রেন্ডলি করতে চান? আমাদের ডিজিটাল প্রোডাক্টগুলো আপনার সঠিক সমাধান!</h3>
         <p>কেন আমাদের থিম এবং প্লাগইন ব্যবহার করবেন?</p>
