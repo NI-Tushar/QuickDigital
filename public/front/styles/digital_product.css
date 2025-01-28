@@ -54,15 +54,6 @@
   }
 }
 /* ========================================= */
-.dig_prod_section .centered_product .soft_heading {
-  padding-bottom: 20px;
-}
-.dig_prod_section .centered_product .soft_heading h3{
-  border-left: 3px solid var(--primary-color);
-  padding-left: 10px;
-  color: var(--primary-color);
-  text-shadow: 1px 1px 1px #000000;
-}
 
 .dig_prod_section {
     width: 100%;

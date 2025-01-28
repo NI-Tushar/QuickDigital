@@ -5,6 +5,8 @@
     <!-- <link rel="stylesheet" href="{{ url ('front/styles/landing_page/service_card_disabled.css') }}"> -->
     <link rel="stylesheet" href="{{ url ('front/styles/landing_page/service_card.css') }}">
     <link rel="stylesheet" href="{{ url ('front/styles/landing_page/digital_product.css') }}">
+    <link rel="stylesheet" href="{{ url ('front/styles/landing_page/software.css') }}">
+    <script src="{{ url('admin/assets/js/landing_page/software_carousol.js') }}"></script>
 @endpush
 
 <main>
@@ -538,7 +540,6 @@
     </div>
 </section>
 
-
 <script>
     const config = {
     type: 'carousel',
@@ -560,6 +561,279 @@
   new Glide('.glide', config).mount()
 </script>
 <!-- ________________________________________________________________________ POPULER DIGITAL PRODUCT END -->
+
+
+
+<!-- ________________________________________________________________________ POPULER SOFTWARE START -->
+ <section class="software_section">
+    <div class="product_heading">
+        <h1>পপুলার সফটওয়্যার সমূহ</h1>
+        <p>সৃজনশীলতা, প্রযুক্তি এবং কৌশল—একই জায়গায় একত্রিত আপনার ব্যবসার জন্য</p>
+        <div class="view_all_btn">
+            <a href="!"><button>সকল সফটওয়্যার<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M320 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l82.7 0L201.4 265.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L448 109.3l0 82.7c0 17.7 14.3 32 32 32s32-14.3 32-32l0-160c0-17.7-14.3-32-32-32L320 0zM80 32C35.8 32 0 67.8 0 112L0 432c0 44.2 35.8 80 80 80l320 0c44.2 0 80-35.8 80-80l0-112c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 112c0 8.8-7.2 16-16 16L80 448c-8.8 0-16-7.2-16-16l0-320c0-8.8 7.2-16 16-16l112 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L80 32z"/></svg></button></a>
+        </div>
+
+        <div class="software_carousol">
+            <div id="container">
+                <div id="slider-container">
+                    <span onclick="slideRight()" class="btn"></span>
+                        <div id="slider">
+                            
+                        <!-- _________________________ -->
+                            <div class="slide">
+                                <div class="slide_part img_part">
+                                    <img src="https://t4.ftcdn.net/jpg/01/43/23/83/360_F_143238306_lh0ap42wgot36y44WybfQpvsJB5A1CHc.jpg" alt="">
+                                </div>
+                                <div class="slide_part desc_part">
+                                    <div class="soft_desc">
+                                        <h3>Tourism Management System</h3>
+                                        <p>A Tourism Management System is a comprehensive platform designed to streamline the operations</p>
+                                        <div class="review">
+                                            <div class="star">★★★★☆</div>
+                                            <p>(Reviews)</p>
+                                        </div>
+                                        <div class="price_section">
+                                            <div class="left"><a href="!"><p>বিস্তারিত <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M320 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l82.7 0L201.4 265.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L448 109.3l0 82.7c0 17.7 14.3 32 32 32s32-14.3 32-32l0-160c0-17.7-14.3-32-32-32L320 0zM80 32C35.8 32 0 67.8 0 112L0 432c0 44.2 35.8 80 80 80l320 0c44.2 0 80-35.8 80-80l0-112c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 112c0 8.8-7.2 16-16 16L80 448c-8.8 0-16-7.2-16-16l0-320c0-8.8 7.2-16 16-16l112 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L80 32z"/></svg></p></a></div>
+                                            <div class="right">1000.0<span>/মাসিক</span></div>
+                                        </div>
+                                        <div class="button_section">
+                                            <a href="!">কাস্টম</a>
+                                            <a href="!" class="active">কিনুন</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                                                   
+                        <!-- _________________________ -->
+                        <div class="slide">
+                                <div class="slide_part img_part">
+                                    <img src="https://t4.ftcdn.net/jpg/01/43/23/83/360_F_143238306_lh0ap42wgot36y44WybfQpvsJB5A1CHc.jpg" alt="">
+                                </div>
+                                <div class="slide_part desc_part">
+                                    <div class="soft_desc">
+                                        <h3>Tourism Management System</h3>
+                                        <p>A Tourism Management System is a comprehensive platform designed to streamline the operations</p>
+                                        <div class="review">
+                                            <div class="star">★★★★☆</div>
+                                            <p>(Reviews)</p>
+                                        </div>
+                                        <div class="price_section">
+                                            <div class="left"><a href="!"><p>বিস্তারিত <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M320 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l82.7 0L201.4 265.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L448 109.3l0 82.7c0 17.7 14.3 32 32 32s32-14.3 32-32l0-160c0-17.7-14.3-32-32-32L320 0zM80 32C35.8 32 0 67.8 0 112L0 432c0 44.2 35.8 80 80 80l320 0c44.2 0 80-35.8 80-80l0-112c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 112c0 8.8-7.2 16-16 16L80 448c-8.8 0-16-7.2-16-16l0-320c0-8.8 7.2-16 16-16l112 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L80 32z"/></svg></p></a></div>
+                                            <div class="right">1000.0<span>/মাসিক</span></div>
+                                        </div>
+                                        <div class="button_section">
+                                            <a href="!">কাস্টম</a>
+                                            <a href="!" class="active">কিনুন</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            
+                                                  
+                        <!-- _________________________ -->
+                        <div class="slide">
+                                <div class="slide_part img_part">
+                                    <img src="https://t4.ftcdn.net/jpg/01/43/23/83/360_F_143238306_lh0ap42wgot36y44WybfQpvsJB5A1CHc.jpg" alt="">
+                                </div>
+                                <div class="slide_part desc_part">
+                                    <div class="soft_desc">
+                                        <h3>Tourism Management System</h3>
+                                        <p>A Tourism Management System is a comprehensive platform designed to streamline the operations</p>
+                                        <div class="review">
+                                            <div class="star">★★★★☆</div>
+                                            <p>(Reviews)</p>
+                                        </div>
+                                        <div class="price_section">
+                                            <div class="left"><a href="!"><p>বিস্তারিত <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M320 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l82.7 0L201.4 265.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L448 109.3l0 82.7c0 17.7 14.3 32 32 32s32-14.3 32-32l0-160c0-17.7-14.3-32-32-32L320 0zM80 32C35.8 32 0 67.8 0 112L0 432c0 44.2 35.8 80 80 80l320 0c44.2 0 80-35.8 80-80l0-112c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 112c0 8.8-7.2 16-16 16L80 448c-8.8 0-16-7.2-16-16l0-320c0-8.8 7.2-16 16-16l112 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L80 32z"/></svg></p></a></div>
+                                            <div class="right">1000.0<span>/মাসিক</span></div>
+                                        </div>
+                                        <div class="button_section">
+                                            <a href="!">কাস্টম</a>
+                                            <a href="!" class="active">কিনুন</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            
+                                                  
+                        <!-- _________________________ -->
+                        <div class="slide">
+                                <div class="slide_part img_part">
+                                    <img src="https://t4.ftcdn.net/jpg/01/43/23/83/360_F_143238306_lh0ap42wgot36y44WybfQpvsJB5A1CHc.jpg" alt="">
+                                </div>
+                                <div class="slide_part desc_part">
+                                    <div class="soft_desc">
+                                        <h3>Tourism Management System</h3>
+                                        <p>A Tourism Management System is a comprehensive platform designed to streamline the operations</p>
+                                        <div class="review">
+                                            <div class="star">★★★★☆</div>
+                                            <p>(Reviews)</p>
+                                        </div>
+                                        <div class="price_section">
+                                            <div class="left"><a href="!"><p>বিস্তারিত <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M320 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l82.7 0L201.4 265.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L448 109.3l0 82.7c0 17.7 14.3 32 32 32s32-14.3 32-32l0-160c0-17.7-14.3-32-32-32L320 0zM80 32C35.8 32 0 67.8 0 112L0 432c0 44.2 35.8 80 80 80l320 0c44.2 0 80-35.8 80-80l0-112c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 112c0 8.8-7.2 16-16 16L80 448c-8.8 0-16-7.2-16-16l0-320c0-8.8 7.2-16 16-16l112 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L80 32z"/></svg></p></a></div>
+                                            <div class="right">1000.0<span>/মাসিক</span></div>
+                                        </div>
+                                        <div class="button_section">
+                                            <a href="!">কাস্টম</a>
+                                            <a href="!" class="active">কিনুন</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            
+                                                  
+                        <!-- _________________________ -->
+                        <div class="slide">
+                                <div class="slide_part img_part">
+                                    <img src="https://t4.ftcdn.net/jpg/01/43/23/83/360_F_143238306_lh0ap42wgot36y44WybfQpvsJB5A1CHc.jpg" alt="">
+                                </div>
+                                <div class="slide_part desc_part">
+                                    <div class="soft_desc">
+                                        <h3>Tourism Management System</h3>
+                                        <p>A Tourism Management System is a comprehensive platform designed to streamline the operations</p>
+                                        <div class="review">
+                                            <div class="star">★★★★☆</div>
+                                            <p>(Reviews)</p>
+                                        </div>
+                                        <div class="price_section">
+                                            <div class="left"><a href="!"><p>বিস্তারিত <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M320 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l82.7 0L201.4 265.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L448 109.3l0 82.7c0 17.7 14.3 32 32 32s32-14.3 32-32l0-160c0-17.7-14.3-32-32-32L320 0zM80 32C35.8 32 0 67.8 0 112L0 432c0 44.2 35.8 80 80 80l320 0c44.2 0 80-35.8 80-80l0-112c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 112c0 8.8-7.2 16-16 16L80 448c-8.8 0-16-7.2-16-16l0-320c0-8.8 7.2-16 16-16l112 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L80 32z"/></svg></p></a></div>
+                                            <div class="right">1000.0<span>/মাসিক</span></div>
+                                        </div>
+                                        <div class="button_section">
+                                            <a href="!">কাস্টম</a>
+                                            <a href="!" class="active">কিনুন</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            
+                                                  
+                        <!-- _________________________ -->
+                        <div class="slide">
+                                <div class="slide_part img_part">
+                                    <img src="https://t4.ftcdn.net/jpg/01/43/23/83/360_F_143238306_lh0ap42wgot36y44WybfQpvsJB5A1CHc.jpg" alt="">
+                                </div>
+                                <div class="slide_part desc_part">
+                                    <div class="soft_desc">
+                                        <h3>Tourism Management System</h3>
+                                        <p>A Tourism Management System is a comprehensive platform designed to streamline the operations</p>
+                                        <div class="review">
+                                            <div class="star">★★★★☆</div>
+                                            <p>(Reviews)</p>
+                                        </div>
+                                        <div class="price_section">
+                                            <div class="left"><a href="!"><p>বিস্তারিত <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M320 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l82.7 0L201.4 265.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L448 109.3l0 82.7c0 17.7 14.3 32 32 32s32-14.3 32-32l0-160c0-17.7-14.3-32-32-32L320 0zM80 32C35.8 32 0 67.8 0 112L0 432c0 44.2 35.8 80 80 80l320 0c44.2 0 80-35.8 80-80l0-112c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 112c0 8.8-7.2 16-16 16L80 448c-8.8 0-16-7.2-16-16l0-320c0-8.8 7.2-16 16-16l112 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L80 32z"/></svg></p></a></div>
+                                            <div class="right">1000.0<span>/মাসিক</span></div>
+                                        </div>
+                                        <div class="button_section">
+                                            <a href="!">কাস্টম</a>
+                                            <a href="!" class="active">কিনুন</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            
+
+                           
+                        </div>
+                    <span onclick="slideLeft()" class="btn"></span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+ </section>
+ <script>
+    var container = document.getElementById("container");
+    var slider = document.getElementById("slider");
+    var slides = document.getElementsByClassName("slide").length;
+    var buttons = document.getElementsByClassName("btn");
+
+    var currentPosition = 0;
+    var currentMargin = 0;
+    var slidesPerPage = 0;
+    var slidesCount = slides - slidesPerPage;
+    var containerWidth = container.offsetWidth;
+    var prevKeyActive = false;
+    var nextKeyActive = true;
+
+    window.addEventListener("resize", checkWidth);
+
+    function checkWidth() {
+    containerWidth = container.offsetWidth;
+    setParams(containerWidth);
+    }
+
+    function setParams(w) {
+    if (w < 551) {
+        slidesPerPage = 1;
+    } else {
+        if (w < 901) {
+        slidesPerPage = 2;
+        } else {
+        if (w < 1101) {
+            slidesPerPage = 3;
+        } else {
+            slidesPerPage = 4;
+        }
+        }
+    }
+    slidesCount = slides - slidesPerPage;
+    if (currentPosition > slidesCount) {
+        currentPosition -= slidesPerPage;
+    }
+    currentMargin = -currentPosition * (100 / slidesPerPage);
+    slider.style.marginLeft = currentMargin + "%";
+    if (currentPosition > 0) {
+        buttons[0].classList.remove("inactive");
+    }
+    if (currentPosition < slidesCount) {
+        buttons[1].classList.remove("inactive");
+    }
+    if (currentPosition >= slidesCount) {
+        buttons[1].classList.add("inactive");
+    }
+    }
+
+    setParams();
+
+    function slideRight() {
+    if (currentPosition != 0) {
+        slider.style.marginLeft = currentMargin + 100 / slidesPerPage + "%";
+        currentMargin += 100 / slidesPerPage;
+        currentPosition--;
+    }
+    if (currentPosition === 0) {
+        buttons[0].classList.add("inactive");
+    }
+    if (currentPosition < slidesCount) {
+        buttons[1].classList.remove("inactive");
+    }
+    }
+
+    function slideLeft() {
+    if (currentPosition != slidesCount) {
+        slider.style.marginLeft = currentMargin - 100 / slidesPerPage + "%";
+        currentMargin -= 100 / slidesPerPage;
+        currentPosition++;
+    }
+    if (currentPosition == slidesCount) {
+        buttons[1].classList.add("inactive");
+    }
+    if (currentPosition > 0) {
+        buttons[0].classList.remove("inactive");
+    }
+    }
+
+ </script>
+<!-- ________________________________________________________________________ POPULER SOFTWARE END -->
 
 
 
