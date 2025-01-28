@@ -82,3 +82,18 @@ button[type="submit"]:hover{
     margin: auto;
 }
 
+
+/* ______________________________ FOR VIDEO IFRAME */
+
+@media (max-width: 780px) {
+    
+    .iframe-wrapper {
+        height: 200px;
+        width: 300px;
+        display: flex;
+    }
+    .iframe-wrapper iframe{
+        margin: auto;
+    }
+}
+

@@ -30,7 +30,7 @@
                     <div class="card-header">
                       <div class="d-flex flex-wrap justify-content-between align-items-center" style="gap: 1em">
                           <h3>সকল অর্ডার</h3>
-                          <a class="btn" style="background-color:var(--primary-hover-color);color:aliceblue;" href="{{ route('affiliate.order.create') }}">নতুন অর্ডার</a>
+                          <a class="btn" style="background-color:var(--primary-color);color:aliceblue;" href="{{ route('affiliate.order.create') }}">নতুন অর্ডার</a>
                       </div>
                     </div>
                     <div class="card-body" style=" backgrond-color: red;">

@@ -33,7 +33,7 @@
                     <div class="card-header">
                         <div class="d-flex flex-wrap justify-content-between align-items-center">
                             <h5>নতুন অর্ডার করুন</h5>
-                            <a class="btn" style="background-color:var(--primary-hover-color);color:aliceblue;" href="{{ route('affiliate.order.index') }}">Back</a>
+                            <a class="btn" style="background-color:var(--primary-color);color:aliceblue;" href="{{ route('affiliate.order.index') }}">Back</a>
                         </div>
                     </div>
                     <div class="card-body">
@@ -43,6 +43,12 @@
                             @method('POST')
                             <div class="row mb-5">
                                 <div class="col-md-6 com-sm-12 pr-3" style="border-right: 1px solid #ddd">
+
+                                <style>
+                                    #service_type option:hover{
+                                        background-color:red !important;
+                                    }
+                                </style>
 
                                     <div class="form-group">
                                         <label for="service_type" class="text-gray">সার্ভিস সিলেক্ট করুন (*)</label>
@@ -161,7 +167,7 @@
                                                 </td>
                                                 <td><input type="text" min="0" class="form-control"
                                                         placeholder="Amount" name="sale_items[0][amount]" disabled></td>
-                                                <td><button type="button" class="btn addRowBtn" style="background-color:var(--primary-hover-color);color:aliceblue;">Ok</button></td>
+                                                <td><button type="button" class="btn addRowBtn" style="background-color:var(--primary-color);color:aliceblue;">Add</button></td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -172,7 +178,7 @@
                                             <tr id="subtotal">
                                                 <td><span class="bold tw-text-neutral-700">সাব-টোটাল :</span></td>
                                                 <td>
-                                                    <span class="subtotal">$0.00</span>
+                                                    <span class="subtotal">BDT 0.00</span>
                                                     <input type="hidden" name="sub_total" value="0.00">
                                                 </td>
                                             </tr>
@@ -201,7 +207,7 @@
                                                         </div>
                                                     </div>
                                                 </td>
-                                                <td class="discount-total">-$0.00</td>
+                                                <td class="discount-total">-BDT 0.00</td>
                                             </tr>
                                             <tr style="display: none">
                                                 <td>
@@ -218,12 +224,12 @@
                                                         </div>
                                                     </div>
                                                 </td>
-                                                <td class="adjustment">$0.00</td>
+                                                <td class="adjustment">BDT 0.00</td>
                                             </tr>
                                             <tr>
                                                 <td><span class="bold tw-text-neutral-700">টোটাল :</span></td>
                                                 <td>
-                                                    <span class="total">$0.00</span>
+                                                    <span class="total">BDT 0.00</span>
                                                     <input type="hidden" name="total" value="0.00">
                                                 </td>
                                             </tr>
@@ -234,7 +240,7 @@
 
 
                             <div class="text-right tw-space-x-1" id="profile-save-section">
-                                <button class="btn only-save customer-form-submiter" style="background-color:var(--primary-hover-color);color:aliceblue;">সাবমিট করুন</button>
+                                <button class="btn only-save customer-form-submiter" style="background-color:var(--primary-color);color:aliceblue;">সাবমিট করুন</button>
                             </div>
                         </form>
 

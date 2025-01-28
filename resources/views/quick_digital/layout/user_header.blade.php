@@ -9,16 +9,6 @@
   gtag('config', 'G-MBXJWQEP3W');
 </script>
 
-<script>
-    window.addEventListener('scroll', function () {
-        const header = document.getElementById('sticky_bar');
-        if (window.scrollY > 500) { // Change 50 to the scroll threshold you want
-            header.classList.add('scrolled');
-        } else {
-            header.classList.remove('scrolled');
-        }
-    });
-</script>
 
 @include('quick_digital.layout.loader')
 @include('quick_digital.layout.sticky_ripple_logo')
@@ -52,7 +42,7 @@
                             </path>
                         </svg>
                         <span class="">
-                            01973784959
+                            01973-784959
                         </span>
                     </a>
 
@@ -89,13 +79,16 @@
             overflow:hidden;
             margin-top:15px;
         }
-
+        .nav-item .nav-link{
+            border:1px solid red;
+        }
+    
         .nav-item .nav-link .nav__user__img{
             height: 40px;
             width: 40px;
             border-radius: 50%;
+            box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
         }
-
         .navbar-nav{
             display:flex;
         }
@@ -124,12 +117,35 @@
 
     </style>
 
+<script>
+    window.addEventListener('scroll', function () {
+        const header = document.getElementById('sticky_bar');
+        if (window.scrollY > 100) { // Change 50 to the scroll threshold you want
+            header.classList.add('scrolled');
+
+            const logo_black = document.getElementById('logo_black');
+            logo_black.style.display="flex";
+
+            const logo_white = document.getElementById('logo_white');
+            logo_white.style.display="none";
+        } else {
+            header.classList.remove('scrolled');
+
+            const logo_black = document.getElementById('logo_black');
+            logo_black.style.display="none";
+            const logo_white = document.getElementById('logo_white');
+            logo_white.style.display="flex";
+        }
+    });
+</script>
+
+
     <div class="container max-width header_bar" style="padding:0px;">
             <nav class="navbar custom-padding navbar-expand-lg" style="width:100%;">
                 <div class="container-fluid">
                     <a class="navbar-brand" href="{{ url('quick-digital/index') }}">
-                        <img src="{{ asset('front/assets/images/primary_logo2.png') }}"
-                            alt="">
+                        <img id="logo_white" src="{{ asset('front/assets/images/logo_white.png') }}"alt="">
+                        <img id="logo_black" src="{{ asset('front/assets/images/logo_black.png') }}"alt="">
                     </a>
                     <button class="navbar-toggler shadow-none border-0" type="button" data-bs-toggle="offcanvas"
                         data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
@@ -139,8 +155,8 @@
                         aria-labelledby="offcanvasNavbarLabel">
                         <div class="offcanvas-header">
                             <a class="navbar-brand" href="{{ url('quick-digital/index') }}" style="">
-                                <img class="py-2" height="auto" width="50%"
-                                    src="{{ asset('front/assets/images/primary_logo2.png') }}" alt="">
+                                <img id="logo_white" class="py-2" height="auto" width="50%"src="{{ asset('front/assets/images/logo_white.png') }}" alt="">
+                                <img id="logo_black" class="py-2" height="auto" width="50%"src="{{ asset('front/assets/images/logo_black.png') }}" alt="">
                             </a>
                             <button type="button" class="btn-close" data-bs-dismiss="offcanvas"
                                 aria-label="Close"></button>
@@ -252,6 +268,15 @@
                                     </a>
                                 </li> -->
 
+                                
+                                @php
+                                $active = Session::get('page') == 'training' ? 'active' : '';
+                                @endphp 
+                                <li class="nav-item hide {{ $active }}">
+                                    <a class="nav-link fw-semibold px-md-3" aria-current="page"
+                                        href="{{ url('/quick-digital/contact-us') }}">ট্রেইনিং</a>
+                                </li>
+
                                 @php
                                 $active = Session::get('page') == 'contactUs' ? 'active' : '';
                                 @endphp
@@ -262,18 +287,19 @@
                                     <!-- __________________________ user profile li start -->
 
                                     <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle d-flex gap-1 align-items-center" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                         @if (Auth::guard('user')->check())
                                         @php
                                         $user = Auth::guard('user')->user();
                                         @endphp
                                         @if (!empty($user->image))
-                                        <img class="nav__user__img" src="{{ asset('admin/images/user_images/' . $user->image) }}" alt="">
+                                        <img class="nav__user__img" src="{{ asset('admin/images/user_images/' . $user->image) }}" alt="user image">
                                         @else
-                                        <svg height="20px" width="20px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                        <img class="nav__user__img" src="{{ asset('no_image.png') }}" alt="user image">
+                                        <!-- <svg height="20px" width="20px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
                                             <path d="M20 22H4V20C4 17.2386 6.23858 15 9 15H15C17.7614 15 20 17.2386 20 20V22ZM12 13C8.68629 13 6 10.3137 6 7C6 3.68629 8.68629 1 12 1C15.3137 1 18 3.68629 18 7C18 10.3137 15.3137 13 12 13Z">
                                             </path>
-                                        </svg>
+                                        </svg> -->
                                         @endif
                                             <!-- <h5 class="m-0" >{{ $user->name }}</h5> -->
                                         @else
@@ -291,12 +317,13 @@
                                             $user = Auth::guard('user')->user();
                                             @endphp
                                             @if (!empty($user->image))
-                                            <img class="nav__user__img__main" src="{{ asset('admin/images/user_images/' . $user->image) }}" alt="">
+                                            <img class="nav__user__img__main" src="{{ asset('admin/images/user_images/' . $user->image) }}" alt="user image">
                                             @else
-                                            <svg class="nav__user__img__main" height="50px" width="50px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                            <img class="nav__user__img__main" src="{{ asset('no_image.png') }}" alt="user image">
+                                            <!-- <svg class="nav__user__img__main" height="50px" width="50px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
                                                 <path d="M20 22H4V20C4 17.2386 6.23858 15 9 15H15C17.7614 15 20 17.2386 20 20V22ZM12 13C8.68629 13 6 10.3137 6 7C6 3.68629 8.68629 1 12 1C15.3137 1 18 3.68629 18 7C18 10.3137 15.3137 13 12 13Z">
                                                 </path>
-                                            </svg>
+                                            </svg> -->
                                             @endif
                                             <h4 class="text-center">{{ $user->name }}</h4>
                                             <div class="d-flex gap-2 justify-content-center align-items-center">
