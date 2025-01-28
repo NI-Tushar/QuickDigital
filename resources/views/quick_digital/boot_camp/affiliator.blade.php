@@ -70,14 +70,18 @@
                                         padding:10px;
                                         border-radius:5px;
                                         border:0.5px solid black;
-                                        width: 150px;
+                                        width: 100px;
                                         font-weight:700;
+                                    }
+                                    .search_box .add_btn{
+                                        width: 150px;
+                                        cursor: pointer;
                                     }
                                     .search_box button:hover{
                                         background-color:aliceblue;
                                     }
                                     .search_box form{
-                                        width: 50%;
+                                        width: 30%;
                                     }
                                     .search_box input{
                                         padding:10px;
@@ -88,6 +92,7 @@
                                  </style>
                                 <div class="search_box">
                                     <p class="total">Total Affiliator: {{$totalCount}}</p>
+                                    <a href="{{ route('bootcamp.add.affiliators') }}"><button class="add_btn">Add Affiliator</button></a>
                                     <a href="{{ route('bootcamp.affiliators') }}"><button>Reset</button></a>
                                 <form action="{{ route('affill.search') }}" method="POST">
                                     @csrf

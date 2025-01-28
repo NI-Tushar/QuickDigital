@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 
 class BootcampController extends Controller
 {
@@ -14,6 +15,65 @@ class BootcampController extends Controller
     {
         Session::put('page', 'quickBusiness_req');
         return view('quick_digital.boot_camp.request_form');
+    }
+    public function addAffiliators()
+    {
+        Session::put('page', 'quickBusiness_req');
+        return view('quick_digital.boot_camp.add_affiliator');
+    }
+
+    public function addAffiliatorPost(Request $request)
+    {
+        $data = $request->all();
+        $rules = [
+            'name' => 'required|max:255',
+            'phone' => ['required', 'numeric', 'digits:11'],
+            'email' => 'required|email|unique:users|max:255',
+            'gender' => 'required',
+        ];
+
+        $customMessages = [
+            'name.required' => 'নাম লিখুন',
+            'phone.required' => 'মোবাইল নম্বর লিখুন',
+            'phone.numeric' => 'মোবাইল নম্বর অবশ্যই সংখ্যামূলক হতে হবে।',
+            'phone.digits' => 'মোবাইল নম্বর ১১ টি সংখ্যা হতে হবে',
+            'email.required' => 'ইমেইল লিখুন',
+            'email.email' => 'Invalid email format',
+            'email.unique' => 'ইমেইলটি ইতোমদ্ধেই ব্যবহৃত হয়েছে',
+            'gender.required' => 'জেন্ডার সিলেক্ট করুন',
+        ];
+
+        $validator = Validator::make($data, $rules, $customMessages);
+
+        if ($validator->fails()) {
+            return redirect()->back()->with('error_message', $validator->errors()->first());
+        }else{
+            $randomNumber = rand(1000, 9999);
+            $default_pass = $request->email . $randomNumber;
+
+            $bootcamp = new Quickbusiness();
+            $bootcamp->name = $request->name;
+            $bootcamp->email = $request->email;
+            $bootcamp->phone = $request->phone;
+            $bootcamp->gender = $request->gender;
+            $bootcamp->type = 'affiliator';
+            $bootcamp->password = $default_pass;
+            $bootcamp->save();
+            // _____________ saving to user table
+            $user = new User();
+            $user->name = $request->name;
+            $user->user_type = 'affiliator';
+            $user->mobile = $request->phone;
+            $user->email = $request->email;
+            $user->password = bcrypt($default_pass);
+            $user->address = $request->address;
+            $user->status = 1;
+            $user->is_instructor = 0;
+            $user->save();
+
+            return redirect()->route('bootcamp.add.affiliators')->with('reg_success_message', 'রেজিস্ট্রেশন হয়েছে');
+        }
+        // Redirect to the login page
     }
 
     public function index()
@@ -92,22 +152,31 @@ class BootcampController extends Controller
         ->where('mobile', $bootcamp->phone);
 
         if ($userExists->exists()) {
-            $userExists->delete(); // Delete the record
+            // Update the user's password and user type
+            $randomNumber = rand(1000, 9999);
+            $default_pass = $bootcamp->email . $randomNumber;
+        
+            $userExists->update([
+                'password' => bcrypt($default_pass), // Update password
+                'user_type' => 'affiliator', // Update user type
+            ]);
+        } else {   
+            // If user does not exist, create a new one
+            $randomNumber = rand(1000, 9999);
+            $default_pass = $bootcamp->email . $randomNumber;
+        
+            $user = new User;
+            $user->name = $bootcamp->name;
+            $user->user_type = 'affiliator';
+            $user->mobile = $bootcamp->phone;
+            $user->email = $bootcamp->email;
+            $user->password = bcrypt($default_pass);
+            $user->address = $bootcamp->address;
+            $user->status = 1;
+            $user->is_instructor = 0;
+            $user->save();
         }
-
-        $randomNumber = rand(1000, 9999);
-        $default_pass = $bootcamp->email.$randomNumber;
-
-        $user = new User;
-        $user->name = $bootcamp->name;
-        $user->user_type = 'affiliator';
-        $user->mobile = $bootcamp->phone;
-        $user->email = $bootcamp->email;
-        $user->password = bcrypt($default_pass);
-        $user->address = $bootcamp->address;
-        $user->status = 1;
-        $user->is_instructor = 0;
-        $user->save();
+        
 
         if($user){
             $bootcamp->type = 'affiliator';

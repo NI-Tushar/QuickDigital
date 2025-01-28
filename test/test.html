@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sidebar with submenus</title>
+    <link rel="stylesheet" href="test.css">
+</head>
+<body id="body-pd">
+    <div class="l-navbar" id="navbar">
+        <nav class="nav">
+            <div>
+                <div class="nav-brand">
+                    <ion-icon name="menu-outline" class="nav-toggle" id="nav-toggle"></ion-icon>
+                    <a href="#" class="nav-logo">ULTRA CODE</a>
+                </div>
+
+                <div class="nav-list">
+                    <a href="#" class="nav-link active hide">
+                        <ion-icon name="home-outline" class="nav-icon"></ion-icon>
+                        <span class="nav-name">Dashboard</span>
+                    </a>
+                    
+                    <a href="#" class="nav-link hide">
+                        <ion-icon name="chatbubbles-outline" class="nav-icon"></ion-icon>
+                        <span class="nav-name">Messenger</span>
+                    </a>
+
+                    <div href="#" class="nav-link collapse hide">
+                        <ion-icon name="folder-outline" class="nav-icon"></ion-icon>
+                        <span class="nav-name">Projects</span>
+
+                        <ion-icon name="chevron-down-outline" class="collapse-link"></ion-icon>
+
+                        <ul class="collapse-menu">
+                            <a href="#" class="collapse-sublink">Data</a>
+                            <a href="#" class="collapse-sublink">Group</a>
+                            <a href="#" class="collapse-sublink">Members</a>
+                        </ul>
+                    </div>
+
+                    <a href="#" class="nav-link hide">
+                        <ion-icon name="pie-chart-outline" class="nav-icon"></ion-icon>
+                        <span class="nav-name">Analytics</span>
+                    </a>
+
+                    <div href="#" class="nav-link collapse hide">
+                        <ion-icon name="people-outline" class="nav-icon"></ion-icon>
+                        <span class="nav-name">Team</span>
+
+                        <ion-icon name="chevron-down-outline" class="collapse-link"></ion-icon>
+
+                        <ul class="collapse-menu">
+                            <a href="#" class="collapse-sublink">Data</a>
+                            <a href="#" class="collapse-sublink">Group</a>
+                            <a href="#" class="collapse-sublink">Members</a>
+                        </ul>
+                    </div>
+
+                    <a href="#" class="nav-link hide">
+                        <ion-icon name="settings-outline" class="nav-icon"></ion-icon>
+                        <span class="nav-name">Settings</span>
+                    </a>
+                </div>
+            </div>
+
+            <a href="#" class="nav-link">
+                <ion-icon name="log-out-outline" class="nav-icon"></ion-icon>
+                <span class="nav-name">Logout</span>
+            </a>
+        </nav>
+    </div>
+
+    <script>
+            
+        // function adjustClassesBasedOnScreenSize() {
+        //     const screenWidth = window.innerWidth;
+        //     const sidebar = document.querySelector("#navbar");
+
+        //     if (!sidebar) {
+        //     console.error("Sidebar element not found!");
+        //     return;
+        //     }
+
+        //     if (screenWidth < 900) {
+        //         sidebar.classList.remove("expander");
+        //     } else {
+        //         sidebar.classList.add("expander");
+        //     }
+        // }
+
+        // // Run the function initially
+        // adjustClassesBasedOnScreenSize();
+
+        // // Listen for window resize and adjust classes
+        // window.addEventListener("resize", adjustClassesBasedOnScreenSize);
+    </script>
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="test.js"></script>
+</body>
+</html>

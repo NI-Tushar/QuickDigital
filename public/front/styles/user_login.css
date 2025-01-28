@@ -395,6 +395,7 @@
 
     /* ______________________________________ new registrtion link */
     .new_reg{
+      background: transparent;
         padding-top: 25px;
     }
     .new_reg p{
@@ -449,13 +450,26 @@
     /* ____________________________________ ACTIVE */
   
     .user_login_section .centered_login .active{
-      background-color: var( --primary-color);
+      /* background-color: var( --primary-color); */
+      background-color:hsla(120,95%,11%,1);
+      background-image:
+      radial-gradient(at 40% 20%, hsla(159,93%,21%,1) 0px, transparent 50%),
+      radial-gradient(at 80% 0%, hsla(166,49%,37%,1) 0px, transparent 50%),
+      radial-gradient(at 0% 50%, rgb(2, 103, 95) 0px, transparent 50%),
+      radial-gradient(at 80% 50%, hsla(193,53%,35%,1) 0px, transparent 50%),
+      radial-gradient(at 0% 100%, rgb(35, 123, 113) 0px, transparent 50%),
+      radial-gradient(at 80% 100%, hsla(150,28%,50%,1) 0px, transparent 50%),
+      radial-gradient(at 0% 0%, hsla(158,81%,31%,1) 0px, transparent 50%);
+
       border-top-left-radius: 0px;
       border-bottom-left-radius: 0px;
       border-top-right-radius: 10px;
       border-bottom-right-radius: 10px;
       height: 100%;
       padding-top: 60px;
+  }
+  .user_login_section .centered_login .new_reg{
+    background: transparent;
   }
   .user_login_section .centered_login .active .title_container h2{
       color: aliceblue;

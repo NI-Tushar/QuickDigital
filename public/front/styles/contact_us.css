@@ -1,3 +1,60 @@
+/* ========================================= */
+.banner_section{
+  height: auto;
+  width: 100%;  
+  background-color:hsla(120,95%,11%,1);
+  background-image:
+  radial-gradient(at 40% 20%, hsla(159,93%,21%,1) 0px, transparent 50%),
+  radial-gradient(at 80% 0%, hsla(166,49%,37%,1) 0px, transparent 50%),
+  radial-gradient(at 0% 50%, rgb(2, 103, 95) 0px, transparent 50%),
+  radial-gradient(at 80% 50%, hsla(193,53%,35%,1) 0px, transparent 50%),
+  radial-gradient(at 0% 100%, rgb(35, 123, 113) 0px, transparent 50%),
+  radial-gradient(at 80% 100%, hsla(150,28%,50%,1) 0px, transparent 50%),
+  radial-gradient(at 0% 0%, hsla(158,81%,31%,1) 0px, transparent 50%);
+  display: flex;
+  padding-top: 7rem;
+  padding-bottom: 5rem;
+}
+.banner_section .banner_center{
+  max-width: 1050px;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.224);
+  height: auto;
+  margin: auto;
+  padding:25px;
+  border-radius: 15px;
+}
+.banner_section .banner_center h3{
+  font-size: 30px;
+  font-weight: 700;
+  color: var(--primary-color-light);
+  text-shadow: 1px 1px 2px #000000;
+}
+.banner_section .banner_center p{
+  font-weight: 600;
+}
+.banner_section .banner_center p,
+.banner_section .banner_center ul li{
+  color: #ffffffc1;
+}
+
+@media (max-width: 550px) {
+  .banner_section .banner_center h3{
+    font-size: 20px;
+  }
+  .banner_section{
+    padding-bottom: 2px;
+  }
+  .banner_section .banner_center p{
+    font-size: 15px;
+    font-weight: 500;
+  }
+  .banner_section .banner_center ul li{
+    font-size: 13px;
+  }
+}
+/* ========================================= */
+
 .contact-page-sec {
     padding: 60px 0;
     min-height: 100vh;
