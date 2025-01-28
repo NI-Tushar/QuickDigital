@@ -73,27 +73,27 @@
 
     <script>
             
-        function adjustClassesBasedOnScreenSize() {
-            const screenWidth = window.innerWidth;
-            const sidebar = document.querySelector("#navbar");
+        // function adjustClassesBasedOnScreenSize() {
+        //     const screenWidth = window.innerWidth;
+        //     const sidebar = document.querySelector("#navbar");
 
-            if (!sidebar) {
-            console.error("Sidebar element not found!");
-            return;
-            }
+        //     if (!sidebar) {
+        //     console.error("Sidebar element not found!");
+        //     return;
+        //     }
 
-            if (screenWidth < 900) {
-                sidebar.classList.remove("expander");
-            } else {
-                sidebar.classList.add("expander");
-            }
-        }
+        //     if (screenWidth < 900) {
+        //         sidebar.classList.remove("expander");
+        //     } else {
+        //         sidebar.classList.add("expander");
+        //     }
+        // }
 
-        // Run the function initially
-        adjustClassesBasedOnScreenSize();
+        // // Run the function initially
+        // adjustClassesBasedOnScreenSize();
 
-        // Listen for window resize and adjust classes
-        window.addEventListener("resize", adjustClassesBasedOnScreenSize);
+        // // Listen for window resize and adjust classes
+        // window.addEventListener("resize", adjustClassesBasedOnScreenSize);
     </script>
 
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>

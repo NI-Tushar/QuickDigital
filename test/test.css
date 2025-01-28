@@ -30,7 +30,7 @@ body {
   font-family: var(--body-font);
   font-size: var(--normal-font-size);
   transition: 0.5s;
-  background-image: url("https://i.postimg.cc/SRbN0Qxs/bg.jpg");
+  /* background-image: url("https://i.postimg.cc/SRbN0Qxs/bg.jpg"); */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -83,6 +83,7 @@ a {
   font-size: 1.25rem;
   padding: 0.75rem;
   cursor: pointer;
+  box-shadow: 0px 15px 10px -15px #111;  
 }
 .nav-logo {
   color: var(--white-color);

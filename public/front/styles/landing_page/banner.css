@@ -151,25 +151,27 @@
 
 .whole_banner .centered_banner .button_part button{
     width: 150px;
-    border: 1.5px solid var(--logo-red-color);
+    border: 1.5px solid var(--primary-color-light);
     padding-top: 7px;
     padding-bottom: 7px;
     border-radius: 5px;
     font-weight: 600;
-    color: var(--logo-red-color);
+    color: var(--primary-color-light);
     background-color: transparent;
 }
 .whole_banner .centered_banner .button_part button:hover{
-    background-color: var(--logo-red-color);
+    background-color: var(--primary-color-light);
     color:aliceblue;
 }
 .whole_banner .centered_banner .button_part .active{
-    background-color: var(--logo-red-color);
+    background-color: var(--primary-color-light);
     color: aliceblue;
+    text-shadow: 0.5px 0.5px 1px #000000;
 }
 .whole_banner .centered_banner .button_part .active:hover{
-    background-color: rgb(252, 103, 130);
+    background-color: rgb(132, 244, 52);
     color:black;
+    text-shadow: 0.5px 0.5px 1px #00000001;
 }
 
 /* __________________________ page button part start */
@@ -189,29 +191,70 @@
  }
  .page_button_part .page_buttons button{
     width: 150px;
-    border: 1.5px solid var(--logo-red-color);
+    border: 1.5px solid var(--primary-color-light);
     padding-top: 7px;
     padding-bottom: 7px;
     border-radius: 5px;
     font-weight: 600;
-    color: var(--logo-red-color);
+    color: var(--primary-color-light);
     background-color: transparent;
 }
 
 .page_button_part .page_buttons button:hover{
-    background-color: var(--logo-red-color);
+    background-color: var(--primary-color-light);
     color:aliceblue;
 }
 
 .page_button_part .page_buttons .active{
-    background-color: var(--logo-red-color);
+    background-color: var(--primary-color-light);
     color: aliceblue;
+    text-shadow: 0.5px 0.5px 1px #000000;
 }
 .page_button_part .page_buttons .active:hover{
-    background-color: rgb(252, 103, 130);
+    background-color: rgb(132, 244, 52);
     color:black;
+    text-shadow: 0.5px 0.5px 1px #00000001;
 }
 /* __________________________ page button part end */
+
+
+
+/* __________________________ PACKAGE SECTION START */
+.package_section{
+    width:100%;
+    height: 100px;
+    margin-bottom: 25px;
+    background: linear-gradient(to right, 
+        rgba(255, 0, 0, 0), /* Start transparent */
+            #00964d7e, /* Middle full color */
+        rgba(255, 0, 0, 0) /* End transparent */
+    );
+    display: flex;
+}
+.package_section .middle_package{
+    max-width: 350px;
+    width: 100%;
+    height:auto;
+    margin: auto;
+    padding: 20px;
+    display: flex;
+    font-size: 20px;
+    border-radius: 10px;
+    /* border: 2px solid var(--primary-color-light); */
+}
+.package_section .middle_package p{
+    font-weight: 600;
+}
+.package_section .middle_package p,
+.package_section .middle_package svg{
+    color:  rgb(0, 0, 0);
+    margin: auto;
+}
+.package_section .middle_package:hover p{
+    color: aliceblue;
+    text-shadow: 0.5px 0.5px 1px #000000;
+}
+/* __________________________ PACKAGE SECTION END */
 
 .bg-image {
     /* The image used */
@@ -235,7 +278,6 @@
     .whole_banner .centered_banner .part_right .image_box{
         max-width: 400px;
         width: 100%;
-
     }
     .whole_banner .bg_desktop{
         display: none;

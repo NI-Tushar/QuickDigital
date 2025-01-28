@@ -352,7 +352,6 @@
       }
   }
 
-
       function adjustClassesBasedOnScreenSize() {
         const screenWidth = window.innerWidth;
         const sidebar = document.querySelector(".sidebar");
