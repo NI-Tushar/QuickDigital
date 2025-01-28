@@ -23,7 +23,9 @@
 
     <div class="dig_prod_section">
         <div class="centered_product">
-
+        <div class="soft_heading">
+            <h3>ডিজিটাল প্রোডাক্ট লিস্টঃ</h3>
+        </div>
             <!-- ___________________________ product search start -->
             <div class="search_box">
                 <form method="GET" action="{{ route('quick.digitalProduct') }}">

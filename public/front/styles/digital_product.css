@@ -54,6 +54,15 @@
   }
 }
 /* ========================================= */
+.dig_prod_section .centered_product .soft_heading {
+  padding-bottom: 20px;
+}
+.dig_prod_section .centered_product .soft_heading h3{
+border-left: 3px solid var(--primary-color);
+padding-left: 10px;
+color: var(--primary-color);
+text-shadow: 1px 1px 1px #000000;
+}
 
 .dig_prod_section {
     width: 100%;
@@ -65,7 +74,7 @@
   max-width: 1000px;
   width: 100%;
   margin: auto;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  /* box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; */
   position: relative;
   padding: 15px;
   border-radius: 10px;
@@ -147,7 +156,7 @@
 
 .dig_prod_section .centered_product .info {
   width: 100%;
-  background: linear-gradient(to right, var(--primary-hover-color), #000428);
+  background: linear-gradient(to right, var(--primary-color), #000428);
   color: #fff;
   position: relative;
   padding: 40px 10px 20px 10px;
@@ -223,7 +232,7 @@
 }
 
 .dig_prod_section .centered_product .price {
-  background: var(--primary-hover-color);
+  background: var(--primary-color);
   border-radius: 3px;
   position: absolute;
   font-size: 1.3em;
@@ -235,7 +244,7 @@
 
 .dig_prod_section .centered_product .price.sale {
   /* background: #00ba2f; */
-  background-color: var(--primary-hover-color);
+  background-color: var(--primary-color);
 }
 
 .dig_prod_section .centered_product .price.old {
@@ -269,14 +278,14 @@
   border-right: 1px solid #afafaf;
 }
 .dig_prod_section .centered_product .wishlist:hover {
-    color: var(--primary-hover-color);
+    color: var(--primary-color);
 }
 .dig_prod_section .centered_product .wishlist:before {
   content: "\f08a";
 }
 
 .dig_prod_section .centered_product .cart:hover {
-  color: var(--primary-hover-color);
+  color: var(--primary-color);
 }
 .dig_prod_section .centered_product .cart:before {
   content: "\f07a";
@@ -296,7 +305,7 @@
 
 .dig_prod_section .centered_product .note.on-sale {
   /* background: #00ba2f; */
-  background-color: var(--primary-hover-color);
+  background-color: var(--primary-color);
   color: #fff;
 }
 
