@@ -4,8 +4,11 @@
     <link rel="stylesheet" href="{{ url ('front/styles/landing_page/banner.css') }}">
     <!-- <link rel="stylesheet" href="{{ url ('front/styles/landing_page/service_card_disabled.css') }}"> -->
     <link rel="stylesheet" href="{{ url ('front/styles/landing_page/service_card.css') }}">
+    <link rel="stylesheet" href="{{ url ('front/styles/landing_page/digital_service.css') }}">
     <link rel="stylesheet" href="{{ url ('front/styles/landing_page/digital_product.css') }}">
     <link rel="stylesheet" href="{{ url ('front/styles/landing_page/software.css') }}">
+    <link rel="stylesheet" href="{{ url ('front/styles/landing_page/training.css') }}">
+    <link rel="stylesheet" href="{{ url ('front/styles/landing_page/about_us.css') }}">
     <script src="{{ url('admin/assets/js/landing_page/software_carousol.js') }}"></script>
 @endpush
 
@@ -48,8 +51,8 @@
                         <h1>আপনার <span>ব্যবসা</span> এবং <span>দক্ষতা</span> বৃদ্ধি করুন</h1>
                         <p>ক্যারিয়ার গড়তে এবং আয়ের নতুন পথ তৈরি করতে আজই কুইক ডিজিটালের সাথে যুক্ত হোন</p>
                         <div class="button_part">
-                            <a href=""><button class="active">সফটওয়্যার সল্যুশন</button></a>
-                            <a href=""><button>ডিজিটাল প্রোডাক্ট</button></a>
+                            <a href="{{ route('quick.software') }}"><button class="active">সফটওয়্যার সল্যুশন</button></a>
+                            <a href="{{ route('quick.digitalProduct') }}"><button>ডিজিটাল প্রোডাক্ট</button></a>
                         </div>
                     </div>
                 </div>
@@ -406,8 +409,8 @@
 
 <div class="page_button_part">
     <div class="page_buttons">
-        <a href=""><button class="active">সফটওয়্যার সল্যুশন</button></a>
-        <a href=""><button>ডিজিটাল প্রোডাক্ট</button></a>
+        <a href="{{ route('quick.software') }}"><button class="active">সফটওয়্যার সল্যুশন</button></a>
+        <a href="{{ route('quick.digitalProduct') }}"><button>ডিজিটাল প্রোডাক্ট</button></a>
     </div>
 </div>
 
@@ -423,12 +426,12 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.5.0/glide.min.js"></script>
     
-<section class="digital_product_section">
+<section class="digital_service_section">
     <div class="product_heading">
         <h1>পপুলার ডিজিটাল মার্কেটিং</h1>
         <p>সৃজনশীলতা, প্রযুক্তি এবং কৌশল—একই জায়গায় একত্রিত আপনার ব্যবসার জন্য</p>
         <div class="view_all_btn">
-            <a href="!"><button>সকল সার্ভিস <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M320 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l82.7 0L201.4 265.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L448 109.3l0 82.7c0 17.7 14.3 32 32 32s32-14.3 32-32l0-160c0-17.7-14.3-32-32-32L320 0zM80 32C35.8 32 0 67.8 0 112L0 432c0 44.2 35.8 80 80 80l320 0c44.2 0 80-35.8 80-80l0-112c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 112c0 8.8-7.2 16-16 16L80 448c-8.8 0-16-7.2-16-16l0-320c0-8.8 7.2-16 16-16l112 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L80 32z"/></svg></button></a>
+            <a href="{{ url('/quick-digital/contact-us') }}"><button>সকল সার্ভিস <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M320 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l82.7 0L201.4 265.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L448 109.3l0 82.7c0 17.7 14.3 32 32 32s32-14.3 32-32l0-160c0-17.7-14.3-32-32-32L320 0zM80 32C35.8 32 0 67.8 0 112L0 432c0 44.2 35.8 80 80 80l320 0c44.2 0 80-35.8 80-80l0-112c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 112c0 8.8-7.2 16-16 16L80 448c-8.8 0-16-7.2-16-16l0-320c0-8.8 7.2-16 16-16l112 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L80 32z"/></svg></button></a>
         </div>
     </div>
 
@@ -441,7 +444,7 @@
                 <li class="glide__slide">
                     <div class="relative flex flex-col text-center bg-gray-800 h-40 items-center justify-center rounded-3xl duration- ease-in-out">
                         <div class="part">
-                            <img src="{{ asset('front/assets/images/landing/digital_product_list/grafics.jpg') }}" alt="">
+                            <img src="{{ asset('front/assets/images/landing/digital_service_list/grafics.jpg') }}" alt="">
                         </div>
                         <div class="part desc">
                             <h5>হয়ে উঠুন একজন সফল গ্রাফিক্স ডিজাইনার আপনার ভালো ক্যারিয়ার এর জন্য।</h5>
@@ -460,7 +463,7 @@
                 <li class="glide__slide">
                     <div class="relative flex flex-col text-center bg-gray-800 h-40 items-center justify-center rounded-3xl">
                         <div class="part">
-                            <img src="{{ asset('front/assets/images/landing/digital_product_list/video_edit.jpg') }}" alt="">
+                            <img src="{{ asset('front/assets/images/landing/digital_service_list/video_edit.jpg') }}" alt="">
                         </div>
                         <div class="part desc">
                             <h5>হয়ে উঠুন একজন সফল এবং প্রফেশনাল ভিডিও এডিটর আপনার ভালো ক্যারিয়ার এর জন্য।</h5>
@@ -478,7 +481,7 @@
                 <li class="glide__slide">
                     <div class="relative flex flex-col text-center bg-gray-800 h-40 items-center justify-center rounded-3xl">
                         <div class="part">
-                            <img src="{{ asset('front/assets/images/landing/digital_product_list/web_design.jpg') }}" alt="">
+                            <img src="{{ asset('front/assets/images/landing/digital_service_list/web_design.jpg') }}" alt="">
                         </div>
                         <div class="part desc">
                             <h5>হয়ে উঠুন একজন সফল ওয়েব ডিজাইনার একটি ভালো ক্যারিয়ার এর জন্য।</h5>
@@ -496,7 +499,7 @@
                 <li class="glide__slide">
                     <div class="relative flex flex-col text-center bg-gray-800 h-40 items-center justify-center rounded-3xl">
                     <div class="part">
-                            <img src="{{ asset('front/assets/images/landing/digital_product_list/video_making.jpg') }}" alt="">
+                            <img src="{{ asset('front/assets/images/landing/digital_service_list/video_making.jpg') }}" alt="">
                         </div>
                         <div class="part desc">
                             <h5>হয়ে উঠুন একজন সফল ওয়েব ডিজাইনার একটি ভালো ক্যারিয়ার এর জন্য।</h5>
@@ -570,7 +573,7 @@
         <h1>পপুলার সফটওয়্যার সমূহ</h1>
         <p>সৃজনশীলতা, প্রযুক্তি এবং কৌশল—একই জায়গায় একত্রিত আপনার ব্যবসার জন্য</p>
         <div class="view_all_btn">
-            <a href="!"><button>সকল সফটওয়্যার<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M320 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l82.7 0L201.4 265.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L448 109.3l0 82.7c0 17.7 14.3 32 32 32s32-14.3 32-32l0-160c0-17.7-14.3-32-32-32L320 0zM80 32C35.8 32 0 67.8 0 112L0 432c0 44.2 35.8 80 80 80l320 0c44.2 0 80-35.8 80-80l0-112c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 112c0 8.8-7.2 16-16 16L80 448c-8.8 0-16-7.2-16-16l0-320c0-8.8 7.2-16 16-16l112 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L80 32z"/></svg></button></a>
+            <a href="{{ route('quick.software') }}"><button>সকল সফটওয়্যার<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M320 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l82.7 0L201.4 265.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L448 109.3l0 82.7c0 17.7 14.3 32 32 32s32-14.3 32-32l0-160c0-17.7-14.3-32-32-32L320 0zM80 32C35.8 32 0 67.8 0 112L0 432c0 44.2 35.8 80 80 80l320 0c44.2 0 80-35.8 80-80l0-112c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 112c0 8.8-7.2 16-16 16L80 448c-8.8 0-16-7.2-16-16l0-320c0-8.8 7.2-16 16-16l112 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L80 32z"/></svg></button></a>
         </div>
 
         <div class="software_carousol">
@@ -582,19 +585,19 @@
                         <!-- _________________________ -->
                             <div class="slide">
                                 <div class="slide_part img_part">
-                                    <img src="https://t4.ftcdn.net/jpg/01/43/23/83/360_F_143238306_lh0ap42wgot36y44WybfQpvsJB5A1CHc.jpg" alt="">
+                                    <img src="{{ asset('front/assets/images/landing/software/1.png') }}" alt="">
                                 </div>
                                 <div class="slide_part desc_part">
                                     <div class="soft_desc">
-                                        <h3>Tourism Management System</h3>
-                                        <p>A Tourism Management System is a comprehensive platform designed to streamline the operations</p>
+                                        <h3>Hospital Management System</h3>
+                                        <p>A Hospital Management System (HMS) is a robust software solution designed to streamline</p>
                                         <div class="review">
                                             <div class="star">★★★★☆</div>
                                             <p>(Reviews)</p>
                                         </div>
                                         <div class="price_section">
                                             <div class="left"><a href="!"><p>বিস্তারিত <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M320 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l82.7 0L201.4 265.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L448 109.3l0 82.7c0 17.7 14.3 32 32 32s32-14.3 32-32l0-160c0-17.7-14.3-32-32-32L320 0zM80 32C35.8 32 0 67.8 0 112L0 432c0 44.2 35.8 80 80 80l320 0c44.2 0 80-35.8 80-80l0-112c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 112c0 8.8-7.2 16-16 16L80 448c-8.8 0-16-7.2-16-16l0-320c0-8.8 7.2-16 16-16l112 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L80 32z"/></svg></p></a></div>
-                                            <div class="right">1000.0<span>/মাসিক</span></div>
+                                            <div class="right">3000.0<span>/মাসিক</span></div>
                                         </div>
                                         <div class="button_section">
                                             <a href="!">কাস্টম</a>
@@ -608,12 +611,12 @@
                         <!-- _________________________ -->
                         <div class="slide">
                                 <div class="slide_part img_part">
-                                    <img src="https://t4.ftcdn.net/jpg/01/43/23/83/360_F_143238306_lh0ap42wgot36y44WybfQpvsJB5A1CHc.jpg" alt="">
+                                    <img src="{{ asset('front/assets/images/landing/software/2.png') }}" alt="">
                                 </div>
                                 <div class="slide_part desc_part">
                                     <div class="soft_desc">
                                         <h3>Tourism Management System</h3>
-                                        <p>A Tourism Management System is a comprehensive platform designed to streamline the operations</p>
+                                        <p>A Tourism Management System is a comprehensive platform designed to streamline</p>
                                         <div class="review">
                                             <div class="star">★★★★☆</div>
                                             <p>(Reviews)</p>
@@ -635,12 +638,39 @@
                         <!-- _________________________ -->
                         <div class="slide">
                                 <div class="slide_part img_part">
-                                    <img src="https://t4.ftcdn.net/jpg/01/43/23/83/360_F_143238306_lh0ap42wgot36y44WybfQpvsJB5A1CHc.jpg" alt="">
+                                    <img src="{{ asset('front/assets/images/landing/software/3.png') }}" alt="">
                                 </div>
                                 <div class="slide_part desc_part">
                                     <div class="soft_desc">
-                                        <h3>Tourism Management System</h3>
-                                        <p>A Tourism Management System is a comprehensive platform designed to streamline the operations</p>
+                                        <h3>eCommerce</h3>
+                                        <p>An E-commerce Website is a dynamic platform designed to facilitate online buying and selling</p>
+                                        <div class="review">
+                                            <div class="star">★★★★☆</div>
+                                            <p>(Reviews)</p>
+                                        </div>
+                                        <div class="price_section">
+                                            <div class="left"><a href="!"><p>বিস্তারিত <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M320 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l82.7 0L201.4 265.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L448 109.3l0 82.7c0 17.7 14.3 32 32 32s32-14.3 32-32l0-160c0-17.7-14.3-32-32-32L320 0zM80 32C35.8 32 0 67.8 0 112L0 432c0 44.2 35.8 80 80 80l320 0c44.2 0 80-35.8 80-80l0-112c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 112c0 8.8-7.2 16-16 16L80 448c-8.8 0-16-7.2-16-16l0-320c0-8.8 7.2-16 16-16l112 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L80 32z"/></svg></p></a></div>
+                                            <div class="right">700.0<span>/মাসিক</span></div>
+                                        </div>
+                                        <div class="button_section">
+                                            <a href="!">কাস্টম</a>
+                                            <a href="!" class="active">কিনুন</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            
+                                                  
+                        <!-- _________________________ -->
+                        <div class="slide">
+                                <div class="slide_part img_part">
+                                    <img src="{{ asset('front/assets/images/landing/software/4.png') }}" alt="">
+                                </div>
+                                <div class="slide_part desc_part">
+                                    <div class="soft_desc">
+                                        <h3>Doctor Appointment Management System</h3>
+                                        <p>A Doctor Appointment Management System is a robust and user-friendly platform designed</p>
                                         <div class="review">
                                             <div class="star">★★★★☆</div>
                                             <p>(Reviews)</p>
@@ -662,12 +692,12 @@
                         <!-- _________________________ -->
                         <div class="slide">
                                 <div class="slide_part img_part">
-                                    <img src="https://t4.ftcdn.net/jpg/01/43/23/83/360_F_143238306_lh0ap42wgot36y44WybfQpvsJB5A1CHc.jpg" alt="">
+                                    <img src="{{ asset('front/assets/images/landing/software/5.png') }}" alt="">
                                 </div>
                                 <div class="slide_part desc_part">
                                     <div class="soft_desc">
-                                        <h3>Tourism Management System</h3>
-                                        <p>A Tourism Management System is a comprehensive platform designed to streamline the operations</p>
+                                        <h3>Pre School Enrolment Management System</h3>
+                                        <p>A School Management System is an all-in-one platform designed to efficiently manage the academic</p>
                                         <div class="review">
                                             <div class="star">★★★★☆</div>
                                             <p>(Reviews)</p>
@@ -689,46 +719,19 @@
                         <!-- _________________________ -->
                         <div class="slide">
                                 <div class="slide_part img_part">
-                                    <img src="https://t4.ftcdn.net/jpg/01/43/23/83/360_F_143238306_lh0ap42wgot36y44WybfQpvsJB5A1CHc.jpg" alt="">
+                                    <img src="{{ asset('front/assets/images/landing/software/6.png') }}" alt="">
                                 </div>
                                 <div class="slide_part desc_part">
                                     <div class="soft_desc">
-                                        <h3>Tourism Management System</h3>
-                                        <p>A Tourism Management System is a comprehensive platform designed to streamline the operations</p>
+                                        <h3>News Portal</h3>
+                                        <p>A News Portal is an online platform designed to deliver the latest news, articles</p>
                                         <div class="review">
                                             <div class="star">★★★★☆</div>
                                             <p>(Reviews)</p>
                                         </div>
                                         <div class="price_section">
                                             <div class="left"><a href="!"><p>বিস্তারিত <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M320 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l82.7 0L201.4 265.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L448 109.3l0 82.7c0 17.7 14.3 32 32 32s32-14.3 32-32l0-160c0-17.7-14.3-32-32-32L320 0zM80 32C35.8 32 0 67.8 0 112L0 432c0 44.2 35.8 80 80 80l320 0c44.2 0 80-35.8 80-80l0-112c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 112c0 8.8-7.2 16-16 16L80 448c-8.8 0-16-7.2-16-16l0-320c0-8.8 7.2-16 16-16l112 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L80 32z"/></svg></p></a></div>
-                                            <div class="right">1000.0<span>/মাসিক</span></div>
-                                        </div>
-                                        <div class="button_section">
-                                            <a href="!">কাস্টম</a>
-                                            <a href="!" class="active">কিনুন</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            
-                                                  
-                        <!-- _________________________ -->
-                        <div class="slide">
-                                <div class="slide_part img_part">
-                                    <img src="https://t4.ftcdn.net/jpg/01/43/23/83/360_F_143238306_lh0ap42wgot36y44WybfQpvsJB5A1CHc.jpg" alt="">
-                                </div>
-                                <div class="slide_part desc_part">
-                                    <div class="soft_desc">
-                                        <h3>Tourism Management System</h3>
-                                        <p>A Tourism Management System is a comprehensive platform designed to streamline the operations</p>
-                                        <div class="review">
-                                            <div class="star">★★★★☆</div>
-                                            <p>(Reviews)</p>
-                                        </div>
-                                        <div class="price_section">
-                                            <div class="left"><a href="!"><p>বিস্তারিত <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M320 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l82.7 0L201.4 265.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L448 109.3l0 82.7c0 17.7 14.3 32 32 32s32-14.3 32-32l0-160c0-17.7-14.3-32-32-32L320 0zM80 32C35.8 32 0 67.8 0 112L0 432c0 44.2 35.8 80 80 80l320 0c44.2 0 80-35.8 80-80l0-112c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 112c0 8.8-7.2 16-16 16L80 448c-8.8 0-16-7.2-16-16l0-320c0-8.8 7.2-16 16-16l112 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L80 32z"/></svg></p></a></div>
-                                            <div class="right">1000.0<span>/মাসিক</span></div>
+                                            <div class="right">1500.0<span>/মাসিক</span></div>
                                         </div>
                                         <div class="button_section">
                                             <a href="!">কাস্টম</a>
@@ -834,6 +837,344 @@
 
  </script>
 <!-- ________________________________________________________________________ POPULER SOFTWARE END -->
+
+
+
+<!-- ________________________________________________________________________ POPULER DIGITAL PRODUCT START -->
+<section class="digital_product_section">
+    <div class="product_heading">
+        <h1>পপুলার ডিজিটাল প্রোডাক্ট সমূহ</h1>
+        <p>সৃজনশীলতা, প্রযুক্তি এবং কৌশল—একই জায়গায় একত্রিত আপনার ব্যবসার জন্য</p>
+        <div class="view_all_btn">
+            <a href="{{ route('quick.digitalProduct') }}"><button>সকল প্রোডাক্ট<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M320 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l82.7 0L201.4 265.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L448 109.3l0 82.7c0 17.7 14.3 32 32 32s32-14.3 32-32l0-160c0-17.7-14.3-32-32-32L320 0zM80 32C35.8 32 0 67.8 0 112L0 432c0 44.2 35.8 80 80 80l320 0c44.2 0 80-35.8 80-80l0-112c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 112c0 8.8-7.2 16-16 16L80 448c-8.8 0-16-7.2-16-16l0-320c0-8.8 7.2-16 16-16l112 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L80 32z"/></svg></button></a>
+        </div>
+
+        <div class="software_carousol">
+            <div id="digProd_container">
+                <div id="slider-container">
+                    <span onclick="digProdSlideRight()" class="digProd_btn"></span>
+                        <div id="digProd_slider">
+                            
+                        <!-- _________________________ -->
+                            <div class="digProd_slide">
+                                <div class="slide_part img_part">
+                                    <img src="{{ asset('front/assets/images/landing/digital_product/blogging.png') }}" alt="">
+                                </div>
+                                <div class="slide_part desc_part">
+                                    <div class="soft_desc">
+                                        <h3>ব্লগিং ওয়ার্ডপ্রেস</h3>
+                                        <!-- <p>A Tourism Management System is a comprehensive platform designed to streamline the operations</p> -->
+                                        <div class="details">
+                                            <a href="!"><p>বিস্তারিত <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M320 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l82.7 0L201.4 265.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L448 109.3l0 82.7c0 17.7 14.3 32 32 32s32-14.3 32-32l0-160c0-17.7-14.3-32-32-32L320 0zM80 32C35.8 32 0 67.8 0 112L0 432c0 44.2 35.8 80 80 80l320 0c44.2 0 80-35.8 80-80l0-112c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 112c0 8.8-7.2 16-16 16L80 448c-8.8 0-16-7.2-16-16l0-320c0-8.8 7.2-16 16-16l112 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L80 32z"/></svg></p></a>
+                                        </div>
+
+                                        <div class="price_section">
+                                            <div class="left">On Sell</div>
+                                            <div class="right">550.0<span>BDT</span></div>
+                                        </div>
+                                        <div class="button_section">
+                                            <!-- <a href="!">কাস্টম</a> -->
+                                            <a href="!" class="active">কিনুন</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                                                   
+                        <!-- _________________________ -->
+                        <div class="digProd_slide">
+                                <div class="slide_part img_part">
+                                    <img src="{{ asset('front/assets/images/landing/digital_product/ecommerce.png') }}" alt="">
+                                </div>
+                                <div class="slide_part desc_part">
+                                    <div class="soft_desc">
+                                        <h3>ইকমার্স থিম</h3>
+                                        <!-- <p>A Tourism Management System is a comprehensive platform designed to streamline the operations</p> -->
+                                        <div class="details">
+                                            <a href="!"><p>বিস্তারিত <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M320 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l82.7 0L201.4 265.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L448 109.3l0 82.7c0 17.7 14.3 32 32 32s32-14.3 32-32l0-160c0-17.7-14.3-32-32-32L320 0zM80 32C35.8 32 0 67.8 0 112L0 432c0 44.2 35.8 80 80 80l320 0c44.2 0 80-35.8 80-80l0-112c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 112c0 8.8-7.2 16-16 16L80 448c-8.8 0-16-7.2-16-16l0-320c0-8.8 7.2-16 16-16l112 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L80 32z"/></svg></p></a>
+                                        </div>
+
+                                        <div class="price_section">
+                                            <div class="left">On Sell</div>
+                                            <div class="right">550.0<span>BDT</span></div>
+                                        </div>
+                                        <div class="button_section">
+                                            <!-- <a href="!">কাস্টম</a> -->
+                                            <a href="!" class="active">কিনুন</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            
+                                                  
+                        <!-- _________________________ -->
+                        <div class="digProd_slide">
+                                <div class="slide_part img_part">
+                                    <img src="{{ asset('front/assets/images/landing/digital_product/education.png') }}" alt="">
+                                </div>
+                                <div class="slide_part desc_part">
+                                    <div class="soft_desc">
+                                        <h3>শিক্ষা প্রতিষ্ঠানিক ওয়ার্ডপ্রেস থিম</h3>
+                                        <!-- <p>A Tourism Management System is a comprehensive platform designed to streamline the operations</p> -->
+                                        <div class="details">
+                                            <a href="!"><p>বিস্তারিত <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M320 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l82.7 0L201.4 265.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L448 109.3l0 82.7c0 17.7 14.3 32 32 32s32-14.3 32-32l0-160c0-17.7-14.3-32-32-32L320 0zM80 32C35.8 32 0 67.8 0 112L0 432c0 44.2 35.8 80 80 80l320 0c44.2 0 80-35.8 80-80l0-112c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 112c0 8.8-7.2 16-16 16L80 448c-8.8 0-16-7.2-16-16l0-320c0-8.8 7.2-16 16-16l112 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L80 32z"/></svg></p></a>
+                                        </div>
+
+                                        <div class="price_section">
+                                            <div class="left">On Sell</div>
+                                            <div class="right">550.0<span>/BDT</span></div>
+                                        </div>
+                                        <div class="button_section">
+                                            <!-- <a href="!">কাস্টম</a> -->
+                                            <a href="!" class="active">কিনুন</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            
+                                                  
+                        <!-- _________________________ -->
+                        <div class="digProd_slide">
+                                <div class="slide_part img_part">
+                                    <img src="{{ asset('front/assets/images/landing/digital_product/photography.png') }}" alt="">
+                                </div>
+                                <div class="slide_part desc_part">
+                                    <div class="soft_desc">
+                                        <h3>ফটোগ্রাফি ওয়ার্ডপ্রেস থিম</h3>
+                                        <!-- <p>A Tourism Management System is a comprehensive platform designed to streamline the operations</p> -->
+                                        <div class="details">
+                                            <a href="!"><p>বিস্তারিত <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M320 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l82.7 0L201.4 265.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L448 109.3l0 82.7c0 17.7 14.3 32 32 32s32-14.3 32-32l0-160c0-17.7-14.3-32-32-32L320 0zM80 32C35.8 32 0 67.8 0 112L0 432c0 44.2 35.8 80 80 80l320 0c44.2 0 80-35.8 80-80l0-112c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 112c0 8.8-7.2 16-16 16L80 448c-8.8 0-16-7.2-16-16l0-320c0-8.8 7.2-16 16-16l112 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L80 32z"/></svg></p></a>
+                                        </div>
+
+                                        <div class="price_section">
+                                            <div class="left">On Sell</div>
+                                            <div class="right">550.0<span>BDT</span></div>
+                                        </div>
+                                        <div class="button_section">
+                                            <!-- <a href="!">কাস্টম</a> -->
+                                            <a href="!" class="active">কিনুন</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            
+                                                  
+                        <!-- _________________________ -->
+                        <div class="digProd_slide">
+                                <div class="slide_part img_part">
+                                    <img src="{{ asset('front/assets/images/landing/digital_product/realstate.png') }}" alt="">
+                                </div>
+                                <div class="slide_part desc_part">
+                                    <div class="soft_desc">
+                                        <h3>রিয়েল এস্টেট ওয়ার্ডপ্রেস থিম</h3>
+                                        <!-- <p>A Tourism Management System is a comprehensive platform designed to streamline the operations</p> -->
+                                        <div class="details">
+                                            <a href="!"><p>বিস্তারিত <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M320 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l82.7 0L201.4 265.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L448 109.3l0 82.7c0 17.7 14.3 32 32 32s32-14.3 32-32l0-160c0-17.7-14.3-32-32-32L320 0zM80 32C35.8 32 0 67.8 0 112L0 432c0 44.2 35.8 80 80 80l320 0c44.2 0 80-35.8 80-80l0-112c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 112c0 8.8-7.2 16-16 16L80 448c-8.8 0-16-7.2-16-16l0-320c0-8.8 7.2-16 16-16l112 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L80 32z"/></svg></p></a>
+                                        </div>
+
+                                        <div class="price_section">
+                                            <div class="left">On Sell</div>
+                                            <div class="right">550.0<span>BDT</span></div>
+                                        </div>
+                                        <div class="button_section">
+                                            <!-- <a href="!">কাস্টম</a> -->
+                                            <a href="!" class="active">কিনুন</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            
+                                                  
+                        <!-- _________________________ -->
+                        <div class="digProd_slide">
+                                <div class="slide_part img_part">
+                                    <img src="{{ asset('front/assets/images/landing/digital_product/windows10.png') }}" alt="">
+                                </div>
+                                <div class="slide_part desc_part">
+                                    <div class="soft_desc">
+                                        <h3>উইন্ডোজ 10 প্রো লাইসেন্স</h3>
+                                        <!-- <p>A Tourism Management System is a comprehensive platform designed to streamline the operations</p> -->
+                                        <div class="details">
+                                            <a href="!"><p>বিস্তারিত <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M320 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l82.7 0L201.4 265.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L448 109.3l0 82.7c0 17.7 14.3 32 32 32s32-14.3 32-32l0-160c0-17.7-14.3-32-32-32L320 0zM80 32C35.8 32 0 67.8 0 112L0 432c0 44.2 35.8 80 80 80l320 0c44.2 0 80-35.8 80-80l0-112c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 112c0 8.8-7.2 16-16 16L80 448c-8.8 0-16-7.2-16-16l0-320c0-8.8 7.2-16 16-16l112 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L80 32z"/></svg></p></a>
+                                        </div>
+
+                                        <div class="price_section">
+                                            <div class="left">On Sell</div>
+                                            <div class="right">550.0<span>/মাসিক</span></div>
+                                        </div>
+                                        <div class="button_section">
+                                            <!-- <a href="!">কাস্টম</a> -->
+                                            <a href="!" class="active">কিনুন</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                           
+                        </div>
+                    <span onclick="digProdSlideLeft()" class="digProd_btn"></span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+ </section>
+ <script>
+    var digProd_container = document.getElementById("digProd_container");
+    var digProd_slider = document.getElementById("digProd_slider");
+    var digProd_slide = document.getElementsByClassName("digProd_slide").length;
+    var digProd_btn = document.getElementsByClassName("digProd_btn");
+
+    var currentPosition = 0;
+    var currentMargin = 0;
+    var slidesPerPage = 0;
+    var slidesCount = slides - slidesPerPage;
+    var containerWidth = digProd_container.offsetWidth;
+    var prevKeyActive = false;
+    var nextKeyActive = true;
+
+    window.addEventListener("resize", checkWidth);
+
+    function checkWidth() {
+    containerWidth = digProd_container.offsetWidth;
+    setParams(containerWidth);
+    }
+
+    function setParams(w) {
+    if (w < 551) {
+        slidesPerPage = 1;
+    } else {
+        if (w < 901) {
+        slidesPerPage = 2;
+        } else {
+        if (w < 1101) {
+            slidesPerPage = 3;
+        } else {
+            slidesPerPage = 4;
+        }
+        }
+    }
+    slidesCount = slides - slidesPerPage;
+    if (currentPosition > slidesCount) {
+        currentPosition -= slidesPerPage;
+    }
+    currentMargin = -currentPosition * (100 / slidesPerPage);
+    digProd_slider.style.marginLeft = currentMargin + "%";
+    if (currentPosition > 0) {
+        buttons[0].classList.remove("inactive");
+    }
+    if (currentPosition < slidesCount) {
+        buttons[1].classList.remove("inactive");
+    }
+    if (currentPosition >= slidesCount) {
+        buttons[1].classList.add("inactive");
+    }
+    }
+
+    setParams();
+
+    function digProdSlideRight() {
+    if (currentPosition != 0) {
+        digProd_slider.style.marginLeft = currentMargin + 100 / slidesPerPage + "%";
+        currentMargin += 100 / slidesPerPage;
+        currentPosition--;
+    }
+    if (currentPosition === 0) {
+        buttons[0].classList.add("inactive");
+    }
+    if (currentPosition < slidesCount) {
+        buttons[1].classList.remove("inactive");
+    }
+    }
+
+    function digProdSlideLeft() {
+    if (currentPosition != slidesCount) {
+        digProd_slider.style.marginLeft = currentMargin - 100 / slidesPerPage + "%";
+        currentMargin -= 100 / slidesPerPage;
+        currentPosition++;
+    }
+    if (currentPosition == slidesCount) {
+        buttons[1].classList.add("inactive");
+    }
+    if (currentPosition > 0) {
+        buttons[0].classList.remove("inactive");
+    }
+    }
+
+ </script>
+<!-- ________________________________________________________________________ POPULER DIGITAL PRODUCT END -->
+
+
+
+<!-- ________________________________________________________________________ TRANING START -->
+<section class="training_section">
+    <div class="taining_left"></div>
+    <div class="training_container">
+        <div class="training_img"><img src="{{ asset('front/assets/images/landing/training/training.png') }}" alt=""></div>
+        <div class="training_content">
+            <div class="text">
+                <h2>ট্রেইনিং সমূহ</h2>
+                <p>কুইক ডিজিটাল"একটি ডিজিটাল সেবা, পন্য, এবং ট্রেনিং প্রদানকারী প্ল্যাটফর্ম। বর্তমানে মানুষের ডিজিটাল চাহিদার জন্য আমরা সদা সচেষ্ট।</p>
+                <p>আমাদের ভান্ডারে আছে ইউজার ফ্রেন্ডলি এবং সুবিশাল ক্যাটালগ যেখান থেকে আপনি পাবেন: ই-বুক, ডিজিটাল পণ্য বা সেবা এবং ফ্রিল্যান্সিং কোর্স সমূহ। যার মাধ্যমে আপনি ঘরে বসেই আপনার পন্য বা সেবা গ্রহন করতে পারবেন খুব সহজেই।</p>
+
+                <a href="#" class="btn">সকল ট্রেইনিং →</a>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- ________________________________________________________________________ TRINING END -->
+
+
+
+
+<!-- ________________________________________________________________________ ABOUT US START -->
+<section class="about_us_section">
+    <div class="center_about">
+        <div class="about_part">
+            <div class="about_text">
+                <h2>আমাদের সম্পর্কে</h2>
+                <p>কুইক ডিজিটাল"একটি ডিজিটাল সেবা, পন্য, এবং ট্রেনিং প্রদানকারী প্ল্যাটফর্ম । বর্তমানে মানুষের ডিজিটাল চাহিদার জন্য আমরা সদা সচেষ্ট।</p>
+                <p>আমাদের ভান্ডারে আছে ইউজার ফ্রেন্ডলি এবং সুবিশাল ক্যাটালগ যেখান থেকে আপনি পাবেন: ই-বুক, ডিজিটাল পণ্য বা সেবা এবং ফ্রিল্যান্সিং কোর্স সমূহ। যার মাধ্যমে আপনি ঘরে বসেই আপনার পন্য বা সেবা গ্রহন করতে পারবেন খুব সহজেই।</p>
+                <p>"কুইক ডিজিটাল"একটি ডিজিটাল উদ্ভাবনী প্ল্যাটফর্ম। আজকের যুবকদের গতিশীল ডিজিটাল চাহিদার জন্য আমরা সদা সচেষ্ট। কুইক ডিজিটাল হচ্ছে একটি সাম্প্রতিকতম বেস্টসেলার প্লাটফর্ম।</p>
+            </div>
+        </div>
+        <div class="about_part">
+            <div class="img_div">
+                <img src="{{asset('front/assets/images/landing/about_us/tech_team.jpg')}}" alt="">
+                <div class="circle_div">
+
+                    <div class="circle">
+                        <div class="summery">
+                            <h1>20K+</h1>
+                            <p>Happy Clients</p>
+                        </div>
+                    </div>
+
+                    <div class="circle">
+                        <div class="summery">
+                            <h1>2K+</h1>
+                            <p>Delivered</p>
+                        </div>
+                    </div>
+
+                    <div class="circle">
+                        <div class="summery">
+                            <h1>400+</h1>
+                            <p>Affiliator</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- ________________________________________________________________________ ABOUT US END -->
+
 
 
 
@@ -1167,7 +1508,7 @@
 
     
     <!-- About -->
-    <section class="about-section" id="about">
+    <section class="about-section" id="about" style="display:none;">
         <div class="container max-width">
             <div class="row py-5 gap-5 align-items-center about-element-container">
 
@@ -1206,7 +1547,10 @@
         </div>
     </section>
     <!-- resources -->
-    <section class="resources-section py-5" >
+
+
+
+    <section class="resources-section py-5" style="display:none;">
 
         <div class="container max-width px-0">
             <h3 class="resources-heading text-center custom-padding">

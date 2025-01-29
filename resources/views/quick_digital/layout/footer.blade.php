@@ -1,12 +1,12 @@
 <link rel="stylesheet" href="{{ url('front/styles/footer.css') }}">
 
-<footer class="bg-black text-white py-5">
-    <div class="container max-width custom-padding">
+<footer class="py-5" style="background: var(--footer-bg-color) !important;">
+    <div class="container max-width custom-padding" style="background-color: var(--footer-bg-color) !important;">
         <div class="row justify-content-between">
 
             <div class="col-12 col-lg-3 footer-elements">
                 <div class="footer-logo-container d-flex justify-content-start">
-                    <img class="footer-logo" src="{{ asset('front/assets/images/primary_logo2.png') }}" alt="logo">
+                    <img class="footer-logo" src="{{ asset('front/assets/images/logo_white.png') }}" alt="logo">
                 </div>
                 <p class="footer-text py-3">
                     যে কোনো প্রশ্ন বা কোনো তথ্য জানতে আমাদের কল কিংবা এসএমএস করুন এই নম্বরে
@@ -63,11 +63,21 @@
                 </p>
             </div>
         </div>
-        <hr class="py-3">
-        <div class="row justify-content-between" style="text-align:center;width:100%;">
+        <!-- <hr class="py-3"> -->
+    </div>
+
+    <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MSTBQXZG"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+</footer>
+
+<footer class="py-5" style="background: var(--footer-bg-bottom-color) !important;">
+    <div class="container max-width " style="background-color: var(--footer-bg-bottom-color) !important;">
+        <div class="row justify-content-between" style="text-align:center;width:100%; background-color: var(--footer-bg-bottom-color) !important">
             <div class="col-12 col-md-6 d-flex gap-5 social-links-top-left" style="text-align:center;width:100%;">
                 <div class="text-center" style="text-align:center;width:100%;">
-                    <p class="text-control-6 fw-medium" style="text-align:center;width:100%;">
+                    <p class="text-control-6 fw-medium" style="text-align:center;width:100%; color:aliceblue;">
                         Copyright &copy; <?php echo date("Y"); ?> - Quick Digital - All Rights Reserved.
                     </p>
                 </div>
@@ -90,9 +100,4 @@
             </div>
         </div>
     </div>
-
-    <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MSTBQXZG"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
 </footer>
