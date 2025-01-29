@@ -1,0 +1,192 @@
+.digital_service_section{
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
+.digital_service_section .product_heading{
+    max-width: 1100px;
+    margin: auto;
+    /* padding-left: 10px;
+    padding-right: 10px; */
+}
+.digital_service_section .product_heading h1{
+    font-weight: 700;
+    font-size: 25px;
+}
+.digital_service_section .product_heading h1,
+.digital_service_section .product_heading p{
+    width: 100%;
+    text-align: left;
+    padding: 0;
+    margin: 0;
+}
+.digital_service_section .product_heading p{
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.523);
+}
+
+.digital_service_section .product_heading .view_all_btn {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.digital_service_section .product_heading .view_all_btn a{
+    text-decoration: none;
+}
+.digital_service_section .product_heading .view_all_btn button {
+    background-color: transparent;
+    border: 2px solid var(--primary-color-light);
+    color: black;
+    padding: 5px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    font-weight: 600;
+}
+.digital_service_section .product_heading .view_all_btn button svg{
+    margin-left: 10px;
+    height: 17px;
+    width: 17px;
+    margin-top: 3px;
+}
+.digital_service_section .product_heading .view_all_btn button:hover{
+    background-color: var(--primary-color-light);
+    color: black;
+}
+
+
+/* ______________________________ carousol start */
+.product_card_carousol {
+    max-width: 1100px;
+    width: 100%;
+    margin: auto;
+    height: auto;   
+}
+
+.glide__arrow {
+    position: absolute;
+    display: block;
+    top: 50%;
+    z-index: 2;
+    opacity: 1;
+    transform: translateY(-50%);
+}
+
+.product_card_carousol .glide{
+    border-radius: 0px;
+    background-color: transparent;
+    padding: 0px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+.product_card_carousol .glide .glide__track{
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.product_card_carousol .glide .glide__slide{
+    width: 300px !important;
+    border: none;
+    padding: 10px;
+    background-color: transparent;
+}
+.product_card_carousol .glide .glide__slide .relative{
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    background:transparent;
+    width: 300px !important;
+    height: 350px !important;
+    border-radius: 10px !important;
+    border: 0.5px solid rgba(0, 0, 0, 0.242);
+    padding: 15px;
+    background-color: aliceblue;
+}
+.product_card_carousol .glide .glide__slide .relative .part{
+    height: 50%;
+    width: 100%;
+}
+.product_card_carousol .glide .glide__slide .relative .part img{
+    height: 100%;
+    width: 100%;
+    border-radius: 10px;
+}
+.product_card_carousol .glide .glide__slide .relative .desc{
+    padding-top: 10px;
+}
+.product_card_carousol .glide .glide__slide .relative .desc h5{
+    width: 100%;
+    font-size: 16px;
+    text-align: left;
+    font-weight: 600;
+}
+.product_card_carousol .glide .glide__slide .relative .desc .review{
+    width: 100%;
+    display: flex;
+    margin-top: 10px;
+}
+.product_card_carousol .glide .glide__slide .relative .desc .review .star{
+    color: rgb(252, 154, 56);
+    font-size: 20px;
+}
+.product_card_carousol .glide .glide__slide .relative .desc .review p{
+    margin-top:5px;
+    margin-left: 5px;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.416);
+    font-size: 15px;
+}
+.product_card_carousol .glide .glide__slide .relative .desc .button_price{
+    display: flex;
+    gap: 5px;
+    padding-top: 20px;
+}
+.product_card_carousol .glide .glide__slide .relative .desc .button_price>div{
+    width: 100%;
+}
+.product_card_carousol .glide .glide__slide .relative .desc .button_price .price{
+    padding-top: 0px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 20px;
+    display: flex;
+}
+.product_card_carousol .glide .glide__slide .relative .desc .button_price .btn{
+    padding: 0px;
+}
+.product_card_carousol .glide .glide__slide .relative .desc .button_price button{
+    padding-top: 2px !important;
+    padding-bottom: 2px !important;
+    height: 18px;
+    font-weight: 600;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+    /* text-shadow: 0.5px 0.5px 1px #000000; */
+    height: 100%;
+    width: 100%;
+    border-radius: 7px;
+}
+.product_card_carousol .glide .glide__slide .relative .desc .button_price button:hover{
+    background-color: var(--primary-color);
+    color: aliceblue;
+}
+.product_card_carousol .glide__arrows .glide__arrow:hover{
+    color: rgb(1, 1, 1);
+}
+.product_card_carousol .glide__arrows .arrow_color{
+    color: aliceblue;
+}
+@media (max-width: 420px) {
+    .product_card_carousol .glide .glide__slide{
+        width: 250px !important;
+    }
+    .product_card_carousol .glide .glide__slide .relative{
+        background:transparent;
+        border-radius: 0px;
+        width: 250px !important;
+        height: 350px !important;
+    }
+    .digital_service_section .product_heading{
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+  }
+/* ______________________________ carousol end */

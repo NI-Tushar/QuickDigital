@@ -5,6 +5,9 @@
     /* --primary-color:#3A0256; */
     --primary-hover-color:#6c03a0;
 
+    --footer-bg-color:rgb(4, 36, 0);
+    --footer-bg-bottom-color:rgb(7, 20, 5);
+
 
     /* for slider color */
     --plyr-color-main: #111dbc;

@@ -269,13 +269,13 @@
                                 </li> -->
 
                                 
-                                @php
+                                <!-- @php
                                 $active = Session::get('page') == 'training' ? 'active' : '';
                                 @endphp 
                                 <li class="nav-item hide {{ $active }}">
                                     <a class="nav-link fw-semibold px-md-3" aria-current="page"
                                         href="{{ url('/quick-digital/contact-us') }}">ট্রেইনিং</a>
-                                </li>
+                                </li> -->
 
                                 @php
                                 $active = Session::get('page') == 'contactUs' ? 'active' : '';

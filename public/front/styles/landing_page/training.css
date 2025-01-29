@@ -1,0 +1,121 @@
+/* Base styles */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* Section Styling */
+.training_section {
+    display: flex;
+    height: auto;
+    width: 100%;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
+
+/* training_container */
+.taining_left{
+    width: 20%;
+    height: auto;
+}
+.training_container {
+    width: 80%;
+    height: auto;
+    display: flex;
+    background-color:rgb(239, 250, 246);
+    background-image:
+    radial-gradient(at 3% 43%, rgb(235, 247, 243) 0px, transparent 50%);
+    border-top-left-radius: 70px;
+    border-bottom-left-radius: 70px;
+    overflow: hidden;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.training_container .training_img{
+    padding: 0;
+    width: 30%;
+    display: flex;
+}
+.training_container .training_content{
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    width: 100%;
+    display: flex;
+}
+.training_container .training_content .text{
+    height: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+    max-width: 700px;
+    width: 100%;
+}
+.training_container .training_content .text h2{
+    font-weight: 800;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+.training_container .training_content .text p{
+    margin-bottom: 15px;
+    font-size: 15px;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.497);
+}
+.training_container .training_img img{
+    margin: auto;
+    max-height: 500px;
+    height: 100%;
+    width: auto;
+}
+.training_container .training_content .text .btn{
+    width: fit-content;
+    border-radius: 0px;
+    border-left: 5px solid var(--primary-color);
+    color: var(--primary-color);
+    font-weight: 700;
+}
+.training_container .training_content .text .btn:hover{
+    border-left: 5px solid var(--primary-color-light);
+    color: var(--primary-color-light);
+    text-shadow: 0.5px 0.5px 1px #000000;
+}
+
+  
+@media only screen and (max-width: 1100px) {
+    .taining_left{
+        display: none;
+    }
+    .training_container {
+        width: 100%;
+    }
+}
+@media only screen and (max-width: 950px){
+    .training_container {
+        display:block;
+        border-top-left-radius: 0px;
+        border-bottom-left-radius: 0px;
+        padding: 0px;
+    }
+    .training_container .training_img{
+        padding:0;
+        display: flex;
+        width: 100%;
+        overflow: hidden;
+    }
+    .training_container .training_img img{
+        margin: auto;
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        transform: scale(1.4); /* Zoom in by 20% */
+    }
+    .training_container .training_content{
+        padding: 0;
+        display: flex;
+    }
+    .training_container .training_content .text{
+        padding: 15px;
+        margin: auto;
+    }
+}
+
+
