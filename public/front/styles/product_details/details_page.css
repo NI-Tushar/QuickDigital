@@ -1,0 +1,8 @@
+body{
+    background: linear-gradient(to left rgb(239, 244, 212), rgb(253, 249, 250));
+}
+.detail_section{
+    width: 100%;
+    border: 1px solid red;
+    height: 100vh;
+}
