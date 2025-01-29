@@ -19,10 +19,16 @@
             const logo_black = document.getElementById('logo_black');
             logo_black.style.display="flex";
 
+            const bg_first = document.getElementById('bg_first');
+            bg_first.style.background="var(--footer-bg-color)";
+            
             const logo_white = document.getElementById('logo_white');
             logo_white.style.display="none";
         } else {
             header.classList.remove('scrolled');
+            
+            const bg_first = document.getElementById('bg_first');
+            bg_first.style.background="transparent";
 
             const logo_black = document.getElementById('logo_black');
             logo_black.style.display="none";
@@ -37,7 +43,7 @@
 
 <div id="sticky_bar" class="sticky_bar">
 
-    <div class="bg-first text-white">
+    <div id="bg_first" class="bg-first text-white">
         <div class="container max-width">
             <div class="top-contacts">
 

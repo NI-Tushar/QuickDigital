@@ -10,6 +10,7 @@
     use App\Http\Controllers\BootcampController;
     use App\Http\Controllers\AffiliatorPromocodeController;
     use App\Http\Controllers\SoftwareController;
+    use App\Http\Controllers\ProductPageController;
     use App\Http\Controllers\CustomerOrderController;
     use App\Http\Controllers\DigitalProductController;
     use App\Http\Controllers\CartController;
@@ -371,7 +372,7 @@
             // Return the view for the 403 error page
             return view('quick_digital.course_play');
         })->name('quick_digital.video');
-
+        
         Route::get('search-product', [HomeController::class, 'search_product'])->name('search.product');
         Route::get('product/checkout', [CartController::class, 'checkout_product'])->name('product_checkout');
         //course
@@ -392,10 +393,16 @@
         Route::get('/digital-product-details/{id}', [CustomerOrderController::class, 'digitalProductDetails'])->name('digitalProduct.details');
         Route::get('/digital-product-order/{id}', [CustomerOrderController::class, 'digitalProductOrder'])->name('digitalProduct.order');
 
+
+        // _______________________________ PRODUCT DETAILS PAGE-
+        Route::get('/details', [ProductPageController::class, 'index'])->name('productPage');
+
+
         // _______________________________ CUSTOMER PAYMENT CONTROLLER
         Route::post('/payment-customer-order', [CustomerPaymentController::class, 'paymentInitial'])->name('customer.payment');
         Route::get('/service-payment-success', [CustomerPaymentController::class, 'success'])->name('cust.payment.success');
         Route::get('/service-payment-cancel', [CustomerPaymentController::class, 'cancel'])->name('cust.payment.cancel');
+
 
 
     });

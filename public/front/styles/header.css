@@ -19,6 +19,9 @@
 .sticky_bar>div{
     width: 100%;
 }
+/* .sticky_bar .bg-first{
+    background-color: var(--footer-bg-color);
+} */
 .sticky_bar .bg-first .container{
     width: 100%;
     padding: 5px;
@@ -45,9 +48,9 @@
     width: fit-content;
     text-decoration:none;
 }
-.sticky_bar.scrolled .top-contacts div a{
+/* .sticky_bar.scrolled .top-contacts div a{
     color: black;
-}
+} */
 
 .sticky_bar .top-contacts .mail_num a{
     margin-right: 10px;
@@ -62,9 +65,9 @@
     width: 100%;
     text-align: right;
 }
-.sticky_bar.scrolled .top-contacts .user_part>div a span{
-    color:black;
-}
+/* .sticky_bar.scrolled .top-contacts .user_part>div a span{
+    color:rgb(255, 255, 255);
+} */
 .sticky_bar .top-contacts>div a{
     display: flex;
 }
