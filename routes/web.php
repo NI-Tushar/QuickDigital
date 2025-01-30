@@ -32,6 +32,7 @@
     use Illuminate\Support\Facades\Session;
 
     Route::get('/', function () {
+        Session::put('page', 'home');
         return view('quick_digital.index');
     });
 

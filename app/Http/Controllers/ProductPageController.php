@@ -13,6 +13,7 @@ class ProductPageController extends Controller
 {
     public function index()
     {
+        Session::put('page', 'details');
         return view('quick_digital.product_details.details_page');
     }
 
