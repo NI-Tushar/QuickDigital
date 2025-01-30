@@ -25,6 +25,7 @@ class HomeController extends Controller
     public function index()
     {
         Session::forget('page');
+        Session::put('page', 'home');
         $user = Auth::user();
         return view('quick_digital.index', compact('user'));
     }

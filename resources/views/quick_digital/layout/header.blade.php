@@ -10,6 +10,7 @@
 </script>
 
 
+@if(Session::get('page') == 'home')
 <script>
     window.addEventListener('scroll', function () {
         const header = document.getElementById('sticky_bar');
@@ -37,6 +38,44 @@
         }
     });
 </script>
+@else
+   <style>
+    .sticky_bar .container .navbar .container-fluid #logo_white{
+        display:none;
+    }
+    .sticky_bar .container .navbar .container-fluid #logo_black{
+        display: flex;
+    }
+    .sticky_bar {
+        background-color: aliceblue;
+        box-shadow: 0px 15px 10px -15px #111;    
+    }
+    .sticky_bar .top-contacts div a{
+        color: black;
+    }
+    .sticky_bar .top-contacts .user_part>div a span{
+        color:rgb(255, 255, 255);
+    }
+    .sticky_bar .offcanvas-body .nav-item .nav-link{
+        color: var(--primary-color) !important;
+        background: transparent !important;
+    }
+    .sticky_bar .offcanvas-body .nav-item .nav-link:hover {
+        border: 2px solid var(--primary-color);
+    }
+    .sticky_bar .offcanvas-body .navbar-nav .active a{
+        color: aliceblue !important;
+    }
+    .sticky_bar .bg-first{
+        background-color: var(--footer-bg-color);
+    }
+    .sticky_bar .bg-first .top-contacts a svg,
+    .sticky_bar .bg-first .top-contacts a span{
+        color:aliceblue;
+    }
+    
+   </style>
+@endif 
 
 @include('quick_digital.layout.loader')
 @include('quick_digital.layout.sticky_ripple_logo')
