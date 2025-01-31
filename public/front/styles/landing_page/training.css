@@ -99,14 +99,17 @@
         padding:0;
         display: flex;
         width: 100%;
+        height: 150px;
         overflow: hidden;
+        /* border: 1px solid red; */
     }
     .training_container .training_img img{
-        margin: auto;
-        height: 100%;
-        width: 100%;
+        margin-top: -100px;
+        /* height: 140px; */
+        height: auto;
+        width: auto;
         object-fit: cover;
-        transform: scale(1.4); /* Zoom in by 20% */
+        transform: scale(1.2);
     }
     .training_container .training_content{
         padding: 0;

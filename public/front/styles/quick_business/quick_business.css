@@ -1,0 +1,207 @@
+
+.quick_business_section {
+    width: 100%;
+    height: auto;
+    display: flex;
+    padding-top: 7rem;
+    padding-bottom: 10rem;
+    position: relative;
+}
+.quick_business_section img{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top:0px;
+    left: 0px;
+    z-index: 1 !important;
+
+    -webkit-mask-image: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1));
+    mask-image: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1));
+}
+
+
+.quick_business_section .center_section{
+    max-width: 1100px;
+    width: 100%;
+    margin: auto;
+    height: 400px;
+    display: flex;
+    gap: 20px;
+    z-index: 5 !important;
+}
+.quick_business_section .center_section .banner_part{
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+}
+.quick_business_section .center_section .banner_part_text{
+    display: flex;
+}
+.quick_business_section .center_section .banner_part .banner_text{
+    margin: auto;
+    height: auto;
+    width: auto;
+}
+.quick_business_section .center_section .banner_part h2{
+    font-weight: 700;
+    font-size: 25px;
+}
+.quick_business_section .center_section .banner_part p{
+    color: rgba(0, 0, 0, 0.549);
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 2.5;
+    margin-top: 20px;
+    width: 90%;
+}
+.quick_business_section .center_section .banner_part .banner_button{
+    width: 100%;
+}
+.quick_business_section .center_section .banner_part .banner_button button{
+    padding-left: 45px;
+    padding-right: 45px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    background-image: linear-gradient(to right, rgb(0, 0, 0) , var(--logo-red-color));
+    border-radius: 5px;
+    color: aliceblue;
+    font-weight: 700;
+    font-size: 14px;
+    border: none;
+}
+.quick_business_section .center_section .banner_part .banner_button button:hover{
+    background-image: linear-gradient(to right, rgb(0, 0, 0) , var(--primary-color));
+}
+.quick_business_section .center_section .vid_part{
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+    height: 100%;
+    width: 100%;
+    padding: 0px;
+    background:transparent;
+}
+
+.quick_business_section .center_section .banner_part {
+    display: flex;
+    overflow: hidden;
+}
+.quick_business_section .center_section .banner_part iframe,
+.quick_business_section .center_section .banner_part video{
+    border-radius: 15px;
+    width: 100% !important;
+    border: 3px solid var(--primary-color);
+    height: auto !important;
+    margin-top: 10%;
+}
+
+@media (max-width: 750px) {
+    .quick_business_section{
+        padding-top: 7rem;
+    }
+    .quick_business_section .center_section .vid_part{
+        height: 250px;
+        width: 100%;
+        border-radius: 15px;
+    }
+    .quick_business_section .center_section{
+        height: auto;
+        display: block;
+    }
+    .quick_business_section .center_section .banner_part{
+        padding: 15px;
+    }
+    .quick_business_section .center_section .banner_part{
+        padding: 15px;
+    }
+    .quick_business_section .center_section .banner_part p{
+        line-height: 1.5;
+    }
+    .quick_business_section {
+        padding-bottom: 7rem;
+    } 
+    .quick_business_section .center_section .banner_part video{
+        margin-top: 0%;
+        background-color: transparent;
+        padding: 0px;
+    }
+    .quick_business_section .center_section .vid_part{
+        height: auto;
+    }
+}
+
+/* _________________________________ faq start */
+.faq{
+    background:transparent;
+    background-color: aliceblue;
+    width: 100%;
+    height: auto;
+    display: flex;
+    padding: 10px;
+    margin-top: -10rem;
+    position: relative;
+}
+.faq .my-5{
+    z-index: 100 !important;
+    padding: 0px !important;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    max-width: 1100px;
+    width: 100%;
+    margin: auto;
+    border-radius: 10px;
+    overflow: hidden;
+}
+.faq .my-5 h4{
+    width: 100%;
+    text-align: center;
+    color: black;
+    background-color:rgb(152, 204, 157);
+    padding-top: 15px;
+    padding-bottom: 15px;
+    color: #006a09;
+    font-weight: 600;
+    font-size: 18px !important;
+}
+.faq .my-5 .accordion-item .accordion-header{
+    background: transparent !important;
+}
+.faq .my-5 .accordion-item .accordion-button .collapse{
+    background-color: black !important;
+}
+
+.faq .my-5 .accordion-item .fw-semibold{
+    color: var(--primary-color) !important;
+}
+.faq .my-5 .accordion-item .collapsed .fw-semibold{
+    color: black !important;
+}
+@media (max-width: 600px) {
+    .faq{
+        margin-top: -2rem;
+    }
+}
+
+/* _________________________________ faq start */
+
+.button_section{
+    width: 100%;
+    display: flex;
+    padding-bottom: 5rem;
+    background-color: aliceblue;
+}
+.justify-content-center{
+    margin: auto;
+}
+.justify-content-center button{
+    border: 1px solid var(--primary-color);
+    border-radius: 5px;
+    padding-left: 35px;
+    padding-right: 35px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-weight: 600;
+    background-color: var(--primary-color);
+    color: aliceblue;
+}
+.justify-content-center button:hover{
+    background-color: transparent;
+    color: black;
+}

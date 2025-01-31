@@ -84,6 +84,9 @@
 
 
 @media (max-width: 880px) {
+    .about_us_section{
+        padding-bottom: 5rem;
+    }
     .about_us_section .center_about{
         display: block;
         height: auto;
