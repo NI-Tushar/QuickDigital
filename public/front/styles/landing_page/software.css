@@ -123,9 +123,12 @@
     width: 1000%;
     height: 100%;
     transition: all 0.5s;
-  }
-  
-  #slider-container #slider .slide {
+}
+
+#slider-container #slider .slide {
+    scroll-snap-type: x mandatory;
+    overflow-x: auto;
+    scroll-behavior: smooth;
     height: 90%;
     margin: auto 10px;
     box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;

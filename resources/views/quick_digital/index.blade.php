@@ -428,169 +428,35 @@
                 <div id="slider-container">
                     <span onclick="slideRight()" class="btn"></span>
                         <div id="slider">
-                            
+                                                                              
                         <!-- _________________________ -->
-                            <div class="slide">
-                                <div class="slide_part img_part">
-                                    <img src="{{ asset('front/assets/images/landing/software/1.png') }}" alt="">
-                                </div>
-                                <div class="slide_part desc_part">
-                                    <div class="soft_desc">
-                                        <h3>Hospital Management System</h3>
-                                        <p>A Hospital Management System (HMS) is a robust software solution designed to streamline</p>
-                                        <div class="review">
-                                            <div class="star">★★★★☆</div>
-                                            <p>(Reviews)</p>
-                                        </div>
-                                        <div class="price_section">
-                                            <div class="left"><a href="!"><p>বিস্তারিত <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M320 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l82.7 0L201.4 265.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L448 109.3l0 82.7c0 17.7 14.3 32 32 32s32-14.3 32-32l0-160c0-17.7-14.3-32-32-32L320 0zM80 32C35.8 32 0 67.8 0 112L0 432c0 44.2 35.8 80 80 80l320 0c44.2 0 80-35.8 80-80l0-112c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 112c0 8.8-7.2 16-16 16L80 448c-8.8 0-16-7.2-16-16l0-320c0-8.8 7.2-16 16-16l112 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L80 32z"/></svg></p></a></div>
-                                            <div class="right">3000.0<span>/মাসিক</span></div>
-                                        </div>
-                                        <div class="button_section">
-                                            <a href="!">কাস্টম</a>
-                                            <a href="!" class="active">কিনুন</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
 
-                                                   
-                        <!-- _________________________ -->
+                        @foreach ($software as $soft)
                         <div class="slide">
-                                <div class="slide_part img_part">
-                                    <img src="{{ asset('front/assets/images/landing/software/2.png') }}" alt="">
-                                </div>
-                                <div class="slide_part desc_part">
-                                    <div class="soft_desc">
-                                        <h3>Tourism Management System</h3>
-                                        <p>A Tourism Management System is a comprehensive platform designed to streamline</p>
-                                        <div class="review">
-                                            <div class="star">★★★★☆</div>
-                                            <p>(Reviews)</p>
-                                        </div>
-                                        <div class="price_section">
-                                            <div class="left"><a href="!"><p>বিস্তারিত <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M320 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l82.7 0L201.4 265.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L448 109.3l0 82.7c0 17.7 14.3 32 32 32s32-14.3 32-32l0-160c0-17.7-14.3-32-32-32L320 0zM80 32C35.8 32 0 67.8 0 112L0 432c0 44.2 35.8 80 80 80l320 0c44.2 0 80-35.8 80-80l0-112c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 112c0 8.8-7.2 16-16 16L80 448c-8.8 0-16-7.2-16-16l0-320c0-8.8 7.2-16 16-16l112 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L80 32z"/></svg></p></a></div>
-                                            <div class="right">1000.0<span>/মাসিক</span></div>
-                                        </div>
-                                        <div class="button_section">
-                                            <a href="!">কাস্টম</a>
-                                            <a href="!" class="active">কিনুন</a>
-                                        </div>
+                            <div class="slide_part img_part">
+                                <img src="{{ $soft->thumbnail ? asset($soft->thumbnail) : asset('no_image2.jpg') }}" alt="">
+                            </div>
+                            <div class="slide_part desc_part">
+                                <div class="soft_desc">
+                                    <h3>{{ $soft->title }}</h3>
+                                    <p>{{ strlen($soft->description) > 100 ? substr($soft->description, 0, 100) . '...' : $soft->description }}</p>
+                                    <div class="review">
+                                        <div class="star">★★★★☆</div>
+                                        <p>(Reviews)</p>
+                                    </div>
+                                    <div class="price_section">
+                                        <div class="left"><a href="{{ url('/quick-digital/software/details/'.$soft['id']) }}"><p>বিস্তারিত <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M320 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l82.7 0L201.4 265.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L448 109.3l0 82.7c0 17.7 14.3 32 32 32s32-14.3 32-32l0-160c0-17.7-14.3-32-32-32L320 0zM80 32C35.8 32 0 67.8 0 112L0 432c0 44.2 35.8 80 80 80l320 0c44.2 0 80-35.8 80-80l0-112c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 112c0 8.8-7.2 16-16 16L80 448c-8.8 0-16-7.2-16-16l0-320c0-8.8 7.2-16 16-16l112 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L80 32z"/></svg></p></a></div>
+                                        <div class="right">{{ $soft->price }}<span>/মাসিক</span></div>
+                                    </div>
+                                    <div class="button_section">
+                                        <a href="!">কাস্টম</a>
+                                        <a href="!" class="active">কিনুন</a>
                                     </div>
                                 </div>
                             </div>
-
-                            
-                                                  
-                        <!-- _________________________ -->
-                        <div class="slide">
-                                <div class="slide_part img_part">
-                                    <img src="{{ asset('front/assets/images/landing/software/3.png') }}" alt="">
-                                </div>
-                                <div class="slide_part desc_part">
-                                    <div class="soft_desc">
-                                        <h3>eCommerce</h3>
-                                        <p>An E-commerce Website is a dynamic platform designed to facilitate online buying and selling</p>
-                                        <div class="review">
-                                            <div class="star">★★★★☆</div>
-                                            <p>(Reviews)</p>
-                                        </div>
-                                        <div class="price_section">
-                                            <div class="left"><a href="!"><p>বিস্তারিত <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M320 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l82.7 0L201.4 265.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L448 109.3l0 82.7c0 17.7 14.3 32 32 32s32-14.3 32-32l0-160c0-17.7-14.3-32-32-32L320 0zM80 32C35.8 32 0 67.8 0 112L0 432c0 44.2 35.8 80 80 80l320 0c44.2 0 80-35.8 80-80l0-112c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 112c0 8.8-7.2 16-16 16L80 448c-8.8 0-16-7.2-16-16l0-320c0-8.8 7.2-16 16-16l112 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L80 32z"/></svg></p></a></div>
-                                            <div class="right">700.0<span>/মাসিক</span></div>
-                                        </div>
-                                        <div class="button_section">
-                                            <a href="!">কাস্টম</a>
-                                            <a href="!" class="active">কিনুন</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            
-                                                  
-                        <!-- _________________________ -->
-                        <div class="slide">
-                                <div class="slide_part img_part">
-                                    <img src="{{ asset('front/assets/images/landing/software/4.png') }}" alt="">
-                                </div>
-                                <div class="slide_part desc_part">
-                                    <div class="soft_desc">
-                                        <h3>Doctor Appointment Management System</h3>
-                                        <p>A Doctor Appointment Management System is a robust and user-friendly platform designed</p>
-                                        <div class="review">
-                                            <div class="star">★★★★☆</div>
-                                            <p>(Reviews)</p>
-                                        </div>
-                                        <div class="price_section">
-                                            <div class="left"><a href="!"><p>বিস্তারিত <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M320 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l82.7 0L201.4 265.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L448 109.3l0 82.7c0 17.7 14.3 32 32 32s32-14.3 32-32l0-160c0-17.7-14.3-32-32-32L320 0zM80 32C35.8 32 0 67.8 0 112L0 432c0 44.2 35.8 80 80 80l320 0c44.2 0 80-35.8 80-80l0-112c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 112c0 8.8-7.2 16-16 16L80 448c-8.8 0-16-7.2-16-16l0-320c0-8.8 7.2-16 16-16l112 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L80 32z"/></svg></p></a></div>
-                                            <div class="right">1000.0<span>/মাসিক</span></div>
-                                        </div>
-                                        <div class="button_section">
-                                            <a href="!">কাস্টম</a>
-                                            <a href="!" class="active">কিনুন</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            
-                                                  
-                        <!-- _________________________ -->
-                        <div class="slide">
-                                <div class="slide_part img_part">
-                                    <img src="{{ asset('front/assets/images/landing/software/5.png') }}" alt="">
-                                </div>
-                                <div class="slide_part desc_part">
-                                    <div class="soft_desc">
-                                        <h3>Pre School Enrolment Management System</h3>
-                                        <p>A School Management System is an all-in-one platform designed to efficiently manage the academic</p>
-                                        <div class="review">
-                                            <div class="star">★★★★☆</div>
-                                            <p>(Reviews)</p>
-                                        </div>
-                                        <div class="price_section">
-                                            <div class="left"><a href="!"><p>বিস্তারিত <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M320 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l82.7 0L201.4 265.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L448 109.3l0 82.7c0 17.7 14.3 32 32 32s32-14.3 32-32l0-160c0-17.7-14.3-32-32-32L320 0zM80 32C35.8 32 0 67.8 0 112L0 432c0 44.2 35.8 80 80 80l320 0c44.2 0 80-35.8 80-80l0-112c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 112c0 8.8-7.2 16-16 16L80 448c-8.8 0-16-7.2-16-16l0-320c0-8.8 7.2-16 16-16l112 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L80 32z"/></svg></p></a></div>
-                                            <div class="right">1000.0<span>/মাসিক</span></div>
-                                        </div>
-                                        <div class="button_section">
-                                            <a href="!">কাস্টম</a>
-                                            <a href="!" class="active">কিনুন</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            
-                                                  
-                        <!-- _________________________ -->
-                        <div class="slide">
-                                <div class="slide_part img_part">
-                                    <img src="{{ asset('front/assets/images/landing/software/6.png') }}" alt="">
-                                </div>
-                                <div class="slide_part desc_part">
-                                    <div class="soft_desc">
-                                        <h3>News Portal</h3>
-                                        <p>A News Portal is an online platform designed to deliver the latest news, articles</p>
-                                        <div class="review">
-                                            <div class="star">★★★★☆</div>
-                                            <p>(Reviews)</p>
-                                        </div>
-                                        <div class="price_section">
-                                            <div class="left"><a href="!"><p>বিস্তারিত <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M320 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l82.7 0L201.4 265.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L448 109.3l0 82.7c0 17.7 14.3 32 32 32s32-14.3 32-32l0-160c0-17.7-14.3-32-32-32L320 0zM80 32C35.8 32 0 67.8 0 112L0 432c0 44.2 35.8 80 80 80l320 0c44.2 0 80-35.8 80-80l0-112c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 112c0 8.8-7.2 16-16 16L80 448c-8.8 0-16-7.2-16-16l0-320c0-8.8 7.2-16 16-16l112 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L80 32z"/></svg></p></a></div>
-                                            <div class="right">1500.0<span>/মাসিক</span></div>
-                                        </div>
-                                        <div class="button_section">
-                                            <a href="!">কাস্টম</a>
-                                            <a href="!" class="active">কিনুন</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            
-
-                           
+                        </div>    
+                        @endforeach
+   
                         </div>
                     <span onclick="slideLeft()" class="btn"></span>
                 </div>
@@ -703,21 +569,22 @@
                         <div id="digProd_slider">
                             
                         <!-- _________________________ -->
+                        @foreach ($digProd as $product)
                             <div class="digProd_slide">
                                 <div class="slide_part img_part">
-                                    <img src="{{ asset('front/assets/images/landing/digital_product/blogging.png') }}" alt="">
+                                    <img src="{{ $product->thumbnail ? asset($product->thumbnail) : asset('no_image2.jpg') }}" alt="">
                                 </div>
                                 <div class="slide_part desc_part">
                                     <div class="soft_desc">
-                                        <h3>ব্লগিং ওয়ার্ডপ্রেস</h3>
+                                        <h3>{{ $product->title }}</h3>
                                         <!-- <p>A Tourism Management System is a comprehensive platform designed to streamline the operations</p> -->
                                         <div class="details">
-                                            <a href="!"><p>বিস্তারিত <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M320 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l82.7 0L201.4 265.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L448 109.3l0 82.7c0 17.7 14.3 32 32 32s32-14.3 32-32l0-160c0-17.7-14.3-32-32-32L320 0zM80 32C35.8 32 0 67.8 0 112L0 432c0 44.2 35.8 80 80 80l320 0c44.2 0 80-35.8 80-80l0-112c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 112c0 8.8-7.2 16-16 16L80 448c-8.8 0-16-7.2-16-16l0-320c0-8.8 7.2-16 16-16l112 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L80 32z"/></svg></p></a>
+                                            <a href="{{ url('/quick-digital/digital-product/details/'.$product['id']) }}"><p>বিস্তারিত <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M320 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l82.7 0L201.4 265.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L448 109.3l0 82.7c0 17.7 14.3 32 32 32s32-14.3 32-32l0-160c0-17.7-14.3-32-32-32L320 0zM80 32C35.8 32 0 67.8 0 112L0 432c0 44.2 35.8 80 80 80l320 0c44.2 0 80-35.8 80-80l0-112c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 112c0 8.8-7.2 16-16 16L80 448c-8.8 0-16-7.2-16-16l0-320c0-8.8 7.2-16 16-16l112 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L80 32z"/></svg></p></a>
                                         </div>
 
                                         <div class="price_section">
                                             <div class="left">On Sell</div>
-                                            <div class="right">550.0<span>BDT</span></div>
+                                            <div class="right">{{ $product->price }}<span> BDT</span></div>
                                         </div>
                                         <div class="button_section">
                                             <!-- <a href="!">কাস্টম</a> -->
@@ -726,140 +593,7 @@
                                     </div>
                                 </div>
                             </div>
-
-                                                   
-                        <!-- _________________________ -->
-                        <div class="digProd_slide">
-                                <div class="slide_part img_part">
-                                    <img src="{{ asset('front/assets/images/landing/digital_product/ecommerce.png') }}" alt="">
-                                </div>
-                                <div class="slide_part desc_part">
-                                    <div class="soft_desc">
-                                        <h3>ইকমার্স থিম</h3>
-                                        <!-- <p>A Tourism Management System is a comprehensive platform designed to streamline the operations</p> -->
-                                        <div class="details">
-                                            <a href="!"><p>বিস্তারিত <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M320 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l82.7 0L201.4 265.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L448 109.3l0 82.7c0 17.7 14.3 32 32 32s32-14.3 32-32l0-160c0-17.7-14.3-32-32-32L320 0zM80 32C35.8 32 0 67.8 0 112L0 432c0 44.2 35.8 80 80 80l320 0c44.2 0 80-35.8 80-80l0-112c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 112c0 8.8-7.2 16-16 16L80 448c-8.8 0-16-7.2-16-16l0-320c0-8.8 7.2-16 16-16l112 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L80 32z"/></svg></p></a>
-                                        </div>
-
-                                        <div class="price_section">
-                                            <div class="left">On Sell</div>
-                                            <div class="right">550.0<span>BDT</span></div>
-                                        </div>
-                                        <div class="button_section">
-                                            <!-- <a href="!">কাস্টম</a> -->
-                                            <a href="!" class="active">কিনুন</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            
-                                                  
-                        <!-- _________________________ -->
-                        <div class="digProd_slide">
-                                <div class="slide_part img_part">
-                                    <img src="{{ asset('front/assets/images/landing/digital_product/education.png') }}" alt="">
-                                </div>
-                                <div class="slide_part desc_part">
-                                    <div class="soft_desc">
-                                        <h3>শিক্ষা প্রতিষ্ঠানিক ওয়ার্ডপ্রেস থিম</h3>
-                                        <!-- <p>A Tourism Management System is a comprehensive platform designed to streamline the operations</p> -->
-                                        <div class="details">
-                                            <a href="!"><p>বিস্তারিত <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M320 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l82.7 0L201.4 265.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L448 109.3l0 82.7c0 17.7 14.3 32 32 32s32-14.3 32-32l0-160c0-17.7-14.3-32-32-32L320 0zM80 32C35.8 32 0 67.8 0 112L0 432c0 44.2 35.8 80 80 80l320 0c44.2 0 80-35.8 80-80l0-112c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 112c0 8.8-7.2 16-16 16L80 448c-8.8 0-16-7.2-16-16l0-320c0-8.8 7.2-16 16-16l112 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L80 32z"/></svg></p></a>
-                                        </div>
-
-                                        <div class="price_section">
-                                            <div class="left">On Sell</div>
-                                            <div class="right">550.0<span>/BDT</span></div>
-                                        </div>
-                                        <div class="button_section">
-                                            <!-- <a href="!">কাস্টম</a> -->
-                                            <a href="!" class="active">কিনুন</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            
-                                                  
-                        <!-- _________________________ -->
-                        <div class="digProd_slide">
-                                <div class="slide_part img_part">
-                                    <img src="{{ asset('front/assets/images/landing/digital_product/photography.png') }}" alt="">
-                                </div>
-                                <div class="slide_part desc_part">
-                                    <div class="soft_desc">
-                                        <h3>ফটোগ্রাফি ওয়ার্ডপ্রেস থিম</h3>
-                                        <!-- <p>A Tourism Management System is a comprehensive platform designed to streamline the operations</p> -->
-                                        <div class="details">
-                                            <a href="!"><p>বিস্তারিত <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M320 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l82.7 0L201.4 265.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L448 109.3l0 82.7c0 17.7 14.3 32 32 32s32-14.3 32-32l0-160c0-17.7-14.3-32-32-32L320 0zM80 32C35.8 32 0 67.8 0 112L0 432c0 44.2 35.8 80 80 80l320 0c44.2 0 80-35.8 80-80l0-112c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 112c0 8.8-7.2 16-16 16L80 448c-8.8 0-16-7.2-16-16l0-320c0-8.8 7.2-16 16-16l112 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L80 32z"/></svg></p></a>
-                                        </div>
-
-                                        <div class="price_section">
-                                            <div class="left">On Sell</div>
-                                            <div class="right">550.0<span>BDT</span></div>
-                                        </div>
-                                        <div class="button_section">
-                                            <!-- <a href="!">কাস্টম</a> -->
-                                            <a href="!" class="active">কিনুন</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            
-                                                  
-                        <!-- _________________________ -->
-                        <div class="digProd_slide">
-                                <div class="slide_part img_part">
-                                    <img src="{{ asset('front/assets/images/landing/digital_product/realstate.png') }}" alt="">
-                                </div>
-                                <div class="slide_part desc_part">
-                                    <div class="soft_desc">
-                                        <h3>রিয়েল এস্টেট ওয়ার্ডপ্রেস থিম</h3>
-                                        <!-- <p>A Tourism Management System is a comprehensive platform designed to streamline the operations</p> -->
-                                        <div class="details">
-                                            <a href="!"><p>বিস্তারিত <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M320 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l82.7 0L201.4 265.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L448 109.3l0 82.7c0 17.7 14.3 32 32 32s32-14.3 32-32l0-160c0-17.7-14.3-32-32-32L320 0zM80 32C35.8 32 0 67.8 0 112L0 432c0 44.2 35.8 80 80 80l320 0c44.2 0 80-35.8 80-80l0-112c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 112c0 8.8-7.2 16-16 16L80 448c-8.8 0-16-7.2-16-16l0-320c0-8.8 7.2-16 16-16l112 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L80 32z"/></svg></p></a>
-                                        </div>
-
-                                        <div class="price_section">
-                                            <div class="left">On Sell</div>
-                                            <div class="right">550.0<span>BDT</span></div>
-                                        </div>
-                                        <div class="button_section">
-                                            <!-- <a href="!">কাস্টম</a> -->
-                                            <a href="!" class="active">কিনুন</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            
-                                                  
-                        <!-- _________________________ -->
-                        <div class="digProd_slide">
-                                <div class="slide_part img_part">
-                                    <img src="{{ asset('front/assets/images/landing/digital_product/windows10.png') }}" alt="">
-                                </div>
-                                <div class="slide_part desc_part">
-                                    <div class="soft_desc">
-                                        <h3>উইন্ডোজ 10 প্রো লাইসেন্স</h3>
-                                        <!-- <p>A Tourism Management System is a comprehensive platform designed to streamline the operations</p> -->
-                                        <div class="details">
-                                            <a href="!"><p>বিস্তারিত <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M320 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l82.7 0L201.4 265.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L448 109.3l0 82.7c0 17.7 14.3 32 32 32s32-14.3 32-32l0-160c0-17.7-14.3-32-32-32L320 0zM80 32C35.8 32 0 67.8 0 112L0 432c0 44.2 35.8 80 80 80l320 0c44.2 0 80-35.8 80-80l0-112c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 112c0 8.8-7.2 16-16 16L80 448c-8.8 0-16-7.2-16-16l0-320c0-8.8 7.2-16 16-16l112 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L80 32z"/></svg></p></a>
-                                        </div>
-
-                                        <div class="price_section">
-                                            <div class="left">On Sell</div>
-                                            <div class="right">550.0<span>/মাসিক</span></div>
-                                        </div>
-                                        <div class="button_section">
-                                            <!-- <a href="!">কাস্টম</a> -->
-                                            <a href="!" class="active">কিনুন</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                        @endforeach
                            
                         </div>
                     <span onclick="digProdSlideLeft()" class="digProd_btn"></span>

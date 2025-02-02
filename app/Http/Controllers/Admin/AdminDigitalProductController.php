@@ -233,7 +233,20 @@ class AdminDigitalProductController extends Controller
         return redirect()->route('digProduct.list');
     }
 
-
+    public function populer_enable($id)
+    {
+        Session::put('page', 'digitalProduct');
+        $enable = DigitalProduct::findOrFail($id);
+        if($enable->is_populer == '1'){
+            $enable->is_populer = null;
+            $enable->save();
+            return redirect()->route('digProduct.list');
+        }else{
+            $enable->is_populer = 1;
+            $enable->save();
+            return redirect()->route('digProduct.list');
+        }
+    }
 
     public function deleteDigProduct($id)
     {

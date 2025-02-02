@@ -19,6 +19,7 @@ return new class extends Migration
             $table->decimal('price',10,2)->nullable();
             $table->decimal('affiliator_commission',10,2)->nullable();
             $table->string('thumbnail')->nullable();
+            $table->boolean('is_populer')->default(false);
             $table->timestamps();
         });
     }

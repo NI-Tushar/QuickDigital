@@ -53,11 +53,11 @@
                                                     <th>Description</th>
                                                     <th>Features</th>
                                                     <th>Subscription Price</th>
-                                                    <th>Affiliator Commission</th>
+                                                    <th style="width:70px;">Affiliator<br>Commission</th>
                                                     <th>Demo Link</th>
                                                     <th>Thumbnail</th>
                                                     <th>Last Update</th>
-                                                    <th>Customer<br>Enable</th>
+                                                    <th>Enabling</th>
                                                     <th>ACTIONS</th>
                                                 </tr>
                                             </thead>
@@ -107,10 +107,25 @@
                                                         .fa-toggle-off{
                                                             color:gray;
                                                         }
+                                                        .fa-toggle-on:hover{
+                                                            color:crimson;
+                                                        }
+                                                        .fa-toggle-off:hover{
+                                                            color:crimson;
+                                                        }
                                                     </style>
-
+                                                        <p style="font-size:13px; width:100% border-bottom:0.5px solid black; font-weight: 600;margin:0;margin-top:5px;padding:0;">Customer Enable</p>
                                                         <a user_id="{{ $software->id }}" href="{{ url('admin/enable_for_customer/'.$software['id']) }}">
                                                             @if($software->customer_enabled == 1)
+                                                                <i class="fa fa-toggle-on" status="Active"></i>
+                                                            @else
+                                                                <i class="fa fa-toggle-off" status="Inactive"></i>
+                                                            @endif
+                                                        </a>
+
+                                                        <p style="font-size:13px; width:100% border-bottom:0.5px solid black; font-weight: 600;margin:0;margin-top:5px;padding:0;">Populer Enable</p>
+                                                        <a user_id="{{ $software->id }}" href="{{ url('admin/enable_for_populer/'.$software['id']) }}">
+                                                            @if($software->is_populer == 1)
                                                                 <i class="fa fa-toggle-on" status="Active"></i>
                                                             @else
                                                                 <i class="fa fa-toggle-off" status="Inactive"></i>
@@ -145,11 +160,11 @@
                                                     <th>Description</th>
                                                     <th>Features</th>
                                                     <th>Subscription Price</th>
-                                                    <th>Affiliator Commission</th>
+                                                    <th>Affiliator<br>Commission</th>
                                                     <th>Demo Link</th>
                                                     <th>Thumbnail</th>
                                                     <th>Last Update</th>
-                                                    <th>Customer<br>Enable</th>
+                                                    <th>Enabling</th>
                                                     <th>ACTIONS</th>
                                                 </tr>
                                             </tfoot>

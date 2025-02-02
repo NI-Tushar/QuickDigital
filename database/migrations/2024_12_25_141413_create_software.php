@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('thumbnail')->nullable();
             $table->string('demo_link')->nullable();
             $table->boolean('customer_enabled')->default(false);
+            $table->boolean('is_populer')->default(false);
             $table->timestamps();
         });
     }
