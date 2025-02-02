@@ -253,7 +253,7 @@
                 <div class="img_box">
                     <div class="img_info">
                         <!-- <img src="{{ asset('no_image.png') }}"> -->
-                        <img src="https://scontent.fdac138-1.fna.fbcdn.net/v/t39.30808-1/468120326_2289461234741045_6382756601179989286_n.jpg?stp=cp0_dst-jpg_s40x40_tt6&_nc_cat=108&ccb=1-7&_nc_sid=e99d92&_nc_ohc=zUfBOVD1ykoQ7kNvgFpGB6x&_nc_zt=24&_nc_ht=scontent.fdac138-1.fna&_nc_gid=AHR06jx2lT9AJUkCiHB2zw5&oh=00_AYDKLd8DInHsHp-i1X7dB9wclauFfkh_DvTeskVrKheN3g&oe=67A1E236">
+                        <img src="https://scontent.fdac138-1.fna.fbcdn.net/v/t39.30808-1/468120326_2289461234741045_6382756601179989286_n.jpg?stp=dst-jpg_s200x200_tt6&_nc_cat=108&ccb=1-7&_nc_sid=e99d92&_nc_ohc=FXTqBjYwOYMQ7kNvgH47Tgg&_nc_zt=24&_nc_ht=scontent.fdac138-1.fna&_nc_gid=AiQk98akaczAuptWrHmqxWh&oh=00_AYDAW0GFZarKybzm1eVNVFuxKn8ElbjeK6RO9Q2Ko49Img&oe=67A414B6">
                         <div class="name">
                             <h3>Ratul Hasan</h3>
                             <p class="date">24 Nov 2024</p>
@@ -291,7 +291,7 @@
             <div class="review_text">
                 <div class="img_box">
                     <div class="img_info">
-                        <img src="https://scontent.fdac138-1.fna.fbcdn.net/v/t39.30808-1/455003558_1043081344002376_2911823505634800667_n.jpg?stp=c0.305.1294.1294a_cp0_dst-jpg_s40x40_tt6&_nc_cat=108&ccb=1-7&_nc_sid=e99d92&_nc_ohc=QUfdLD_nTQgQ7kNvgG6qBnS&_nc_zt=24&_nc_ht=scontent.fdac138-1.fna&_nc_gid=AeSF90iFM7IMEEfxsvbV7K0&oh=00_AYDXxr2RFN7jjxvoxdueorHeQMtnu8Owv1ofsfTJJ7eI8g&oe=67A1D816">
+                        <img src="https://scontent.fdac138-1.fna.fbcdn.net/v/t39.30808-1/455003558_1043081344002376_2911823505634800667_n.jpg?stp=c0.305.1294.1294a_dst-jpg_s200x200_tt6&_nc_cat=108&ccb=1-7&_nc_sid=e99d92&_nc_ohc=TwBWC2TycdsQ7kNvgE6toWl&_nc_zt=24&_nc_ht=scontent.fdac138-1.fna&_nc_gid=As0Er3ygo4Vrn75ZlaRSdfo&oh=00_AYCa7ttG2lRJc0Ju1_6vBbsKcxYpzPybMonaYr4qRMix_A&oe=67A40A96">
                         <div class="name">
                             <h3>Nishat Tasnim</h3>
                             <p class="date">24 Nov 2024</p>
@@ -329,7 +329,7 @@
             <div class="review_text">
                 <div class="img_box">
                     <div class="img_info">
-                        <img src="https://scontent.fdac138-2.fna.fbcdn.net/v/t39.30808-1/221685301_908724756375646_5691222080424690788_n.jpg?stp=c0.65.442.442a_cp0_dst-jpg_s40x40_tt6&_nc_cat=103&ccb=1-7&_nc_sid=e99d92&_nc_ohc=fTRzbjnmxZ8Q7kNvgGNMIIS&_nc_zt=24&_nc_ht=scontent.fdac138-2.fna&_nc_gid=AeSF90iFM7IMEEfxsvbV7K0&oh=00_AYAEZpKB6HoiTBQpjCPTf1lmBJB-D7VUdeBYZdLEqOi4MA&oe=67A1D474">
+                        <img src="https://scontent.fdac138-2.fna.fbcdn.net/v/t39.30808-1/221685301_908724756375646_5691222080424690788_n.jpg?stp=c0.65.442.442a_dst-jpg_s200x200_tt6&_nc_cat=103&ccb=1-7&_nc_sid=e99d92&_nc_ohc=UtiOKECKN0IQ7kNvgE7zrqw&_nc_zt=24&_nc_ht=scontent.fdac138-2.fna&_nc_gid=AkCRB4XU_ZuqIPcSroVQFYU&oh=00_AYDHrt4MRW6p4WK50AdGIDc8gY6w0gMHus2Ok1cXluj65Q&oe=67A406F4">
                         <div class="name">
                             <h3>NI Tushar</h3>
                             <p class="date">24 Nov 2024</p>
@@ -367,7 +367,7 @@
             <div class="review_text">
                 <div class="img_box">
                     <div class="img_info">
-                        <img src="https://scontent.fdac138-1.fna.fbcdn.net/v/t39.30808-1/471576139_3551995361764477_7900152490448475666_n.jpg?stp=cp0_dst-jpg_s40x40_tt6&_nc_cat=110&ccb=1-7&_nc_sid=e99d92&_nc_ohc=aeg4JzslcIAQ7kNvgE1uTUa&_nc_zt=24&_nc_ht=scontent.fdac138-1.fna&_nc_gid=AeSF90iFM7IMEEfxsvbV7K0&oh=00_AYB4MZuCdD676w7x-Q0jdIQyI1dMU_L2lY20pCxjoOmYSg&oe=67A1BE48">
+                        <img src="https://scontent.fdac138-1.fna.fbcdn.net/v/t39.30808-1/471576139_3551995361764477_7900152490448475666_n.jpg?stp=dst-jpg_s200x200_tt6&_nc_cat=110&ccb=1-7&_nc_sid=e99d92&_nc_ohc=aeg4JzslcIAQ7kNvgE1uTUa&_nc_zt=24&_nc_ht=scontent.fdac138-1.fna&_nc_gid=AUYg3NdF7L51yr0IcOSdssz&oh=00_AYCxygzyJDPBCDkGum3cyr1kvTa1jvTPZsaFYFsKDYTslg&oe=67A42908">
                         <div class="name">
                             <h3>Imran Hossain</h3>
                             <p class="date">24 Nov 2024</p>
@@ -405,7 +405,7 @@
             <div class="review_text">
                 <div class="img_box">
                     <div class="img_info">
-                        <img src="https://scontent.fdac138-2.fna.fbcdn.net/v/t39.30808-1/472335607_1160767095634205_8840842469046554953_n.jpg?stp=cp0_dst-jpg_s40x40_tt6&_nc_cat=106&ccb=1-7&_nc_sid=1d2534&_nc_ohc=ZArRZ0p8a88Q7kNvgG7NGxH&_nc_zt=24&_nc_ht=scontent.fdac138-2.fna&_nc_gid=AHR06jx2lT9AJUkCiHB2zw5&oh=00_AYBJ-E03Bse403Ga_ZgfDqtc_BgHSr4w7k8bxM7VvH-dww&oe=67A1EAB4">
+                        <img src="https://scontent.fdac138-2.fna.fbcdn.net/v/t39.30808-1/472335607_1160767095634205_8840842469046554953_n.jpg?stp=dst-jpg_s200x200_tt6&_nc_cat=106&ccb=1-7&_nc_sid=1d2534&_nc_ohc=j7oDweAwqtwQ7kNvgGikXF9&_nc_zt=24&_nc_ht=scontent.fdac138-2.fna&_nc_gid=Ab0-_IYEgdhES9iluAhYDy2&oh=00_AYCaeGYonbhr6nQogTRymNhqCX2CthhdHfmLSiq1vSr9XA&oe=67A41D34">
                         <div class="name">
                             <h3>Joysree Sarker</h3>
                             <p class="date">24 Nov 2024</p>
