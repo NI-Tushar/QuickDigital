@@ -13,6 +13,8 @@ use App\Models\OrderStatus;
 use App\Models\OrderStatusProduct;
 use App\Models\OrderSubscription;
 use App\Models\Products;
+use App\Models\Software;
+use App\Models\DigitalProduct;
 use App\Models\Subscription;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -24,10 +26,22 @@ class HomeController extends Controller
 {
     public function index()
     {
+        $digProdQuery = DigitalProduct::query();
+        $Software = Software::query();
+        
         Session::forget('page');
         Session::put('page', 'home');
         $user = Auth::user();
-        return view('quick_digital.index', compact('user'));
+        $digProd = $digProdQuery->where('is_populer', '1')->latest()->get();
+        $software = $Software->where('is_populer', '1')->latest()->get();
+        return view('quick_digital.index', compact('user','digProd','software'));
+        
+        // dd(compact('user','digProd','software'));
+        // return view('quick_digital.index', compact('user','digProd'));
+        // foreach($digProd as $prod){
+        //     print_r($prod->title);
+        // }
+
     }
     public function contact_us()
     {

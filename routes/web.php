@@ -33,7 +33,7 @@
 
     Route::get('/', function () {
         Session::put('page', 'home');
-        return view('quick_digital.index');
+        return redirect()->route('quick-digital.index');
     });
 
     Route::prefix('/admin')->namespace('App\Http\Controllers\Admin')->group(function () {
@@ -126,6 +126,7 @@
             Route::get('software-list', 'AdminSoftwareController@software_list')->name('software.list');
             Route::get('update_software/{id?}', 'AdminSoftwareController@update_software');
             Route::get('enable_for_customer/{id?}', 'AdminSoftwareController@enable_for_customer');
+            Route::get('enable_for_populer/{id?}', 'AdminSoftwareController@enable_for_populer');
             Route::post('updating-software', 'AdminSoftwareController@updating_software');
             Route::get('delete-software/{id?}', 'AdminSoftwareController@deleteSoftware');
 
@@ -133,6 +134,7 @@
             Route::match(['get', 'post'], 'add_digitalProduct', 'AdminDigitalProductController@add_digProduct')->name('digProduct.add');
             Route::get('digProduct-list', 'AdminDigitalProductController@digProduct_list')->name('digProduct.list');
             Route::get('update_product/{id?}', 'AdminDigitalProductController@update_product');
+            Route::get('is_populer/{id?}', 'AdminDigitalProductController@populer_enable');
             Route::post('updating-digProduct', 'AdminDigitalProductController@updating_digProduct');
             Route::get('delete-digProduct/{id?}', 'AdminDigitalProductController@deleteDigProduct');
 
@@ -387,16 +389,19 @@
         Route::post('/software-order', [SoftwareController::class, 'softwareOrder'])->name('software.order');
         Route::get('/software/suggestion', [SoftwareController::class, 'suggestion'])->name('quick.software.suggestion');
         Route::get('/checkout', [SoftwareController::class,'checkout_page'])->name('digitalProductCheckout');
-
+        
+        // _______________________________ SOFTWARE DETAILS PAGE
+        Route::get('/software/details/{id}', [ProductPageController::class, 'softwareDetailPageView']);
+        
+        
         // _______________________________ DIGITAL PRODUCT
         Route::get('/digital-product', [DigitalProductController::class, 'index'])->name('quick.digitalProduct');
         Route::get('/digital-product/suggestion', [DigitalProductController::class, 'suggestion'])->name('quick.digitalProduct.suggestion');
         Route::get('/digital-product-details/{id}', [CustomerOrderController::class, 'digitalProductDetails'])->name('digitalProduct.details');
         Route::get('/digital-product-order/{id}', [CustomerOrderController::class, 'digitalProductOrder'])->name('digitalProduct.order');
-
-
-        // _______________________________ PRODUCT DETAILS PAGE-
-        Route::get('/details', [ProductPageController::class, 'index'])->name('productPage');
+        
+        // _______________________________ SOFTWARE DETAILS PAGE
+        Route::get('/digital-product/details/{id}', [ProductPageController::class, 'digitalProductDetailPageView']);
 
 
         // _______________________________ CUSTOMER PAYMENT CONTROLLER

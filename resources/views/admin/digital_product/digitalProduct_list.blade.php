@@ -51,11 +51,12 @@
                                                     <th>Product Title</th>
                                                     <th>Description</th>
                                                     <th>Features</th>
-                                                    <th>Subscription Price</th>
-                                                    <th>Affiliator Commission</th>
+                                                    <th>Price</th>
+                                                    <th style="width:70px;">Affiliator<br>Commission</th>
                                                     <th>File (zip)</th>
                                                     <th>Thumbnail</th>
                                                     <th>Last Update</th>
+                                                    <th>Is Populer?</th>
                                                     <th>ACTIONS</th>
                                                 </tr>
                                             </thead>
@@ -102,6 +103,29 @@
                                                         <img src="{{ $product->thumbnail ? asset($product->thumbnail) : asset('no_image2.jpg') }}" class="img-fluid rounded" alt="No Image" style="width: 100%; height: 100%; object-fit: cover;margin:auto;">
                                                     </td>
                                                     <td style="text-align:center;width: 100px;">{{ date('F j, Y, g:i a', strtotime($product->updated_at)) }}</td>
+                                                    <td style="text-align:center;width: 100px;">
+                                                    <style>
+                                                        .fa-toggle-on,
+                                                        .fa-toggle-off{
+                                                            font-size:35px;
+                                                        }
+                                                        .fa-toggle-on{
+                                                            color:green;
+                                                        }
+                                                        .fa-toggle-off{
+                                                            color:gray;
+                                                        }
+                                                    </style>
+
+                                                        <a user_id="{{ $product->id }}" href="{{ url('admin/is_populer/'.$product['id']) }}">
+                                                            @if($product->is_populer == 1)
+                                                                <i class="fa fa-toggle-on" status="Active"></i>
+                                                            @else
+                                                                <i class="fa fa-toggle-off" status="Inactive"></i>
+                                                            @endif
+                                                        </a>
+
+                                                    </td>
                                                     <td style="text-align:center;">
                                                         <a href="{{ url('admin/update_product/'.$product['id']) }}"><i class="fa fa-edit"></i></a>
                                                         &nbsp;&nbsp;
@@ -128,11 +152,12 @@
                                                     <th>product Title</th>
                                                     <th>Description</th>
                                                     <th>Features</th>
-                                                    <th>Subscription Price</th>
-                                                    <th>Affiliator Commission</th>
+                                                    <th>Price</th>
+                                                    <th>Affiliator<br>Commission</th>
                                                     <th>File (zip)</th>
                                                     <th>Thumbnail</th>
                                                     <th>Last Update</th>
+                                                    <th>Is Populer?</th>
                                                     <th>ACTIONS</th>
                                                 </tr>
                                             </tfoot>

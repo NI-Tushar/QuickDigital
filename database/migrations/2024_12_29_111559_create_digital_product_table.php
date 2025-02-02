@@ -20,6 +20,7 @@ return new class extends Migration
             $table->decimal('affiliator_commission',10,2)->nullable();
             $table->string('thumbnail')->nullable();
             $table->string('zip_file')->nullable();
+            $table->boolean('is_populer')->default(false);
             $table->timestamps();
         });
     }

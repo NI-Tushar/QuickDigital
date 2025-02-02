@@ -80,30 +80,31 @@
     top: 50%;
     left: 30%;
 }
-@media (max-height: 842px){
-    .whole_banner .centered_banner .part_right .image_box{
-        height: 450px !important;
-    }
-    .whole_banner .centered_banner .part_right .image_box img{
-        height: 300px;
-        width: 270px;
-    }
-    .whole_banner .centered_banner .part_right .image_box .hexa1{
-        top: 5px;
-        left: 7%;
-    }
-    .whole_banner .centered_banner .part_right .image_box .hexa2{
-        top: 5px;
-        left: 50%;
-    }
-    .whole_banner .centered_banner .part_right .image_box .hexa3{
-        top: 45%;
-        left: 28.5%;
-    }
-}
 @media (max-width: 1485px) {
     .whole_banner .centered_banner .part_right .image_box{
         height: 450px !important;
+        border: 1px solid red;
+    }
+    .whole_banner .centered_banner .part_right .image_box img{
+        height: 2500px;
+        width: 220px;
+    }
+    .whole_banner .centered_banner .part_right .image_box .hexa1{
+        top: 5px;
+        left: 7%;
+    }
+    .whole_banner .centered_banner .part_right .image_box .hexa2{
+        top: 5px;
+        left: 50%;
+    }
+    .whole_banner .centered_banner .part_right .image_box .hexa3{
+        top: 45%;
+        left: 28.5%;
+    }
+}
+@media (max-height: 750px){
+    .whole_banner .centered_banner .part_right .image_box{
+        height: 450px !important;
     }
     .whole_banner .centered_banner .part_right .image_box img{
         height: 300px;
@@ -122,7 +123,22 @@
         left: 28.5%;
     }
 }
+
 @media (max-width: 550px){
+    .whole_banner .centered_banner .part_right .image_box{
+        height: 300px !important;
+        width: 300px !important;
+    }
+    .whole_banner .centered_banner .part_right .image_box img{
+        height: 180px;
+        width: 150px;
+    }
+    .whole_banner .centered_banner .part_right .image_box .hexa1,
+    .whole_banner .centered_banner .part_right .image_box .hexa2{
+        top: 12px;
+    }
+}
+@media (max-height: 720px){
     .whole_banner .centered_banner .part_right .image_box{
         height: 300px !important;
         width: 300px !important;

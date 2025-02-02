@@ -128,6 +128,20 @@ class AdminSoftwareController extends Controller
             return redirect('admin/software-list');
         }
     }
+    public function enable_for_populer($id)
+    {
+        Session::put('page', 'software');
+        $enable = Software::findOrFail($id);
+        if($enable->is_populer == '1'){
+            $enable->is_populer = null;
+            $enable->save();
+            return redirect('admin/software-list');
+        }else{
+            $enable->is_populer = 1;
+            $enable->save();
+            return redirect('admin/software-list');
+        }
+    }
     public function updating_software(Request $request)
     {
         Session::put('page', 'software');

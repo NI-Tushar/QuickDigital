@@ -7,16 +7,28 @@
 <section class="detail_section">
     <div class="max_width">
             <div class="headline mobile">
-                <h1>উইন্ডোজ 10 প্রো লাইসেন্স</h1>
+                @if(isset($software) && !empty($software))
+                    <h1>{{$software->title}}</h1>
+                @elseif(isset($product) && !empty($product))
+                    <h1>{{$product->title}}</h1>
+                @endif
                 <div class="review">
                     <div class="star">★★★★☆</div>
                     <p>(Reviews)</p>
                 </div>
-                <p class="desc_text">আমাদের বাল্ক ওয়ার্ডপ্রেস থিম কালেকশনের মাধ্যমে আপনার উইন্ডোজ ১০ প্রো লাইসেন্স বিক্রয় ও প্রচারের জন্য তৈরি করুন একটি পেশাদার এবং আকর্ষণীয় ওয়েবসাইট সহজ কাস্টমাইজেশন।</p>
+                @if(isset($software) && !empty($software))
+                    <p class="desc_text">{{$software->description}}</p>
+                @elseif(isset($product) && !empty($product))
+                    <p class="desc_text">{{$product->description}}</p>
+                @endif
             </div>
 
         <div class="banner_part">
-            <img src="https://t4.ftcdn.net/jpg/01/43/23/83/360_F_143238306_lh0ap42wgot36y44WybfQpvsJB5A1CHc.jpg" alt="">
+            @if(isset($software) && !empty($software))
+                <img src="{{ $software->thumbnail ? asset($software->thumbnail) : asset('no_image2.jpg') }}" alt="">
+            @elseif(isset($product) && !empty($product))
+                <img src="{{ $product->thumbnail ? asset($product->thumbnail) : asset('no_image2.jpg') }}" alt="">
+            @endif
         </div>
 
         <div class="banner_part mobile_banner_part">
@@ -24,18 +36,26 @@
                 <div class="description">
 
                     <div class="headline desctop">
-                        <h1>উইন্ডোজ 10 প্রো লাইসেন্স</h1>
+                        @if(isset($software) && !empty($software))
+                            <h1>{{$software->title}}</h1>
+                        @elseif(isset($product) && !empty($product))
+                            <h1>{{$product->title}}</h1>
+                        @endif
                         <div class="review">
                             <div class="star">★★★★☆</div>
                             <p>(Reviews)</p>
                         </div>
-                        <p class="desc_text">আমাদের বাল্ক ওয়ার্ডপ্রেস থিম কালেকশনের মাধ্যমে আপনার উইন্ডোজ ১০ প্রো লাইসেন্স বিক্রয় ও প্রচারের জন্য তৈরি করুন একটি পেশাদার এবং আকর্ষণীয় ওয়েবসাইট সহজ কাস্টমাইজেশন।</p>
+                        @if(isset($software) && !empty($software))
+                            <p class="desc_text">{{$software->description}}</p>
+                        @elseif(isset($product) && !empty($product))
+                            <p class="desc_text">{{$product->description}}</p>
+                        @endif
                     </div>
 
                     <div class="price_div">
                         <div class="price_part">
                             <label for="">মেয়াদ</label>
-                            <p>১ মাস</p>
+                            <p>1 মাস</p>
                         </div>
                         <div class="price_part">
                             <label for="">ডিসকাউন্ট</label>
@@ -43,13 +63,21 @@
                         </div>
                         <div class="price_part">
                             <label for="">টোটাল</label>
-                            <p>540.00 BDT</p>
+                            @if(isset($software) && !empty($software))
+                                <p>{{$software->price}} BDT</p>
+                            @elseif(isset($product) && !empty($product))
+                                <p>{{$product->price}} BDT</p>
+                            @endif
                         </div>
                     </div>
-
+                    
                     <div class="button_sec">
                         <div class="sec">
-                            <h3>600.00 BDT</h3>
+                            @if(isset($software) && !empty($software))
+                                <h3>{{$software->price}} BDT</h3>
+                            @elseif(isset($product) && !empty($product))
+                                <h3>{{$product->price}} BDT</h3>
+                            @endif
                         </div>
                         <div class="sec">
                             <a href=""><button>এখনই কিনুন</button></a>
@@ -64,16 +92,34 @@
 <!-- ________________________________ description start -->
 <section class="description_section">
     <div class="centered_desc">
-        <p>আমাদের বাল্ক ওয়ার্ডপ্রেস থিম কালেকশনের মাধ্যমে আপনার উইন্ডোজ ১০ প্রো লাইসেন্স বিক্রয় ও প্রচারের জন্য তৈরি করুন একটি পেশাদার এবং আকর্ষণীয় ওয়েবসাইট সহজ কাস্টমাইজেশন। আমাদের বাল্ক ওয়ার্ডপ্রেস থিম কালেকশনের মাধ্যমে আপনার উইন্ডোজ ১০ প্রো লাইসেন্স বিক্রয় ও প্রচারের জন্য তৈরি করুন একটি পেশাদার এবং আকর্ষণীয় ওয়েবসাইট সহজ কাস্টমাইজেশন।</p>
+        @if(isset($software) && !empty($software))
+            <p>{{$software->description}}</p>
+        @elseif(isset($product) && !empty($product))
+            <p>{{$product->description}}</p>
+        @endif
         <div class="features">
+
+        @if(isset($software) && !empty($software))
+            @php
+                $software->features = json_decode($software->features, true);
+            @endphp
             <p>বৈশিষ্ট্যসমূহঃ</p>
             <ul>
-                <li>Responsive Design (সুসম্পূর্ণ ডিজাইন): ওয়েবসাইটটি সব ধরনের ডিভাইসে (কম্পিউটার, ট্যাবলেট, মোবাইল) সুন্দরভাবে প্রদর্শিত হয়।</li>
-                <li>Customization Options (কাস্টমাইজেশন অপশন): থিমটি ব্যবহারকারীদের বিভিন্ন অংশ কাস্টমাইজ করার সুযোগ দেয়, যেমন কালার, ফন্ট, লেআউট ইত্যাদি।</li>
-                <li>SEO Friendly (এসইও ফ্রেন্ডলি): থিমটি সঠিকভাবে অপটিমাইজ করা হয় যাতে সার্চ ইঞ্জিনে ভাল ফলাফল পাওয়া যায়।</li>
-                <li>Multi-language Support (বহুভাষী সাপোর্ট): বিভিন্ন ভাষায় ওয়েবসাইটের কনটেন্ট প্রদর্শন করার সুবিধা।</li>
-                <li>Fast Loading Speed (দ্রুত লোডিং স্পিড): ওয়েবসাইটটি দ্রুত লোড হতে পারে, যা ইউজার এক্সপেরিয়েন্স উন্নত করে।</li>
+                @foreach ($software->features as $feature)
+                <li>{{$feature}}</li>
+                @endforeach
             </ul>
+        @elseif(isset($product) && !empty($product))
+            @php
+                $product->features = json_decode($product->features, true);
+            @endphp
+            <p>বৈশিষ্ট্যসমূহঃ</p>
+            <ul>
+                @foreach ($product->features as $feature)
+                    <li>{{$feature}}</li>
+                @endforeach
+            </ul>
+        @endif
         </div>
     </div>
 </section>
@@ -104,87 +150,26 @@
             <div class="glide__track" data-glide-el="track">
                 <ul class="glide__slides">
 
-                <li class="glide__slide">
-                    <div class="relative flex flex-col text-center bg-gray-800 h-40 items-center justify-center rounded-3xl duration- ease-in-out">
-                        <div class="part">
-                            <img src="{{ asset('front/assets/images/landing/digital_service_list/grafics.jpg') }}" alt="">
-                        </div>
-                        <div class="part desc">
-                            <h5>হয়ে উঠুন একজন সফল গ্রাফিক্স </h5>
-                            <div class="details_section">
-                                <div class="left"><a href="!"><p>বিস্তারিত <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M320 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l82.7 0L201.4 265.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L448 109.3l0 82.7c0 17.7 14.3 32 32 32s32-14.3 32-32l0-160c0-17.7-14.3-32-32-32L320 0zM80 32C35.8 32 0 67.8 0 112L0 432c0 44.2 35.8 80 80 80l320 0c44.2 0 80-35.8 80-80l0-112c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 112c0 8.8-7.2 16-16 16L80 448c-8.8 0-16-7.2-16-16l0-320c0-8.8 7.2-16 16-16l112 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L80 32z"/></svg></p></a></div>
+                    <li class="glide__slide">
+                        <div class="relative flex flex-col text-center bg-gray-800 h-40 items-center justify-center rounded-3xl duration- ease-in-out">
+                            <div class="part">
+                                <img src="{{ asset('front/assets/images/landing/digital_service_list/grafics.jpg') }}" alt="">
                             </div>
-                            <div class="price_section">
-                                <div class="left">On Sell</div>
-                                <div class="right">550.0<span>BDT</span></div>
-                            </div>
-                            <div class="button_price">
-                                <div class="btn"><a href=""><button>কিনুন</button></a></div>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-
-                <li class="glide__slide">
-                    <div class="relative flex flex-col text-center bg-gray-800 h-40 items-center justify-center rounded-3xl">
-                        <div class="part">
-                            <img src="{{ asset('front/assets/images/landing/digital_service_list/video_edit.jpg') }}" alt="">
-                        </div>
-                        <div class="part desc">
-                            <h5>হয়ে উঠুন একজন সফল এবং</h5>
-                            <div class="details_section">
-                                <div class="left"><a href="!"><p>বিস্তারিত <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M320 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l82.7 0L201.4 265.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L448 109.3l0 82.7c0 17.7 14.3 32 32 32s32-14.3 32-32l0-160c0-17.7-14.3-32-32-32L320 0zM80 32C35.8 32 0 67.8 0 112L0 432c0 44.2 35.8 80 80 80l320 0c44.2 0 80-35.8 80-80l0-112c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 112c0 8.8-7.2 16-16 16L80 448c-8.8 0-16-7.2-16-16l0-320c0-8.8 7.2-16 16-16l112 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L80 32z"/></svg></p></a></div>
-                            </div>
-                            <div class="price_section">
-                                <div class="left">On Sell</div>
-                                <div class="right">550.0<span>BDT</span></div>
-                            </div>
-                            <div class="button_price">
-                                <div class="btn"><a href=""><button>কিনুন</button></a></div>
+                            <div class="part desc">
+                                <h5>হয়ে উঠুন একজন সফল গ্রাফিক্স </h5>
+                                <div class="details_section">
+                                    <div class="left"><a href="!"><p>বিস্তারিত <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M320 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l82.7 0L201.4 265.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L448 109.3l0 82.7c0 17.7 14.3 32 32 32s32-14.3 32-32l0-160c0-17.7-14.3-32-32-32L320 0zM80 32C35.8 32 0 67.8 0 112L0 432c0 44.2 35.8 80 80 80l320 0c44.2 0 80-35.8 80-80l0-112c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 112c0 8.8-7.2 16-16 16L80 448c-8.8 0-16-7.2-16-16l0-320c0-8.8 7.2-16 16-16l112 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L80 32z"/></svg></p></a></div>
+                                </div>
+                                <div class="price_section">
+                                    <div class="left">On Sell</div>
+                                    <div class="right">550.0<span>BDT</span></div>
+                                </div>
+                                <div class="button_price">
+                                    <div class="btn"><a href=""><button>কিনুন</button></a></div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </li>
-                <li class="glide__slide">
-                    <div class="relative flex flex-col text-center bg-gray-800 h-40 items-center justify-center rounded-3xl">
-                        <div class="part">
-                            <img src="{{ asset('front/assets/images/landing/digital_service_list/web_design.jpg') }}" alt="">
-                        </div>
-                        <div class="part desc">
-                            <h5>হয়ে উঠুন একজন সফল ওয়েব ডিজাইনার একটি ভালো ক্যারিয়ার এর জন্য।</h5>
-                            <div class="details_section">
-                                <div class="left"><a href="!"><p>বিস্তারিত <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M320 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l82.7 0L201.4 265.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L448 109.3l0 82.7c0 17.7 14.3 32 32 32s32-14.3 32-32l0-160c0-17.7-14.3-32-32-32L320 0zM80 32C35.8 32 0 67.8 0 112L0 432c0 44.2 35.8 80 80 80l320 0c44.2 0 80-35.8 80-80l0-112c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 112c0 8.8-7.2 16-16 16L80 448c-8.8 0-16-7.2-16-16l0-320c0-8.8 7.2-16 16-16l112 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L80 32z"/></svg></p></a></div>
-                            </div>
-                            <div class="price_section">
-                                <div class="left">On Sell</div>
-                                <div class="right">550.0<span>BDT</span></div>
-                            </div>
-                            <div class="button_price">
-                                <div class="btn"><a href=""><button>কিনুন</button></a></div>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li class="glide__slide">
-                    <div class="relative flex flex-col text-center bg-gray-800 h-40 items-center justify-center rounded-3xl">
-                    <div class="part">
-                            <img src="{{ asset('front/assets/images/landing/digital_service_list/video_making.jpg') }}" alt="">
-                        </div>
-                        <div class="part desc">
-                            <h5>হয়ে উঠুন একজন সফল ওয়েব ডিজাইনার একটি ভালো ক্যারিয়ার এর জন্য।</h5>
-                            <div class="details_section">
-                                <div class="left"><a href="!"><p>বিস্তারিত <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M320 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l82.7 0L201.4 265.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L448 109.3l0 82.7c0 17.7 14.3 32 32 32s32-14.3 32-32l0-160c0-17.7-14.3-32-32-32L320 0zM80 32C35.8 32 0 67.8 0 112L0 432c0 44.2 35.8 80 80 80l320 0c44.2 0 80-35.8 80-80l0-112c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 112c0 8.8-7.2 16-16 16L80 448c-8.8 0-16-7.2-16-16l0-320c0-8.8 7.2-16 16-16l112 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L80 32z"/></svg></p></a></div>
-                            </div>
-                            <div class="price_section">
-                                <div class="left">On Sell</div>
-                                <div class="right">550.0<span>BDT</span></div>
-                            </div>
-                            <div class="button_price">
-                                <div class="btn"><a href=""><button>কিনুন</button></a></div>
-                            </div>
-                        </div>
-                    </div>
-                </li>
+                    </li>
 
                 </ul>
             </div>  
