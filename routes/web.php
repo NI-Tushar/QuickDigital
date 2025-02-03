@@ -143,7 +143,7 @@
             Route::get('digialservice-list', 'AdminDigitalServiceController@digialservice_list')->name('digialservice.list');
             Route::get('update_digitalService/{id?}', 'AdminDigitalServiceController@update_service');
             Route::post('updating-service', 'AdminDigitalServiceController@updating_digService');
-            Route::get('/enable/populer/services/{id?}', 'AdminSoftwareController@enable_for_populer');
+            Route::get('/enable/populer/services/{id?}', 'AdminDigitalServiceController@enable_for_populer');
             Route::get('delete-digService/{id?}', 'AdminDigitalServiceController@deleteService');
 
             // CUSTOMER ORDERS

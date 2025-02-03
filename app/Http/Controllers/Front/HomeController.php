@@ -14,6 +14,7 @@ use App\Models\OrderStatusProduct;
 use App\Models\OrderSubscription;
 use App\Models\Products;
 use App\Models\Software;
+use App\Models\DigitalserviesAdmin;
 use App\Models\DigitalProduct;
 use App\Models\Subscription;
 use Illuminate\Http\Request;
@@ -28,13 +29,15 @@ class HomeController extends Controller
     {
         $digProdQuery = DigitalProduct::query();
         $Software = Software::query();
+        $digitalService = DigitalserviesAdmin::query();
         
         Session::forget('page');
         Session::put('page', 'home');
         $user = Auth::user();
         $digProd = $digProdQuery->where('is_populer', '1')->latest()->get();
         $software = $Software->where('is_populer', '1')->latest()->get();
-        return view('quick_digital.index', compact('user','digProd','software'));
+        $digital_service = $digitalService->where('is_populer', '1')->latest()->get();
+        return view('quick_digital.index', compact('user','digProd','software','digital_service'));
         
         // dd(compact('user','digProd','software'));
         // return view('quick_digital.index', compact('user','digProd'));

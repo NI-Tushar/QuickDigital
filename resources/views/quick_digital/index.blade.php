@@ -288,80 +288,30 @@
             <div class="glide__track" data-glide-el="track">
                 <ul class="glide__slides">
 
+                <!-- _____________________________ -->
+                @foreach ($digital_service as $service)
                 <li class="glide__slide">
                     <div class="relative flex flex-col text-center bg-gray-800 h-40 items-center justify-center rounded-3xl duration- ease-in-out">
                         <div class="part">
-                            <img src="{{ asset('front/assets/images/landing/digital_service_list/grafics.jpg') }}" alt="">
+                            <img src="{{ $service->thumbnail ? asset($service->thumbnail) : asset('no_image2.jpg') }}" alt="">
                         </div>
                         <div class="part desc">
-                            <h5>হয়ে উঠুন একজন সফল গ্রাফিক্স ডিজাইনার আপনার ভালো ক্যারিয়ার এর জন্য।</h5>
+                            <h5>{{$service->title}}</h5>
                             <div class="review">
                                 <div class="star">★★★★☆</div>
                                 <p>(Reviews)</p>
                             </div>
                             <div class="button_price">
-                                <div class="price">3000 BDT</div>
+                                <div class="price">{{$service->price}} BDT</div>
                                 <div class="btn"><a href=""><button>কিনুন</button></a></div>
                             </div>
                         </div>
                     </div>
                 </li>
+                @endforeach
+                 <!-- _____________________________ -->
 
-                <li class="glide__slide">
-                    <div class="relative flex flex-col text-center bg-gray-800 h-40 items-center justify-center rounded-3xl">
-                        <div class="part">
-                            <img src="{{ asset('front/assets/images/landing/digital_service_list/video_edit.jpg') }}" alt="">
-                        </div>
-                        <div class="part desc">
-                            <h5>হয়ে উঠুন একজন সফল এবং প্রফেশনাল ভিডিও এডিটর আপনার ভালো ক্যারিয়ার এর জন্য।</h5>
-                            <div class="review">
-                                <div class="star">★★★★☆</div>
-                                <p>(Reviews)</p>
-                            </div>
-                            <div class="button_price">
-                                <div class="price">3000 BDT</div>
-                                <div class="btn"><a href=""><button>কিনুন</button></a></div>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li class="glide__slide">
-                    <div class="relative flex flex-col text-center bg-gray-800 h-40 items-center justify-center rounded-3xl">
-                        <div class="part">
-                            <img src="{{ asset('front/assets/images/landing/digital_service_list/web_design.jpg') }}" alt="">
-                        </div>
-                        <div class="part desc">
-                            <h5>হয়ে উঠুন একজন সফল ওয়েব ডিজাইনার একটি ভালো ক্যারিয়ার এর জন্য।</h5>
-                            <div class="review">
-                                <div class="star">★★★★☆</div>
-                                <p>(Reviews)</p>
-                            </div>
-                            <div class="button_price">
-                                <div class="price">3000 BDT</div>
-                                <div class="btn"><a href=""><button>কিনুন</button></a></div>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li class="glide__slide">
-                    <div class="relative flex flex-col text-center bg-gray-800 h-40 items-center justify-center rounded-3xl">
-                    <div class="part">
-                            <img src="{{ asset('front/assets/images/landing/digital_service_list/video_making.jpg') }}" alt="">
-                        </div>
-                        <div class="part desc">
-                            <h5>হয়ে উঠুন একজন সফল ওয়েব ডিজাইনার একটি ভালো ক্যারিয়ার এর জন্য।</h5>
-                            <div class="review">
-                                <div class="star">★★★★☆</div>
-                                <p>(Reviews)</p>
-                            </div>
-                            <div class="button_price">
-                                <div class="price">3000 BDT</div>
-                                <div class="btn"><a href=""><button>কিনুন</button></a></div>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-
+                
                 </ul>
             </div>  
             <div class="glide__arrows" data-glide-el="controls">
