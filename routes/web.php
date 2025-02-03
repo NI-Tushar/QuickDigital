@@ -13,13 +13,13 @@
     use App\Http\Controllers\ProductPageController;
     use App\Http\Controllers\CustomerOrderController;
     use App\Http\Controllers\DigitalProductController;
+    use App\Http\Controllers\DigitalServiceController;
     use App\Http\Controllers\CartController;
     use App\Http\Controllers\PaymentController;
     use App\Http\Controllers\SoftPaymentController;
     use App\Http\Controllers\Front\HomeController;
     use App\Http\Controllers\PDFController;
     use App\Http\Controllers\CheckoutController;
-    use App\Http\Controllers\DigitalServiceController;
     use App\Http\Controllers\Front\AffiliatorController;
     use App\Http\Controllers\Front\UserDashboardController;
     use App\Http\Controllers\SmsController;
@@ -143,6 +143,7 @@
             Route::get('digialservice-list', 'AdminDigitalServiceController@digialservice_list')->name('digialservice.list');
             Route::get('update_digitalService/{id?}', 'AdminDigitalServiceController@update_service');
             Route::post('updating-service', 'AdminDigitalServiceController@updating_digService');
+            Route::get('/enable/populer/services/{id?}', 'AdminSoftwareController@enable_for_populer');
             Route::get('delete-digService/{id?}', 'AdminDigitalServiceController@deleteService');
 
             // CUSTOMER ORDERS
@@ -386,13 +387,12 @@
         
         // _______________________________ SOFTWARE
         Route::get('/software', [SoftwareController::class, 'index'])->name('quick.software');
-        Route::post('/software-order', [SoftwareController::class, 'softwareOrder'])->name('software.order');
+        Route::get('/software-order/{id}', [CustomerOrderController::class, 'softwareOrder'])->name('software.order');
         Route::get('/software/suggestion', [SoftwareController::class, 'suggestion'])->name('quick.software.suggestion');
         Route::get('/checkout', [SoftwareController::class,'checkout_page'])->name('digitalProductCheckout');
         
         // _______________________________ SOFTWARE DETAILS PAGE
         Route::get('/software/details/{id}', [ProductPageController::class, 'softwareDetailPageView']);
-        
         
         // _______________________________ DIGITAL PRODUCT
         Route::get('/digital-product', [DigitalProductController::class, 'index'])->name('quick.digitalProduct');
@@ -400,8 +400,13 @@
         Route::get('/digital-product-details/{id}', [CustomerOrderController::class, 'digitalProductDetails'])->name('digitalProduct.details');
         Route::get('/digital-product-order/{id}', [CustomerOrderController::class, 'digitalProductOrder'])->name('digitalProduct.order');
         
-        // _______________________________ SOFTWARE DETAILS PAGE
+        // _______________________________ DIGITAL PRODUCT DETAILS PAGE
         Route::get('/digital-product/details/{id}', [ProductPageController::class, 'digitalProductDetailPageView']);
+
+             
+        // _______________________________ DIGITAL SERVICE
+        Route::get('/digital-services', [DigitalServiceController::class, 'digitalServiceListPage'])->name('quick.digitalService');
+        Route::get('/service/suggestion', [DigitalServiceController::class, 'suggestion'])->name('quick.digitalService.suggestion');
 
 
         // _______________________________ CUSTOMER PAYMENT CONTROLLER

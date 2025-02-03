@@ -7,11 +7,9 @@
         .quantity-input {
             display: none;
         }
-
         #qtyinput {
             display: block;
         }
-
         .select2-container--bootstrap4 .select2-selection {
             height: calc(2.25rem + 2px);
         }

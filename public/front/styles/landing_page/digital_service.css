@@ -134,6 +134,7 @@
     color: rgba(0, 0, 0, 0.416);
     font-size: 15px;
 }
+
 .product_card_carousol .glide .glide__slide .relative .desc .button_price{
     display: flex;
     gap: 5px;

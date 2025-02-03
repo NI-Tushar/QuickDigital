@@ -456,8 +456,8 @@
                 $('input[name="total"]').val(total.toFixed(2));
 
                 $('.total').html('$' + total.toFixed(2));
-                $('.discount-total').html('$' + discount.toFixed(2));
-                $('.adjustment').html('$' + adjustment.toFixed(2));
+                $('.discount-total').html('BDT ' + discount.toFixed(2));
+                $('.adjustment').html('BDT ' + adjustment.toFixed(2));
             }
 
             // Listen for changes in discount and adjustment fields

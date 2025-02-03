@@ -253,12 +253,12 @@
                                     ডিজিটাল প্রোডাক্ট
                                 </a>
                             </li>
-                            <!-- <li class="nav-item">
+                            <li class="nav-item">
                                 <a class="nav-link fw-semibold px-md-3" aria-current="page"
-                                    href="{{ url('/') }}">
+                                    href="{{ route('quick.digitalService') }}">
                                     ডিজিটাল সার্ভিস
                                 </a>
-                            </li> -->
+                            </li>
 
                             <!-- @php
                             $active = Session::get('page') == 'training' ? 'active' : '';

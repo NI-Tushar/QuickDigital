@@ -11,6 +11,8 @@
                     <h1>{{$software->title}}</h1>
                 @elseif(isset($product) && !empty($product))
                     <h1>{{$product->title}}</h1>
+                @elseif(isset($service) && !empty($service))
+                    <h1>{{$service->title}}</h1>
                 @endif
                 <div class="review">
                     <div class="star">★★★★☆</div>
@@ -20,6 +22,8 @@
                     <p class="desc_text">{{$software->description}}</p>
                 @elseif(isset($product) && !empty($product))
                     <p class="desc_text">{{$product->description}}</p>
+                @elseif(isset($service) && !empty($service))
+                    <p class="desc_text">{{$service->description}}</p>
                 @endif
             </div>
 
@@ -28,6 +32,8 @@
                 <img src="{{ $software->thumbnail ? asset($software->thumbnail) : asset('no_image2.jpg') }}" alt="">
             @elseif(isset($product) && !empty($product))
                 <img src="{{ $product->thumbnail ? asset($product->thumbnail) : asset('no_image2.jpg') }}" alt="">
+            @elseif(isset($service) && !empty($service))
+                <img src="{{ $service->thumbnail ? asset($service->thumbnail) : asset('no_image2.jpg') }}" alt="">
             @endif
         </div>
 
@@ -40,6 +46,8 @@
                             <h1>{{$software->title}}</h1>
                         @elseif(isset($product) && !empty($product))
                             <h1>{{$product->title}}</h1>
+                        @elseif(isset($service) && !empty($service))
+                            <h1>{{$service->title}}</h1>
                         @endif
                         <div class="review">
                             <div class="star">★★★★☆</div>
@@ -49,14 +57,18 @@
                             <p class="desc_text">{{$software->description}}</p>
                         @elseif(isset($product) && !empty($product))
                             <p class="desc_text">{{$product->description}}</p>
+                        @elseif(isset($service) && !empty($service))
+                            <p class="desc_text">{{$service->description}}</p>
                         @endif
                     </div>
 
                     <div class="price_div">
+                        @if(isset($software) && !empty($software))
                         <div class="price_part">
                             <label for="">মেয়াদ</label>
                             <p>1 মাস</p>
                         </div>
+                        @endif
                         <div class="price_part">
                             <label for="">ডিসকাউন্ট</label>
                             <p>10%</p>
@@ -67,6 +79,8 @@
                                 <p>{{$software->price}} BDT</p>
                             @elseif(isset($product) && !empty($product))
                                 <p>{{$product->price}} BDT</p>
+                            @elseif(isset($service) && !empty($service))
+                                <p>{{$service->price}} BDT</p>
                             @endif
                         </div>
                     </div>
@@ -77,10 +91,18 @@
                                 <h3>{{$software->price}} BDT</h3>
                             @elseif(isset($product) && !empty($product))
                                 <h3>{{$product->price}} BDT</h3>
+                            @elseif(isset($service) && !empty($service))
+                                <h3>{{$service->price}} BDT</h3>
                             @endif
                         </div>
                         <div class="sec">
-                            <a href=""><button>এখনই কিনুন</button></a>
+                            @if(isset($product) && !empty($product))
+                                <a href="{{ route('digitalProduct.order', ['id' => $product->id]) }}"><button>এখনই কিনুন</button></a>
+                            @elseif(isset($software) && !empty($software))
+                                <a href="{{ route('software.order', ['id' => $software->id]) }}"><button>এখনই কিনুন</button></a>
+                            @elseif(isset($service) && !empty($service))
+                            <!-- service route will be here -->
+                            @endif
                         </div>
                     </div>
                 </div>
@@ -96,6 +118,8 @@
             <p>{{$software->description}}</p>
         @elseif(isset($product) && !empty($product))
             <p>{{$product->description}}</p>
+        @elseif(isset($service) && !empty($service))
+            <p>{{$service->description}}</p>
         @endif
         <div class="features">
 
@@ -119,6 +143,16 @@
                     <li>{{$feature}}</li>
                 @endforeach
             </ul>
+        @elseif(isset($service) && !empty($service))
+            @php
+                $service->features = json_decode($service->features, true);
+            @endphp
+            <p>বৈশিষ্ট্যসমূহঃ</p>
+            <ul>
+                @foreach ($service->features as $feature)
+                    <li>{{$feature}}</li>
+                @endforeach
+            </ul>
         @endif
         </div>
     </div>
@@ -138,38 +172,82 @@
 
 <section class="relevent_section">
     <div class="product_heading">
-        <h1>রিলেভেন্ট প্রোডাক্টস</h1>
-        <div class="view_all_btn">
-            <a href="{{ url('/quick-digital/contact-us') }}"><button>সবগুলো দেখুন<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M320 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l82.7 0L201.4 265.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L448 109.3l0 82.7c0 17.7 14.3 32 32 32s32-14.3 32-32l0-160c0-17.7-14.3-32-32-32L320 0zM80 32C35.8 32 0 67.8 0 112L0 432c0 44.2 35.8 80 80 80l320 0c44.2 0 80-35.8 80-80l0-112c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 112c0 8.8-7.2 16-16 16L80 448c-8.8 0-16-7.2-16-16l0-320c0-8.8 7.2-16 16-16l112 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L80 32z"/></svg></button></a>
-        </div>
+        @if(isset($software) && !empty($software))
+            <h1>রিলিভেন্ট সফটওয়্যার</h1>
+            <div class="view_all_btn">
+                <a href="{{ route('quick.software') }}"><button>সকল সফটওয়্যার <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M320 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l82.7 0L201.4 265.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L448 109.3l0 82.7c0 17.7 14.3 32 32 32s32-14.3 32-32l0-160c0-17.7-14.3-32-32-32L320 0zM80 32C35.8 32 0 67.8 0 112L0 432c0 44.2 35.8 80 80 80l320 0c44.2 0 80-35.8 80-80l0-112c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 112c0 8.8-7.2 16-16 16L80 448c-8.8 0-16-7.2-16-16l0-320c0-8.8 7.2-16 16-16l112 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L80 32z"/></svg></button></a>
+            </div>
+        @elseif(isset($product) && !empty($product))
+            <h1>রিলিভেন্ট প্রোডাক্টস</h1>
+            <div class="view_all_btn">
+                <a href="{{ route('quick.digitalProduct') }}"><button>সকল প্রোডাক্টস<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M320 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l82.7 0L201.4 265.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L448 109.3l0 82.7c0 17.7 14.3 32 32 32s32-14.3 32-32l0-160c0-17.7-14.3-32-32-32L320 0zM80 32C35.8 32 0 67.8 0 112L0 432c0 44.2 35.8 80 80 80l320 0c44.2 0 80-35.8 80-80l0-112c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 112c0 8.8-7.2 16-16 16L80 448c-8.8 0-16-7.2-16-16l0-320c0-8.8 7.2-16 16-16l112 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L80 32z"/></svg></button></a>
+            </div>
+        @elseif(isset($service) && !empty($service))
+            <h1>রিলিভেন্ট সার্ভিস</h1>
+            <div class="view_all_btn">
+                <a href="#"><button>সকল সার্ভিস<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M320 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l82.7 0L201.4 265.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L448 109.3l0 82.7c0 17.7 14.3 32 32 32s32-14.3 32-32l0-160c0-17.7-14.3-32-32-32L320 0zM80 32C35.8 32 0 67.8 0 112L0 432c0 44.2 35.8 80 80 80l320 0c44.2 0 80-35.8 80-80l0-112c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 112c0 8.8-7.2 16-16 16L80 448c-8.8 0-16-7.2-16-16l0-320c0-8.8 7.2-16 16-16l112 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L80 32z"/></svg></button></a>
+            </div>
+        @endif
     </div>
 
-    <div class="product_card_carousol">
+    <div class="relevent_product_card_carousol">
         <div class="bg-cover flex h-screen justify-center items-center" style="height: auto;">
             <div class="glide xl:w-[54rem] lg:w-[42rem] md:w-[30rem] sm:w-[18rem] px-16 py-8 bg-gray-700 bg-opacity-60 rounded-3xl">
             <div class="glide__track" data-glide-el="track">
                 <ul class="glide__slides">
 
-                    <li class="glide__slide">
+                <!-- _____________________ -->
+                @if(isset($releventSoftware) && !empty($releventSoftware))
+                    @foreach ($releventSoftware as $relSoft)
+                    <li class="glide__slide_li">
                         <div class="relative flex flex-col text-center bg-gray-800 h-40 items-center justify-center rounded-3xl duration- ease-in-out">
                             <div class="part">
-                                <img src="{{ asset('front/assets/images/landing/digital_service_list/grafics.jpg') }}" alt="">
+                                <img src="{{ $relSoft->thumbnail ? asset($relSoft->thumbnail) : asset('no_image2.jpg') }}" alt="">
                             </div>
                             <div class="part desc">
-                                <h5>হয়ে উঠুন একজন সফল গ্রাফিক্স </h5>
+                                <h5>{{$relSoft->title}}</h5>
                                 <div class="details_section">
-                                    <div class="left"><a href="!"><p>বিস্তারিত <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M320 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l82.7 0L201.4 265.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L448 109.3l0 82.7c0 17.7 14.3 32 32 32s32-14.3 32-32l0-160c0-17.7-14.3-32-32-32L320 0zM80 32C35.8 32 0 67.8 0 112L0 432c0 44.2 35.8 80 80 80l320 0c44.2 0 80-35.8 80-80l0-112c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 112c0 8.8-7.2 16-16 16L80 448c-8.8 0-16-7.2-16-16l0-320c0-8.8 7.2-16 16-16l112 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L80 32z"/></svg></p></a></div>
+                                    <div class="left"><a href="{{ url('/quick-digital/software/details/'.$relSoft['id']) }}"><p>বিস্তারিত <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M320 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l82.7 0L201.4 265.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L448 109.3l0 82.7c0 17.7 14.3 32 32 32s32-14.3 32-32l0-160c0-17.7-14.3-32-32-32L320 0zM80 32C35.8 32 0 67.8 0 112L0 432c0 44.2 35.8 80 80 80l320 0c44.2 0 80-35.8 80-80l0-112c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 112c0 8.8-7.2 16-16 16L80 448c-8.8 0-16-7.2-16-16l0-320c0-8.8 7.2-16 16-16l112 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L80 32z"/></svg></p></a></div>
                                 </div>
                                 <div class="price_section">
                                     <div class="left">On Sell</div>
-                                    <div class="right">550.0<span>BDT</span></div>
+                                    <div class="right">{{$relSoft->price}}<span> BDT</span></div>
                                 </div>
                                 <div class="button_price">
-                                    <div class="btn"><a href=""><button>কিনুন</button></a></div>
+                                    <div class="btn"><a href="{{ route('software.order', ['id' => $relSoft->id]) }}"><button>কিনুন</button></a></div>
                                 </div>
                             </div>
                         </div>
                     </li>
+                    @endforeach
+                @endif
+
+                <!-- _____________________ -->
+                @if(isset($releventProduct) && !empty($releventProduct))
+                    @foreach ($releventProduct as $relProd)
+                    <li class="glide__slide_li">
+                        <div class="relative flex flex-col text-center bg-gray-800 h-40 items-center justify-center rounded-3xl duration- ease-in-out">
+                            <div class="part">
+                                <img src="{{ $relProd->thumbnail ? asset($relProd->thumbnail) : asset('no_image2.jpg') }}" alt="">
+                            </div>
+                            <div class="part desc">
+                                <h5>{{$relProd->title}}</h5>
+                                <div class="details_section">
+                                    <div class="left"><a href="{{ url('/quick-digital/digital-product/details/'.$relProd['id']) }}"><p>বিস্তারিত <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M320 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l82.7 0L201.4 265.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L448 109.3l0 82.7c0 17.7 14.3 32 32 32s32-14.3 32-32l0-160c0-17.7-14.3-32-32-32L320 0zM80 32C35.8 32 0 67.8 0 112L0 432c0 44.2 35.8 80 80 80l320 0c44.2 0 80-35.8 80-80l0-112c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 112c0 8.8-7.2 16-16 16L80 448c-8.8 0-16-7.2-16-16l0-320c0-8.8 7.2-16 16-16l112 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L80 32z"/></svg></p></a></div>
+                                </div>
+                                <div class="price_section">
+                                    <div class="left">On Sell</div>
+                                    <div class="right">{{$relProd->price}}<span> BDT</span></div>
+                                </div>
+                                <div class="button_price">
+                                    <div class="btn"><a href="{{ route('digitalProduct.order', ['id' => $relProd->id]) }}"><button>কিনুন</button></a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    @endforeach
+                @endif
+                <!-- _____________________ -->
 
                 </ul>
             </div>  
@@ -454,7 +532,7 @@ right.onclick = function() {
 }
 
 function updateNextSlide() {
-  slides[activeSlide].classList.add("prev");
+    slides[activeSlide].classList.add("prev");
   let nextSlide = ( activeSlide < slides.length -1) ? activeSlide+1 : 0; 
   slides[nextSlide].classList.remove("prev");
   slides[nextSlide].classList.remove("next");
@@ -473,25 +551,26 @@ function updateNextSlide() {
 
 
 function updatePrevSlide() {
-  slides[activeSlide].classList.add("next");
-  let prevSlide = ( activeSlide > 0) ? activeSlide-1 : slides.length-1; 
-  slides[prevSlide].classList.remove("next");
-  slides[prevSlide].classList.remove("prev");
+    slides[activeSlide].classList.add("next");
+    let prevSlide = ( activeSlide > 0) ? activeSlide-1 : slides.length-1; 
+    slides[prevSlide].classList.remove("next");
+    slides[prevSlide].classList.remove("prev");
   slides[prevSlide].classList.add("active");
   
   if(prevSlide > 0){
      slides[prevSlide-1].classList.add("prev");
-    slides[prevSlide-1].classList.remove("next");
+     slides[prevSlide-1].classList.remove("next");
   }
   else {
-     slides[slides.length-1].classList.remove("next");
-    slides[slides.length-1].classList.add("prev");   
-  }
-  
-  activeSlide = prevSlide;
+      slides[slides.length-1].classList.remove("next");
+      slides[slides.length-1].classList.add("prev");   
+    }
+    
+    activeSlide = prevSlide;
 }
 
+setInterval(updateNextSlide, 4000);
 </script>
 
-    
+
 @endsection
