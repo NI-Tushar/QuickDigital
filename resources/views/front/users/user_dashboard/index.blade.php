@@ -12,7 +12,7 @@
 
 <style>
 .software_section .col-md-3 .card{
-    background-image: linear-gradient(var(--primary-hover-color), black);
+    background-image: linear-gradient(var(--primary-color), black);
 }
 </style>
 

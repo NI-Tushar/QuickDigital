@@ -1,17 +1,18 @@
 @extends('quick_digital.layout.layout')
 @section('content')
     <link rel="stylesheet" href="{{ url('front/styles/digital_product.css') }}">
+    <link rel="stylesheet" href="{{ url('front/styles/digital_service_list_view.css') }}">
 
 
     <div class="software_section">
     <div class="centered_list">
         <div class="soft_heading">
           <div class="header_part">
-            <h3>ডিজিটাল প্রোডাক্ট</h3>  
+            <h3>ডিজিটাল সার্ভিস</h3>  
           </div>
           <!-- ___________________________ product search start -->
           <div class="header_part search_box">
-            <form method="GET" action="{{ route('quick.digitalProduct') }}">
+            <form method="GET" action="{{ route('quick.digitalService') }}">
               <div class="search">
                 <input type="text" id="nameInput" name="nameField" placeholder="নাম দিয়ে সার্চ করুন" value="{{ request('name') }}" autocomplete="off">
                 <div class="icon">
@@ -34,60 +35,50 @@
 
 
 
-  <!-- ________________________________ -->
-  <section class="software_list_section">
-      <div class="list_card">
+<!-- __________________ DIGITAL SERVICE LIST START -->
+<section class="service_section">
+    <div class="service_card">
         <div class="blank-1"></div>
-          <div class="cards">
+            <div class="cards">
 
-            <!-- _____________________________ -->
-                @if (empty($products))
-                    <p>কোনো ডিজিটাল প্রোডাক্ট পাওয়া যায়নি</p>
+            <!-- _______________________________ -->
+                @if (empty($services))
+                    <p>কোনো ডিজিটাল সার্ভিস পাওয়া যায়নি</p>
                 @else
-
-                @foreach ($products as $product)
-
-                  <div class="signle_card">
-                    <div class="card-body">
-                      <div class="slide">
-                        <div class="slide_part img_part">
-                            <img src="{{ $product->thumbnail ? asset($product->thumbnail) : asset('no_image2.jpg') }}" alt="">
+                @foreach ($services as $service)
+                <div class="signle_card">
+                    <div class="card_body">
+                        <div class="card_part">
+                            <img src="{{ $service->thumbnail ? asset($service->thumbnail) : asset('no_image2.jpg') }}" alt="">
                         </div>
-                        <div class="slide_part desc_part">
-                            <div class="soft_desc">
-                                <h3>{{ $product->title }}</h3>
-                        
+                        <div class="card_part">
+                            <div class="card_text">
+                                <h5>{{$service->title}}</h5>
                                 <div class="review">
-                                    <div class="demo"><a href="{{ url('/quick-digital/digital-product/details/'.$product['id']) }}">বিস্তারিত<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M320 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l82.7 0L201.4 265.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L448 109.3l0 82.7c0 17.7 14.3 32 32 32s32-14.3 32-32l0-160c0-17.7-14.3-32-32-32L320 0zM80 32C35.8 32 0 67.8 0 112L0 432c0 44.2 35.8 80 80 80l320 0c44.2 0 80-35.8 80-80l0-112c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 112c0 8.8-7.2 16-16 16L80 448c-8.8 0-16-7.2-16-16l0-320c0-8.8 7.2-16 16-16l112 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L80 32z"/></svg></a></div>
+                                    <div class="star">★★★★☆</div>
+                                    <p>(Reviews)</p>
                                 </div>
-                                <div class="price_section">
-                                    <div class="left"><p>On Sell</p></div>
-                                    <div class="right">
-                                      @if(!empty($product->price))
-                                        {{ $product->price }}<span> BDT</span>
-                                      @endif
-                                    </div>
-                                </div>
-                                <div class="button_section">
-                                    <!-- <a href="!">কাস্টম</a> -->
-                                    <a href="{{ route('digitalProduct.order', ['id' => $product->id]) }}" class="active">এখনই কিনুন</a>
+                                <div class="button_price">
+                                    <div class="price">{{$service->price}} BDT</div>
+                                    <div class="btn"><a href=""><button>কিনুন</button></a></div>
                                 </div>
                             </div>
                         </div>
-                      </div>
                     </div>
-                  </div> 
-
-
+                </div>    
                 @endforeach
-                @endif
-              </div>
-              <!-- _____________________________ -->
-              <div class="blank-2"></div>
+                @endif            
+            <!-- _______________________________ -->
+            
+
             </div>
-          </section>
- 
- <style>
+        <div class="blank-2"></div>
+    </div>
+</section>
+
+<!-- __________________ DIGITAL SERVICE LIST END-->
+
+<style>
 /* Pagination custom styles */
   .page-link {
       color: var(--primary-color)!important;
@@ -106,8 +97,9 @@
 </style>
 <!-- Pagination Links -->
 <div class="d-flex justify-content-center">
-  {{ $products->links('pagination::bootstrap-4') }}
+  {{ $services->links('pagination::bootstrap-4') }}
 </div>
+
 
 @endsection
 @push('script')
@@ -130,7 +122,7 @@
 
                 // Fetch suggestions if input is non-empty
                 $.ajax({
-                    url: '{{ route("quick.digitalProduct.suggestion") }}',
+                    url: '{{ route("quick.digitalService.suggestion") }}',
                     type: 'GET',
                     data: { query: query },
                     dataType: 'json',
@@ -173,8 +165,5 @@
     </script>
 
 
-
-
 @endpush
-
 

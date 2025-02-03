@@ -10,13 +10,85 @@
 </script>
 
 
+
+@if(Session::get('page') == 'home')
+<script>
+    window.addEventListener('scroll', function () {
+        const header = document.getElementById('sticky_bar');
+        if (window.scrollY > 100) { // Change 50 to the scroll threshold you want
+            header.classList.add('scrolled');
+
+            const logo_black = document.getElementById('logo_black');
+            logo_black.style.display="flex";
+
+            const bg_first = document.getElementById('bg_first');
+            bg_first.style.background="var(--footer-bg-color)";
+            
+            const logo_white = document.getElementById('logo_white');
+            logo_white.style.display="none";
+        } else {
+            header.classList.remove('scrolled');
+            
+            const bg_first = document.getElementById('bg_first');
+            bg_first.style.background="transparent";
+
+            const logo_black = document.getElementById('logo_black');
+            logo_black.style.display="none";
+            const logo_white = document.getElementById('logo_white');
+            logo_white.style.display="flex";
+        }
+    });
+</script>
+
+@else
+   <style>
+    .sticky_bar .container .navbar .container-fluid #logo_white{
+        display:none;
+    }
+    .sticky_bar .container .navbar .container-fluid #logo_black{
+        display: flex;
+    }
+    .sticky_bar {
+        background-color: aliceblue;
+        box-shadow: 0px 15px 10px -15px #111;    
+    }
+    .sticky_bar .top-contacts div a{
+        color: black;
+    }
+    .sticky_bar .top-contacts .user_part>div a span{
+        color:rgb(255, 255, 255);
+    }
+    .sticky_bar .offcanvas-body .nav-item .nav-link{
+        color: var(--primary-color) !important;
+        background: transparent !important;
+    }
+    .sticky_bar .offcanvas-body .nav-item .nav-link:hover {
+        border: 2px solid var(--primary-color);
+    }
+    .sticky_bar .offcanvas-body .navbar-nav .active a{
+        color: aliceblue !important;
+    }
+    .sticky_bar .bg-first{
+        background-color: var(--footer-bg-color);
+    }
+    .sticky_bar .bg-first .top-contacts a svg,
+    .sticky_bar .bg-first .top-contacts a span{
+        color:aliceblue;
+    }
+
+    /* __________________________ USER PROFILE */
+
+    
+   </style>
+@endif 
+
 @include('quick_digital.layout.loader')
 @include('quick_digital.layout.sticky_ripple_logo')
 
 
 <div id="sticky_bar" class="sticky_bar">
 
-    <div class="bg-first text-white">
+    <div id="bg_first" class="bg-first text-white">
         <div class="container max-width">
             <div class="top-contacts">
 
@@ -70,74 +142,63 @@
     </div>
     <!-- ______________________________________________________________ -->
 
-    <style>
-        .user_name{
-            max-width:120px;
-            width:100%;
-            height:auto;
-            font-size:15px;
-            overflow:hidden;
-            margin-top:15px;
-        }
-        .nav-item .nav-link{
-            border:1px solid red;
-        }
+<style>
     
-        .nav-item .nav-link .nav__user__img{
-            height: 40px;
-            width: 40px;
-            border-radius: 50%;
-            box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
-        }
-        .navbar-nav{
-            display:flex;
-        }
-        .nav-item{
-            margin:auto;
-        }
-        .nav-item .nav-link {
-            padding-top:5px !important;
-            padding-bottom:5px !important;
-            padding:8px;
-        }
-        .nav-item .nav-link:hover{
-            background:transparent;
-        }
+    .user_name{
+        max-width:120px;
+        width:100%;
+        height:auto;
+        font-size:15px;
+        overflow:hidden;
+        margin-top:15px;
+    }
+    
+    .nav-item .nav-link .nav__user__img{
+        height: 40px;
+        width: 40px;
+        border-radius: 50%;
+        box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+    }
+    .navbar-nav{
+        display:flex;
+    }
+    .nav-item{
+        margin:auto;
+    }
+    .nav-item .nav-link {
+        padding-top:5px !important;
+        padding-bottom:5px !important;
+        padding:8px;
+    }
+    .nav-item .nav-link:hover{
+        background:transparent;
+    }
 
-        .custom-padding{
-            padding:0px !important;
+    .custom-padding{
+        padding:0px !important;
+    }
+
+    @media (max-width: 995px) {
+        .navbar-nav .nav-item{
+            width: 100%;
         }
+    }
 
-        @media (max-width: 995px) {
-            .navbar-nav .nav-item{
-                width: 100%;
-            }
-        }
+    .offcanvas-body .navbar-nav .dropdown{
+        padding: 0 !important; 
+        height:auto;
+        position: relative;
+    }
+    .offcanvas-body .navbar-nav .dropdown a{
+        padding: 0 !important; 
+        height:100%;
+        display:flex;
+    }
+    .offcanvas-body .navbar-nav .dropdown a .nav__user__img{
+        margin:auto;
+    }
 
-
-    </style>
-
-<script>
-    window.addEventListener('scroll', function () {
-        const header = document.getElementById('sticky_bar');
-        if (window.scrollY > 100) { // Change 50 to the scroll threshold you want
-            header.classList.add('scrolled');
-
-            const logo_black = document.getElementById('logo_black');
-            logo_black.style.display="flex";
-
-            const logo_white = document.getElementById('logo_white');
-            logo_white.style.display="none";
-        } else {
-            header.classList.remove('scrolled');
-
-            const logo_black = document.getElementById('logo_black');
-            logo_black.style.display="none";
-            const logo_white = document.getElementById('logo_white');
-            logo_white.style.display="flex";
-        }
-    });
-</script>
+</style>
 
 
     <div class="container max-width header_bar" style="padding:0px;">
@@ -261,12 +322,12 @@
                                         ডিজিটাল প্রোডাক্ট
                                     </a>
                                 </li>
-                                <!-- <li class="nav-item">
+                                <li class="nav-item">
                                     <a class="nav-link fw-semibold px-md-3" aria-current="page"
-                                        href="{{ url('/') }}">
+                                        href="{{ route('quick.digitalService') }}">
                                         ডিজিটাল সার্ভিস
                                     </a>
-                                </li> -->
+                                </li>
 
                                 
                                 <!-- @php

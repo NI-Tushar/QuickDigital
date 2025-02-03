@@ -55,6 +55,7 @@
                                                     <th>Affiliator Commission</th>
                                                     <th>Thumbnail</th>
                                                     <th>Last Update</th>
+                                                    <th>Is Populer?</th>
                                                     <th>ACTIONS</th>
                                                 </tr>
                                             </thead>
@@ -83,6 +84,29 @@
                                                         <img src="{{ $digSer->thumbnail ? asset($digSer->thumbnail) : asset('no_image2.jpg') }}" class="img-fluid rounded" alt="No Image" style="width: 100%; height: 100%; object-fit: cover;margin:auto;">
                                                     </td>
                                                     <td style="text-align:center;width: 100px;">{{ date('F j, Y, g:i a', strtotime($digSer->updated_at)) }}</td>
+                                                    <td style="text-align:center;width: 100px;">
+                                                    <style>
+                                                        .fa-toggle-on,
+                                                        .fa-toggle-off{
+                                                            font-size:35px;
+                                                        }
+                                                        .fa-toggle-on{
+                                                            color:green;
+                                                        }
+                                                        .fa-toggle-off{
+                                                            color:gray;
+                                                        }
+                                                    </style>
+
+                                                        <a user_id="{{ $digSer->id }}" href="{{ url('admin/enable/populer/services/'.$digSer['id']) }}">
+                                                            @if($digSer->is_populer == 1)
+                                                                <i class="fa fa-toggle-on" status="Active"></i>
+                                                            @else
+                                                                <i class="fa fa-toggle-off" status="Inactive"></i>
+                                                            @endif
+                                                        </a>
+
+                                                    </td>
                                                     <td style="text-align:center;">
                                                         <a href="{{ url('admin/update_digitalService/'.$digSer['id']) }}"><i class="fa fa-edit"></i></a>
                                                         &nbsp;&nbsp;
@@ -113,6 +137,7 @@
                                                     <th>Affiliator Commission</th>
                                                     <th>Thumbnail</th>
                                                     <th>Last Update</th>
+                                                    <th>Is Populer?</th>
                                                     <th>ACTIONS</th>
                                                 </tr>
                                             </tfoot>

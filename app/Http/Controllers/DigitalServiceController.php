@@ -4,10 +4,45 @@ namespace App\Http\Controllers;
 
 use App\Models\DigitalService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Auth;
 
 class DigitalServiceController extends Controller
 {
+    // ___________________________________________________ website part function start
+    public function digitalServiceListPage(Request $request){
+        Session::put('page', 'digitalService');
+        $query = DigitalService::query();
+        
+          // Apply filters based on query parameters
+          if ($request->filled('name')) {
+            $query->where('title', 'like', '%' . $request->input('name') . '%');
+        }
+        $services = $query->latest()->paginate(10);
+        return view('quick_digital/digital_service/digital_service_view', compact('services'))->with('request', $request);
+    }
+    public function suggestion(Request $request)
+    {
+        // Validate the request input to ensure a query is provided.
+        $request->validate([
+            'query' => 'required|string|min:1'
+        ]);
+
+        // Retrieve the query from the request.
+        $query = $request->input('query');
+
+        // Fetch unique client names that match the query.
+        $service = DigitalService::where('title', 'LIKE', '%' . $query . '%')
+            ->select('title')
+            ->distinct()
+            ->limit(10)
+            ->get();
+
+        // Return the unique client names as a JSON response.
+        return response()->json($service);
+    }
+    // ___________________________________________________ website part function end
+
     public function getAllOrder()
     {
         $orders = DigitalService::latest()->paginate(10);

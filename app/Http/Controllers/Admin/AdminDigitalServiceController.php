@@ -23,14 +23,14 @@ class AdminDigitalServiceController extends Controller
             
             $request->validate([
                 'title' => 'required|max:100',
-                'description' => 'max:200',
+                'description' => 'max:800',
                 'features' => 'array',
                 'thumbnail' => 'image|max:2048',
             ]);
 
             $rules = [
                 'title' => 'required|max:100',
-                'description' => 'max:200',
+                'description' => 'max:800',
                 'features' => 'array',
                 'thumbnail' => 'image|max:2048',
             ];
@@ -103,14 +103,14 @@ class AdminDigitalServiceController extends Controller
         
         $request->validate([
             'title' => 'required|max:100',
-            'description' => 'max:200',
+            'description' => 'max:800',
             'features' => 'array',
             'thumbnail' => 'image|max:2048',
         ]);
 
         $rules = [
             'title' => 'required|max:100',
-            'description' => 'max:200',
+            'description' => 'max:800',
             'features' => 'array',
             'thumbnail' => 'image|max:2048',
         ];
@@ -177,6 +177,21 @@ class AdminDigitalServiceController extends Controller
         }
         $data->save();
         return redirect()->route('digialservice.list');
+    }
+
+    public function enable_for_populer($id)
+    {
+        Session::put('page', 'software');
+        $enable = Software::findOrFail($id);
+        if($enable->is_populer == '1'){
+            $enable->is_populer = null;
+            $enable->save();
+            return redirect('admin/software-list');
+        }else{
+            $enable->is_populer = 1;
+            $enable->save();
+            return redirect('admin/software-list');
+        }
     }
 
 

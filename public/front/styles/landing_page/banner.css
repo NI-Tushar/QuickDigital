@@ -30,10 +30,10 @@
 .whole_banner .centered_banner .banner_part{
     width: 50%;
     height: 100%;
+    display: flex;
 }
 .whole_banner .centered_banner .part_right{
     padding:1rem;
-    display: flex;
 }
 /* .whole_banner .centered_banner .part_right .image_box{
     margin: auto;
@@ -81,12 +81,14 @@
     left: 30%;
 }
 @media (max-width: 1485px) {
+    .whole_banner .centered_banner .part_left{
+        padding-top: 0px;
+    }
     .whole_banner .centered_banner .part_right .image_box{
         height: 450px !important;
-        border: 1px solid red;
     }
     .whole_banner .centered_banner .part_right .image_box img{
-        height: 2500px;
+        height: 250px;
         width: 220px;
     }
     .whole_banner .centered_banner .part_right .image_box .hexa1{
@@ -214,13 +216,15 @@
     border: 2px solid var(--primary-color-light);
 } */
 .whole_banner .centered_banner .banner_part .banner_text{
-    padding-top: 20%;
+    height: 200px;
+    width: 100%;
+    margin: auto;
 }
 .whole_banner .centered_banner .banner_part .banner_text h1{
     font-weight: 700;
     color:aliceblue;
     text-shadow: 1px 1px 2px #000000;
-    font-size: 40px;
+    font-size: 50px;
 }
 .whole_banner .centered_banner .banner_part .banner_text h1 span{
     color:var(--primary-color-light);
@@ -230,6 +234,22 @@
     font-weight: 600;
     margin-top: 10px;
     color:rgba(255, 255, 255, 0.809)
+}
+
+@media (max-width: 1485px) {
+    .whole_banner .centered_banner .banner_part {
+        display: flex;
+    }
+    .whole_banner .centered_banner .banner_part .banner_text{
+        height: 200px;
+        margin: auto;
+    }
+    .whole_banner .centered_banner .banner_part .banner_text h1{
+        font-size: 30px;
+    }
+    .whole_banner .centered_banner .banner_part .banner_text p{
+        font-size: 15px;
+    }
 }
 
 .whole_banner .centered_banner .button_part{
@@ -373,7 +393,7 @@
     .whole_banner .centered_banner{
         margin: auto;
         display: block;
-        padding-top:1rem;
+        margin-top: 5rem;
     }
     .whole_banner .centered_banner .banner_part{
         width: 100%;

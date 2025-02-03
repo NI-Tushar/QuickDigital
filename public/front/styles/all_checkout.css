@@ -5,7 +5,7 @@
   .checkout_section{
       background-color: #fff;
       width: 100%;
-      padding-top: 5rem;
+      padding-top: 10rem;
       padding-bottom: 1rem;
       position: relative;
     }
@@ -181,7 +181,7 @@
     background-color: #52c8f0;
   }
   .checkout_section .pay_btn:hover {
-    background: linear-gradient(to right, var(--plyr-color-main), #000428);
+    background: linear-gradient(to right, var(--primary-color-light), var(--primary-color-light));
   }
   
  
@@ -294,7 +294,11 @@
       padding-top: 30px;
     }
     .checkout_section{
-        padding: 10px 10px 10px 10px;
+      padding-top: 8rem;
+    }
+    .manual{
+      padding-top: 0rem;
+      padding: 10px 10px 10px 10px;
     }
 
   }

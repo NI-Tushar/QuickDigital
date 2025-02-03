@@ -1,0 +1,142 @@
+body{
+    background-color:hsla(0,0%,100%,1);
+    background-image:
+    radial-gradient(at 100% 12%, hsla(34,100%,92%,1) 0px, transparent 50%),
+    radial-gradient(at 98% 56%, hsla(208,44%,80%,1) 0px, transparent 50%);
+}
+.service_section{
+    padding-top: 0rem;
+    padding-bottom: 1rem;
+}
+.service_section .service_heading h1{
+    font-size: 30px !important;
+}
+.service_section .service_heading h1,
+.service_section .service_heading p{
+    font-weight: 600;
+    width: 100%;
+    text-align: center;
+}
+.service_section .service_heading p{
+    color: #00000081;
+}
+.service_card {
+    padding-top: 10px;
+    width: 100%;
+      display: grid;    
+      background-color: var(--bg-white-color);
+      grid-template-columns: 1fr minmax(300px, 1100px) 1fr;
+    }
+    
+    .service_card .cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(18rem, 18rem));
+        gap: 2rem;
+        justify-content: center;
+        padding-bottom: 20px;
+        
+        
+    }
+    .service_card .cards .signle_card {
+        margin: auto;
+        height: 350px;
+        width: 100%;
+        position: relative;
+        margin-top: 5px;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        transition: 200ms ease-in;
+        border: none;
+        transition: transform 1.5s;
+        box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+        padding: 10px;
+        border-radius: 15px;
+        cursor: pointer;
+        border: 1.5px solid transparent;
+        background-color: aliceblue;
+        
+    }
+    .service_card .cards .signle_card:hover{
+        /* box-shadow: rgba(32, 175, 0, 0.3) 0px 1px 2px 0px, rgba(0, 212, 78, 0.15) 0px 1px 3px 1px; */
+        /* box-shadow: 0 2px 10px rgb(0, 192, 96);
+        border-top: 0px solid rgb(0, 210, 98);
+        border-bottom: 0px solid rgb(4, 222, 149); */
+        transform: scale(1.09);
+        border: 1.5px solid var(--primary-color-light);
+    }
+
+      
+    .service_card .cards .signle_card .card_body{
+        height: 100%;
+    }
+    .service_card .cards .signle_card .card_body .card_part{
+        width: 100%;
+        height: 50%;
+        
+    }
+    .service_card .cards .signle_card .card_body .card_part img{
+        height: 100%;
+        width: 100%;
+        border-radius: 10px;
+    }
+    .service_card .cards .signle_card .card_body .card_part .card_text h5{
+        margin-top: 10px;
+        font-size: 15px;
+        font-weight: 600;
+    }
+    .service_card .cards .signle_card .card_body .card_part .card_text .review{
+        width: 100%;
+        display: flex;
+        margin-top: 10px;
+        
+    }
+    .service_card .cards .signle_card .card_body .card_part .card_text .review .star{
+        color: rgb(252, 154, 56);
+        font-size: 20px;
+    }
+    .service_card .cards .signle_card .card_body .card_part .card_text .review p{
+        margin-top:5px;
+        margin-left: 5px;
+        font-weight: 600;
+        color: rgba(0, 0, 0, 0.416);
+        font-size: 15px;
+    }
+
+    
+.service_card .cards .signle_card .card_body .card_part .card_text .button_price{
+    display: flex;
+    gap: 5px;
+    padding-top: 20px;
+}
+.service_card .cards .signle_card .card_body .card_part .card_text .button_price>div{
+    width: 100%;
+}
+.service_card .cards .signle_card .card_body .card_part .card_text .button_price .price{
+    padding-top: 0px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 20px;
+    display: flex;
+}
+.service_card .cards .signle_card .card_body .card_part .card_text .button_price .btn{
+    padding: 0px;
+}
+.service_card .cards .signle_card .card_body .card_part .card_text .button_price button{
+    padding-top: 2px !important;
+    padding-bottom: 2px !important;
+    height: 18px;
+    font-weight: 600;
+    color: var(--primary-color-light);
+    background-color: transparent;
+    border: 2px solid var(--primary-color-light);
+    text-shadow: 0.5px 0.5px 1px #000000;
+    height: 100%;
+    width: 100%;
+    border-radius: 7px;
+}
+.service_card .cards .signle_card .card_body .card_part .card_text .button_price button:hover{
+    background-color: var(--primary-color-light);
+    color: aliceblue;
+}
