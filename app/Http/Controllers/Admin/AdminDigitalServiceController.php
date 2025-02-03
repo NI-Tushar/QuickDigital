@@ -181,16 +181,16 @@ class AdminDigitalServiceController extends Controller
 
     public function enable_for_populer($id)
     {
-        Session::put('page', 'software');
-        $enable = Software::findOrFail($id);
+        Session::put('page', 'digatralService');
+        $enable = DigitalserviesAdmin::findOrFail($id);
         if($enable->is_populer == '1'){
             $enable->is_populer = null;
             $enable->save();
-            return redirect('admin/software-list');
+            return redirect()->route('digialservice.list');
         }else{
             $enable->is_populer = 1;
             $enable->save();
-            return redirect('admin/software-list');
+            return redirect()->route('digialservice.list');
         }
     }
 

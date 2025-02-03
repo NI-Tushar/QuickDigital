@@ -1,0 +1,187 @@
+body{
+    background-color:hsla(0,0%,100%,1);
+    background-image:
+    radial-gradient(at 100% 12%, hsla(34,100%,92%,1) 0px, transparent 50%),
+    radial-gradient(at 98% 56%, hsla(208,44%,80%,1) 0px, transparent 50%);
+}
+.package_section{
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
+.package_section .service_heading h3{
+    font-size: 25px !important;
+}
+.package_section .service_heading h3,
+.package_section .service_heading p{
+    font-weight: 600;
+    width: 100%;
+    text-align: center;
+}
+.package_section .service_heading p{
+    color: #00000081;
+}
+.package_section .service_card {
+    padding-top: 10px;
+    width: 100%;
+    display: grid;    
+    background-color: var(--bg-white-color);
+    grid-template-columns: 1fr minmax(300px, 1100px) 1fr;
+}
+    
+.package_section .service_card .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(18rem, 18rem));
+    gap: 2rem;
+    justify-content: center;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    border-radius: 15px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+.package_section .service_card .cards .signle_card {
+    margin: auto;
+    height: 500px;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: 200ms ease-in;
+    transition: transform 1.5s;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    border-radius: 15px;
+    cursor: pointer;
+    border: 1.5px solid transparent;
+    background-color: aliceblue;
+    border: 1px solid rgb(6, 78, 65);
+    padding: 0px;
+}
+.package_section .service_card .cards .basic,
+.package_section .service_card .cards .premium{
+    border: 1px solid rgb(0, 182, 136);
+}
+.package_section .service_card .cards .signle_card:hover{
+    /* box-shadow: rgba(32, 175, 0, 0.3) 0px 1px 2px 0px, rgba(0, 212, 78, 0.15) 0px 1px 3px 1px; */
+    /* box-shadow: 0 2px 10px rgb(0, 192, 96);
+    border-top: 0px solid rgb(0, 210, 98);
+    border-bottom: 0px solid rgb(4, 222, 149); */
+    transform: scale(1.03);
+    border: 1.5px solid var(--primary-color-light);
+}
+
+      
+.package_section .service_card .cards .signle_card .card_body{
+    height: 100%;
+}
+.package_section .service_card .cards .signle_card .card_body .card_part{
+    width: 100%;
+}
+.package_section .service_card .cards .signle_card .card_body .top{
+    height: 40%;
+    border-radius: 10px;
+    background-image: linear-gradient( rgb(6, 78, 65), rgb(255, 255, 255));
+}
+.package_section .service_card .cards .basic .card_body .top,
+.package_section .service_card .cards .premium .card_body .top{
+    background-image: linear-gradient( rgb(0, 182, 136), rgb(255, 255, 255));
+}
+
+.package_section .service_card .cards .signle_card .card_body .bottom{
+    height: 60%;
+}
+.package_section .service_card .cards .signle_card .card_body .card_part .name_part{
+    height: 40%;
+    width: 100%;
+    display: flex;
+}
+.package_section .service_card .cards .signle_card .card_body .card_part .name_part h4{
+    width: 100%;
+    text-align: center;
+    margin: auto;
+    color: aliceblue;
+}
+.package_section .service_card .cards .signle_card .card_body .card_part .name_part_bottom{
+    height: 60%;
+    border-radius: 10px;
+    background-color: rgb(6, 78, 65);
+    display: flex;
+}
+.package_section .service_card .cards .basic .card_body .card_part .name_part_bottom,
+.package_section .service_card .cards .premium .card_body .card_part .name_part_bottom{
+    background-color: rgb(0, 182, 136);
+}
+.package_section .service_card .cards .signle_card .card_body .card_part .name_part_bottom .info{
+    margin: auto;
+}
+.package_section .service_card .cards .signle_card .card_body .card_part .name_part_bottom .info p{
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    width: 100%;
+    color: aliceblue;
+    font-size: 14px;
+}
+.package_section .service_card .cards .signle_card .card_body .card_part .name_part_bottom .info .price{
+    font-size: 30px;
+}
+.package_section .service_card .cards .signle_card .card_body .card_part .name_part_bottom .info .price span{
+    font-size: 14px;
+}
+
+.package_section .service_card .cards .signle_card .card_body .bottom{
+    padding: 20px;
+}
+
+.package_section .service_card .cards .signle_card .card_body .bottom .card_text{
+    height: 85%;
+    width: 100%;
+}
+.package_section .service_card .cards .signle_card .card_body .bottom .card_text ul{
+    padding: 0px;
+}
+.package_section .service_card .cards .signle_card .card_body .bottom .card_text ul li{
+    list-style: none;
+    display: flex;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.609);
+    margin-bottom: 7px;
+    font-size: 15px;
+}
+.package_section .service_card .cards .signle_card .card_body .bottom .card_text ul li svg{
+    margin-top: 3px;
+    margin-right: 10px;
+}
+.package_section .service_card .cards .signle_card .card_body .bottom a{
+    width: 100%;
+    display: flex;
+    text-decoration: none;
+}
+.package_section .service_card .cards .signle_card .card_body .bottom a button{
+    margin: auto;
+    width: 100%;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 600;
+    background-color: transparent;
+}
+.package_section .service_card .cards .signle_card .card_body .bottom a button:hover{
+    background-color: rgb(6, 78, 65);
+    color: aliceblue;
+}
+
+.package_section .service_card .cards .basic .card_body .bottom a button,
+.package_section .service_card .cards .premium, .card_body .bottom a button{
+    border: 1px solid rgb(0, 182, 136);
+    color: rgb(0, 182, 136);
+}
+.package_section .service_card .cards .basic .card_body .bottom a button:hover{
+    background-color: rgb(0, 182, 136);
+    color: aliceblue;
+}
+.package_section .service_card .cards .premium .card_body .bottom a button:hover{
+    background-color: rgb(0, 182, 136);
+    color: aliceblue;
+}
