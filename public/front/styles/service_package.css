@@ -41,7 +41,7 @@ body{
     grid-template-columns: repeat(auto-fit, minmax(18rem, 18rem));
     gap: 2rem;
     justify-content: center;
-    padding-top: 1rem;
+    padding-top: 3rem;
     padding-bottom: 3rem;
     border-radius: 15px;
 }
@@ -107,6 +107,8 @@ body{
     text-align: center;
     margin: auto;
     color: aliceblue;
+    text-shadow: 0.5px 0.5px 1px #000000;
+    
 }
 .package_section .service_card .cards .signle_card .card_body .card_part .name_part_bottom{
     height: 60%;

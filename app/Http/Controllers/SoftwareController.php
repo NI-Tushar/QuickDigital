@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Software;
 use App\Models\User;
+use App\Models\CustomOrder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
@@ -103,36 +104,78 @@ class SoftwareController extends Controller
     {
         Session::put('page', 'custom_form');
         $data = $request->all();
-
+        
         $rules = [
             'item_id' => 'required|max:255',
             'title' => 'required|max:255',
             'name' => 'required|max:255',
             'email' => 'required|email|max:255',
-            'mobile' => ['required', 'numeric', 'digits:11'],
+            'number' => ['required', 'numeric', 'digits:11'],
         ];
-
+        
         $customMessages = [
             'name.required' => 'নাম লিখুন',
-            'mobile.required' => 'মোবাইল নম্বর লিখুন',
-            'mobile.numeric' => 'মোবাইল নম্বর অবশ্যই সংখ্যামূলক হতে হবে।',
-            'mobile.digits' => 'মোবাইল নম্বর ১১ টি সংখ্যা হতে হবে',
+            'number.required' => 'মোবাইল নম্বর লিখুন',
+            'number.numeric' => 'মোবাইল নম্বর অবশ্যই সংখ্যামূলক হতে হবে।',
+            'number.digits' => 'মোবাইল নম্বর ১১ টি সংখ্যা হতে হবে',
             'email.required' => 'ইমেইল লিখুন',
             'email.email' => 'Invalid email format',
             'email.unique' => 'ইমেইলটি ইতোমদ্ধেই ব্যবহৃত হয়েছে',
         ];
-
+        
         $validator = Validator::make($data, $rules, $customMessages);
-
+        
         if ($validator->fails()) {
             return redirect()->back()->with('error_message', $validator->errors()->first());
+        }else{
+            // ______________ put these custom form data into session
+            session()->put('custom_form_data', $data);
         }
         
-        $number = $data['mobile'];
-        return view('quick_digital.custom_order.otpVarificationPage',compact('number'));
+        // creating OTP
+        $length = 4;
+        $characters = '0123456789';
+        $charactersLength = strlen($characters);
+        $otp = '';
+        for ($i = 0; $i < $length; $i++) {
+            $otp .= $characters[random_int(0, $charactersLength - 1)];
+        }
+        
+        $number = $data['number'];
+        
+        // Sending user credentials to customer phone number
+        $smsController = new SmsController(); // Call the SMS controller method
+        $smsSent = $smsController->sendOTP($number, $otp);
+        
+        if($smsSent == true){
+            return view('quick_digital.custom_order.otpVarificationPage',compact('number', 'otp'));
+        }
+        
     }
-
-
     
+    public function otpVarified(){
+        $orderData = session()->get('custom_form_data');
+
+        if ($orderData) {
+            // Create and save the custom order
+            $order = new CustomOrder();
+            $order->user_id = $orderData['user_id'] ?? null;
+            $order->item_id = $orderData['item_id'] ?? null;
+            $order->item_type = 'software';
+            $order->title = $orderData['title'] ?? null;
+            $order->description = $orderData['details'] ?? null;
+            $order->name = $orderData['name'] ?? null;
+            $order->email = $orderData['email'] ?? null;
+            $order->mobile = $orderData['number'] ?? null;
+            $order->status = 'Pending';
+            $order->save();
+    
+            // Clear session after saving
+            session()->forget('custom_form_data');
+
+            return view('quick_digital.custom_order.successPage'); 
+    
+        }
+    }
 
 }
