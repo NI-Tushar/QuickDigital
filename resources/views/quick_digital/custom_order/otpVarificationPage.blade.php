@@ -9,16 +9,22 @@
                 <div class="otp_section">
                 <h5>আপনার মোবাইল নাম্বারে একটি OTP পাঠানো হয়েছে</h5>
                 <h4>OTP দিন<h4>
-                <form id="otp_form" action="" method="POST">
+                    <h4>{{$otp}}</h4>
+                <form id="otp_form" onsubmit="checkForm(); return false;">
                     @csrf
                     @method('POST')
+                    <input type="hidden" name="" id="actual_otp" value="{{$otp}}">
+                    <input type="hidden" name="user_id" value="">
 
                     <div class="otp-input">
-                        <input type="hidden" name="user_id" value="">
-                        <input name="dig1" type="number" min="0" max="9" required>
-                        <input name="dig2" type="number" min="0" max="9" required>
-                        <input name="dig3" type="number" min="0" max="9" required>
-                        <input name="dig4" type="number" min="0" max="9" required>
+                        <input class="input" name="dig1" type="number" min="0" max="9" required>
+                        <input class="input" name="dig2" type="number" min="0" max="9" required>
+                        <input class="input" name="dig3" type="number" min="0" max="9" required>
+                        <input class="input" name="dig4" type="number" min="0" max="9" required>
+                    </div>
+
+                    <div id="verify_btn" class="verify_btn">
+                        <button type="submit">ভেরিফাই করুন</button>
                     </div>
 
                 <div class="varify_button">
@@ -27,7 +33,7 @@
                     @enderror
                 </div>
                 <div class="varify_button">
-                    <a href="" id="resend_btn" class="resend_btn">আবার পাঠান</a>
+                    <a href="javascript:history.back();" id="resend_btn" class="resend_btn">আবার পাঠান</a>
                 </div>
 
                     <div class="otp_text">
@@ -81,8 +87,9 @@
     // __________________________________ otp timer
     const timerDisplay = document.getElementById('time');
     const resend_btn = document.getElementById('resend_btn');
+    const verify_btn = document.getElementById('verify_btn');
 
-    let timeLeft = 50; // 2 minutes in seconds
+    let timeLeft = 120; // 2 minutes in seconds
     let timerId;
     let canResend = true;
     function startTimer() {
@@ -90,6 +97,7 @@
             if (timeLeft <= 0) {
                 clearInterval(timerId);
                 resend_btn.style.display="flex";
+                verify_btn.style.display="none";
                 timerDisplay.textContent = "Code expired";
                 timerDisplay.classList.add('expired');
                 inputs.forEach(input => input.disabled = true);
@@ -105,52 +113,30 @@
     startTimer();
 
 
-
-
         // _______________________________ checking all otp field
         const form = document.getElementById('otp_form');
-        const next_btn = document.getElementById('disabled');
 
         function checkForm() {
-            console.log('checkform');
-            const inputs = form.querySelectorAll('input');
-            let allFilled = false;
+
+             const inputs = document.querySelectorAll('input');
+
+            let enteredOtp = '';
+
             inputs.forEach(input => {
-                if (input.value === '') {
-                    allFilled = false;
-                }
+                enteredOtp += input.value;
             });
 
-            if(allFilled = true){
-                next_btn.classList.remove('disabled');
-            }
-        }
+            let inputOTP = enteredOtp.slice(-4);
 
-        form.addEventListener('input', checkForm);
+            const actualOtp = document.getElementById('actual_otp').value;
 
-
-    // _________________________________ verify otp
-    function verifyOTP() {
-
-            const otp = Array.from(inputs).map(input => input.value).join('');
-            if (otp.length === 4) {
-                if (timeLeft > 0) {
-                    alert(`Verifying OTP: ${otp}`);
-
-                } else {
-                    alert('OTP has expired. Please request a new one.');
-                }
+            if (inputOTP === actualOtp) {
+                window.location.href = '/quick-digital/otp-varified/custom/software/order/';
             } else {
-                alert('Please enter a 4-digit OTP');
+                alert('Invalid OTP. Please try again.');
             }
+
         }
-
-
-
-
-
-
-
 
     </script>
 @endpush

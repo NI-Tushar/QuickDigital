@@ -8,6 +8,55 @@ use Illuminate\Http\Request;
 
 class SmsController extends Controller
 {
+    public function sendOTP($phone, $otp)
+    {
+        
+        // ___________ sending sms to customer start
+        $phone = "88".$phone; // Example phone number
+        // $new_otp = rand(100000, 999999); // Example OTP generation
+
+        $message = "কুইক-ডিজিটাল | আপনার OTP $otp ";
+        $queryParams = [
+                "UserName" => "neoshah121@gmail.com", // MiMSMS registered email
+                "Apikey" => "81GE7QJJS4KIGIY",        // MiMSMS API Key
+                "MobileNumber" => $phone,             // Must be in international format
+                "CampaignId" => "null",               // Keep it 'null' unless required
+                "SenderName" => "BOOTCAMP",           // Provided by "Company Name"
+                "TransactionType" => "T",             // 'T' for transactional messages
+                "Message" =>  $message,  // Valid message
+        ];
+
+
+        $url = "https://api.mimsms.com/api/SmsSending/Send";
+
+        try {
+            $client = new Client();
+            $response = $client->get($url, [
+                'query' => $queryParams, // Send query parameters
+            ]);
+
+            // Decode the response body
+            $responseBody = json_decode($response->getBody(), true);
+
+            $smsSent = true;
+            return $smsSent;
+
+            // return response()->json([
+            //     'success' => true,
+            //     'response' => $responseBody,
+            // ]);
+            
+        } catch (\Exception $e) {
+            // Handle exceptions
+            return response()->json([
+                'success' => false,
+                'error' => $e->getMessage(),
+            ], 500);
+        }
+        // ___________ sending sms to customer start
+    }
+
+
     public function sendSms($phone, $book_title)
     {
         

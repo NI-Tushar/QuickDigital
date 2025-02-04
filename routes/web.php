@@ -173,6 +173,7 @@
     Route::get('/send-sms',[SmsController::class,'sendSms'])->name('sendSMS');
     Route::get('/send-sms',[SmsController::class,'sendSmsNewUser'])->name('sendNewUserSMS');
     Route::get('/send-sms',[SmsController::class,'sendSmsNewCustomer'])->name('sendSmsNewCustomer');
+    Route::get('/send-otp-sms',[SmsController::class,'sendOTP'])->name('sendOTP');
 
 
 
@@ -392,6 +393,7 @@
         Route::get('/checkout', [SoftwareController::class,'checkout_page'])->name('digitalProductCheckout');
         Route::get('/custom/software/order/{id}', [SoftwareController::class, 'customOrderForm'])->name('custom.software.order');
         Route::post('/custom/software/order/submit', [SoftwareController::class, 'customOrderPost'])->name('custom.softOrder.post');
+        Route::get('/otp-varified/custom/software/order', [SoftwareController::class, 'otpVarified']);
         
         // _______________________________ SOFTWARE DETAILS PAGE
         Route::get('/software/details/{id}', [ProductPageController::class, 'softwareDetailPageView']);

@@ -96,7 +96,7 @@
                     <div class="card_body">
                         <div class="card_part top">
                             <div class="name_part">
-                                <h4>স্ট্যান্ডার্ড</h4>
+                                <h4>ব্যাসিক</h4>
                             </div>
                             <div class="name_part name_part_bottom">
                                 <div class="info">
@@ -193,7 +193,7 @@
                     <div class="card_body">
                         <div class="card_part top">
                             <div class="name_part">
-                                <h4>স্ট্যান্ডার্ড</h4>
+                                <h4>প্রিমিয়াম</h4>
                             </div>
                             <div class="name_part name_part_bottom">
                                 <div class="info">
