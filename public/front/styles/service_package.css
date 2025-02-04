@@ -7,6 +7,14 @@ body{
 .package_section{
     padding-top: 3rem;
     padding-bottom: 3rem;
+    display: flex;
+}
+.package_section .centered_package{
+    max-width: 1100px;
+    margin: auto;
+    padding-top: 30px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    border-radius: 15px;
 }
 .package_section .service_heading h3{
     font-size: 25px !important;
@@ -33,10 +41,9 @@ body{
     grid-template-columns: repeat(auto-fit, minmax(18rem, 18rem));
     gap: 2rem;
     justify-content: center;
-    padding-top: 3rem;
+    padding-top: 1rem;
     padding-bottom: 3rem;
     border-radius: 15px;
-    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 .package_section .service_card .cards .signle_card {
     margin: auto;

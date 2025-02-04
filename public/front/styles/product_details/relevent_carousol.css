@@ -177,7 +177,10 @@
 }
 .relevent_product_card_carousol .glide .glide__slide_li .relative .desc .price_section .left{
     font-size: 15px;
-    font-weight: 600;
+    color: var(--primary-color-light);
+}
+.relevent_product_card_carousol .glide .glide__slide_li .relative .desc .price_section .left:hover{
+    color: crimson;
 }
 .relevent_product_card_carousol .glide .glide__slide_li .relative .desc .price_section>div{
     width: 50%;

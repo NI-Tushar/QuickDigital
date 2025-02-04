@@ -243,7 +243,7 @@
 
 
 <div class="package_section">
-    <a class="middle_package" href="!">
+    <a class="middle_package" href="{{ route('quick.digitalService') }}#package_section">
             <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M19.4587 32.5833C18.2657 32.5833 17.1253 32.086 14.846 31.09C12.1845 29.9291 10.1487 29.0395 8.73553 28.2083H3.41699M19.4587 32.5833C20.6516 32.5833 21.792 32.086 24.0714 31.09C29.7457 28.6137 32.5837 27.377 32.5837 25.2916V9.97913M19.4587 32.5833V16.5416M6.33366 9.97913V14.3541" stroke="#E02143" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                 <path d="M26.95 6.35663L11.9729 13.6031M3.41683 19.4583H7.79183M1.9585 23.8333H7.79183M14.1006 14.6327L9.84079 12.572C7.50308 11.4404 6.3335 10.8745 6.3335 9.97913C6.3335 9.08371 7.50308 8.51788 9.84079 7.38621L14.0991 5.32558C16.7314 4.05246 18.0439 3.41663 19.4585 3.41663C20.8731 3.41663 22.187 4.05246 24.8164 5.32558L29.0762 7.38621C31.4139 8.51788 32.5835 9.08371 32.5835 9.97913C32.5835 10.8745 31.4139 11.4404 29.0762 12.572L24.8179 14.6327C22.1856 15.9058 20.8731 16.5416 19.4585 16.5416C18.0439 16.5416 16.73 15.9058 14.1006 14.6327Z" stroke="#E02143" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -399,7 +399,7 @@
                                         <div class="right">{{ $soft->price }}<span>/মাসিক</span></div>
                                     </div>
                                     <div class="button_section">
-                                        <a href="!">কাস্টম</a>
+                                        <a href="{{ route('custom.software.order', ['id' => $soft->id]) }}">কাস্টম</a>
                                         <a href="{{ route('software.order', ['id' => $soft->id]) }}" class="active">কিনুন</a>
                                     </div>
                                 </div>
