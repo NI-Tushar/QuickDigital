@@ -27,8 +27,8 @@
             </div>
         </div>
         <div class="banner_part">
-            <div class="vid_part">
-                <!-- <iframe 
+            <div class="vid_part">~
+                <iframe 
                     src="{{ asset('front/assets/vid/quick_business_vid.mp4') }}" 
                     title="Quick Business Video" 
                     frameborder="0"
@@ -36,12 +36,12 @@
                     allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     referrerpolicy="strict-origin-when-cross-origin" 
                     allowfullscreen>
-                </iframe> -->
+                </iframe>
 
-                <video controls width="100%" height="100%">
+                <!-- <video controls width="100%" height="100%">
                     <source src="{{ asset('front/assets/vid/quick_business_vid.mp4') }}" type="video/mp4">
                     Your browser does not support the video tag.
-                </video>
+                </video> -->
             </div>
         </div>
     </div>
