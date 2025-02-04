@@ -390,6 +390,8 @@
         Route::get('/software-order/{id}', [CustomerOrderController::class, 'softwareOrder'])->name('software.order');
         Route::get('/software/suggestion', [SoftwareController::class, 'suggestion'])->name('quick.software.suggestion');
         Route::get('/checkout', [SoftwareController::class,'checkout_page'])->name('digitalProductCheckout');
+        Route::get('/custom/software/order/{id}', [SoftwareController::class, 'customOrderForm'])->name('custom.software.order');
+        Route::post('/custom/software/order/submit', [SoftwareController::class, 'customOrderPost'])->name('custom.softOrder.post');
         
         // _______________________________ SOFTWARE DETAILS PAGE
         Route::get('/software/details/{id}', [ProductPageController::class, 'softwareDetailPageView']);
@@ -407,6 +409,7 @@
         // _______________________________ DIGITAL SERVICE
         Route::get('/digital-services', [DigitalServiceController::class, 'digitalServiceListPage'])->name('quick.digitalService');
         Route::get('/service/suggestion', [DigitalServiceController::class, 'suggestion'])->name('quick.digitalService.suggestion');
+        Route::get('/digital-service-order/{id}', [CustomerOrderController::class, 'servcieOrder'])->name('service.order');
 
 
         // _______________________________ CUSTOMER PAYMENT CONTROLLER

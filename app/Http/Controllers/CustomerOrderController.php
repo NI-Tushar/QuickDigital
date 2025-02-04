@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\DigitalProduct;
+use App\Models\DigitalserviesAdmin;
 use App\Models\Software;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
@@ -39,6 +40,19 @@ class CustomerOrderController extends Controller
     {
         $product = Software::where('id', $id)->first();
         Session::put('service_type', 'software');
+        Session::put('price', $product->price);
+        if ($product) {
+            Session::put('page', 'checkout');
+            return view('quick_digital.checkout.all_checkout')->with(compact('product'));
+        } else {
+            dd('No product found for this ID.');
+        }
+    }
+    // ______________________________________ DIGITAL SERVICE ORDER
+    public function servcieOrder($id)
+    {
+        $product = DigitalserviesAdmin::where('id', $id)->first();
+        Session::put('service_type', 'digital_service');
         Session::put('price', $product->price);
         if ($product) {
             Session::put('page', 'checkout');

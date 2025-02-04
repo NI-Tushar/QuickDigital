@@ -134,8 +134,8 @@
                                     </div>
                                 </div>
                                 <div class="button_section">
-                                    <a href="!">কাস্টম</a>
-                                    <a href="!" class="active">কিনুন</a>
+                                  <a href="{{ route('custom.software.order', ['id' => $software->id]) }}">কাস্টম</a>
+                                  <a href="!" class="active">কিনুন</a>
                                 </div>
                             </div>
                         </div>

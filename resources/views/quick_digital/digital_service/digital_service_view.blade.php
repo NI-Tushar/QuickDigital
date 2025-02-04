@@ -61,7 +61,7 @@
                                 </div>
                                 <div class="button_price">
                                     <div class="price">{{$service->price}} BDT</div>
-                                    <div class="btn"><a href=""><button>কিনুন</button></a></div>
+                                    <div class="btn"><a href="{{route('service.order', ['id' => $service->id])}}"><button>কিনুন</button></a></div>
                                 </div>
                             </div>
                         </div>
@@ -80,12 +80,14 @@
 
 
 <!-- __________________ DIGITAL SERVICE PACKAGE START -->
-<section class="package_section">
-    <div class="service_heading">
-        <h3>আপনার উপযুক্ত প্যাকেজ নিন</h3>    
-    </div>
+<section class="package_section" id="package_section">
+    <div class="centered_package">
 
-    <div class="service_card">
+        <div class="service_heading">
+            <h3>আপনার উপযুক্ত প্যাকেজ নিন</h3>    
+        </div>
+
+        <div class="service_card">
         <div class="blank-1"></div>
             <div class="cards">
 
@@ -239,6 +241,7 @@
             </div>
         <div class="blank-2"></div>
     </div>
+</div>
 </section>
 
 <!-- __________________ DIGITAL SERVICE PACKAGE END-->
