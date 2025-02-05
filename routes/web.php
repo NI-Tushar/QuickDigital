@@ -151,9 +151,13 @@
             Route::get('software-order-list', 'AdminCustomerOrderController@software_order_list')->name('software.order.list');
             Route::get('update_ordered_software/{id?}', 'AdminCustomerOrderController@updateOrderedSoftware');
             Route::post('update_status_software_order', 'AdminCustomerOrderController@updateStatusSoftwareOrder');
+            Route::get('custom-software-order-list', 'AdminCustomerOrderController@customSoftwareOrder')->name('custom.software.order.list');
+            Route::get('order/update-status/{status}/{orderId}', 'AdminCustomerOrderController@updateStatus')->name('admin.custom.order.updateStatus');
             // Digital Product Order list
             Route::get('digital-product-order-list', 'AdminCustomerOrderController@digitalProduct_order_list')->name('digitalProduct.order.list');
-
+            
+            // Digital Service Order list
+            Route::get('digital-service-order-list', 'AdminCustomerOrderController@digitalService_order_list')->name('digitalService.order.list');
 
 
             //subadmin
@@ -407,12 +411,15 @@
         // _______________________________ DIGITAL PRODUCT DETAILS PAGE
         Route::get('/digital-product/details/{id}', [ProductPageController::class, 'digitalProductDetailPageView']);
 
-             
+        
         // _______________________________ DIGITAL SERVICE
         Route::get('/digital-services', [DigitalServiceController::class, 'digitalServiceListPage'])->name('quick.digitalService');
         Route::get('/service/suggestion', [DigitalServiceController::class, 'suggestion'])->name('quick.digitalService.suggestion');
         Route::get('/digital-service-order/{id}', [CustomerOrderController::class, 'servcieOrder'])->name('service.order');
-
+        
+        // _______________________________ SERVICE DETAILS PAGE
+        Route::get('/digital-service/details/{id}', [ProductPageController::class, 'digitalServiceDetailPageView'])->name('digitalService.details');
+        
 
         // _______________________________ CUSTOMER PAYMENT CONTROLLER
         Route::post('/payment-customer-order', [CustomerPaymentController::class, 'paymentInitial'])->name('customer.payment');

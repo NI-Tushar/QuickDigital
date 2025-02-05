@@ -61,6 +61,7 @@ body{
     border: none;
     border-radius: 5px;
     transition: all 0.3s ease;
+    font-size: 15px;
 }
 .otp_form_section .otp_section .verify_btn button:hover{
     background: linear-gradient(135deg, #A556F6, #6665F1);

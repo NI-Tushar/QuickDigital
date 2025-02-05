@@ -9,7 +9,7 @@
                 <div class="otp_section">
                 <h5>আপনার মোবাইল নাম্বারে একটি OTP পাঠানো হয়েছে</h5>
                 <h4>OTP দিন<h4>
-                    <h4>{{$otp}}</h4>
+                    <!-- <h4>{{$otp}}</h4> -->
                 <form id="otp_form" onsubmit="checkForm(); return false;">
                     @csrf
                     @method('POST')
@@ -39,7 +39,7 @@
                     <div class="otp_text">
                         <p><span id="time" class="time"></span> সেকেন্ডের মদ্ধে OTP দিন.</p>
                         <p> আপনি আপনার মোবাইল নাম্বারে মেসেজের মাদ্ধমে OTP পাবেন.
-                        <span>{{$number}}</span> <a href="">পরিবর্তন করুন</a></p>
+                        <span>{{$number}}</span> <a href="javascript:history.back();">পরিবর্তন করুন</a></p>
                     </div>
                 </div>
 
@@ -108,7 +108,7 @@
                 timerDisplay.textContent = `(${minutes}:${seconds.toString().padStart(2, '0')})`;
                 timeLeft--;
             }
-        }, 100);
+        }, 1000);
     }
     startTimer();
 

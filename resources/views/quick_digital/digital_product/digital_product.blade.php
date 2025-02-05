@@ -46,8 +46,7 @@
                 @else
 
                 @foreach ($products as $product)
-
-                  <div class="signle_card">
+                  <div class="signle_card" onclick="redirectToDetails('{{ url('/quick-digital/digital-product/details/'.$product['id']) }}')">
                     <div class="card-body">
                       <div class="slide">
                         <div class="slide_part img_part">
@@ -78,9 +77,10 @@
                     </div>
                   </div> 
 
-
                 @endforeach
                 @endif
+
+                
               </div>
               <!-- _____________________________ -->
               <div class="blank-2"></div>
@@ -114,6 +114,13 @@
 
 <script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script>
     <script>
+
+      // _________________________ redirect to detail page start
+      function redirectToDetails(url) {
+        window.location.href = url;
+      }
+      // _________________________ redirect to detail page end
+
 
         $(document).ready(function () {
             // Handle input change for dynamic suggestions

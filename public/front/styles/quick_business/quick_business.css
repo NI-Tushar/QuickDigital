@@ -83,14 +83,14 @@
 .quick_business_section .center_section .banner_part {
     display: flex;
     overflow: hidden;
+    padding-top: 25px;
 }
 .quick_business_section .center_section .banner_part iframe,
 .quick_business_section .center_section .banner_part video{
     border-radius: 15px;
     width: 100% !important;
     border: 3px solid var(--primary-color);
-    height: auto !important;
-    margin-top: 10%;
+    height: 100% !important;
 }
 
 @media (max-width: 750px) {

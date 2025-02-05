@@ -302,7 +302,7 @@
                                 <p>(Reviews)</p>
                             </div>
                             <div class="button_price">
-                                <div class="price">{{$service->price}} BDT</div>
+                                <div class="price">{{$service->price}} BDT</div> 
                                 <div class="btn"><a href=""><button>কিনুন</button></a></div>
                             </div>
                         </div>
@@ -380,8 +380,8 @@
                         <div id="slider">
                                                                               
                         <!-- _________________________ -->
-
                         @foreach ($software as $soft)
+                        <a href="{{ url('/quick-digital/software/details/'.$soft['id']) }}">
                         <div class="slide">
                             <div class="slide_part img_part">
                                 <img src="{{ $soft->thumbnail ? asset($soft->thumbnail) : asset('no_image2.jpg') }}" alt="">
@@ -405,7 +405,9 @@
                                 </div>
                             </div>
                         </div>    
+                        </a>
                         @endforeach
+                        <!-- _________________________ -->
    
                         </div>
                     <span onclick="slideLeft()" class="btn"></span>
@@ -520,6 +522,7 @@
                             
                         <!-- _________________________ -->
                         @foreach ($digProd as $product)
+                        <a href="{{ url('/quick-digital/digital-product/details/'.$product['id']) }}">
                             <div class="digProd_slide">
                                 <div class="slide_part img_part">
                                     <img src="{{ $product->thumbnail ? asset($product->thumbnail) : asset('no_image2.jpg') }}" alt="">
@@ -543,6 +546,7 @@
                                     </div>
                                 </div>
                             </div>
+                        </a>
                         @endforeach
                            
                         </div>
