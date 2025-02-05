@@ -190,4 +190,27 @@
         padding-right: 10px;
     }
   }
+
+
+@media only screen and (max-width: 900px) {
+    .digital_product_section .product_heading{
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}
+
+@media only screen and (max-width: 550px) {      
+    .digital_service_section .product_heading .view_all_btn {
+        justify-content: center;
+    }
+    .digital_service_section .product_heading h1{
+        font-size: 20px;
+        text-align: center;
+    }
+    .digital_service_section .product_heading p{
+        font-size: 14px;
+        text-align: center;
+    }
+  }
+  
 /* ______________________________ carousol end */

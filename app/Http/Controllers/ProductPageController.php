@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\DigitalProduct;
 use App\Models\Software;
+use App\Models\DigitalService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
@@ -28,6 +29,26 @@ class ProductPageController extends Controller
         $releventProduct = $productQuery->where('is_populer', '1')->latest()->get();
         $product = DigitalProduct::findOrFail($id);
         return view('quick_digital.product_details.details_page')->with(compact('product','releventProduct'));
+    }
+
+    public function digitalServiceDetailPageView($id)
+    {
+        Session::put('page', 'details');
+        $serviceQuery = DigitalService::query();
+        $releventService = $serviceQuery->where('is_populer', '1')->latest()->get();
+        $services = DigitalService::findOrFail($id);
+        
+        
+        // Decode the features JSON
+        $services->features = json_decode($services->features, true);
+        
+        foreach ($services->features as $feature) {
+            print_r($feature);
+        }
+        
+        
+        // $services = compact('services');
+        // return view('quick_digital.product_details.details_page')->with(compact('services','releventService'));
     }
 
 }

@@ -27,9 +27,9 @@
             </div>
         </div>
         <div class="banner_part">
-            <div class="vid_part">~
+            <div class="vid_part">
                 <iframe 
-                    src="{{ asset('front/assets/vid/quick_business_vid.mp4') }}" 
+                    src="{{ asset('front/assets/vid/quick_business_video.mp4') }}" 
                     title="Quick Business Video" 
                     frameborder="0"
                     autoplay="0"

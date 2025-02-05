@@ -109,7 +109,11 @@
       justify-content: center;
       padding-bottom: 5px;
   }
-
+  .list_card .cards .link {
+    display: block !important;
+    text-decoration: none !important; /* Optional: Removes default underline */
+    color: inherit !important; /* Keeps text color unchanged */
+  }
   .list_card .cards .signle_card {
     margin: auto;
     height: 400px;

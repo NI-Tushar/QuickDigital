@@ -267,17 +267,34 @@
     #slider-container #slider .slide {
       width: calc(5% - 20px);
     }
+    .software_section .product_heading{
+        padding-left: 10px;
+        padding-right: 10px;
+    }
   }
   
   @media only screen and (max-width: 550px) {
     #slider-container #slider .slide {
       width: calc(10% - 20px);
     }
+    
+    .software_section .product_heading h1{
+        font-size: 20px;
+        text-align: center;
+    }
+    .software_section .product_heading p{
+        font-size: 14px;
+        text-align: center;
+    }
+    
+    .software_section .product_heading .view_all_btn {
+        margin-top: 20px;
+        width: 100%;
+        display: flex;
+        justify-content:center;
+    }
   }
   
-
-
-
   @media (max-width: 420px) {
     .software_section .product_heading{
         padding-left: 10px;

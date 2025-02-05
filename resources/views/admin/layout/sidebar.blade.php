@@ -241,12 +241,25 @@
                     <li class="{{ $active }}">
                         <a class="menu-item" href="{{ route('software.order.list') }}" data-i18n="Vertical">Software Orders</a>
                     </li>
+                    @php
+                    $active = Session::get('page') == 'customer_order' ? 'active' : '';
+                    @endphp
+                    <li class="{{ $active }}">
+                        <a class="menu-item" href="{{ route('custom.software.order.list') }}" data-i18n="Vertical">Custom Software Orders</a>
+                    </li>
 
                     @php
                     $active = Session::get('page') == 'customer_order' ? 'active' : '';
                     @endphp
                     <li class="{{ $active }}">
                         <a class="menu-item" href="{{ route('digitalProduct.order.list') }}" data-i18n="Vertical">Digital Product Orders</a>
+                    </li>
+
+                    @php
+                    $active = Session::get('page') == 'customer_order' ? 'active' : '';
+                    @endphp
+                    <li class="{{ $active }}">
+                        <a class="menu-item" href="{{ route('digitalService.order.list') }}" data-i18n="Vertical">Digital Service Orders</a>
                     </li>
                 </ul>
             </li>

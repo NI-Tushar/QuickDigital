@@ -110,8 +110,8 @@
                 @else
 
                 @foreach ($softwares as $software)
-
                   <div class="signle_card">
+                  <a href="{{ url('/quick-digital/software/details/'.$software['id']) }}">
                     <div class="card-body">
                       <div class="slide">
                         <div class="slide_part img_part">
@@ -141,7 +141,8 @@
                         </div>
                       </div>
                     </div>
-                  </div> 
+                  </a>
+                  </div>
 
 
                 @endforeach
@@ -151,7 +152,14 @@
               <div class="blank-2"></div>
             </div>
           </section>
+<script>
+        // _________________________ redirect to detail page start
+        function redirectToDetails(url) {
+        window.location.href = url;
+      }
+      // _________________________ redirect to detail page end
 
+</script>
 <style>
 /* Pagination custom styles */
   .page-link {

@@ -154,6 +154,7 @@
 #slider-container #digProd_slider .digProd_slide .desc_part .soft_desc h3{
     font-weight: 600;
     font-size: 15px;
+    color: black;
 }
 #slider-container #digProd_slider .digProd_slide .desc_part .soft_desc p{
     font-size: 12px;
@@ -270,21 +271,31 @@
     #slider-container #digProd_slider .digProd_slide {
       width: calc(5% - 20px);
     }
+    .digital_product_section .product_heading{
+        padding-left: 10px;
+        padding-right: 10px;
+    }
   }
   
   @media only screen and (max-width: 550px) {
     #slider-container #digProd_slider .digProd_slide {
       width: calc(10% - 20px);
     }
-  }
-  
-
-
-
-  @media (max-width: 420px) {
-    .digital_product_section .product_heading{
-        padding-left: 10px;
-        padding-right: 10px;
+    .digital_product_section .product_heading h1{
+        font-size: 20px;
+        text-align: center;
     }
+    .digital_product_section .product_heading p{
+        font-size: 14px;
+        text-align: center;
+    }
+    .digital_product_section .product_heading .view_all_btn {
+        margin-top: 20px;
+        width: 100%;
+        display: flex;
+        justify-content:center;
+    }
+
   }
+
 /* ______________________________ carousol end */

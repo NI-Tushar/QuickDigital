@@ -47,26 +47,26 @@
                     <p>কোনো ডিজিটাল সার্ভিস পাওয়া যায়নি</p>
                 @else
                 @foreach ($services as $service)
-                <div class="signle_card">
-                    <div class="card_body">
-                        <div class="card_part">
-                            <img src="{{ $service->thumbnail ? asset($service->thumbnail) : asset('no_image2.jpg') }}" alt="">
-                        </div>
-                        <div class="card_part">
-                            <div class="card_text">
-                                <h5>{{$service->title}}</h5>
-                                <div class="review">
-                                    <div class="star">★★★★☆</div>
-                                    <p>(Reviews)</p>
-                                </div>
-                                <div class="button_price">
-                                    <div class="price">{{$service->price}} BDT</div>
-                                    <div class="btn"><a href="{{route('service.order', ['id' => $service->id])}}"><button>কিনুন</button></a></div>
+                <div class="signle_card" onclick="redirectToDetails('{{ url('/quick-digital/digital-service/details/'.$service['id']) }}')">
+                        <div class="card_body">
+                            <div class="card_part">
+                                <img src="{{ $service->thumbnail ? asset($service->thumbnail) : asset('no_image2.jpg') }}" alt="">
+                            </div>
+                            <div class="card_part">
+                                <div class="card_text">
+                                    <h5>{{$service->title}}</h5>
+                                    <div class="review">
+                                        <div class="star">★★★★☆</div>
+                                        <p>(Reviews)</p>
+                                    </div>
+                                    <div class="button_price">
+                                        <div class="price"><p>{{$service->price}} BDT</p></div>
+                                        <div class="btn"><a href="{{route('service.order', ['id' => $service->id])}}"><button>কিনুন</button></a></div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>    
+                </div>
                 @endforeach
                 @endif            
             <!-- _______________________________ -->
@@ -278,6 +278,13 @@
 
 <script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script>
     <script>
+
+      // _________________________ redirect to detail page start
+      function redirectToDetails(url) {
+        window.location.href = url;
+      }
+      // _________________________ redirect to detail page end
+
 
         $(document).ready(function () {
             // Handle input change for dynamic suggestions
