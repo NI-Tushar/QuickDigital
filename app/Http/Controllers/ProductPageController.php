@@ -36,19 +36,18 @@ class ProductPageController extends Controller
         Session::put('page', 'details');
         $serviceQuery = DigitalService::query();
         $releventService = $serviceQuery->where('is_populer', '1')->latest()->get();
-        $services = DigitalService::findOrFail($id);
+        $service = DigitalService::findOrFail($id);
+        return view('quick_digital.product_details.details_page')->with(compact('service','releventService'));
+
+        
+        // যদি প্রথমবার ডিকোড করার পরও স্ট্রিং থাকে, তাহলে আবার ডিকোড করবো
+
+        
+        // চেক করা যাতে foreach() তে কোনো সমস্যা না হয়
+
         
         
-        // Decode the features JSON
-        $services->features = json_decode($services->features, true);
         
-        foreach ($services->features as $feature) {
-            print_r($feature);
-        }
-        
-        
-        // $services = compact('services');
-        // return view('quick_digital.product_details.details_page')->with(compact('services','releventService'));
     }
 
 }

@@ -143,6 +143,21 @@
                     <li>{{$feature}}</li>
                 @endforeach
             </ul>
+        @elseif(isset($service) && !empty($service))
+            @php
+                $features = json_decode($service->features, true);
+                if (is_string($features)) {
+                    $features = json_decode($features, true);
+                }
+            @endphp
+            <p>বৈশিষ্ট্যসমূহঃ</p>
+            <ul>
+                @if (is_array($features))
+                    @foreach ($features as $feature)
+                        <li>{{$feature}}</li>
+                    @endforeach
+                @endif
+            </ul>
         @endif
         </div>
     </div>
