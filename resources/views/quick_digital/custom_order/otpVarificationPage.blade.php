@@ -9,7 +9,6 @@
                 <div class="otp_section">
                 <h5>আপনার মোবাইল নাম্বারে একটি OTP পাঠানো হয়েছে</h5>
                 <h4>OTP দিন<h4>
-                    <!-- <h4>{{$otp}}</h4> -->
                 <form id="otp_form" onsubmit="checkForm(); return false;">
                     @csrf
                     @method('POST')
