@@ -38,16 +38,6 @@ class ProductPageController extends Controller
         $releventService = $serviceQuery->where('is_populer', '1')->latest()->get();
         $service = DigitalService::findOrFail($id);
         return view('quick_digital.product_details.details_page')->with(compact('service','releventService'));
-
-        
-        // যদি প্রথমবার ডিকোড করার পরও স্ট্রিং থাকে, তাহলে আবার ডিকোড করবো
-
-        
-        // চেক করা যাতে foreach() তে কোনো সমস্যা না হয়
-
-        
-        
-        
     }
 
 }
